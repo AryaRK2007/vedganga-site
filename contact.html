@@ -62,7 +62,12 @@
         <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]">— Send us a message</div>
         <h2 class="font-display text-3xl md:text-4xl mt-2 leading-tight" data-reveal>Tell us what you're<br/>looking to <span class="italic font-serif-body text-[color:var(--v-forest-2)]">source.</span></h2>
 
-        <form id="v-contact-form" class="mt-8 grid md:grid-cols-2 gap-x-8 gap-y-6">
+        <!-- 1. Updated form tag to point to Web3Forms -->
+        <form id="v-contact-form" action="https://api.web3forms.com/submit" method="POST" class="mt-8 grid md:grid-cols-2 gap-x-8 gap-y-6">
+          
+          <!-- 2. Hidden field for your access key -->
+          <input type="hidden" name="access_key" value="05f139b8-2556-4256-96f8-f0305c794bf6">
+          
           <div><label class="field-label">Name</label><input required name="name" class="field" placeholder="Your full name" data-testid="contact-input-name"/></div>
           <div><label class="field-label">Email</label><input required type="email" name="email" class="field" placeholder="you@company.com" data-testid="contact-input-email"/></div>
           <div><label class="field-label">Phone</label><input name="phone" class="field" placeholder="+91 …" data-testid="contact-input-phone"/></div>
