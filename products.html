@@ -62,6 +62,7 @@
       <div class="font-mono-caps text-xs text-[color:var(--v-gold)]">— Custom Blends</div>
       <h3 class="font-display text-4xl md:text-5xl mt-3 max-w-2xl leading-[1.05]">Can't see what you need? <span class="italic font-serif-body">We blend to spec.</span></h3>
       <p class="mt-5 text-[color:var(--v-cream)]/75 max-w-xl">Share your recipe target — moisture, shelf life, cost per kg — and our formulation team will build the ingredient system around it.</p>
+      <!-- Updated to cleanly pass context to the window utility modal launcher -->
       <button type="button" onclick="if(window.VedgangaQuote){window.VedgangaQuote.open('Custom Blend Brief')}" class="btn-gold mt-8 cursor-pointer" data-testid="products-cta-quote">Start a Brief →</button>
     </div>
   </div>
@@ -126,7 +127,7 @@ window.VedgangaQuote = {
     const modal = document.getElementById('quote-modal');
     const contextInput = document.getElementById('modal-product-context');
     if (contextInput && contextText) {
-      contextInput.value = contextText;
+      contextInput.value = contextText; // Automatically rewrites input field to "Custom Blend Brief"
     }
     modal.classList.remove('opacity-0', 'pointer-events-none');
     modal.querySelector('.modal-panel').classList.remove('scale-95');
