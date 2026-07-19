@@ -79,7 +79,8 @@
     <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]">— Instant RFQ</div>
     <h2 class="font-display text-2xl md:text-3xl mt-1 leading-tight">Request a Quote / Sample</h2>
     
-    <form id="v-modal-form" action="https://api.web3forms.com/submit" method="POST" class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
+    <!-- Changed to have an ID so we can intercept it -->
+    <form id="v-modal-form" class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
       <input type="hidden" name="access_key" value="05f139b8-2556-4256-96f8-f0305c794bf6">
       <input type="hidden" name="from_name" value="Products Directory Modal Discovery">
       
@@ -97,10 +98,20 @@
       
       <div class="sm:col-span-2 flex items-center justify-between gap-4 mt-2">
         <div class="text-[11px] text-black/50">Dispatched safely via Web3Forms.</div>
-        <button type="submit" class="btn-gold"><span class="label">Submit Request</span> →</button>
+        <button type="submit" class="btn-gold cursor-pointer"><span class="label">Submit Request</span> →</button>
       </div>
     </form>
   </div>
+</div>
+
+<!-- ================= SUCCESS ADD-ON NOTIFICATION POPUP ================= -->
+<div id="success-popup" class="fixed bottom-6 right-6 z-[10000] max-w-sm w-full bg-[color:var(--v-forest)] text-[color:var(--v-cream)] rounded-2xl p-5 shadow-2xl border border-white/10 transform translate-y-12 opacity-0 pointer-events-none transition-all duration-500 ease-out flex gap-4 items-start grain">
+  <div class="w-8 h-8 rounded-full bg-[color:var(--v-gold)] text-[color:var(--v-forest)] flex items-center justify-center shrink-0 mt-0.5 font-bold">✓</div>
+  <div class="flex-1">
+    <h4 class="font-display text-lg leading-tight text-[color:var(--v-gold)]">Request Received</h4>
+    <p class="text-xs mt-1 text-[color:var(--v-cream)]/80 leading-relaxed font-sans">Your specifications have been queued. Our formulation team will reach out via email within 24 business hours.</p>
+  </div>
+  <button onclick="document.getElementById('success-popup').style.transform='translateY(20px)'; document.getElementById('success-popup').style.opacity='0'; document.getElementById('success-popup').style.pointerEvents='none';" class="text-[color:var(--v-cream)]/40 hover:text-[color:var(--v-cream)] text-lg font-mono leading-none cursor-pointer">&times;</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
@@ -155,79 +166,67 @@
   search.addEventListener('input', render);
   render();
 })();
-</script>
-  <!-- ================= REQUEST A QUOTE MODAL POPUP ================= -->
-<div id="quote-modal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
-  <div class="modal-panel bg-[#fdfbf7] max-w-2xl w-full rounded-[28px] p-6 md:p-10 shadow-2xl border border-black/5 transform scale-95 transition-transform duration-300 relative max-h-[90vh] overflow-y-auto">
+
+// ================= AJAX FORM SUBMISSION LOGIC =================
+document.getElementById('v-modal-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const form = this;
+  const btn = form.querySelector('button[type="submit"]');
+  const label = btn.querySelector('.label');
+  const originalText = label ? label.innerText : btn.innerText;
+  
+  // Loading visual state change
+  btn.disabled = true;
+  if(label) label.innerText = "Sending...";
+  else btn.innerText = "Sending...";
+  btn.style.opacity = "0.7";
+  
+  const formData = new FormData(form);
+  
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Reset loading state
+    btn.disabled = false;
+    if(label) label.innerText = originalText;
+    else btn.innerText = originalText;
+    btn.style.opacity = "1";
     
-    <!-- Close Button -->
-    <button onclick="VedgangaQuote.close()" class="absolute top-6 right-6 text-black/40 hover:text-black text-2xl font-light font-mono" aria-label="Close modal">×</button>
-
-    <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]">— Request a Quote</div>
-    <h2 class="font-display text-3xl md:text-4xl mt-2 leading-tight">Tell us what you're<br/>looking to <span class="italic font-serif-body text-[color:var(--v-forest-2)]">source.</span></h2>
-
-    <!-- Web3Forms Configured Popup Form -->
-    <form id="popup-quote-form" action="https://api.web3forms.com/submit" method="POST" class="mt-8 grid md:grid-cols-2 gap-x-8 gap-y-6">
-      <!-- Hidden Access Key field -->
-      <input type="hidden" name="access_key" value="05f139b8-2556-4256-96f8-f0305c794bf6">
+    if (data.success) {
+      // 1. Reset input metrics
+      form.reset();
       
-      <!-- Optional Customizations for your email -->
-      <input type="hidden" name="from_name" value="Vedganga Website Quote Form">
-      <input type="hidden" name="subject" value="New Quote / Sample Request">
+      // 2. Clear out the selection layer modal window
+      if(window.VedgangaQuote) window.VedgangaQuote.close();
       
-      <!-- Redirects back to home page after success -->
-      <input type="hidden" name="redirect" value="https://vedgangafoodsandchemicals.com">
-
-      <div>
-        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Name</label>
-        <input required name="name" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="Your full name"/>
-      </div>
-      <div>
-        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Email</label>
-        <input required type="email" name="email" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="you@company.com"/>
-      </div>
-      <div>
-        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Phone</label>
-        <input name="phone" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="+91 …"/>
-      </div>
-      <div>
-        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Item Required</label>
-        <input name="item_subject" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="Quote · Sample · Partnership …"/>
-      </div>
-      <div class="md:col-span-2">
-        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Message / Specifications</label>
-        <textarea required name="message" rows="3" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition resize-none" placeholder="Tell us a bit about what you're looking for…"></textarea>
-      </div>
+      // 3. Mount and trigger the custom toast popup message
+      const toast = document.getElementById('success-popup');
+      toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100', 'pointer-events-allowed');
       
-      <div class="md:col-span-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-2">
-        <div class="text-xs text-black/50">We respond within 1 business day.</div>
-        <button type="submit" class="bg-[#c5a880] hover:bg-[#b5966c] text-white font-mono-caps text-xs font-semibold px-8 py-4 tracking-widest transition duration-200 rounded-xl">Send Message →</button>
-      </div>
-    </form>
-  </div>
-</div>
-<script>
-// Logic to handle opening and closing the pop-up modal
-window.VedgangaQuote = {
-  open: function() {
-    const modal = document.getElementById('quote-modal');
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    modal.firstElementChild.classList.remove('scale-95');
-    modal.firstElementChild.classList.add('scale-100');
-  },
-  close: function() {
-    const modal = document.getElementById('quote-modal');
-    modal.classList.add('opacity-0', 'pointer-events-none');
-    modal.firstElementChild.classList.remove('scale-100');
-    modal.firstElementChild.classList.add('scale-95');
-  }
-};
-
-// Close modal if user clicks outside of the main panel box
-document.getElementById('quote-modal').addEventListener('click', function(e) {
-  if (e.target === this) {
-    window.VedgangaQuote.close();
-  }
+      // Auto dismiss success toast message after 6 seconds
+      setTimeout(() => {
+        toast.style.transform = 'translateY(20px)';
+        toast.style.opacity = '0';
+        toast.style.pointerEvents = 'none';
+      }, 6000);
+      
+    } else {
+      alert("Something went wrong: " + data.message);
+    }
+  })
+  .catch(error => {
+    btn.disabled = false;
+    if(label) label.innerText = originalText;
+    else btn.innerText = originalText;
+    btn.style.opacity = "1";
+    console.error("Submission Error:", error);
+    alert("Connection error. Please try again later.");
+  });
 });
 </script>
 </body>
