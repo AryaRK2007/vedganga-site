@@ -14,7 +14,7 @@
 
 <div id="v-nav"></div>
 
-<!-- Hero -->
+<!-- ================= HERO ================= -->
 <section class="pt-32 md:pt-40 pb-10">
   <div class="max-w-[1400px] mx-auto px-5 md:px-10">
     <div class="chip" data-reveal>Get in touch</div>
@@ -25,7 +25,7 @@
   </div>
 </section>
 
-<!-- Contact split -->
+<!-- ================= CONTACT SPLIT ================= -->
 <section class="pb-24 md:pb-32">
   <div class="max-w-[1400px] mx-auto px-5 md:px-10 grid md:grid-cols-12 gap-14">
     <!-- Details -->
@@ -62,23 +62,27 @@
         <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]">— Send us a message</div>
         <h2 class="font-display text-3xl md:text-4xl mt-2 leading-tight" data-reveal>Tell us what you're<br/>looking to <span class="italic font-serif-body text-[color:var(--v-forest-2)]">source.</span></h2>
 
-        <!-- Form tag pointing to Web3Forms -->
-        <form id="v-contact-form" action="https://api.web3forms.com/submit" method="POST" class="mt-8 grid md:grid-cols-2 gap-x-8 gap-y-6">
+        <!-- On-Page Web3Forms Configured Form via AJAX -->
+        <form id="v-contact-form" class="mt-8 grid md:grid-cols-2 gap-x-8 gap-y-6">
           
           <!-- Hidden field for access key -->
           <input type="hidden" name="access_key" value="05f139b8-2556-4256-96f8-f0305c794bf6">
           
-          <!-- Optional redirection to a custom Web3forms thank you page or back home -->
+          <!-- Customizations for email layout -->
           <input type="hidden" name="from_name" value="Vedganga Contact Page">
+          <input type="hidden" name="subject" value="New Website Contact Message">
           
-          <div><label class="field-label">Name</label><input required name="name" class="field" placeholder="Your full name" data-testid="contact-input-name"/></div>
-          <div><label class="field-label">Email</label><input required type="email" name="email" class="field" placeholder="you@company.com" data-testid="contact-input-email"/></div>
+          <div><label class="field-label">Name *</label><input required name="name" class="field" placeholder="Your full name" data-testid="contact-input-name"/></div>
+          <div><label class="field-label">Email *</label><input required type="email" name="email" class="field" placeholder="you@company.com" data-testid="contact-input-email"/></div>
           <div><label class="field-label">Phone</label><input name="phone" class="field" placeholder="+91 …" data-testid="contact-input-phone"/></div>
-          <div><label class="field-label">Subject</label><input name="subject" class="field" placeholder="Quote · Sample · Partnership …" data-testid="contact-input-subject"/></div>
-          <div class="md:col-span-2"><label class="field-label">Message</label><textarea required name="message" class="field" placeholder="Tell us a bit about what you're looking for…" data-testid="contact-input-message"></textarea></div>
+          <div><label class="field-label">Subject</label><input name="item_subject" class="field" placeholder="Quote · Sample · Partnership …" data-testid="contact-input-subject"/></div>
+          <div class="md:col-span-2"><label class="field-label">Message *</label><textarea required name="message" class="field resize-none" rows="3" placeholder="Tell us a bit about what you're looking for…" data-testid="contact-input-message"></textarea></div>
+          
           <div class="md:col-span-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-2">
             <div class="text-xs text-black/50">We respond within 1 business day.</div>
-            <button type="submit" id="v-contact-submit" class="btn-gold" data-testid="contact-submit-btn"><span class="label">Send Message</span> →</button>
+            <button type="submit" id="v-contact-submit" class="btn-gold cursor-pointer" data-testid="contact-submit-btn">
+              <span class="label">Send Message</span> →
+            </button>
           </div>
         </form>
       </div>
@@ -86,7 +90,7 @@
   </div>
 </section>
 
-<!-- Map -->
+<!-- ================= MAP ================= -->
 <section class="pb-24 md:pb-32">
   <div class="max-w-[1400px] mx-auto px-5 md:px-10">
     <div class="rounded-[28px] overflow-hidden border border-black/10 aspect-[16/8]" data-reveal>
@@ -98,38 +102,38 @@
 
 <div id="v-footer"></div>
 
+<!-- CDN libs -->
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="assets/site.js"></script>
-  <!-- ================= REQUEST A QUOTE MODAL POPUP ================= -->
-<div id="quote-modal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
-  <div class="modal-panel bg-[#fdfbf7] max-w-2xl w-full rounded-[28px] p-6 md:p-10 shadow-2xl border border-black/5 transform scale-95 transition-transform duration-300 relative max-h-[90vh] overflow-y-auto">
+
+<!-- ================= REQUEST A QUOTE MODAL POPUP ================= -->
+<div id="quote-modal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+  <div class="modal-panel bg-[color:var(--v-cream)] max-w-2xl w-full rounded-[28px] p-6 md:p-10 shadow-2xl border border-black/5 transform scale-95 transition-transform duration-300 relative max-h-[90vh] overflow-y-auto text-[color:var(--v-ink)]">
     
     <!-- Close Button -->
-    <button onclick="VedgangaQuote.close()" class="absolute top-6 right-6 text-black/40 hover:text-black text-2xl font-light font-mono" aria-label="Close modal">×</button>
+    <button type="button" onclick="window.VedgangaQuote.close()" class="absolute top-6 right-6 text-black/40 hover:text-black/80 text-2xl font-light transition-colors cursor-pointer" aria-label="Close modal">&times;</button>
 
     <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]">— Request a Quote</div>
     <h2 class="font-display text-3xl md:text-4xl mt-2 leading-tight">Tell us what you're<br/>looking to <span class="italic font-serif-body text-[color:var(--v-forest-2)]">source.</span></h2>
 
-    <!-- Web3Forms Configured Popup Form -->
-    <form id="popup-quote-form" action="https://api.web3forms.com/submit" method="POST" class="mt-8 grid md:grid-cols-2 gap-x-8 gap-y-6">
+    <!-- Web3Forms Configured Form via AJAX Call -->
+    <form id="popup-quote-form" class="mt-8 grid md:grid-cols-2 gap-x-8 gap-y-6">
       <!-- Hidden Access Key field -->
       <input type="hidden" name="access_key" value="05f139b8-2556-4256-96f8-f0305c794bf6">
       
-      <!-- Optional Customizations for your email -->
+      <!-- Optional Customizations for email layout -->
       <input type="hidden" name="from_name" value="Vedganga Website Quote Form">
       <input type="hidden" name="subject" value="New Quote / Sample Request">
-      
-      <!-- Redirects back to home page after success -->
-      <input type="hidden" name="redirect" value="https://vedgangafoodsandchemicals.com">
+      <input type="hidden" name="button_origin" id="modal-button-origin" value="General Query">
 
       <div>
-        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Name</label>
+        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Name *</label>
         <input required name="name" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="Your full name"/>
       </div>
       <div>
-        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Email</label>
+        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Email *</label>
         <input required type="email" name="email" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="you@company.com"/>
       </div>
       <div>
@@ -141,21 +145,37 @@
         <input name="item_subject" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="Quote · Sample · Partnership …"/>
       </div>
       <div class="md:col-span-2">
-        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Message / Specifications</label>
+        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Message / Specifications *</label>
         <textarea required name="message" rows="3" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition resize-none" placeholder="Tell us a bit about what you're looking for…"></textarea>
       </div>
       
       <div class="md:col-span-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-2">
         <div class="text-xs text-black/50">We respond within 1 business day.</div>
-        <button type="submit" class="bg-[#c5a880] hover:bg-[#b5966c] text-white font-mono-caps text-xs font-semibold px-8 py-4 tracking-widest transition duration-200 rounded-xl">Send Message →</button>
+        <button type="submit" class="bg-[#c5a880] hover:bg-[#b5966c] text-white font-mono-caps text-xs font-semibold px-8 py-4 tracking-widest transition duration-200 rounded-xl cursor-pointer">
+          <span class="label">Send Message</span> →
+        </button>
       </div>
     </form>
   </div>
 </div>
+
+<!-- ================= SUCCESS ADD-ON NOTIFICATION POPUP ================= -->
+<div id="success-popup" class="fixed bottom-6 right-6 z-[10000] max-w-sm w-full bg-[color:var(--v-forest)] text-[color:var(--v-cream)] rounded-2xl p-5 shadow-2xl border border-white/10 transform translate-y-12 opacity-0 pointer-events-none transition-all duration-500 ease-out flex gap-4 items-start grain">
+  <div class="w-8 h-8 rounded-full bg-[color:var(--v-gold)] text-[color:var(--v-forest)] flex items-center justify-center shrink-0 mt-0.5 font-bold">✓</div>
+  <div class="flex-1">
+    <h4 class="font-display text-lg leading-tight text-[color:var(--v-gold)]">Request Received</h4>
+    <p class="text-xs mt-1 text-[color:var(--v-cream)]/80 leading-relaxed font-sans">Your specifications have been queued. Our formulation team will reach out via email within 24 business hours.</p>
+  </div>
+  <button type="button" onclick="document.getElementById('success-popup').style.transform='translateY(20px)'; document.getElementById('success-popup').style.opacity='0'; document.getElementById('success-popup').style.pointerEvents='none';" class="text-[color:var(--v-cream)]/40 hover:text-[color:var(--v-cream)] text-lg font-mono leading-none cursor-pointer">&times;</button>
+</div>
+
 <script>
-// Logic to handle opening and closing the pop-up modal
+// ================= MODAL LOGIC =================
 window.VedgangaQuote = {
-  open: function() {
+  open: function(origin = 'General Query') {
+    const originField = document.getElementById('modal-button-origin');
+    if(originField) originField.value = origin;
+    
     const modal = document.getElementById('quote-modal');
     modal.classList.remove('opacity-0', 'pointer-events-none');
     modal.firstElementChild.classList.remove('scale-95');
@@ -175,6 +195,83 @@ document.getElementById('quote-modal').addEventListener('click', function(e) {
     window.VedgangaQuote.close();
   }
 });
+
+
+// ================= AJAX FORM SUBMISSION LOGIC =================
+// A generic function to handle multiple form submissions seamlessly 
+function handleWeb3FormsAjax(e, isModal) {
+  e.preventDefault();
+  
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const label = btn.querySelector('.label');
+  const originalText = label ? label.innerText : btn.innerText;
+  
+  // Visual loading state
+  btn.disabled = true;
+  if(label) label.innerText = "Sending...";
+  else btn.innerText = "Sending...";
+  btn.style.opacity = "0.7";
+  
+  const formData = new FormData(form);
+  
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Revert visual state
+    btn.disabled = false;
+    if(label) label.innerText = originalText;
+    else btn.innerText = originalText;
+    btn.style.opacity = "1";
+    
+    if (data.success) {
+      // 1. Reset inputs (keeps hidden fields intact)
+      form.reset();
+      
+      // 2. If it was the modal form, close the modal
+      if (isModal && window.VedgangaQuote) {
+        window.VedgangaQuote.close();
+      }
+      
+      // 3. Mount and trigger the custom toast popup message
+      const toast = document.getElementById('success-popup');
+      toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100', 'pointer-events-allowed');
+      
+      // Auto dismiss success toast message after 6 seconds
+      setTimeout(() => {
+        toast.style.transform = 'translateY(20px)';
+        toast.style.opacity = '0';
+        toast.style.pointerEvents = 'none';
+      }, 6000);
+      
+    } else {
+      alert("Something went wrong: " + data.message);
+    }
+  })
+  .catch(error => {
+    btn.disabled = false;
+    if(label) label.innerText = originalText;
+    else btn.innerText = originalText;
+    btn.style.opacity = "1";
+    console.error("Submission Error:", error);
+    alert("Connection error. Please try again later.");
+  });
+}
+
+// Bind both forms on this page to the AJAX handler
+const onPageForm = document.getElementById('v-contact-form');
+if(onPageForm) {
+  onPageForm.addEventListener('submit', function(e) { handleWeb3FormsAjax(e, false); });
+}
+
+const modalForm = document.getElementById('popup-quote-form');
+if(modalForm) {
+  modalForm.addEventListener('submit', function(e) { handleWeb3FormsAjax(e, true); });
+}
 </script>
 </body>
 </html>
