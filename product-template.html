@@ -185,62 +185,93 @@
 <script src="assets/site.js"></script>
 <script src="assets/products.js"></script>
 <script src="assets/cake-flavours.js"></script>
+
+<script>
+// Define modal utility globally first to ensure availability
+window.VedgangaQuote = {
+  open: function(productName) {
+    const modal = document.getElementById('quote-modal');
+    const contextField = document.getElementById('modal-product-context');
+    if (contextField && productName) {
+      contextField.value = "Inquiry regarding: " + productName;
+    }
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.firstElementChild.classList.remove('scale-95');
+    modal.firstElementChild.classList.add('scale-100');
+  },
+  close: function() {
+    const modal = document.getElementById('quote-modal');
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.firstElementChild.classList.remove('scale-100');
+    modal.firstElementChild.classList.add('scale-95');
+  }
+};
+
+// Close modal if user clicks outside of the main panel box
+document.getElementById('quote-modal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    window.VedgangaQuote.close();
+  }
+});
+</script>
+
 <script>
 (function(){
   const CATALOG = {
     'raisins':{ name:'Raisins & Dry Grapes', cat:'Dry Fruits', tag:'Sun-cured · Sortex-clean · Bakery-grade', img:'https://images.unsplash.com/photo-1553456558-aff63285bdd1?auto=format&fit=crop&w=1400&q=80',
       desc:'A curated portfolio of Kandahari, Indian and Californian raisins, sortex-cleaned and packed to preserve moisture and texture. Available in golden, black, brown and green cultivars, in food-safe primary packaging for bakery, confectionery, HoReCa and retail.',
-      specs:[['Moisture','13–17%'],['Total Sugars (dry basis)','≥ 68%'],['Foreign Matter','≤ 0.1%'],['Shelf Life','12 months'],['Cultivars','Kandahari · Sundari · Malayer · Golden'],['Storage','Cool · Dry · < 25°C']],
+      specs:[['Moisture','13–17%'],['Total Sugars (dry basis)','&ge; 68%'],['Foreign Matter','&le; 0.1%'],['Shelf Life','12 months'],['Cultivars','Kandahari · Sundari · Malayer · Golden'],['Storage','Cool · Dry · &lt; 25&deg;C']],
       packing:['1 kg retail pouch','5 kg / 10 kg carton','12.5 kg carton (export)'], apps:['Cakes & muffins','Breakfast cereals','Confectionery','Retail snacking'] },
     'cake-premixes':{ name:'Cake Premixes', cat:'Bakery', tag:'Sponge · Chiffon · Muffin · Pound', img:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1400&q=80',
       desc:'Ready-to-use dry blends engineered for consistent volume, crumb structure and shelf life. Water/oil/egg only formats, tuned for both artisan and industrial lines.', 
       specs:[['Water Addition','40–60%'],['Batter Density','~0.75 g/ml'],['Bake Loss','8–12%'],['Shelf Life','9 months'],['Variants','Vanilla · Chocolate · Red Velvet · Marble'],['Egg-free','Available']],
-      packing:['1 kg pouch','5 kg / 10 kg bag','25 kg industrial bag'], apps:['Cafés & artisan bakeries','Industrial cake lines','Retail baking mixes'] },
+      packing:['1 kg pouch','5 kg / 10 kg bag','25 kg industrial bag'], apps:['Caf&eacute;s & artisan bakeries','Industrial cake lines','Retail baking mixes'] },
     'cake-concentrates':{ name:'Cake Concentrates', cat:'Bakery', tag:'Flavour · Colour · Aroma boosters', img:'https://images.unsplash.com/photo-1587248720327-8eb72564be1e?auto=format&fit=crop&w=1400&q=80',
       desc:'Highly concentrated dosing systems that deliver colour, flavour and aroma at 1–3% inclusion. Cost-effective way to differentiate an existing base recipe.',
       specs:[['Dosage','1–3% flour weight'],['Form','Free-flowing powder'],['Solubility','Fully dispersible'],['Shelf Life','12 months'],['Flavours','Butter-vanilla · Fruit cake · Choco-truffle'],['Allergens','On request']],
       packing:['500 g pouch','5 kg pail','25 kg bag'], apps:['Cake premixes','Cream fillings','Frozen desserts'] },
     'tea-time-bar-cakes':{ name:'Tea-Time Bar Cakes', cat:'Bakery', tag:'Shelf-stable · Ready-to-eat', img:'https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=1400&q=80',
       desc:'Individually wrapped bar cakes engineered for ambient distribution, private label and HoReCa. Soft crumb, extended shelf life, no artificial preservatives.',
-      specs:[['Weight / bar','35 g / 45 g / 55 g'],['Shelf Life','120 days ambient'],['aW','< 0.85'],['Variants','Vanilla · Choco · Marble · Fruit'],['Wrap','Metallised flow-wrap'],['MOQ','5,000 units']],
-      packing:['Retail flow-wrap','Master carton × 24 / 48'], apps:['Private label retail','Cafés & institutional catering','Airline & rail catering'] },
+      specs:[['Weight / bar','35 g / 45 g / 55 g'],['Shelf Life','120 days ambient'],['aW','&lt; 0.85'],['Variants','Vanilla · Choco · Marble · Fruit'],['Wrap','Metallised flow-wrap'],['MOQ','5,000 units']],
+      packing:['Retail flow-wrap','Master carton &times; 24 / 48'], apps:['Private label retail','Caf&eacute;s & institutional catering','Airline & rail catering'] },
     'muffin-premixes':{ name:'Muffin Premixes', cat:'Bakery', tag:'Chocolate · Vanilla · Choco-chip', img:'https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=1400&q=80',
       desc:'Muffin-specific dry mixes with optimised crumb, dome and moisture retention. Compatible with both hand-scoop and automated depositing lines.',
-      specs:[['Water Addition','45–55%'],['Fat Addition','20–30%'],['Bake Time','18–22 min @ 180°C'],['Shelf Life','9 months'],['Variants','Choco-chip · Blueberry · Banana · Vanilla'],['Egg-free','Available']],
-      packing:['1 kg pouch','10 kg bag','25 kg industrial bag'], apps:['Cafés & QSR','Frozen bake-off','Industrial muffin lines'] },
+      specs:[['Water Addition','45–55%'],['Fat Addition','20–30%'],['Bake Time','18–22 min @ 180&deg;C'],['Shelf Life','9 months'],['Variants','Choco-chip · Blueberry · Banana · Vanilla'],['Egg-free','Available']],
+      packing:['1 kg pouch','10 kg bag','25 kg industrial bag'], apps:['Caf&eacute;s & QSR','Frozen bake-off','Industrial muffin lines'] },
     'emulsifiers':{ name:'Emulsifiers', cat:'Functional', tag:'GMS · SSL · DATEM · Lecithin', img:'https://images.unsplash.com/photo-1532634922-8fe0b757fb13?auto=format&fit=crop&w=1400&q=80',
       desc:'A full range of food-grade emulsifiers for bakery, dairy and confectionery — including distilled monoglycerides, SSL, DATEM and sunflower lecithin. Kosher & Halal certified on request.',
-      specs:[['HLB Range','3–13'],['Form','Powder · Bead · Liquid'],['Purity','≥ 90% actives'],['Shelf Life','24 months'],['Certifications','FSSAI · Kosher · Halal'],['Origin','Indian / imported']],
+      specs:[['HLB Range','3–13'],['Form','Powder · Bead · Liquid'],['Purity','&ge; 90% actives'],['Shelf Life','24 months'],['Certifications','FSSAI · Kosher · Halal'],['Origin','Indian / imported']],
       packing:['20 kg carton','25 kg bag','200 kg drum (liquid)'], apps:['Cake premixes','Bread improvers','Ice-cream & dairy'] },
     'wheat-gluten':{ name:'Wheat Gluten', cat:'Proteins', tag:'Vital · 75%+ protein', img:'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=1400&q=80',
       desc:'Vital wheat gluten from carefully selected mills — 75%+ protein (Nx5.7), high vitality and consistent water absorption. Ideal for high-fibre and multigrain breads.',
-      specs:[['Protein (Nx5.7, dry)','≥ 75%'],['Moisture','≤ 8%'],['Ash','≤ 1.2%'],['Water Absorption','~160%'],['Shelf Life','18 months'],['Particle Size','98% < 200 µm']],
+      specs:[['Protein (Nx5.7, dry)','&ge; 75%'],['Moisture','&le; 8%'],['Ash','&le; 1.2%'],['Water Absorption','~160%'],['Shelf Life','18 months'],['Particle Size','98% &lt; 200 &micro;m']],
       packing:['25 kg bag','500 kg / 1000 kg jumbo'], apps:['Bread & bun improvers','High-protein bakery','Meat analogues'] },
     'bread-improvers':{ name:'Bread Improvers', cat:'Functional', tag:'Enzyme-based · Clean-label', img:'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1400&q=80',
       desc:'Enzyme-forward improvers for volume, softness and shelf life. Clean-label formats available (no ADA, no bromates) for artisan and industrial lines.',
-      specs:[['Dosage','0.3–1.0% flour weight'],['Form','Free-flowing powder'],['Enzymes','α-amylase · Xylanase · Lipase · GOX'],['Shelf Life','12 months'],['Applications','Pan bread · Buns · Pizza · Rusk'],['Clean-label','Yes (on request)']],
+      specs:[['Dosage','0.3–1.0% flour weight'],['Form','Free-flowing powder'],['Enzymes','&alpha;-amylase · Xylanase · Lipase · GOX'],['Shelf Life','12 months'],['Applications','Pan bread · Buns · Pizza · Rusk'],['Clean-label','Yes (on request)']],
       packing:['1 kg pouch','25 kg bag'], apps:['Pan & sandwich bread','Buns & burger buns','Pizza & flatbreads'] },
     'starch':{ name:'Starch & Derivatives', cat:'Carbs', tag:'Native · Modified · Maltodextrin', img:'https://images.unsplash.com/photo-1600289031464-74d374b64991?auto=format&fit=crop&w=1400&q=80',
       desc:'A broad range of native, physically-modified and enzymatically-hydrolysed starches — maize, tapioca, potato — plus maltodextrins across DE ranges.',
-      specs:[['Moisture','≤ 14%'],['pH','5.0–7.0'],['Whiteness','≥ 90'],['DE (Maltodextrin)','9 · 12 · 18'],['Shelf Life','24 months'],['Origin','Maize · Tapioca · Potato']],
+      specs:[['Moisture','&le; 14%'],['pH','5.0–7.0'],['Whiteness','&ge; 90'],['DE (Maltodextrin)','9 · 12 · 18'],['Shelf Life','24 months'],['Origin','Maize · Tapioca · Potato']],
       packing:['25 kg bag','1000 kg jumbo'], apps:['Bakery & confectionery','Sauces & soups','Nutraceuticals'] },
     'preservatives':{ name:'Preservatives', cat:'Functional', tag:'Sorbates · Benzoates · Propionates', img:'https://images.unsplash.com/photo-1584727638096-042c45049ebe?auto=format&fit=crop&w=1400&q=80',
       desc:'Food-grade preservative systems — potassium sorbate, sodium benzoate, calcium propionate — plus natural antimicrobial blends for clean-label projects.',
-      specs:[['Purity','≥ 99%'],['Form','Powder · Granule'],['Dosage','As per FSSAI limits'],['Shelf Life','24 months'],['Storage','Cool · Dry · < 30°C'],['Certifications','FSSAI · ISO']],
+      specs:[['Purity','&ge; 99%'],['Form','Powder · Granule'],['Dosage','As per FSSAI limits'],['Shelf Life','24 months'],['Storage','Cool · Dry · &lt; 30&deg;C'],['Certifications','FSSAI · ISO']],
       packing:['25 kg bag','25 kg fibre drum'], apps:['Bakery & bread','Beverages & sauces','Confectionery'] },
     'proteins':{ name:'Proteins', cat:'Proteins', tag:'Whey · Soy · Pea isolates', img:'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=1400&q=80',
       desc:'High-purity protein ingredients — whey concentrates & isolates, soy isolate and pea isolate — for nutrition, bakery and beverage applications.',
-      specs:[['Protein','80% · 90% · 92%'],['Solubility (NSI)','≥ 85%'],['Fat','≤ 1%'],['Ash','≤ 5%'],['Shelf Life','24 months'],['Certifications','ISO · Non-GMO on request']],
+      specs:[['Protein','80% · 90% · 92%'],['Solubility (NSI)','&ge; 85%'],['Fat','&le; 1%'],['Ash','&le; 5%'],['Shelf Life','24 months'],['Certifications','ISO · Non-GMO on request']],
       packing:['20 kg carton','25 kg bag'], apps:['Nutrition & sports','Bakery fortification','RTD beverages'] },
     'fibers':{ name:'Fibers', cat:'Functional', tag:'Inulin · Oat · Psyllium', img:'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=1400&q=80',
       desc:'Soluble and insoluble dietary fibres — inulin, oat fibre, psyllium husk, wheat fibre — for high-fibre, keto and low-sugar formulations.',
-      specs:[['Fibre Content','≥ 90%'],['Form','Powder'],['Solubility','Soluble / Insoluble'],['Shelf Life','24 months'],['Origin','Chicory · Oat · Psyllium · Wheat'],['Allergens','Declared per lot']],
+      specs:[['Fibre Content','&ge; 90%'],['Form','Powder'],['Solubility','Soluble / Insoluble'],['Shelf Life','24 months'],['Origin','Chicory · Oat · Psyllium · Wheat'],['Allergens','Declared per lot']],
       packing:['20 kg bag','25 kg bag'], apps:['High-fibre bakery','Nutritional beverages','Meal replacements'] },
   };
 
   const slug = new URLSearchParams(location.search).get('slug') || 'raisins';
   const p = CATALOG[slug] || CATALOG['raisins'];
   const meta = (window.V_PRODUCTS || []).find(x => x.slug === slug) || (window.V_PRODUCTS || [])[0];
+  
   document.title = `${p.name} — Vedganga Foods & Chemicals`;
   document.getElementById('v-crumb').textContent = p.name;
   document.getElementById('v-cat').textContent = p.cat;
@@ -261,8 +292,8 @@
   document.getElementById('v-packing').innerHTML = p.packing.map(i => `<li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[color:var(--v-gold)] mt-2"></span>${i}</li>`).join('');
   document.getElementById('v-apps').innerHTML = p.apps.map(i => `<li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[color:var(--v-gold)] mt-2"></span>${i}</li>`).join('');
   
-  // Bind the global modal toggle cleanly
-  document.getElementById('v-quote-open').addEventListener('click', () => {
+  // Clean click binding to the open functionality
+  document.getElementById('v-quote-open').addEventListener('click', function() {
     if (window.VedgangaQuote && typeof window.VedgangaQuote.open === 'function') {
       window.VedgangaQuote.open(p.name);
     }
@@ -287,38 +318,6 @@
       </div>
     </a>`).join('');
 })();
-</script>
-
-<script>
-// Logic to handle opening and closing the pop-up modal seamlessly
-window.VedgangaQuote = {
-  open: function(productName) {
-    const modal = document.getElementById('quote-modal');
-    
-    // Automatically populate the product context if it's passed from the button
-    const contextField = document.getElementById('modal-product-context');
-    if (contextField && productName) {
-      contextField.value = "Inquiry regarding: " + productName;
-    }
-
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    modal.firstElementChild.classList.remove('scale-95');
-    modal.firstElementChild.classList.add('scale-100');
-  },
-  close: function() {
-    const modal = document.getElementById('quote-modal');
-    modal.classList.add('opacity-0', 'pointer-events-none');
-    modal.firstElementChild.classList.remove('scale-100');
-    modal.firstElementChild.classList.add('scale-95');
-  }
-};
-
-// Close modal if user clicks outside of the main panel box
-document.getElementById('quote-modal').addEventListener('click', function(e) {
-  if (e.target === this) {
-    window.VedgangaQuote.close();
-  }
-});
 
 // ================= AJAX FORM SUBMISSION LOGIC =================
 document.getElementById('v-modal-form').addEventListener('submit', function(e) {
@@ -329,7 +328,6 @@ document.getElementById('v-modal-form').addEventListener('submit', function(e) {
   const label = btn.querySelector('.label');
   const originalText = label ? label.innerText : btn.innerText;
   
-  // Loading visual state change
   btn.disabled = true;
   if(label) label.innerText = "Sending...";
   else btn.innerText = "Sending...";
@@ -343,25 +341,19 @@ document.getElementById('v-modal-form').addEventListener('submit', function(e) {
   })
   .then(response => response.json())
   .then(data => {
-    // Reset loading state
     btn.disabled = false;
     if(label) label.innerText = originalText;
     else btn.innerText = originalText;
     btn.style.opacity = "1";
     
     if (data.success) {
-      // 1. Reset inputs (keeps hidden fields intact)
       form.reset();
-      
-      // 2. Clear out the selection layer modal window
       if(window.VedgangaQuote) window.VedgangaQuote.close();
       
-      // 3. Mount and trigger the custom toast popup message
       const toast = document.getElementById('success-popup');
       toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
       toast.classList.add('translate-y-0', 'opacity-100', 'pointer-events-allowed');
       
-      // Auto dismiss success toast message after 6 seconds
       setTimeout(() => {
         toast.style.transform = 'translateY(20px)';
         toast.style.opacity = '0';
