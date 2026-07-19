@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" class="lenis">
+<head>
+<meta charset="UTF-8" />
+<title>Products — Vedganga Foods &amp; Chemicals</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Vedganga product portfolio — 12 categories of premium ingredients for bakeries, food manufacturers and confectioners." />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="grain">
+
+<div id="v-nav"></div>
+
+<!-- Header -->
+<section class="pt-32 md:pt-40 pb-10">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10">
+    <div class="grid md:grid-cols-12 gap-8 items-end">
+      <div class="md:col-span-8">
+        <div class="chip" data-reveal>Portfolio · 12 Categories</div>
+        <h1 class="font-display mt-6 leading-[0.94] text-[13vw] md:text-[8vw] lg:text-[7vw]">
+          <span class="mask-line"><span>The</span></span>
+          <span class="mask-line"><span class="italic font-serif-body text-[color:var(--v-forest-2)]">ingredients</span></span>
+          <span class="mask-line"><span>catalogue.</span></span>
+        </h1>
+      </div>
+      <div class="md:col-span-4 space-y-4" data-reveal>
+        <p class="text-[color:var(--v-ink)]/75 max-w-md">Search or filter through our twelve carefully curated lines — every SKU comes with a spec sheet and a sample-on-request policy.</p>
+        <button onclick="VedgangaQuote.open()" class="btn-outline" data-testid="products-quote-btn">Request a Quote →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Search + filter bar -->
+<section class="pb-8">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10">
+    <div class="flex flex-col md:flex-row gap-4 items-stretch md:items-center border-y border-black/10 py-5">
+      <div class="relative flex-1">
+        <svg class="absolute left-0 top-1/2 -translate-y-1/2 opacity-50" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.4"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <input id="v-search" placeholder="Search ingredients, categories, tags…" class="w-full pl-8 py-2 bg-transparent border-0 focus:outline-none font-mono text-sm" data-testid="products-search-input"/>
+      </div>
+      <div class="flex flex-wrap gap-2" id="v-filters"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Product grid -->
+<section class="pb-24 md:pb-32">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10">
+    <div id="v-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    <div id="v-empty" class="hidden text-center py-24 text-[color:var(--v-ink)]/60 font-mono-caps text-sm">No ingredients match your filter.</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pb-24 md:pb-32">
+  <div class="max-w-5xl mx-auto px-5 md:px-10">
+    <div class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] rounded-[28px] p-10 md:p-16 grain relative overflow-hidden">
+      <div class="font-mono-caps text-xs text-[color:var(--v-gold)]">— Custom Blends</div>
+      <h3 class="font-display text-4xl md:text-5xl mt-3 max-w-2xl leading-[1.05]">Can't see what you need? <span class="italic font-serif-body">We blend to spec.</span></h3>
+      <p class="mt-5 text-[color:var(--v-cream)]/75 max-w-xl">Share your recipe target — moisture, shelf life, cost per kg — and our formulation team will build the ingredient system around it.</p>
+      <button onclick="VedgangaQuote.open()" class="btn-gold mt-8" data-testid="products-cta-quote">Start a Brief →</button>
+    </div>
+  </div>
+</section>
+
+<div id="v-footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/products.js"></script>
+<script>
+(function(){
+  const V_PRODUCTS = window.V_PRODUCTS;
+  const CATS = ['All', ...Array.from(new Set(V_PRODUCTS.map(p => p.cat)))];
+  const grid = document.getElementById('v-grid');
+  const filters = document.getElementById('v-filters');
+  const empty = document.getElementById('v-empty');
+  const search = document.getElementById('v-search');
+  let activeCat = 'All';
+
+  filters.innerHTML = CATS.map(c => `<button data-cat="${c}" class="chip" data-testid="filter-${c.toLowerCase()}">${c}</button>`).join('');
+
+  function render() {
+    const q = search.value.trim().toLowerCase();
+    const list = V_PRODUCTS.filter(p => (activeCat === 'All' || p.cat === activeCat) &&
+      (!q || (p.name + ' ' + p.tag + ' ' + p.cat).toLowerCase().includes(q)));
+    empty.classList.toggle('hidden', list.length !== 0);
+    grid.innerHTML = list.map((p, i) => `
+      <a href="product-template.html?slug=${p.slug}" class="spotlight rounded-3xl block" data-reveal data-testid="product-card-${p.slug}">
+        <span class="spot"></span>
+        <div class="relative aspect-[4/5] overflow-hidden rounded-3xl">
+          ${window.V_ART(p, i)}
+          <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/70 via-transparent to-transparent"></div>
+          <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)]">${p.cat}</div>
+          <div class="absolute inset-x-0 bottom-0 p-5 text-[color:var(--v-cream)]">
+            <div class="font-display text-2xl leading-tight">${p.name}</div>
+            <div class="mt-1 text-xs text-[color:var(--v-cream)]/85">${p.tag}</div>
+            <div class="mt-4 flex items-center gap-2 text-[color:var(--v-gold)] text-sm"><span class="link-under">View details</span><span>→</span></div>
+          </div>
+        </div>
+      </a>`).join('');
+    // Re-run reveal on new items
+    if (window.gsap) gsap.utils.toArray('#v-grid [data-reveal]').forEach(el => gsap.fromTo(el, { y:20, opacity:0 }, { y:0, opacity:1, duration:.7, ease:'expo.out', stagger:.03, scrollTrigger:{trigger:el, start:'top 92%', once:true}}));
+    filters.querySelectorAll('button').forEach(b => {
+      const on = b.dataset.cat === activeCat;
+      b.style.background = on ? 'var(--v-ink)' : 'var(--v-cream-2)';
+      b.style.color = on ? 'var(--v-cream)' : 'var(--v-forest-2)';
+      b.style.borderColor = on ? 'var(--v-ink)' : 'var(--v-rule)';
+    });
+  }
+  filters.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-cat]'); if (!b) return;
+    activeCat = b.dataset.cat; render();
+  });
+  search.addEventListener('input', render);
+  render();
+})();
+</script>
+</body>
+</html>

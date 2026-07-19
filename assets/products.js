@@ -1,0 +1,56 @@
+/* Vedganga — Shared products catalogue + editorial SVG art panels.
+   Exposes: window.V_PRODUCTS, window.V_ICONS, window.V_ART, window.V_CATALOG */
+
+window.V_PRODUCTS = [
+  { slug:'raisins',            name:'Raisins & Dry Grapes',   tag:'Sun-cured · Sortex-clean',            cat:'Dry Fruits',  palette:['#3E2B1F','#7A4A2E','#D9A34A'] },
+  { slug:'cake-premixes',      name:'Cake Premixes',           tag:'Sponge · Chiffon · Muffin',           cat:'Bakery',      palette:['#2C5245','#4A7A66','#C9A662'] },
+  { slug:'cake-concentrates',  name:'Cake Concentrates',       tag:'Flavour · Colour · Aroma',            cat:'Bakery',      palette:['#4B1D24','#8B3543','#E6B27A'] },
+  { slug:'tea-time-bar-cakes', name:'Tea-Time Bar Cakes',      tag:'Shelf-stable · Ready-to-eat',         cat:'Bakery',      palette:['#5A3A20','#8A5A2E','#E6C382'] },
+  { slug:'muffin-premixes',    name:'Muffin Premixes',         tag:'Chocolate · Vanilla · Choco-chip',    cat:'Bakery',      palette:['#3A2415','#6B3E20','#D89B4E'] },
+  { slug:'emulsifiers',        name:'Emulsifiers',             tag:'GMS · SSL · DATEM',                   cat:'Functional',  palette:['#1F3A2E','#3B6B54','#DFC48A'] },
+  { slug:'wheat-gluten',       name:'Wheat Gluten',            tag:'Vital · 75%+ protein',                cat:'Proteins',    palette:['#4A3818','#8A6A2E','#EDCF7A'] },
+  { slug:'bread-improvers',    name:'Bread Improvers',         tag:'Enzyme-based · Clean-label',          cat:'Functional',  palette:['#3D2A18','#7A5230','#E6C081'] },
+  { slug:'starch',             name:'Starch & Derivatives',    tag:'Native · Modified · Maltodextrin',    cat:'Carbs',       palette:['#2B2F1E','#556247','#D8CBA0'] },
+  { slug:'preservatives',      name:'Preservatives',           tag:'Sorbates · Benzoates · Propionates',  cat:'Functional',  palette:['#22323A','#3F5A63','#B9CFC8'] },
+  { slug:'proteins',           name:'Proteins',                tag:'Whey · Soy · Pea isolates',           cat:'Proteins',    palette:['#301E33','#5A3C5C','#D3B3D0'] },
+  { slug:'fibers',             name:'Fibers',                  tag:'Inulin · Oat · Psyllium',             cat:'Functional',  palette:['#2B3A20','#4E6636','#D9CB86'] },
+];
+
+window.V_ICONS = {
+  'raisins':`<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="40" cy="55" r="14"/><circle cx="60" cy="42" r="12"/><circle cx="55" cy="65" r="10"/><circle cx="72" cy="58" r="9"/><circle cx="38" cy="75" r="8"/><path d="M56 30 C 58 22, 66 18, 72 20"/><path d="M62 28 L 66 22"/></g>`,
+  'cake-premixes':`<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 80 L 20 50 L 80 50 L 80 80 Z"/><path d="M20 50 C 25 40, 40 40, 50 50 C 60 40, 75 40, 80 50"/><path d="M35 50 L 35 30 M50 50 L 50 25 M65 50 L 65 30"/><path d="M32 30 L 38 30 M47 25 L 53 25 M62 30 L 68 30"/></g>`,
+  'cake-concentrates':`<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M40 15 L 60 15 L 62 30 L 38 30 Z"/><path d="M38 30 L 42 85 L 58 85 L 62 30"/><path d="M45 45 C 47 50, 53 50, 55 45"/><circle cx="50" cy="60" r="3"/><circle cx="45" cy="70" r="2"/></g>`,
+  'tea-time-bar-cakes':`<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="45" width="60" height="30" rx="4"/><path d="M20 55 L 80 55"/><path d="M30 45 L 30 25 C 30 20, 35 18, 40 18"/><path d="M30 25 L 22 25 L 25 18 L 27 25"/><path d="M50 45 L 50 30"/><path d="M70 45 L 70 30"/><path d="M20 75 L 80 75"/></g>`,
+  'muffin-premixes':`<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M25 55 L 30 85 L 70 85 L 75 55 Z"/><path d="M25 55 C 25 40, 40 30, 50 30 C 60 30, 75 40, 75 55"/><path d="M30 40 L 32 55 M40 33 L 40 55 M50 30 L 50 55 M60 33 L 60 55 M70 40 L 68 55"/><path d="M30 68 L 70 68"/></g>`,
+  'emulsifiers':`<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M40 15 L 40 40 L 25 75 C 22 82, 27 88, 34 88 L 66 88 C 73 88, 78 82, 75 75 L 60 40 L 60 15 Z"/><path d="M35 15 L 65 15"/><circle cx="42" cy="70" r="2"/><circle cx="55" cy="62" r="2.5"/><circle cx="48" cy="80" r="2"/></g>`,
+  'wheat-gluten':`<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M50 88 L 50 20"/><path d="M50 25 C 40 22, 32 27, 30 35 M50 25 C 60 22, 68 27, 70 35"/><path d="M50 40 C 40 37, 32 42, 30 50 M50 40 C 60 37, 68 42, 70 50"/><path d="M50 55 C 40 52, 32 57, 30 65 M50 55 C 60 52, 68 57, 70 65"/></g>`,
+  'bread-improvers':`<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M15 55 C 15 40, 30 30, 50 30 C 70 30, 85 40, 85 55 C 85 68, 70 78, 50 78 C 30 78, 15 68, 15 55 Z"/><path d="M25 50 L 30 45 L 35 50 L 40 45 L 45 50 L 50 45 L 55 50 L 60 45 L 65 50 L 70 45 L 75 50"/><path d="M25 65 L 75 65"/></g>`,
+  'starch':`<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M50 15 L 60 25 L 50 35 L 40 25 Z"/><path d="M50 65 L 60 75 L 50 85 L 40 75 Z"/><path d="M15 50 L 25 40 L 35 50 L 25 60 Z"/><path d="M65 50 L 75 40 L 85 50 L 75 60 Z"/><path d="M50 35 L 50 65 M35 50 L 65 50"/></g>`,
+  'preservatives':`<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M50 12 L 80 22 L 80 50 C 80 68, 68 82, 50 88 C 32 82, 20 68, 20 50 L 20 22 Z"/><path d="M35 50 L 45 60 L 65 40"/></g>`,
+  'proteins':`<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M30 15 C 60 25, 60 45, 30 55 C 60 65, 60 85, 30 88"/><path d="M70 15 C 40 25, 40 45, 70 55 C 40 65, 40 85, 70 88"/><path d="M30 30 L 70 30 M30 45 L 70 45 M30 60 L 70 60 M30 75 L 70 75"/></g>`,
+  'fibers':`<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M50 15 C 30 30, 30 55, 50 88"/><path d="M50 15 C 70 30, 70 55, 50 88"/><path d="M50 15 L 50 88"/><path d="M25 40 C 40 45, 60 45, 75 40"/><path d="M20 60 C 40 65, 60 65, 80 60"/></g>`,
+};
+
+window.V_ART = function (p, i, aspect) {
+  aspect = aspect || '4/5';
+  const [c1, c2, c3] = p.palette;
+  const id = 'g' + Math.random().toString(36).slice(2, 8);
+  const vbH = 125;
+  return `
+    <svg class="w-full h-full absolute inset-0" viewBox="0 0 100 ${vbH}" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/>
+        </linearGradient>
+        <radialGradient id="${id}b" cx="0.5" cy="0.32" r="0.7">
+          <stop offset="0" stop-color="${c3}" stop-opacity="0.55"/>
+          <stop offset="1" stop-color="${c3}" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="${id}n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.35 0"/></filter>
+      </defs>
+      <rect width="100" height="${vbH}" fill="url(#${id})"/>
+      <rect width="100" height="${vbH}" fill="url(#${id}b)"/>
+      <g transform="translate(0, 14)" opacity="0.92" color="${c3}">${window.V_ICONS[p.slug] || ''}</g>
+      <rect width="100" height="${vbH}" filter="url(#${id}n)" opacity="0.32"/>
+    </svg>`;
+};

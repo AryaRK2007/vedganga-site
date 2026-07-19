@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en" class="lenis">
+<head>
+<meta charset="UTF-8" />
+<title>Product — Vedganga Foods &amp; Chemicals</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="grain">
+
+<div id="v-nav"></div>
+
+<!-- Breadcrumb -->
+<section class="pt-28 md:pt-32 pb-4">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 flex items-center gap-3 font-mono-caps text-[10px] text-[color:var(--v-forest-2)]/70">
+    <a href="index.html" class="link-under">Home</a> /
+    <a href="products.html" class="link-under">Products</a> /
+    <span id="v-crumb">Product</span>
+  </div>
+</section>
+
+<!-- Hero -->
+<section class="pb-16 md:pb-24">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 grid md:grid-cols-12 gap-10">
+    <div class="md:col-span-7 order-2 md:order-1">
+      <div class="chip" id="v-cat" data-reveal>Category</div>
+      <h1 id="v-name" class="font-display mt-6 leading-[0.95] text-[10vw] md:text-[6.4vw]"></h1>
+      <p id="v-tag" class="mt-4 text-lg font-serif-body italic text-[color:var(--v-forest-2)]" data-reveal></p>
+      <p id="v-desc" class="mt-8 max-w-xl text-[color:var(--v-ink)]/80 leading-relaxed" data-reveal></p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+        <button id="v-quote-open" class="btn-gold" data-testid="product-quote-btn">Request a Quote / Sample →</button>
+        <a href="products.html" class="btn-outline" data-testid="product-back-btn">← All products</a>
+      </div>
+
+      <!-- Specs -->
+      <div class="mt-16" data-reveal>
+        <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]">— Technical Specifications</div>
+        <div class="mt-4 overflow-x-auto">
+          <table class="w-full border-collapse text-sm">
+            <tbody id="v-specs"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Packaging / Applications -->
+      <div class="mt-14 grid sm:grid-cols-2 gap-8" data-reveal>
+        <div>
+          <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]">— Packaging</div>
+          <ul id="v-packing" class="mt-3 space-y-2 text-[color:var(--v-ink)]/85"></ul>
+        </div>
+        <div>
+          <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]">— Applications</div>
+          <ul id="v-apps" class="mt-3 space-y-2 text-[color:var(--v-ink)]/85"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="md:col-span-5 order-1 md:order-2">
+      <div id="v-hero-art" class="relative rounded-[28px] overflow-hidden border border-black/10 aspect-[4/5]">
+        <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)]" id="v-badge">Spec Sheet</div>
+      </div>
+      <div class="mt-6 p-6 rounded-3xl bg-[color:var(--v-forest)] text-[color:var(--v-cream)] grain">
+        <div class="font-mono-caps text-[10px] text-[color:var(--v-gold)]">— Sample policy</div>
+        <p class="mt-2 text-sm text-[color:var(--v-cream)]/85 leading-relaxed">Complimentary samples (up to 500g) despatched within 3 business days on written request. COA included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Flavour portfolio (only shown for cake-premixes / cake-concentrates) -->
+<section id="v-flavours-wrap" class="pb-16 md:pb-24 hidden">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10">
+    <div class="border-t border-black/10 pt-16 md:pt-24">
+      <div class="grid md:grid-cols-12 gap-8 items-end">
+        <div class="md:col-span-8">
+          <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]" data-reveal>— The Flavour Portfolio</div>
+          <h2 class="font-display text-4xl md:text-6xl mt-4 leading-[1.02]" data-reveal>
+            Six flavour<br/>
+            <span class="italic font-serif-body text-[color:var(--v-forest-2)]">systems.</span>
+          </h2>
+        </div>
+        <div class="md:col-span-4" data-reveal>
+          <p class="text-[color:var(--v-ink)]/70">Every flavour ships in both Premix and Concentrate formats (Brownie in a single high-yield premix) — engineered for the same baking standard.</p>
+          <div class="mt-5 flex flex-wrap gap-2 text-[10px] font-mono-caps text-[color:var(--v-forest-2)]">
+            <a href="#flavour-vanilla" class="chip link-under">01 · Vanilla</a>
+            <a href="#flavour-chocolate" class="chip link-under">02 · Chocolate</a>
+            <a href="#flavour-red-velvet" class="chip link-under">03 · Red Velvet</a>
+            <a href="#flavour-mava" class="chip link-under">04 · Mava</a>
+            <a href="#flavour-brownie" class="chip link-under">05 · Brownie</a>
+            <a href="#flavour-lava" class="chip link-under">06 · Lava</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="v-flavours" class="mt-8"></div>
+  </div>
+</section>
+
+<!-- Related -->
+<section class="pb-24 md:pb-32">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10">
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]">— Continue browsing</div>
+        <h3 class="font-display text-3xl md:text-4xl mt-2">Related lines.</h3>
+      </div>
+      <a href="products.html" class="link-under text-sm" data-testid="related-viewall">View all →</a>
+    </div>
+    <div id="v-related" class="grid grid-cols-2 lg:grid-cols-4 gap-4"></div>
+  </div>
+</section>
+
+<div id="v-footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/products.js"></script>
+<script src="assets/cake-flavours.js"></script>
+<script>
+(function(){
+  const CATALOG = {
+    'raisins':{ name:'Raisins & Dry Grapes', cat:'Dry Fruits', tag:'Sun-cured · Sortex-clean · Bakery-grade', img:'https://images.unsplash.com/photo-1553456558-aff63285bdd1?auto=format&fit=crop&w=1400&q=80',
+      desc:'A curated portfolio of Kandahari, Indian and Californian raisins, sortex-cleaned and packed to preserve moisture and texture. Available in golden, black, brown and green cultivars, in food-safe primary packaging for bakery, confectionery, HoReCa and retail.',
+      specs:[['Moisture','13–17%'],['Total Sugars (dry basis)','≥ 68%'],['Foreign Matter','≤ 0.1%'],['Shelf Life','12 months'],['Cultivars','Kandahari · Sundari · Malayer · Golden'],['Storage','Cool · Dry · < 25°C']],
+      packing:['1 kg retail pouch','5 kg / 10 kg carton','12.5 kg carton (export)'], apps:['Cakes & muffins','Breakfast cereals','Confectionery','Retail snacking'] },
+    'cake-premixes':{ name:'Cake Premixes', cat:'Bakery', tag:'Sponge · Chiffon · Muffin · Pound', img:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1400&q=80',
+      desc:'Ready-to-use dry blends engineered for consistent volume, crumb structure and shelf life. Water/oil/egg only formats, tuned for both artisan and industrial lines.', 
+      specs:[['Water Addition','40–60%'],['Batter Density','~0.75 g/ml'],['Bake Loss','8–12%'],['Shelf Life','9 months'],['Variants','Vanilla · Chocolate · Red Velvet · Marble'],['Egg-free','Available']],
+      packing:['1 kg pouch','5 kg / 10 kg bag','25 kg industrial bag'], apps:['Cafés & artisan bakeries','Industrial cake lines','Retail baking mixes'] },
+    'cake-concentrates':{ name:'Cake Concentrates', cat:'Bakery', tag:'Flavour · Colour · Aroma boosters', img:'https://images.unsplash.com/photo-1587248720327-8eb72564be1e?auto=format&fit=crop&w=1400&q=80',
+      desc:'Highly concentrated dosing systems that deliver colour, flavour and aroma at 1–3% inclusion. Cost-effective way to differentiate an existing base recipe.',
+      specs:[['Dosage','1–3% flour weight'],['Form','Free-flowing powder'],['Solubility','Fully dispersible'],['Shelf Life','12 months'],['Flavours','Butter-vanilla · Fruit cake · Choco-truffle'],['Allergens','On request']],
+      packing:['500 g pouch','5 kg pail','25 kg bag'], apps:['Cake premixes','Cream fillings','Frozen desserts'] },
+    'tea-time-bar-cakes':{ name:'Tea-Time Bar Cakes', cat:'Bakery', tag:'Shelf-stable · Ready-to-eat', img:'https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=1400&q=80',
+      desc:'Individually wrapped bar cakes engineered for ambient distribution, private label and HoReCa. Soft crumb, extended shelf life, no artificial preservatives.',
+      specs:[['Weight / bar','35 g / 45 g / 55 g'],['Shelf Life','120 days ambient'],['aW','< 0.85'],['Variants','Vanilla · Choco · Marble · Fruit'],['Wrap','Metallised flow-wrap'],['MOQ','5,000 units']],
+      packing:['Retail flow-wrap','Master carton × 24 / 48'], apps:['Private label retail','Cafés & institutional catering','Airline & rail catering'] },
+    'muffin-premixes':{ name:'Muffin Premixes', cat:'Bakery', tag:'Chocolate · Vanilla · Choco-chip', img:'https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=1400&q=80',
+      desc:'Muffin-specific dry mixes with optimised crumb, dome and moisture retention. Compatible with both hand-scoop and automated depositing lines.',
+      specs:[['Water Addition','45–55%'],['Fat Addition','20–30%'],['Bake Time','18–22 min @ 180°C'],['Shelf Life','9 months'],['Variants','Choco-chip · Blueberry · Banana · Vanilla'],['Egg-free','Available']],
+      packing:['1 kg pouch','10 kg bag','25 kg industrial bag'], apps:['Cafés & QSR','Frozen bake-off','Industrial muffin lines'] },
+    'emulsifiers':{ name:'Emulsifiers', cat:'Functional', tag:'GMS · SSL · DATEM · Lecithin', img:'https://images.unsplash.com/photo-1532634922-8fe0b757fb13?auto=format&fit=crop&w=1400&q=80',
+      desc:'A full range of food-grade emulsifiers for bakery, dairy and confectionery — including distilled monoglycerides, SSL, DATEM and sunflower lecithin. Kosher & Halal certified on request.',
+      specs:[['HLB Range','3–13'],['Form','Powder · Bead · Liquid'],['Purity','≥ 90% actives'],['Shelf Life','24 months'],['Certifications','FSSAI · Kosher · Halal'],['Origin','Indian / imported']],
+      packing:['20 kg carton','25 kg bag','200 kg drum (liquid)'], apps:['Cake premixes','Bread improvers','Ice-cream & dairy'] },
+    'wheat-gluten':{ name:'Wheat Gluten', cat:'Proteins', tag:'Vital · 75%+ protein', img:'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=1400&q=80',
+      desc:'Vital wheat gluten from carefully selected mills — 75%+ protein (Nx5.7), high vitality and consistent water absorption. Ideal for high-fibre and multigrain breads.',
+      specs:[['Protein (Nx5.7, dry)','≥ 75%'],['Moisture','≤ 8%'],['Ash','≤ 1.2%'],['Water Absorption','~160%'],['Shelf Life','18 months'],['Particle Size','98% < 200 µm']],
+      packing:['25 kg bag','500 kg / 1000 kg jumbo'], apps:['Bread & bun improvers','High-protein bakery','Meat analogues'] },
+    'bread-improvers':{ name:'Bread Improvers', cat:'Functional', tag:'Enzyme-based · Clean-label', img:'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1400&q=80',
+      desc:'Enzyme-forward improvers for volume, softness and shelf life. Clean-label formats available (no ADA, no bromates) for artisan and industrial lines.',
+      specs:[['Dosage','0.3–1.0% flour weight'],['Form','Free-flowing powder'],['Enzymes','α-amylase · Xylanase · Lipase · GOX'],['Shelf Life','12 months'],['Applications','Pan bread · Buns · Pizza · Rusk'],['Clean-label','Yes (on request)']],
+      packing:['1 kg pouch','25 kg bag'], apps:['Pan & sandwich bread','Buns & burger buns','Pizza & flatbreads'] },
+    'starch':{ name:'Starch & Derivatives', cat:'Carbs', tag:'Native · Modified · Maltodextrin', img:'https://images.unsplash.com/photo-1600289031464-74d374b64991?auto=format&fit=crop&w=1400&q=80',
+      desc:'A broad range of native, physically-modified and enzymatically-hydrolysed starches — maize, tapioca, potato — plus maltodextrins across DE ranges.',
+      specs:[['Moisture','≤ 14%'],['pH','5.0–7.0'],['Whiteness','≥ 90'],['DE (Maltodextrin)','9 · 12 · 18'],['Shelf Life','24 months'],['Origin','Maize · Tapioca · Potato']],
+      packing:['25 kg bag','1000 kg jumbo'], apps:['Bakery & confectionery','Sauces & soups','Nutraceuticals'] },
+    'preservatives':{ name:'Preservatives', cat:'Functional', tag:'Sorbates · Benzoates · Propionates', img:'https://images.unsplash.com/photo-1584727638096-042c45049ebe?auto=format&fit=crop&w=1400&q=80',
+      desc:'Food-grade preservative systems — potassium sorbate, sodium benzoate, calcium propionate — plus natural antimicrobial blends for clean-label projects.',
+      specs:[['Purity','≥ 99%'],['Form','Powder · Granule'],['Dosage','As per FSSAI limits'],['Shelf Life','24 months'],['Storage','Cool · Dry · < 30°C'],['Certifications','FSSAI · ISO']],
+      packing:['25 kg bag','25 kg fibre drum'], apps:['Bakery & bread','Beverages & sauces','Confectionery'] },
+    'proteins':{ name:'Proteins', cat:'Proteins', tag:'Whey · Soy · Pea isolates', img:'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=1400&q=80',
+      desc:'High-purity protein ingredients — whey concentrates & isolates, soy isolate and pea isolate — for nutrition, bakery and beverage applications.',
+      specs:[['Protein','80% · 90% · 92%'],['Solubility (NSI)','≥ 85%'],['Fat','≤ 1%'],['Ash','≤ 5%'],['Shelf Life','24 months'],['Certifications','ISO · Non-GMO on request']],
+      packing:['20 kg carton','25 kg bag'], apps:['Nutrition & sports','Bakery fortification','RTD beverages'] },
+    'fibers':{ name:'Fibers', cat:'Functional', tag:'Inulin · Oat · Psyllium', img:'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=1400&q=80',
+      desc:'Soluble and insoluble dietary fibres — inulin, oat fibre, psyllium husk, wheat fibre — for high-fibre, keto and low-sugar formulations.',
+      specs:[['Fibre Content','≥ 90%'],['Form','Powder'],['Solubility','Soluble / Insoluble'],['Shelf Life','24 months'],['Origin','Chicory · Oat · Psyllium · Wheat'],['Allergens','Declared per lot']],
+      packing:['20 kg bag','25 kg bag'], apps:['High-fibre bakery','Nutritional beverages','Meal replacements'] },
+  };
+
+  const slug = new URLSearchParams(location.search).get('slug') || 'raisins';
+  const p = CATALOG[slug] || CATALOG['raisins'];
+  const meta = (window.V_PRODUCTS || []).find(x => x.slug === slug) || (window.V_PRODUCTS || [])[0];
+  document.title = `${p.name} — Vedganga Foods & Chemicals`;
+  document.getElementById('v-crumb').textContent = p.name;
+  document.getElementById('v-cat').textContent = p.cat;
+  document.getElementById('v-name').innerHTML = `<span class="mask-line"><span>${p.name.split(' ')[0]}</span></span><span class="mask-line"><span class="italic font-serif-body text-[color:var(--v-forest-2)] font-normal">${p.name.split(' ').slice(1).join(' ') || ''}</span></span>`;
+  document.getElementById('v-tag').textContent = p.tag;
+  document.getElementById('v-desc').textContent = p.desc;
+  // Hero art panel (SVG)
+  const heroArt = document.getElementById('v-hero-art');
+  if (meta) heroArt.insertAdjacentHTML('afterbegin', window.V_ART(meta, 0));
+  document.getElementById('v-specs').innerHTML = p.specs.map((row, i) => `
+    <tr class="border-b border-black/10 ${i%2?'bg-[color:var(--v-cream-2)]':''}">
+      <td class="py-3 pr-6 font-mono-caps text-[10px] text-[color:var(--v-forest-2)] whitespace-nowrap">${row[0]}</td>
+      <td class="py-3 text-[color:var(--v-ink)]">${row[1]}</td>
+    </tr>`).join('');
+  document.getElementById('v-packing').innerHTML = p.packing.map(i => `<li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[color:var(--v-gold)] mt-2"></span>${i}</li>`).join('');
+  document.getElementById('v-apps').innerHTML = p.apps.map(i => `<li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[color:var(--v-gold)] mt-2"></span>${i}</li>`).join('');
+  document.getElementById('v-quote-open').addEventListener('click', () => VedgangaQuote.open(p.name));
+
+  // Show the 6 flavour portfolio only for Cake Premixes / Cake Concentrates
+  if (slug === 'cake-premixes' || slug === 'cake-concentrates') {
+    document.getElementById('v-flavours-wrap').classList.remove('hidden');
+    window.V_RenderCakeFlavours({ hostId: 'v-flavours', product: p.name });
+  }
+
+  const related = (window.V_PRODUCTS || []).filter(x => x.slug !== slug).slice(0, 4);
+  document.getElementById('v-related').innerHTML = related.map((r, i) => `
+    <a href="product-template.html?slug=${r.slug}" class="spotlight rounded-2xl block" data-testid="related-${r.slug}">
+      <span class="spot"></span>
+      <div class="relative aspect-square overflow-hidden rounded-2xl">
+        ${window.V_ART(r, i+100)}
+        <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/70 via-transparent to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 p-4 text-[color:var(--v-cream)]">
+          <div class="font-display text-lg leading-tight">${r.name}</div>
+        </div>
+      </div>
+    </a>`).join('');
+})();
+</script>
+</body>
+</html>

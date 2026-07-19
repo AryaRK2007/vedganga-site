@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en" class="lenis">
+<head>
+<meta charset="UTF-8" />
+<title>Vedganga Foods &amp; Chemicals — Premium raw materials & ingredients</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Vedganga Foods & Chemicals — Premium raw materials and ingredients for bakeries, food manufacturers and confectioners across India." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { fontFamily: { display: ['Cinzel Decorative','serif'], serifb: ['Cormorant Garamond','serif'], sans: ['Manrope','sans-serif'], mono: ['JetBrains Mono','monospace'] } } } }
+</script>
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="grain">
+
+<div id="v-nav"></div>
+
+<!-- ================= HERO ================= -->
+<section class="relative min-h-[100svh] pt-28 md:pt-32 pb-16 overflow-hidden">
+  <!-- Editorial marks -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-24 left-6 md:left-10 font-mono-caps text-[10px] text-[color:var(--v-forest-2)]/70">N° 001 · Ingredient House · Bengaluru · India</div>
+    <div class="absolute top-24 right-6 md:right-10 font-mono-caps text-[10px] text-[color:var(--v-forest-2)]/70 hidden sm:block">Est. 2015 · 12 Categories · 500+ Clients</div>
+    <div class="absolute bottom-8 left-6 md:left-10 font-mono-caps text-[10px] text-[color:var(--v-forest-2)]/70">Scroll ↓</div>
+    <div class="absolute bottom-8 right-6 md:right-10 font-mono-caps text-[10px] text-[color:var(--v-forest-2)]/70">B2B · Wholesale · Custom Blends</div>
+  </div>
+
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 relative">
+    <div class="grid md:grid-cols-12 gap-8 items-end">
+      <div class="md:col-span-8">
+        <div class="chip" data-reveal>Premium Ingredient Sourcing</div>
+        <h1 class="font-display mt-6 leading-[0.92] text-[13vw] md:text-[9.5vw] lg:text-[8.2vw] tracking-tight">
+          <span class="mask-line"><span>Vedganga</span></span>
+          <span class="mask-line"><span class="italic font-serif-body font-normal tracking-normal text-[color:var(--v-forest-2)]">Foods&nbsp;&amp;</span></span>
+          <span class="mask-line"><span>Chemicals.</span></span>
+        </h1>
+        <div class="mt-8 md:mt-10 max-w-xl">
+          <p class="mask-line text-lg md:text-[22px] leading-snug font-serif-body italic text-[color:var(--v-ink)]/90"><span>Premium raw materials and ingredients<br/>for every application.</span></p>
+        </div>
+        <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
+          <button onclick="VedgangaQuote.open()" class="btn-gold" data-testid="hero-quote-btn">Request a Quote →</button>
+          <a href="products.html" class="btn-outline" data-testid="hero-products-btn">Explore Portfolio</a>
+        </div>
+      </div>
+
+      <div class="md:col-span-4">
+        <div class="relative aspect-[3/4] overflow-hidden border border-black/10 rounded-[24px]" data-reveal>
+          <img data-parallax="0.12" class="absolute inset-0 w-full h-[115%] object-cover" src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=1200&q=80" alt="Vital wheat gluten" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80'"/>
+          <div class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/60 to-transparent text-[color:var(--v-cream)]">
+            <div class="font-mono-caps text-[10px] opacity-80">Ingredient in focus</div>
+            <div class="font-display text-xl mt-1">Vital Wheat Gluten</div>
+          </div>
+        </div>
+        <div class="mt-6 grid grid-cols-3 gap-3">
+          <div class="p-4 rounded-2xl bg-[color:var(--v-cream-2)] border border-black/5">
+            <div class="font-display text-3xl"><span data-ticker="12">0</span></div>
+            <div class="font-mono-caps text-[10px] mt-1 text-[color:var(--v-forest-2)]">Categories</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-[color:var(--v-cream-2)] border border-black/5">
+            <div class="font-display text-3xl"><span data-ticker="500">0</span>+</div>
+            <div class="font-mono-caps text-[10px] mt-1 text-[color:var(--v-forest-2)]">Clients</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-[color:var(--v-cream-2)] border border-black/5">
+            <div class="font-display text-3xl"><span data-ticker="10">0</span>+</div>
+            <div class="font-mono-caps text-[10px] mt-1 text-[color:var(--v-forest-2)]">Years</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================ MARQUEE ================ -->
+<section class="border-y border-black/10 bg-[color:var(--v-cream-2)] py-6 overflow-hidden">
+  <div class="marquee-track font-display text-4xl md:text-6xl text-[color:var(--v-ink)]/90 whitespace-nowrap">
+    <span>Raisins&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Cake Premixes&nbsp;·</span>
+    <span>Emulsifiers&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Wheat Gluten&nbsp;·</span>
+    <span>Bread Improvers&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Starch&nbsp;·</span>
+    <span>Preservatives&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Proteins&nbsp;·</span>
+    <span>Fibers&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Muffin Premixes&nbsp;·</span>
+    <span>Raisins&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Cake Premixes&nbsp;·</span>
+    <span>Emulsifiers&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Wheat Gluten&nbsp;·</span>
+    <span>Bread Improvers&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Starch&nbsp;·</span>
+    <span>Preservatives&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Proteins&nbsp;·</span>
+    <span>Fibers&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Muffin Premixes&nbsp;·</span>
+  </div>
+</section>
+
+<!-- ================ PORTFOLIO GRID ================ -->
+<section class="py-24 md:py-32">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
+      <div>
+        <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]" data-reveal>— The Portfolio</div>
+        <h2 class="font-display text-4xl md:text-6xl mt-3 leading-[1.02] max-w-2xl" data-reveal>Twelve ingredient <span class="italic font-serif-body text-[color:var(--v-forest-2)]">categories.</span></h2>
+      </div>
+      <p class="max-w-md text-[color:var(--v-ink)]/70" data-reveal>Each line is sourced, blended and quality-checked for consistency batch after batch. Click any tile to request a spec sheet or a sample.</p>
+    </div>
+
+    <div id="v-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+  </div>
+</section>
+
+<!-- ================ MANIFESTO ================ -->
+<section class="py-24 md:py-32 bg-[color:var(--v-forest)] text-[color:var(--v-cream)] grain">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10">
+    <div class="font-mono-caps text-xs text-[color:var(--v-gold)]" data-reveal>— Manifesto</div>
+    <h2 class="font-display text-5xl md:text-7xl mt-4 leading-[1.02] max-w-4xl" data-reveal>Consistency is not<br/>an outcome — it is a <span class="italic font-serif-body">discipline.</span></h2>
+
+    <div class="mt-16 grid md:grid-cols-3 gap-10">
+      <div data-reveal>
+        <div class="chapter-num text-sm">CHAPTER 01</div>
+        <h3 class="font-display text-2xl mt-3">Sourced with intent</h3>
+        <p class="mt-3 text-[color:var(--v-cream)]/75 leading-relaxed">Every raisin, every gram of gluten is traced back to a shortlisted origin — Kandahar, Punjab, Gujarat — chosen for what it does inside the recipe.</p>
+      </div>
+      <div data-reveal>
+        <div class="chapter-num text-sm">CHAPTER 02</div>
+        <h3 class="font-display text-2xl mt-3">Blended for a bakery</h3>
+        <p class="mt-3 text-[color:var(--v-cream)]/75 leading-relaxed">Cake premixes, bread improvers and concentrates that respect the way real production kitchens work — with tolerances, not surprises.</p>
+      </div>
+      <div data-reveal>
+        <div class="chapter-num text-sm">CHAPTER 03</div>
+        <h3 class="font-display text-2xl mt-3">Delivered with proof</h3>
+        <p class="mt-3 text-[color:var(--v-cream)]/75 leading-relaxed">Every despatch is accompanied by a COA. Every claim is a claim we can defend. Ingredients you can sign off on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================ CTA ================ -->
+<section class="py-24 md:py-32">
+  <div class="max-w-5xl mx-auto px-5 md:px-10 text-center">
+    <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]" data-reveal>— Ready to Source?</div>
+    <h2 class="font-display text-5xl md:text-7xl mt-4 leading-[1.02]" data-reveal>Ready to source premium <br class="hidden md:block"/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">ingredients?</span></h2>
+    <p class="mt-8 text-lg text-[color:var(--v-ink)]/70 max-w-2xl mx-auto" data-reveal>Share your specification and quantity. Our team will respond within one business day with pricing, availability and a sample plan.</p>
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4" data-reveal>
+      <button onclick="VedgangaQuote.open()" class="btn-gold" data-testid="cta-quote-btn">Request a Quote →</button>
+      <a href="contact.html" class="btn-outline" data-testid="cta-contact-btn">Talk to sales</a>
+    </div>
+    <div class="mt-14 flex flex-wrap items-center justify-center gap-8 text-sm text-[color:var(--v-ink)]/60">
+      <span class="link-under"><a href="tel:+919611005994">+91 96110 05994</a></span>
+      <span class="hair max-w-8 w-8 hidden md:inline-block"></span>
+      <a class="link-under" href="mailto:vedgangafoodsandchemicals@gmail.com">vedgangafoodsandchemicals@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<div id="v-footer"></div>
+
+<!-- CDN libs -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="assets/site.js"></script>
+<script src="assets/products.js"></script>
+<script>
+(function(){
+  const grid = document.getElementById('v-grid');
+  grid.innerHTML = window.V_PRODUCTS.map((p, i) => `
+    <a href="product-template.html?slug=${p.slug}" data-reveal class="spotlight group rounded-3xl block" data-testid="portfolio-card-${p.slug}">
+      <span class="spot"></span>
+      <div class="relative aspect-[4/5] overflow-hidden rounded-3xl">
+        ${window.V_ART(p, i)}
+        <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/70 via-transparent to-transparent"></div>
+        <div class="absolute top-4 left-4 flex items-center gap-2 text-[color:var(--v-cream)]">
+          <span class="w-9 h-9 grid place-items-center rounded-full bg-[color:var(--v-cream)]/15 backdrop-blur-md border border-white/30 font-mono-caps text-[10px]">${String(i+1).padStart(2,'0')}</span>
+          <span class="font-mono-caps text-[10px] opacity-90">N° ${String(i+1).padStart(2,'0')} / 12</span>
+        </div>
+        <div class="absolute inset-x-0 bottom-0 p-5 text-[color:var(--v-cream)]">
+          <div class="font-display text-2xl leading-tight">${p.name}</div>
+          <div class="mt-1 text-xs text-[color:var(--v-cream)]/85">${p.tag}</div>
+          <div class="mt-4 flex items-center gap-2 text-[color:var(--v-gold)] text-sm">
+            <span class="link-under">View details</span><span>→</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  `).join('');
+})();
+</script>
+</body>
+</html>
