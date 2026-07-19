@@ -259,5 +259,79 @@
     </a>`).join('');
 })();
 </script>
+<!-- ================= REQUEST A QUOTE MODAL POPUP ================= -->
+<div id="quote-modal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+  <div class="modal-panel bg-[#fdfbf7] max-w-2xl w-full rounded-[28px] p-6 md:p-10 shadow-2xl border border-black/5 transform scale-95 transition-transform duration-300 relative max-h-[90vh] overflow-y-auto">
+    
+    <!-- Close Button -->
+    <button onclick="VedgangaQuote.close()" class="absolute top-6 right-6 text-black/40 hover:text-black text-2xl font-light font-mono" aria-label="Close modal">×</button>
+
+    <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]">— Request a Quote</div>
+    <h2 class="font-display text-3xl md:text-4xl mt-2 leading-tight">Tell us what you're<br/>looking to <span class="italic font-serif-body text-[color:var(--v-forest-2)]">source.</span></h2>
+
+    <!-- Web3Forms Configured Popup Form -->
+    <form id="popup-quote-form" action="https://api.web3forms.com/submit" method="POST" class="mt-8 grid md:grid-cols-2 gap-x-8 gap-y-6">
+      <!-- Hidden Access Key field -->
+      <input type="hidden" name="access_key" value="05f139b8-2556-4256-96f8-f0305c794bf6">
+      
+      <!-- Optional Customizations for your email -->
+      <input type="hidden" name="from_name" value="Vedganga Website Quote Form">
+      <input type="hidden" name="subject" value="New Quote / Sample Request">
+      
+      <!-- Redirects back to home page after success -->
+      <input type="hidden" name="redirect" value="https://vedgangafoodsandchemicals.com">
+
+      <div>
+        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Name</label>
+        <input required name="name" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="Your full name"/>
+      </div>
+      <div>
+        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Email</label>
+        <input required type="email" name="email" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="you@company.com"/>
+      </div>
+      <div>
+        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Phone</label>
+        <input name="phone" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="+91 …"/>
+      </div>
+      <div>
+        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Item Required</label>
+        <input name="item_subject" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="Quote · Sample · Partnership …"/>
+      </div>
+      <div class="md:col-span-2">
+        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Message / Specifications</label>
+        <textarea required name="message" rows="3" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition resize-none" placeholder="Tell us a bit about what you're looking for…"></textarea>
+      </div>
+      
+      <div class="md:col-span-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-2">
+        <div class="text-xs text-black/50">We respond within 1 business day.</div>
+        <button type="submit" class="bg-[#c5a880] hover:bg-[#b5966c] text-white font-mono-caps text-xs font-semibold px-8 py-4 tracking-widest transition duration-200 rounded-xl">Send Message →</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+// Logic to handle opening and closing the pop-up modal
+window.VedgangaQuote = {
+  open: function() {
+    const modal = document.getElementById('quote-modal');
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.firstElementChild.classList.remove('scale-95');
+    modal.firstElementChild.classList.add('scale-100');
+  },
+  close: function() {
+    const modal = document.getElementById('quote-modal');
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.firstElementChild.classList.remove('scale-100');
+    modal.firstElementChild.classList.add('scale-95');
+  }
+};
+
+// Close modal if user clicks outside of the main panel box
+document.getElementById('quote-modal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    window.VedgangaQuote.close();
+  }
+});
+</script>
 </body>
 </html>
