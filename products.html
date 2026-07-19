@@ -74,12 +74,11 @@
   <div class="modal-panel rounded-[28px] p-6 md:p-10 max-w-xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300 relative bg-[color:var(--v-cream)] text-[color:var(--v-ink)]">
     
     <!-- Close Button -->
-    <button type="button" onclick="window.VedgangaQuote.close()" class="absolute top-6 right-6 text-2xl text-black/40 hover:text-black/80 transition-colors cursor-pointer">&times;</button>
+    <button type="button" onclick="window.VedgangaQuote.close()" class="absolute top-6 right-6 text-2xl text-black/40 hover:text-black/80 transition-colors cursor-pointer" aria-label="Close modal">&times;</button>
     
     <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]">— Instant RFQ</div>
     <h2 class="font-display text-2xl md:text-3xl mt-1 leading-tight">Request a Quote / Sample</h2>
     
-    <!-- Changed to have an ID so we can intercept it -->
     <form id="v-modal-form" class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
       <input type="hidden" name="access_key" value="05f139b8-2556-4256-96f8-f0305c794bf6">
       <input type="hidden" name="from_name" value="Products Directory Modal Discovery">
@@ -119,9 +118,39 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="assets/site.js"></script>
 <script src="assets/products.js"></script>
+
+<script>
+// Declare global modal utility management framework safely
+window.VedgangaQuote = {
+  open: function(contextText) {
+    const modal = document.getElementById('quote-modal');
+    const contextInput = document.getElementById('modal-product-context');
+    if (contextInput && contextText) {
+      contextInput.value = contextText;
+    }
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.querySelector('.modal-panel').classList.remove('scale-95');
+    modal.querySelector('.modal-panel').classList.add('scale-100');
+  },
+  close: function() {
+    const modal = document.getElementById('quote-modal');
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.querySelector('.modal-panel').classList.remove('scale-100');
+    modal.querySelector('.modal-panel').classList.add('scale-95');
+  }
+};
+
+// Close modal if user clicks outside of the main panel box container
+document.getElementById('quote-modal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    window.VedgangaQuote.close();
+  }
+});
+</script>
+
 <script>
 (function(){
-  const V_PRODUCTS = window.V_PRODUCTS;
+  const V_PRODUCTS = window.V_PRODUCTS || [];
   const CATS = ['All', ...Array.from(new Set(V_PRODUCTS.map(p => p.cat)))];
   const grid = document.getElementById('v-grid');
   const filters = document.getElementById('v-filters');
@@ -129,18 +158,23 @@
   const search = document.getElementById('v-search');
   let activeCat = 'All';
 
-  filters.innerHTML = CATS.map(c => `<button data-cat="${c}" class="chip" data-testid="filter-${c.toLowerCase()}">${c}</button>`).join('');
+  if(filters) {
+    filters.innerHTML = CATS.map(c => `<button data-cat="${c}" class="chip cursor-pointer" data-testid="filter-${c.toLowerCase()}">${c}</button>`).join('');
+  }
 
   function render() {
-    const q = search.value.trim().toLowerCase();
+    if(!grid) return;
+    const q = search ? search.value.trim().toLowerCase() : '';
     const list = V_PRODUCTS.filter(p => (activeCat === 'All' || p.cat === activeCat) &&
       (!q || (p.name + ' ' + p.tag + ' ' + p.cat).toLowerCase().includes(q)));
-    empty.classList.toggle('hidden', list.length !== 0);
+    
+    if(empty) empty.classList.toggle('hidden', list.length !== 0);
+    
     grid.innerHTML = list.map((p, i) => `
       <a href="product-template.html?slug=${p.slug}" class="spotlight rounded-3xl block" data-reveal data-testid="product-card-${p.slug}">
         <span class="spot"></span>
         <div class="relative aspect-[4/5] overflow-hidden rounded-3xl">
-          ${window.V_ART(p, i)}
+          ${window.V_ART ? window.V_ART(p, i) : ''}
           <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/70 via-transparent to-transparent"></div>
           <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)]">${p.cat}</div>
           <div class="absolute inset-x-0 bottom-0 p-5 text-[color:var(--v-cream)]">
@@ -150,20 +184,30 @@
           </div>
         </div>
       </a>`).join('');
-    // Re-run reveal on new items
-    if (window.gsap) gsap.utils.toArray('#v-grid [data-reveal]').forEach(el => gsap.fromTo(el, { y:20, opacity:0 }, { y:0, opacity:1, duration:.7, ease:'expo.out', stagger:.03, scrollTrigger:{trigger:el, start:'top 92%', once:true}}));
-    filters.querySelectorAll('button').forEach(b => {
-      const on = b.dataset.cat === activeCat;
-      b.style.background = on ? 'var(--v-ink)' : 'var(--v-cream-2)';
-      b.style.color = on ? 'var(--v-cream)' : 'var(--v-forest-2)';
-      b.style.borderColor = on ? 'var(--v-ink)' : 'var(--v-rule)';
+    
+    if (window.gsap && window.ScrollTrigger) {
+      gsap.utils.toArray('#v-grid [data-reveal]').forEach(el => {
+        gsap.fromTo(el, { y:20, opacity:0 }, { y:0, opacity:1, duration:.7, ease:'expo.out', scrollTrigger:{trigger:el, start:'top 92%', once:true}});
+      });
+    }
+    
+    if(filters) {
+      filters.querySelectorAll('button').forEach(b => {
+        const on = b.dataset.cat === activeCat;
+        b.style.background = on ? 'var(--v-ink)' : 'var(--v-cream-2)';
+        b.style.color = on ? 'var(--v-cream)' : 'var(--v-forest-2)';
+        b.style.borderColor = on ? 'var(--v-ink)' : 'var(--v-rule)';
+      });
+    }
+  }
+
+  if(filters) {
+    filters.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-cat]'); if (!b) return;
+      activeCat = b.dataset.cat; render();
     });
   }
-  filters.addEventListener('click', (e) => {
-    const b = e.target.closest('[data-cat]'); if (!b) return;
-    activeCat = b.dataset.cat; render();
-  });
-  search.addEventListener('input', render);
+  if(search) search.addEventListener('input', render);
   render();
 })();
 
@@ -176,7 +220,6 @@ document.getElementById('v-modal-form').addEventListener('submit', function(e) {
   const label = btn.querySelector('.label');
   const originalText = label ? label.innerText : btn.innerText;
   
-  // Loading visual state change
   btn.disabled = true;
   if(label) label.innerText = "Sending...";
   else btn.innerText = "Sending...";
@@ -190,25 +233,19 @@ document.getElementById('v-modal-form').addEventListener('submit', function(e) {
   })
   .then(response => response.json())
   .then(data => {
-    // Reset loading state
     btn.disabled = false;
     if(label) label.innerText = originalText;
     else btn.innerText = originalText;
     btn.style.opacity = "1";
     
     if (data.success) {
-      // 1. Reset input metrics
       form.reset();
-      
-      // 2. Clear out the selection layer modal window
       if(window.VedgangaQuote) window.VedgangaQuote.close();
       
-      // 3. Mount and trigger the custom toast popup message
       const toast = document.getElementById('success-popup');
       toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
       toast.classList.add('translate-y-0', 'opacity-100', 'pointer-events-allowed');
       
-      // Auto dismiss success toast message after 6 seconds
       setTimeout(() => {
         toast.style.transform = 'translateY(20px)';
         toast.style.opacity = '0';
