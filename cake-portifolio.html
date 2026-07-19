@@ -30,7 +30,7 @@
       <div class="md:col-span-4 space-y-4" data-reveal>
         <p class="text-[color:var(--v-ink)]/75 text-lg font-serif-body italic">Six flavour systems — one uncompromising baking standard.</p>
         <p class="text-[color:var(--v-ink)]/70 max-w-md">Engineered for consistent crumb, volume, moisture retention and shelf life across artisan and industrial production lines.</p>
-        <a href="contact.html" class="btn-gold inline-block text-center">Request a Quote/Sample →</a>
+        <button onclick="window.VedgangaQuote.open('General Cake Portfolio Inquiry')" class="btn-gold inline-block text-center">Request a Quote/Sample →</button>
       </div>
     </div>
 
@@ -80,13 +80,47 @@
     <h2 class="font-display text-4xl md:text-6xl mt-4 leading-[1.02]" data-reveal>Order a <span class="italic font-serif-body text-[color:var(--v-forest-2)]">sample flight.</span></h2>
     <p class="mt-6 text-[color:var(--v-ink)]/70 max-w-2xl mx-auto" data-reveal>Trial 500g of any four flavours — despatched within 3 business days. Includes COA and formulation notes.</p>
     <div class="mt-10 flex flex-wrap items-center justify-center gap-4" data-reveal>
-      <a href="contact.html" class="btn-gold inline-block text-center">Request Sample Flight →</a>
-      <a href="contact.html" class="btn-outline" data-testid="cake-cta-contact">Talk to a formulator</a>
+      <button onclick="window.VedgangaQuote.open('Cake Sample Flight Request')" class="btn-gold inline-block text-center">Request Sample Flight →</button>
+      <button onclick="window.VedgangaQuote.open('Consultation with Formulator')" class="btn-outline" data-testid="cake-cta-contact">Talk to a formulator</button>
     </div>
   </div>
 </section>
 
 <div id="v-footer"></div>
+
+<!-- ================= REQUEST A QUOTE MODAL POPUP ================= -->
+<div id="quote-modal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+  <div class="modal-panel rounded-[28px] p-6 md:p-10 max-w-xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300 relative bg-[color:var(--v-cream)] text-[color:var(--v-ink)]">
+    
+    <!-- Close Button -->
+    <button onclick="window.VedgangaQuote.close()" class="absolute top-6 right-6 text-2xl text-black/40 hover:text-black/80 transition-colors">&times;</button>
+    
+    <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]">— Instant RFQ</div>
+    <h2 class="font-display text-2xl md:text-3xl mt-1 leading-tight">Request a Quote / Sample</h2>
+    
+    <form id="v-modal-form" action="https://api.web3forms.com/submit" method="POST" class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
+      <input type="hidden" name="access_key" value="05f139b8-2556-4256-96f8-f0305c794bf6">
+      <input type="hidden" name="from_name" value="Cake Portfolio Modal">
+      
+      <!-- Auto-filled by JS context -->
+      <div class="sm:col-span-2">
+        <label class="field-label">Selected Product Context</label>
+        <input readonly type="text" id="modal-product-context" name="requested_product" class="field bg-black/5 cursor-not-allowed border-dashed" value="General Inquiry"/>
+      </div>
+      
+      <div><label class="field-label">Name *</label><input required name="name" class="field" placeholder="Your name"/></div>
+      <div><label class="field-label">Email *</label><input required type="email" name="email" class="field" placeholder="you@company.com"/></div>
+      <div><label class="field-label">Phone</label><input name="phone" class="field" placeholder="+91 …"/></div>
+      <div><label class="field-label">Company</label><input name="company" class="field" placeholder="Bakery name / Firm"/></div>
+      <div class="sm:col-span-2"><label class="field-label">Message / Est. Volume *</label><textarea required name="message" class="field h-24" placeholder="Mention preferred packaging size or target sample flight options…"></textarea></div>
+      
+      <div class="sm:col-span-2 flex items-center justify-between gap-4 mt-2">
+        <div class="text-[11px] text-black/50">Dispatched within 1 business day.</div>
+        <button type="submit" class="btn-gold"><span class="label">Submit Request</span> →</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -94,8 +128,7 @@
 <script src="assets/site.js"></script>
 <script>
 (function(){
-  // Reuse the same editorial SVG panel approach (self-contained here so the page
-  // works even without products.js loaded first).
+  // Reuse the same editorial SVG panel approach
   function makeIcon(paths, color){
     return `<g stroke="${color}" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">${paths}</g>`;
   }
@@ -265,7 +298,7 @@
             </div>
 
             <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
-              <button data-quote-product="${v.name} Cake ${v.formats}" class="btn-gold" data-testid="variety-quote-${v.slug}">
+              <button data-quote-product="${v.name} Cake ${v.formats}" class="btn-gold dynamic-quote-btn" data-testid="variety-quote-${v.slug}">
                 Request Sample / Quote →
               </button>
               <a href="products.html" class="btn-outline" data-testid="variety-back-${v.slug}">← Full portfolio</a>
@@ -274,6 +307,16 @@
         </div>
       </article>`;
   }).join('');
+
+  // Attach event listeners to the freshly injected dynamic product buttons
+  document.querySelectorAll('.dynamic-quote-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const productContext = this.getAttribute('data-quote-product');
+      if (window.VedgangaQuote) {
+        window.VedgangaQuote.open(productContext);
+      }
+    });
+  });
 
   // Re-trigger scroll reveal for freshly-injected content
   if (window.gsap) {
