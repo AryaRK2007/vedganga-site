@@ -30,7 +30,7 @@
       <div class="md:col-span-4 space-y-4" data-reveal>
         <p class="text-[color:var(--v-ink)]/75 text-lg font-serif-body italic">Six flavour systems — one uncompromising baking standard.</p>
         <p class="text-[color:var(--v-ink)]/70 max-w-md">Engineered for consistent crumb, volume, moisture retention and shelf life across artisan and industrial production lines.</p>
-        <button onclick="window.VedgangaQuote.open('General Cake Portfolio Inquiry')" class="btn-gold inline-block text-center">Request a Quote/Sample →</button>
+        <button type="button" onclick="window.VedgangaQuote.open('General Cake Portfolio Inquiry')" class="btn-gold cursor-pointer">Request a Quote/Sample →</button>
       </div>
     </div>
 
@@ -80,8 +80,8 @@
     <h2 class="font-display text-4xl md:text-6xl mt-4 leading-[1.02]" data-reveal>Order a <span class="italic font-serif-body text-[color:var(--v-forest-2)]">sample flight.</span></h2>
     <p class="mt-6 text-[color:var(--v-ink)]/70 max-w-2xl mx-auto" data-reveal>Trial 500g of any four flavours — despatched within 3 business days. Includes COA and formulation notes.</p>
     <div class="mt-10 flex flex-wrap items-center justify-center gap-4" data-reveal>
-      <button onclick="VedgangaQuote.open()" class="btn-gold inline-block text-center">Request a Quote/Smaple →</button>
-      <button onclick="window.VedgangaQuote.open('Consultation with Formulator')" class="btn-outline" data-testid="cake-cta-contact">Talk to a formulator</button>
+      <button type="button" onclick="window.VedgangaQuote.open()" class="btn-gold cursor-pointer">Request a Quote/Sample →</button>
+      <button type="button" onclick="window.VedgangaQuote.open('Consultation with Formulator')" class="btn-outline" data-testid="cake-cta-contact">Talk to a formulator</button>
     </div>
   </div>
 </section>
@@ -93,7 +93,7 @@
   <div class="modal-panel rounded-[28px] p-6 md:p-10 max-w-xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300 relative bg-[color:var(--v-cream)] text-[color:var(--v-ink)]">
     
     <!-- Close Button -->
-    <button onclick="window.VedgangaQuote.close()" class="absolute top-6 right-6 text-2xl text-black/40 hover:text-black/80 transition-colors">&times;</button>
+    <button type="button" onclick="window.VedgangaQuote.close()" class="absolute top-6 right-6 text-2xl text-black/40 hover:text-black/80 transition-colors">&times;</button>
     
     <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]">— Instant RFQ</div>
     <h2 class="font-display text-2xl md:text-3xl mt-1 leading-tight">Request a Quote / Sample</h2>
@@ -298,7 +298,7 @@
             </div>
 
             <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
-              <button data-quote-product="${v.name} Cake ${v.formats}" class="btn-gold dynamic-quote-btn" data-testid="variety-quote-${v.slug}">
+              <button type="button" data-quote-product="${v.name} Cake ${v.formats}" class="btn-gold cursor-pointer dynamic-quote-btn" data-testid="variety-quote-${v.slug}">
                 Request Sample / Quote →
               </button>
               <a href="products.html" class="btn-outline" data-testid="variety-back-${v.slug}">← Full portfolio</a>
@@ -334,7 +334,7 @@
   <div class="modal-panel bg-[#fdfbf7] max-w-2xl w-full rounded-[28px] p-6 md:p-10 shadow-2xl border border-black/5 transform scale-95 transition-transform duration-300 relative max-h-[90vh] overflow-y-auto">
     
     <!-- Close Button -->
-    <button onclick="VedgangaQuote.close()" class="absolute top-6 right-6 text-black/40 hover:text-black text-2xl font-light font-mono" aria-label="Close modal">×</button>
+    <button type="button" onclick="VedgangaQuote.close()" class="absolute top-6 right-6 text-black/40 hover:text-black text-2xl font-light font-mono cursor-pointer" aria-label="Close modal">×</button>
 
     <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]">— Request a Quote</div>
     <h2 class="font-display text-3xl md:text-4xl mt-2 leading-tight">Tell us what you're<br/>looking to <span class="italic font-serif-body text-[color:var(--v-forest-2)]">source.</span></h2>
@@ -374,7 +374,7 @@
       
       <div class="md:col-span-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-2">
         <div class="text-xs text-black/50">We respond within 1 business day.</div>
-        <button type="submit" class="bg-[#c5a880] hover:bg-[#b5966c] text-white font-mono-caps text-xs font-semibold px-8 py-4 tracking-widest transition duration-200 rounded-xl">Send Message →</button>
+        <button type="submit" id="submit-btn" class="bg-[#c5a880] hover:bg-[#b5966c] text-white font-mono-caps text-xs font-semibold px-8 py-4 tracking-widest transition duration-200 rounded-xl cursor-pointer">Send Message →</button>
       </div>
     </form>
   </div>
