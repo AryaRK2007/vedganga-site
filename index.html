@@ -41,7 +41,7 @@
           <p class="mask-line text-lg md:text-[22px] leading-snug font-serif-body italic text-[color:var(--v-ink)]/90"><span>Premium raw materials and ingredients<br/>for every application.</span></p>
         </div>
         <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
-          <button onclick="VedgangaQuote.open('Hero CTA')" class="btn-gold cursor-pointer">Request a Quote/Sample →</button>
+          <button type="button" onclick="window.VedgangaQuote.open('Hero CTA')" class="btn-gold cursor-pointer">Request a Quote/Sample →</button>
           <a href="products.html" class="btn-outline" data-testid="hero-products-btn">Explore Portfolio</a>
         </div>
       </div>
@@ -137,7 +137,7 @@
     <h2 class="font-display text-5xl md:text-7xl mt-4 leading-[1.02]" data-reveal>Ready to source premium <br class="hidden md:block"/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">ingredients?</span></h2>
     <p class="mt-8 text-lg text-[color:var(--v-ink)]/70 max-w-2xl mx-auto" data-reveal>Share your specification and quantity. Our team will respond within one business day with pricing, availability and a sample plan.</p>
     <div class="mt-10 flex flex-wrap items-center justify-center gap-4" data-reveal>
-      <button onclick="VedgangaQuote.open('Footer CTA')" class="btn-gold cursor-pointer">Request a Quote →</button>
+      <button type="button" onclick="window.VedgangaQuote.open('Footer CTA')" class="btn-gold cursor-pointer">Request a Quote →</button>
       <a href="contact.html" class="btn-outline" data-testid="cta-contact-btn">Talk to sales</a>
     </div>
     <div class="mt-14 flex flex-wrap items-center justify-center gap-8 text-sm text-[color:var(--v-ink)]/60">
@@ -183,11 +183,11 @@
 </script>
 
 <!-- ================= REQUEST A QUOTE MODAL POPUP ================= -->
-<div id="quote-modal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
-  <div class="modal-panel bg-[#fdfbf7] max-w-2xl w-full rounded-[28px] p-6 md:p-10 shadow-2xl border border-black/5 transform scale-95 transition-transform duration-300 relative max-h-[90vh] overflow-y-auto">
+<div id="quote-modal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+  <div class="modal-panel bg-[color:var(--v-cream)] max-w-2xl w-full rounded-[28px] p-6 md:p-10 shadow-2xl border border-black/5 transform scale-95 transition-transform duration-300 relative max-h-[90vh] overflow-y-auto text-[color:var(--v-ink)]">
     
     <!-- Close Button -->
-    <button onclick="VedgangaQuote.close()" class="absolute top-6 right-6 text-black/40 hover:text-black text-2xl font-light font-mono cursor-pointer" aria-label="Close modal">×</button>
+    <button type="button" onclick="window.VedgangaQuote.close()" class="absolute top-6 right-6 text-black/40 hover:text-black/80 text-2xl font-light transition-colors cursor-pointer" aria-label="Close modal">&times;</button>
 
     <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]">— Request a Quote</div>
     <h2 class="font-display text-3xl md:text-4xl mt-2 leading-tight">Tell us what you're<br/>looking to <span class="italic font-serif-body text-[color:var(--v-forest-2)]">source.</span></h2>
@@ -203,11 +203,11 @@
       <input type="hidden" name="button_origin" id="modal-button-origin" value="General Query">
 
       <div>
-        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Name</label>
+        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Name *</label>
         <input required name="name" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="Your full name"/>
       </div>
       <div>
-        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Email</label>
+        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Email *</label>
         <input required type="email" name="email" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="you@company.com"/>
       </div>
       <div>
@@ -219,13 +219,15 @@
         <input name="item_subject" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="Quote · Sample · Partnership …"/>
       </div>
       <div class="md:col-span-2">
-        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Message / Specifications</label>
+        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Message / Specifications *</label>
         <textarea required name="message" rows="3" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition resize-none" placeholder="Tell us a bit about what you're looking for…"></textarea>
       </div>
       
       <div class="md:col-span-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-2">
         <div class="text-xs text-black/50">We respond within 1 business day.</div>
-        <button type="submit" id="submit-btn" class="bg-[#c5a880] hover:bg-[#b5966c] text-white font-mono-caps text-xs font-semibold px-8 py-4 tracking-widest transition duration-200 rounded-xl cursor-pointer">Send Message →</button>
+        <button type="submit" id="submit-btn" class="bg-[#c5a880] hover:bg-[#b5966c] text-white font-mono-caps text-xs font-semibold px-8 py-4 tracking-widest transition duration-200 rounded-xl cursor-pointer">
+          <span class="label">Send Message</span> →
+        </button>
       </div>
     </form>
   </div>
@@ -242,11 +244,12 @@
 </div>
 
 <script>
-// Logic to handle opening and closing the pop-up modal
+// Logic to handle opening and closing the pop-up modal seamlessly
 window.VedgangaQuote = {
   open: function(origin = 'General Query') {
     // Optionally track which button opened the modal
-    document.getElementById('modal-button-origin').value = origin;
+    const originField = document.getElementById('modal-button-origin');
+    if(originField) originField.value = origin;
     
     const modal = document.getElementById('quote-modal');
     modal.classList.remove('opacity-0', 'pointer-events-none');
@@ -268,17 +271,19 @@ document.getElementById('quote-modal').addEventListener('click', function(e) {
   }
 });
 
-// Asynchronous validation & response pipeline handling
+// ================= AJAX FORM SUBMISSION LOGIC =================
 document.getElementById('popup-quote-form').addEventListener('submit', function(e) {
   e.preventDefault();
   
   const form = this;
-  const btn = document.getElementById('submit-btn');
-  const originalText = btn.innerHTML;
+  const btn = form.querySelector('button[type="submit"]');
+  const label = btn.querySelector('.label');
+  const originalText = label ? label.innerText : btn.innerText;
   
   // Loading visual state change
   btn.disabled = true;
-  btn.innerHTML = "Sending... Please wait";
+  if(label) label.innerText = "Sending...";
+  else btn.innerText = "Sending...";
   btn.style.opacity = "0.7";
   
   const formData = new FormData(form);
@@ -291,21 +296,21 @@ document.getElementById('popup-quote-form').addEventListener('submit', function(
   .then(data => {
     // Reset loading state
     btn.disabled = false;
-    btn.innerHTML = originalText;
+    if(label) label.innerText = originalText;
+    else btn.innerText = originalText;
     btn.style.opacity = "1";
     
     if (data.success) {
-      // 1. Reset input metrics
+      // 1. Reset inputs (keeps hidden fields intact)
       form.reset();
       
       // 2. Clear out the selection layer modal window
-      window.VedgangaQuote.close();
+      if(window.VedgangaQuote) window.VedgangaQuote.close();
       
       // 3. Mount and trigger the custom toast popup message
       const toast = document.getElementById('success-popup');
       toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
-      toast.classList.add('translate-y-0', 'opacity-100');
-      toast.style.pointerEvents = 'auto';
+      toast.classList.add('translate-y-0', 'opacity-100', 'pointer-events-allowed');
       
       // Auto dismiss success toast message after 6 seconds
       setTimeout(() => {
@@ -320,7 +325,8 @@ document.getElementById('popup-quote-form').addEventListener('submit', function(
   })
   .catch(error => {
     btn.disabled = false;
-    btn.innerHTML = originalText;
+    if(label) label.innerText = originalText;
+    else btn.innerText = originalText;
     btn.style.opacity = "1";
     console.error("Submission Error:", error);
     alert("Connection error. Please try again later.");
