@@ -181,27 +181,25 @@
   `).join('');
 })();
 </script>
+
 <!-- ================= REQUEST A QUOTE MODAL POPUP ================= -->
 <div id="quote-modal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
   <div class="modal-panel bg-[#fdfbf7] max-w-2xl w-full rounded-[28px] p-6 md:p-10 shadow-2xl border border-black/5 transform scale-95 transition-transform duration-300 relative max-h-[90vh] overflow-y-auto">
     
     <!-- Close Button -->
-    <button onclick="VedgangaQuote.close()" class="absolute top-6 right-6 text-black/40 hover:text-black text-2xl font-light font-mono" aria-label="Close modal">×</button>
+    <button onclick="VedgangaQuote.close()" class="absolute top-6 right-6 text-black/40 hover:text-black text-2xl font-light font-mono cursor-pointer" aria-label="Close modal">×</button>
 
     <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]">— Request a Quote</div>
     <h2 class="font-display text-3xl md:text-4xl mt-2 leading-tight">Tell us what you're<br/>looking to <span class="italic font-serif-body text-[color:var(--v-forest-2)]">source.</span></h2>
 
-    <!-- Web3Forms Configured Popup Form -->
-    <form id="popup-quote-form" action="https://api.web3forms.com/submit" method="POST" class="mt-8 grid md:grid-cols-2 gap-x-8 gap-y-6">
+    <!-- Web3Forms Configured Form via AJAX Call -->
+    <form id="popup-quote-form" class="mt-8 grid md:grid-cols-2 gap-x-8 gap-y-6">
       <!-- Hidden Access Key field -->
       <input type="hidden" name="access_key" value="05f139b8-2556-4256-96f8-f0305c794bf6">
       
-      <!-- Optional Customizations for your email -->
+      <!-- Optional Customizations for email layout -->
       <input type="hidden" name="from_name" value="Vedganga Website Quote Form">
       <input type="hidden" name="subject" value="New Quote / Sample Request">
-      
-      <!-- Redirects back to home page after success -->
-      <input type="hidden" name="redirect" value="https://vedgangafoodsandchemicals.com">
 
       <div>
         <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Name</label>
@@ -226,11 +224,22 @@
       
       <div class="md:col-span-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-2">
         <div class="text-xs text-black/50">We respond within 1 business day.</div>
-        <button type="submit" class="bg-[#c5a880] hover:bg-[#b5966c] text-white font-mono-caps text-xs font-semibold px-8 py-4 tracking-widest transition duration-200 rounded-xl">Send Message →</button>
+        <button type="submit" id="submit-btn" class="bg-[#c5a880] hover:bg-[#b5966c] text-white font-mono-caps text-xs font-semibold px-8 py-4 tracking-widest transition duration-200 rounded-xl cursor-pointer">Send Message →</button>
       </div>
     </form>
   </div>
 </div>
+
+<!-- ================= SUCCESS ADD-ON NOTIFICATION POPUP ================= -->
+<div id="success-popup" class="fixed bottom-6 right-6 z-[10000] max-w-sm w-full bg-[color:var(--v-forest)] text-[color:var(--v-cream)] rounded-2xl p-5 shadow-2xl border border-white/10 transform translate-y-12 opacity-0 pointer-events-none transition-all duration-500 ease-out flex gap-4 items-start grain">
+  <div class="w-8 h-8 rounded-full bg-[color:var(--v-gold)] text-[color:var(--v-forest)] flex items-center justify-center shrink-0 mt-0.5 font-bold">✓</div>
+  <div class="flex-1">
+    <h4 class="font-display text-lg leading-tight text-[color:var(--v-gold)]">Request Received</h4>
+    <p class="text-xs mt-1 text-[color:var(--v-cream)]/80 leading-relaxed font-sans">Your specifications have been queued. Our formulation team will reach out via email within 24 business hours.</p>
+  </div>
+  <button onclick="document.getElementById('success-popup').style.transform='translateY(20px)'; document.getElementById('success-popup').style.opacity='0'; document.getElementById('success-popup').style.pointerEvents='none';" class="text-[color:var(--v-cream)]/40 hover:text-[color:var(--v-cream)] text-lg font-mono leading-none cursor-pointer">&times;</button>
+</div>
+
 <script>
 // Logic to handle opening and closing the pop-up modal
 window.VedgangaQuote = {
@@ -253,6 +262,64 @@ document.getElementById('quote-modal').addEventListener('click', function(e) {
   if (e.target === this) {
     window.VedgangaQuote.close();
   }
+});
+
+// Asynchronous validation & response pipeline handling
+document.getElementById('popup-quote-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const form = this;
+  const btn = document.getElementById('submit-btn');
+  const originalText = btn.innerHTML;
+  
+  // Loading visual state change
+  btn.disabled = true;
+  btn.innerHTML = "Sending... Please wait";
+  btn.style.opacity = "0.7";
+  
+  const formData = new FormData(form);
+  
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Reset loading state
+    btn.disabled = false;
+    btn.innerHTML = originalText;
+    btn.style.opacity = "1";
+    
+    if (data.success) {
+      // 1. Reset input metrics
+      form.reset();
+      
+      // 2. Clear out the selection layer modal window
+      window.VedgangaQuote.close();
+      
+      // 3. Mount and trigger the custom toast popup message
+      const toast = document.getElementById('success-popup');
+      toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100', 'pointer-events-allowed');
+      
+      // Auto dismiss success toast message after 6 seconds
+      setTimeout(() => {
+        toast.style.transform = 'translateY(20px)';
+        toast.style.opacity = '0';
+        toast.style.pointerEvents = 'none';
+      }, 6000);
+      
+    } else {
+      alert("Something went wrong: " + data.message);
+    }
+  })
+  .catch(error => {
+    btn.disabled = false;
+    btn.innerHTML = originalText;
+    btn.style.opacity = "1";
+    console.error("Submission Error:", error);
+    alert("Connection error. Please try again later.");
+  });
 });
 </script>
 </body>
