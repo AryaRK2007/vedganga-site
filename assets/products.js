@@ -53,11 +53,11 @@ window.V_ART = function (p, i) {
   const imgUrl = urlMap[p.slug] || 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80';
 
   return `
-    <div class="w-full h-full absolute inset-0 bg-neutral-900 flex items-center justify-center select-none">
+    <div class="w-full h-full absolute inset-0 bg-neutral-900 overflow-hidden rounded-3xl select-none">
       <img 
         src="${imgUrl}" 
         alt="${p.name}" 
-        class="w-full h-full object-cover opacity-60 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-85 transition-all duration-700 group-hover:scale-105"
+        class="w-full h-full object-cover opacity-85 scale-100 transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-100"
       />
     </div>`;
 };
