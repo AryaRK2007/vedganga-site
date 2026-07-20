@@ -112,7 +112,6 @@ window.V_CAKE_ART = function (v, isConcentrate) {
         src="${imgPath}" 
         alt="${v.name}" 
         class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-        onerror="this.style.display='none';" 
       />
     </div>`;
 };
@@ -124,8 +123,10 @@ window.V_RenderCakeFlavours = function (opts) {
   if (!host) return;
   const productLabel = opts.product || 'Cake';
   
-  // Check if current page variant is for Concentrates
-  const isConcentrate = productLabel.toLowerCase().includes('concentrate');
+  // Check the URL parameter directly to reliably determine premix vs concentrate layout selection
+  const urlParams = new URLSearchParams(window.location.search);
+  const currentSlug = urlParams.get('slug') || '';
+  const isConcentrate = currentSlug.toLowerCase().includes('concentrate');
 
   host.innerHTML = window.V_CAKE_FLAVOURS.map((v, i) => {
     const num = String(i + 1).padStart(2, '0');
