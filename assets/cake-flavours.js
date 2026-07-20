@@ -1,14 +1,5 @@
 /* Vedganga — Shared cake flavour catalogue (Premixes & Concentrates).
-   Exposes: window.V_CAKE_FLAVOURS, window.V_CAKE_ICONS, window.V_CAKE_ART */
-
-window.V_CAKE_ICONS = {
-  'vanilla': `<path d="M35 20 C 30 40, 30 65, 50 85 C 70 65, 70 40, 65 20 Z"/><path d="M35 20 L 65 20"/><path d="M42 30 L 58 30 M40 45 L 60 45 M42 60 L 58 60"/><circle cx="50" cy="15" r="3"/>`,
-  'chocolate': `<rect x="22" y="30" width="56" height="42" rx="3"/><path d="M35 30 L 35 72 M50 30 L 50 72 M65 30 L 65 72"/><path d="M22 44 L 78 44 M22 58 L 78 58"/><circle cx="28.5" cy="37" r="1.5"/><circle cx="43.5" cy="51" r="1.5"/><circle cx="58.5" cy="65" r="1.5"/>`,
-  'red-velvet': `<path d="M25 40 C 25 25, 40 15, 50 25 C 60 15, 75 25, 75 40 C 75 60, 50 82, 50 82 C 50 82, 25 60, 25 40 Z"/><path d="M40 40 C 42 45, 48 45, 50 40 M50 40 C 52 45, 58 45, 60 40"/>`,
-  'mava': `<path d="M28 42 C 28 32, 72 32, 72 42 L 72 74 C 72 82, 28 82, 28 74 Z"/><ellipse cx="50" cy="42" rx="22" ry="7"/><path d="M35 55 L 65 55 M35 65 L 65 65"/><path d="M50 20 C 45 25, 45 30, 50 33 C 55 30, 55 25, 50 20 Z"/>`,
-  'brownie': `<rect x="20" y="35" width="60" height="45" rx="2"/><path d="M20 55 L 80 55"/><path d="M40 35 L 40 80 M60 35 L 60 80"/><circle cx="30" cy="45" r="1.8"/><circle cx="50" cy="70" r="2"/><circle cx="70" cy="45" r="1.8"/><circle cx="45" cy="45" r="1.4"/><circle cx="65" cy="70" r="1.4"/>`,
-  'lava': `<path d="M50 15 C 32 30, 25 55, 30 78 L 70 78 C 75 55, 68 30, 50 15 Z"/><path d="M40 55 C 42 52, 48 52, 50 55 C 52 52, 58 52, 60 55 C 58 58, 55 58, 52 60 C 55 62, 55 65, 52 66 L 48 66 C 45 65, 45 62, 48 60 C 45 58, 42 58, 40 55 Z"/><path d="M45 40 C 47 38, 53 38, 55 40"/>`,
-};
+   Exposes: window.V_CAKE_FLAVOURS, window.V_CAKE_ART */
 
 window.V_CAKE_FLAVOURS = [
   {
@@ -103,28 +94,26 @@ window.V_CAKE_FLAVOURS = [
   },
 ];
 
-window.V_CAKE_ART = function (v, i) {
-  const [c1, c2, c3] = v.palette;
-  const id = 'gc' + i + Math.random().toString(36).slice(2, 6);
+/* Reusable picture-frame generator: Displays webp visuals styled consistently inside the grid */
+window.V_CAKE_ART = function (v, isConcentrate) {
+  // Map specific slug overrides where file naming varies slightly (e.g., choco vs chocolate, brown vs brownie)
+  let imgPrefix = v.slug;
+  if (v.slug === 'chocolate') imgPrefix = 'choco';
+  if (v.slug === 'brownie') imgPrefix = 'brown';
+  
+  // Decide image suffix '1' for Premix, '2' for Concentrate
+  const suffix = isConcentrate ? '2' : '1';
+  const imgPath = `assets/img/${imgPrefix}${suffix}.webp`;
+
   return `
-    <svg class="w-full h-full absolute inset-0" viewBox="0 0 100 125" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs>
-        <linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/>
-        </linearGradient>
-        <radialGradient id="${id}b" cx="0.5" cy="0.34" r="0.72">
-          <stop offset="0" stop-color="${c3}" stop-opacity="0.55"/>
-          <stop offset="1" stop-color="${c3}" stop-opacity="0"/>
-        </radialGradient>
-        <filter id="${id}n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.35 0"/></filter>
-      </defs>
-      <rect width="100" height="125" fill="url(#${id})"/>
-      <rect width="100" height="125" fill="url(#${id}b)"/>
-      <g transform="translate(0,14)" opacity="0.94">
-        <g stroke="${c3}" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">${window.V_CAKE_ICONS[v.slug] || ''}</g>
-      </g>
-      <rect width="100" height="125" filter="url(#${id}n)" opacity="0.32"/>
-    </svg>`;
+    <div class="w-full h-full absolute inset-0 bg-neutral-100 flex items-center justify-center select-none">
+      <img 
+        src="${imgPath}" 
+        alt="${v.name}" 
+        class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+        onerror="this.style.display='none';" 
+      />
+    </div>`;
 };
 
 /* Reusable renderer: injects the 6 flavour blocks into a given host element.
@@ -133,6 +122,10 @@ window.V_RenderCakeFlavours = function (opts) {
   const host = document.getElementById(opts.hostId);
   if (!host) return;
   const productLabel = opts.product || 'Cake';
+  
+  // Check if current page variant is for Concentrates
+  const isConcentrate = productLabel.toLowerCase().includes('concentrate');
+
   host.innerHTML = window.V_CAKE_FLAVOURS.map((v, i) => {
     const num = String(i + 1).padStart(2, '0');
     const reverse = i % 2 === 1;
@@ -141,9 +134,9 @@ window.V_RenderCakeFlavours = function (opts) {
         <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
           <div class="md:col-span-5 ${reverse ? 'md:order-2' : ''}">
             <div class="relative rounded-[24px] overflow-hidden border border-black/10 aspect-[4/5]" data-reveal>
-              ${window.V_CAKE_ART(v, i)}
+              ${window.V_CAKE_ART(v, isConcentrate)}
               <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)]">${v.formats}</div>
-              <div class="absolute bottom-4 left-4 font-mono-caps text-[10px] text-[color:var(--v-cream)]/85">N° ${num} / 06</div>
+              <div class="absolute bottom-4 left-4 font-mono-caps text-[10px] text-[color:var(--v-cream)]/85 z-10">N° ${num} / 06</div>
             </div>
           </div>
           <div class="md:col-span-7 ${reverse ? 'md:order-1' : ''}">
