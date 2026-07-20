@@ -36,7 +36,7 @@ window.V_ART = function (p, i) {
   // Map product slugs directly to premium, professional B2B food industry photography URLs
   const urlMap = {
     'raisins': 'https://plus.unsplash.com/premium_photo-1669205434519-a042ba09fbdd?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'cake-premixes': 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?q=80&w=1650&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'cake-premixes': 'https://images.unsplash.com/photo-1602351447937-745cb720612f?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'',
     'cake-concentrates': 'https://images.unsplash.com/photo-1602351447937-745cb720612f?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'tea-time-bar-cakes': 'https://images.unsplash.com/photo-1625497248300-475c9557dd3a?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'muffin-premixes': 'https://images.unsplash.com/photo-1623246123320-0d6636755796?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
