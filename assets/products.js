@@ -31,26 +31,33 @@ window.V_ICONS = {
   'fibers':`<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M50 15 C 30 30, 30 55, 50 88"/><path d="M50 15 C 70 30, 70 55, 50 88"/><path d="M50 15 L 50 88"/><path d="M25 40 C 40 45, 60 45, 75 40"/><path d="M20 60 C 40 65, 60 65, 80 60"/></g>`,
 };
 
-window.V_ART = function (p, i, aspect) {
-  aspect = aspect || '4/5';
-  const [c1, c2, c3] = p.palette;
-  const id = 'g' + Math.random().toString(36).slice(2, 8);
-  const vbH = 125;
+/* Reusable portfolio visual generator for the homepage grid using high-quality professional URLs */
+window.V_ART = function (p, i) {
+  // Map product slugs directly to premium, professional B2B food industry photography URLs
+  const urlMap = {
+    'raisins': 'https://images.unsplash.com/photo-1700465867132-bd61db9a5f5d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHJhaXNpbnMlMjBhbmQlMjBncmFwZSUyMHdpbmV8ZW58MHx8MHx8fDA%3D',
+    'cake-premixes': 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?q=80&w=1650&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'cake-concentrates': 'https://images.unsplash.com/photo-1602351447937-745cb720612f?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'tea-time-bar-cakes': 'https://images.unsplash.com/photo-1625497248300-475c9557dd3a?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'muffin-premixes': 'https://images.unsplash.com/photo-1623246123320-0d6636755796?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'emulsifiers': 'https://images.unsplash.com/photo-1534432182912-63863115e106?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'wheat-gluten': 'https://images.unsplash.com/photo-1561978248-bffcdd0457ad?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'bread-improvers': 'https://images.unsplash.com/photo-1695150455847-a34429ebfaca?q=80&w=995&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'starch': 'https://images.unsplash.com/photo-1627485937980-221c88ac04f9?q=80&w=2083&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'preservatives': 'https://globchem.in/cdn/shop/files/choco-chips-tea-time-400x400_1000x1000.jpg?v=1654152890',
+    'proteins': 'https://images.unsplash.com/photo-1693996045300-521e9d08cabc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'fibers': 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80'
+  };
+
+  // Fallback to a clean industrial bakery photo if a slug is missing from the list above
+  const imgUrl = urlMap[p.slug] || 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80';
+
   return `
-    <svg class="w-full h-full absolute inset-0" viewBox="0 0 100 ${vbH}" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs>
-        <linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/>
-        </linearGradient>
-        <radialGradient id="${id}b" cx="0.5" cy="0.32" r="0.7">
-          <stop offset="0" stop-color="${c3}" stop-opacity="0.55"/>
-          <stop offset="1" stop-color="${c3}" stop-opacity="0"/>
-        </radialGradient>
-        <filter id="${id}n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.35 0"/></filter>
-      </defs>
-      <rect width="100" height="${vbH}" fill="url(#${id})"/>
-      <rect width="100" height="${vbH}" fill="url(#${id}b)"/>
-      <g transform="translate(0, 14)" opacity="0.92" color="${c3}">${window.V_ICONS[p.slug] || ''}</g>
-      <rect width="100" height="${vbH}" filter="url(#${id}n)" opacity="0.32"/>
-    </svg>`;
+    <div class="w-full h-full absolute inset-0 bg-neutral-900 flex items-center justify-center select-none">
+      <img 
+        src="${imgUrl}" 
+        alt="${p.name}" 
+        class="w-full h-full object-cover opacity-60 mix-blend-luminosity group-hover:mix-blend-normal group-hover:opacity-85 transition-all duration-700 group-hover:scale-105"
+      />
+    </div>`;
 };
