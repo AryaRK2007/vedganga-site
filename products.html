@@ -179,8 +179,17 @@ document.getElementById('quote-modal').addEventListener('click', function(e) {
 
   function render() {
     const q = search.value.trim().toLowerCase();
-    const list = V_PRODUCTS.filter(p => (activeCat === 'All' || p.cat === activeCat) &&
-      (!q || (p.name + ' ' + p.tag + ' ' + p.cat).toLowerCase().includes(q)));
+    const list = V_PRODUCTS.filter(p => {
+      // Safely combine properties using fallback strings to prevent 'undefined' errors
+      const combinedData = (
+        (p.name || '').toLowerCase() + ' ' + 
+        (p.tag || '').toLowerCase() + ' ' + 
+        (p.cat || '').toLowerCase()
+      );
+      
+      return (activeCat === 'All' || p.cat === activeCat) &&
+             (!q || combinedData.includes(q));
+    });
       
     empty.classList.toggle('hidden', list.length !== 0);
     
@@ -192,12 +201,12 @@ document.getElementById('quote-modal').addEventListener('click', function(e) {
       <a href="product-template.html?slug=${p.slug}" class="spotlight rounded-3xl block group relative overflow-hidden" data-reveal data-testid="product-card-${p.slug}">
         <span class="spot"></span>
         <div class="relative aspect-[4/5] overflow-hidden rounded-3xl">
-          <img src="${cleanImg}" alt="${p.name}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+          <img src="${cleanImg}" alt="${p.name || 'Product'}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
           <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/80 via-[color:var(--v-ink)]/20 to-transparent"></div>
-          <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)] font-mono text-[10px]">${p.cat}</div>
+          <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)] font-mono text-[10px]">${p.cat || 'General'}</div>
           <div class="absolute inset-x-0 bottom-0 p-5 text-[color:var(--v-cream)] z-10">
-            <div class="font-display text-2xl leading-tight">${p.name}</div>
-            <div class="mt-1 text-xs text-[color:var(--v-cream)]/80 font-sans">${p.tag}</div>
+            <div class="font-display text-2xl leading-tight">${p.name || 'Unnamed Product'}</div>
+            <div class="mt-1 text-xs text-[color:var(--v-cream)]/80 font-sans">${p.tag || ''}</div>
             <div class="mt-4 flex items-center gap-2 text-[color:var(--v-gold)] text-sm font-mono-caps"><span class="link-under">View details</span><span>→</span></div>
           </div>
         </div>
