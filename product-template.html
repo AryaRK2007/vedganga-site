@@ -61,7 +61,7 @@
 
     <div class="md:col-span-5 order-1 md:order-2">
       <div id="v-hero-art" class="relative rounded-[28px] overflow-hidden border border-black/10 aspect-[4/5]">
-        <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)]" id="v-badge">Spec Sheet</div>
+        <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)] z-10" id="v-badge">Spec Sheet</div>
       </div>
       <div class="mt-6 p-6 rounded-3xl bg-[color:var(--v-forest)] text-[color:var(--v-cream)] grain">
         <div class="font-mono-caps text-[10px] text-[color:var(--v-gold)]">— Sample policy</div>
@@ -240,7 +240,7 @@ document.getElementById('quote-modal').addEventListener('click', function(e) {
       packing:['1 kg pouch','10 kg bag','25 kg industrial bag'], apps:['Caf&eacute;s & QSR','Frozen bake-off','Industrial muffin lines'] },
     'emulsifiers':{ name:'Emulsifiers', cat:'Functional', tag:'GMS · SSL · DATEM · Lecithin', img:'https://images.unsplash.com/photo-1532634922-8fe0b757fb13?auto=format&fit=crop&w=1400&q=80',
       desc:'A full range of food-grade emulsifiers for bakery, dairy and confectionery — including distilled monoglycerides, SSL, DATEM and sunflower lecithin. Kosher & Halal certified on request.',
-      specs:[['HLB Range','3–13'],['Form','Powder · Bead · Liquid'],['Purity','&ge; 90% actives'],['Shelf Life','24 months'],['Certifications','FSSAI · Kosher · Halal'],['Origin','Indian / imported']],
+      specs:[['HLB Range','3–13'],['Form','Power · Bead · Liquid'],['Purity','&ge; 90% actives'],['Shelf Life','24 months'],['Certifications','FSSAI · Kosher · Halal'],['Origin','Indian / imported']],
       packing:['20 kg carton','25 kg bag','200 kg drum (liquid)'], apps:['Cake premixes','Bread improvers','Ice-cream & dairy'] },
     'wheat-gluten':{ name:'Wheat Gluten', cat:'Proteins', tag:'Vital · 75%+ protein', img:'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=1400&q=80',
       desc:'Vital wheat gluten from carefully selected mills — 75%+ protein (Nx5.7), high vitality and consistent water absorption. Ideal for high-fibre and multigrain breads.',
@@ -279,9 +279,11 @@ document.getElementById('quote-modal').addEventListener('click', function(e) {
   document.getElementById('v-tag').textContent = p.tag;
   document.getElementById('v-desc').textContent = p.desc;
   
-  // Hero art panel (SVG)
+  // Hero art panel updated from SVG to clean dynamic image layout
   const heroArt = document.getElementById('v-hero-art');
-  if (meta) heroArt.insertAdjacentHTML('afterbegin', window.V_ART(meta, 0));
+  if (p.img) {
+    heroArt.insertAdjacentHTML('afterbegin', `<img src="${p.img}" alt="${p.name}" class="absolute inset-0 w-full h-full object-cover" loading="eager">`);
+  }
   
   document.getElementById('v-specs').innerHTML = p.specs.map((row, i) => `
     <tr class="border-b border-black/10 ${i%2?'bg-[color:var(--v-cream-2)]':''}">
@@ -302,21 +304,32 @@ document.getElementById('quote-modal').addEventListener('click', function(e) {
   // Show the 6 flavour portfolio only for Cake Premixes / Cake Concentrates
   if (slug === 'cake-premixes' || slug === 'cake-concentrates') {
     document.getElementById('v-flavours-wrap').classList.remove('hidden');
-    window.V_RenderCakeFlavours({ hostId: 'v-flavours', product: p.name });
+    
+    // Choose which format image key suffix to use based on global category layout rules
+    const imageSuffix = (slug === 'cake-premixes') ? '1' : '2';
+    window.V_RenderCakeFlavours({ hostId: 'v-flavours', product: p.name, formatSuffix: imageSuffix });
   }
 
   const related = (window.V_PRODUCTS || []).filter(x => x.slug !== slug).slice(0, 4);
-  document.getElementById('v-related').innerHTML = related.map((r, i) => `
-    <a href="product-template.html?slug=${r.slug}" class="spotlight rounded-2xl block" data-testid="related-${r.slug}">
+  document.getElementById('v-related').innerHTML = related.map((r, i) => {
+    // Graceful fallback system for image mapping inside related collection cards
+    let cardImg = r.img || 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80';
+    if (CATALOG[r.slug] && CATALOG[r.slug].img) {
+      cardImg = CATALOG[r.slug].img;
+    }
+    
+    return `
+    <a href="product-template.html?slug=${r.slug}" class="spotlight rounded-2xl block relative overflow-hidden group" data-testid="related-${r.slug}">
       <span class="spot"></span>
       <div class="relative aspect-square overflow-hidden rounded-2xl">
-        ${window.V_ART(r, i+100)}
+        <img src="${cardImg}" alt="${r.name}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/70 via-transparent to-transparent"></div>
-        <div class="absolute inset-x-0 bottom-0 p-4 text-[color:var(--v-cream)]">
+        <div class="absolute inset-x-0 bottom-0 p-4 text-[color:var(--v-cream)] z-10">
           <div class="font-display text-lg leading-tight">${r.name}</div>
         </div>
       </div>
-    </a>`).join('');
+    </a>`;
+  }).join('');
 })();
 
 // ================= AJAX FORM SUBMISSION LOGIC =================
