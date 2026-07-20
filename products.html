@@ -162,136 +162,116 @@ document.getElementById('quote-modal').addEventListener('click', function(e) {
 
 <script>
 (function(){
-  // Check if V_PRODUCTS exists, otherwise populate fallback sample data
-  const V_PRODUCTS = window.V_PRODUCTS || [
-    { slug: "vanilla-cake-premix", name: "Premium Vanilla Premix", cat: "Bakery", tag: "Eggless, Industrial Grade", img: "" },
-    { slug: "sodium-benzoate", name: "Sodium Benzoate", cat: "Preservatives", tag: "Food Grade Purity", img: "" }
-  ];
-  
-  const CATS = ['All', ...Array.from(new Set(V_PRODUCTS.map(p => p.cat)))];
-  const grid = document.getElementById('v-grid');
-  const filters = document.getElementById('v-filters');
-  const empty = document.getElementById('v-empty');
-  const search = document.getElementById('v-search');
-  let activeCat = 'All';
+  // Safety check: Wait until V_PRODUCTS is available from assets/products.js
+  function init() {
+    if (typeof window.V_PRODUCTS === 'undefined') {
+      setTimeout(init, 50); // Check again every 50ms until data is loaded
+      return;
+    }
 
-  filters.innerHTML = CATS.map(c => `<button data-cat="${c}" class="chip cursor-pointer text-xs font-mono px-4 py-2 border rounded-full transition duration-150" data-testid="filter-${c.toLowerCase()}">${c}</button>`).join('');
+    const V_PRODUCTS = window.V_PRODUCTS;
+    const CATS = ['All', ...Array.from(new Set(V_PRODUCTS.map(p => p.cat)))];
+    const grid = document.getElementById('v-grid');
+    const filters = document.getElementById('v-filters');
+    const empty = document.getElementById('v-empty');
+    const search = document.getElementById('v-search');
+    let activeCat = 'All';
 
-  function render() {
-    const q = search.value.trim().toLowerCase();
-    const list = V_PRODUCTS.filter(p => {
-      // Safely combine properties using fallback strings to prevent 'undefined' errors
-      const combinedData = (
-        (p.name || '').toLowerCase() + ' ' + 
-        (p.tag || '').toLowerCase() + ' ' + 
-        (p.cat || '').toLowerCase()
-      );
+    filters.innerHTML = CATS.map(c => `<button data-cat="${c}" class="chip cursor-pointer text-xs font-mono px-4 py-2 border rounded-full transition duration-150" data-testid="filter-${c.toLowerCase()}">${c}</button>`).join('');
+
+    function render() {
+      const q = search.value.trim().toLowerCase();
+      const list = V_PRODUCTS.filter(p => {
+        const combinedData = ((p.name || '') + ' ' + (p.tag || '') + ' ' + (p.cat || '')).toLowerCase();
+        return (activeCat === 'All' || p.cat === activeCat) && (!q || combinedData.includes(q));
+      });
       
-      return (activeCat === 'All' || p.cat === activeCat) &&
-             (!q || combinedData.includes(q));
-    });
+      empty.classList.toggle('hidden', list.length !== 0);
       
-    empty.classList.toggle('hidden', list.length !== 0);
-    
-    grid.innerHTML = list.map((p, i) => {
-      const fallBackImage = 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80';
-      const cleanImg = p.img || fallBackImage;
-      
-      return `
-      <a href="product-template.html?slug=${p.slug}" class="spotlight rounded-3xl block group relative overflow-hidden" data-reveal data-testid="product-card-${p.slug}">
-        <span class="spot"></span>
-        <div class="relative aspect-[4/5] overflow-hidden rounded-3xl">
-          <img src="${cleanImg}" alt="${p.name || 'Product'}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
-          <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/80 via-[color:var(--v-ink)]/20 to-transparent"></div>
-          <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)] font-mono text-[10px]">${p.cat || 'General'}</div>
-          <div class="absolute inset-x-0 bottom-0 p-5 text-[color:var(--v-cream)] z-10">
-            <div class="font-display text-2xl leading-tight">${p.name || 'Unnamed Product'}</div>
-            <div class="mt-1 text-xs text-[color:var(--v-cream)]/80 font-sans">${p.tag || ''}</div>
-            <div class="mt-4 flex items-center gap-2 text-[color:var(--v-gold)] text-sm font-mono-caps"><span class="link-under">View details</span><span>→</span></div>
+      grid.innerHTML = list.map(p => {
+        const fallBackImage = 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80';
+        const cleanImg = p.img || fallBackImage;
+        return `
+        <a href="product-template.html?slug=${p.slug}" class="spotlight rounded-3xl block group relative overflow-hidden" data-reveal data-testid="product-card-${p.slug}">
+          <span class="spot"></span>
+          <div class="relative aspect-[4/5] overflow-hidden rounded-3xl">
+            <img src="${cleanImg}" alt="${p.name || 'Product'}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/80 via-[color:var(--v-ink)]/20 to-transparent"></div>
+            <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)] font-mono text-[10px]">${p.cat || 'General'}</div>
+            <div class="absolute inset-x-0 bottom-0 p-5 text-[color:var(--v-cream)] z-10">
+              <div class="font-display text-2xl leading-tight">${p.name || 'Unnamed Product'}</div>
+              <div class="mt-1 text-xs text-[color:var(--v-cream)]/80 font-sans">${p.tag || ''}</div>
+              <div class="mt-4 flex items-center gap-2 text-[color:var(--v-gold)] text-sm font-mono-caps"><span class="link-under">View details</span><span>→</span></div>
+            </div>
           </div>
-        </div>
-      </a>`;
-    }).join('');
-    
-    if (window.gsap && window.ScrollTrigger) {
-      gsap.utils.toArray('#v-grid [data-reveal]').forEach(el => {
-        gsap.fromTo(el, { y:20, opacity:0 }, { y:0, opacity:1, duration:.7, ease:'expo.out', scrollTrigger:{trigger:el, start:'top 95%', once:true}});
+        </a>`;
+      }).join('');
+      
+      if (window.gsap && window.ScrollTrigger) {
+        gsap.utils.toArray('#v-grid [data-reveal]').forEach(el => {
+          gsap.fromTo(el, { y:20, opacity:0 }, { y:0, opacity:1, duration:.7, ease:'expo.out', scrollTrigger:{trigger:el, start:'top 95%', once:true}});
+        });
+      }
+      
+      filters.querySelectorAll('button').forEach(b => {
+        const on = b.dataset.cat === activeCat;
+        b.style.background = on ? 'var(--v-ink)' : 'var(--v-cream-2)';
+        b.style.color = on ? 'var(--v-cream)' : 'var(--v-forest-2)';
+        b.style.borderColor = on ? 'var(--v-ink)' : 'var(--v-rule)';
       });
     }
     
-    filters.querySelectorAll('button').forEach(b => {
-      const on = b.dataset.cat === activeCat;
-      b.style.background = on ? 'var(--v-ink)' : 'var(--v-cream-2)';
-      b.style.color = on ? 'var(--v-cream)' : 'var(--v-forest-2)';
-      b.style.borderColor = on ? 'var(--v-ink)' : 'var(--v-rule)';
+    filters.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-cat]'); 
+      if (!b) return;
+      activeCat = b.dataset.cat; 
+      render();
     });
-  }
-  
-  filters.addEventListener('click', (e) => {
-    const b = e.target.closest('[data-cat]'); 
-    if (!b) return;
-    activeCat = b.dataset.cat; 
-    render();
-  });
-  
-  search.addEventListener('input', render);
-  render();
-})();
-
-// ================= AJAX FORM SUBMISSION LOGIC =================
-document.getElementById('v-modal-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  const form = this;
-  const btn = form.querySelector('button[type="submit"]');
-  const label = btn.querySelector('.label');
-  const originalText = label ? label.innerText : btn.innerText;
-  
-  btn.disabled = true;
-  if(label) label.innerText = "Sending...";
-  else btn.innerText = "Sending...";
-  btn.style.opacity = "0.7";
-  
-  const formData = new FormData(form);
-  
-  fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => response.json())
-  .then(data => {
-    btn.disabled = false;
-    if(label) label.innerText = originalText;
-    else btn.innerText = originalText;
-    btn.style.opacity = "1";
     
-    if (data.success) {
-      form.reset();
-      window.VedgangaQuote.close();
-      
-      const toast = document.getElementById('success-popup');
-      toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
-      toast.classList.add('translate-y-0', 'opacity-100');
-      
-      setTimeout(() => {
-        toast.style.transform = 'translateY(20px)';
-        toast.style.opacity = '0';
-        toast.style.pointerEvents = 'none';
-      }, 6000);
-      
-    } else {
-      alert("Something went wrong: " + data.message);
-    }
-  })
-  .catch(error => {
-    btn.disabled = false;
-    if(label) label.innerText = originalText;
-    else btn.innerText = originalText;
-    btn.style.opacity = "1";
-    console.error("Submission Error:", error);
-    alert("Connection error. Please try again later.");
+    search.addEventListener('input', render);
+    render();
+  }
+
+  // Start the initialization check
+  init();
+
+  // ================= AJAX FORM SUBMISSION LOGIC =================
+  document.getElementById('v-modal-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = this;
+    const btn = form.querySelector('button[type="submit"]');
+    const label = btn.querySelector('.label');
+    const originalText = label ? label.innerText : btn.innerText;
+    btn.disabled = true;
+    if(label) label.innerText = "Sending...";
+    btn.style.opacity = "0.7";
+    const formData = new FormData(form);
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
+    .then(response => response.json())
+    .then(data => {
+      btn.disabled = false;
+      if(label) label.innerText = originalText;
+      btn.style.opacity = "1";
+      if (data.success) {
+        form.reset();
+        window.VedgangaQuote.close();
+        const toast = document.getElementById('success-popup');
+        toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
+        toast.classList.add('translate-y-0', 'opacity-100');
+        setTimeout(() => {
+          toast.style.transform = 'translateY(20px)';
+          toast.style.opacity = '0';
+          toast.style.pointerEvents = 'none';
+        }, 6000);
+      } else { alert("Something went wrong: " + data.message); }
+    })
+    .catch(error => {
+      btn.disabled = false;
+      btn.style.opacity = "1";
+      alert("Connection error.");
+    });
   });
-});
+})();
 </script>
 </body>
 </html>
