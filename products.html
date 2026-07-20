@@ -75,7 +75,7 @@
     
     <button type="button" onclick="window.VedgangaQuote.close()" class="absolute top-6 right-6 text-black/40 hover:text-black/80 text-2xl font-light transition-colors cursor-pointer" aria-label="Close modal">&times;</button>
 
-    <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]"— Instant RFQ</div>
+    <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]">— Instant RFQ</div>
     <h2 class="font-display text-2xl md:text-3xl mt-1 leading-tight">Request a Quote / Sample</h2>
 
     <form id="v-modal-form" class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
@@ -162,7 +162,12 @@ document.getElementById('quote-modal').addEventListener('click', function(e) {
 
 <script>
 (function(){
-  const V_PRODUCTS = window.V_PRODUCTS || [];
+  // Check if V_PRODUCTS exists, otherwise populate fallback sample data
+  const V_PRODUCTS = window.V_PRODUCTS || [
+    { slug: "vanilla-cake-premix", name: "Premium Vanilla Premix", cat: "Bakery", tag: "Eggless, Industrial Grade", img: "" },
+    { slug: "sodium-benzoate", name: "Sodium Benzoate", cat: "Preservatives", tag: "Food Grade Purity", img: "" }
+  ];
+  
   const CATS = ['All', ...Array.from(new Set(V_PRODUCTS.map(p => p.cat)))];
   const grid = document.getElementById('v-grid');
   const filters = document.getElementById('v-filters');
@@ -180,7 +185,6 @@ document.getElementById('quote-modal').addEventListener('click', function(e) {
     empty.classList.toggle('hidden', list.length !== 0);
     
     grid.innerHTML = list.map((p, i) => {
-      // Direct asset assignment targeting high-definition layout options
       const fallBackImage = 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80';
       const cleanImg = p.img || fallBackImage;
       
@@ -200,7 +204,7 @@ document.getElementById('quote-modal').addEventListener('click', function(e) {
       </a>`;
     }).join('');
     
-    if (window.gsap) {
+    if (window.gsap && window.ScrollTrigger) {
       gsap.utils.toArray('#v-grid [data-reveal]').forEach(el => {
         gsap.fromTo(el, { y:20, opacity:0 }, { y:0, opacity:1, duration:.7, ease:'expo.out', scrollTrigger:{trigger:el, start:'top 95%', once:true}});
       });
