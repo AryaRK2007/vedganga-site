@@ -24,19 +24,21 @@
 
 <!-- Hero -->
 <section class="pb-16 md:pb-24">
-  <div class="max-w-[1400px] mx-auto px-5 md:px-10 grid md:grid-cols-12 gap-10">
-    <div class="md:col-span-7 order-2 md:order-1">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 grid md:grid-cols-12 gap-16 items-start">
+    
+    <!-- Left: Content Column -->
+    <div class="md:col-span-5 order-2 md:order-1">
       <div class="chip" id="v-cat" data-reveal>Category</div>
-      <h1 id="v-name" class="font-display mt-6 leading-[0.95] text-[10vw] md:text-[6.4vw]"></h1>
+      <h1 id="v-name" class="font-display mt-6 leading-[0.95] text-[10vw] md:text-[5vw]"></h1>
       <p id="v-tag" class="mt-4 text-lg font-serif-body italic text-[color:var(--v-forest-2)]" data-reveal></p>
-      <p id="v-desc" class="mt-8 max-w-xl text-[color:var(--v-ink)]/80 leading-relaxed" data-reveal></p>
+      <p id="v-desc" class="mt-8 text-[color:var(--v-ink)]/80 leading-relaxed" data-reveal></p>
 
       <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
         <button id="v-quote-open" class="btn-gold cursor-pointer" data-testid="product-quote-btn">Request a Quote / Sample →</button>
         <a href="products.html" class="btn-outline" data-testid="product-back-btn">← All products</a>
       </div>
 
-      <!-- Specs -->
+      <!-- Specs Table -->
       <div class="mt-16" data-reveal>
         <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]">— Technical Specifications</div>
         <div class="mt-4 overflow-x-auto">
@@ -46,7 +48,7 @@
         </div>
       </div>
 
-      <!-- Packaging / Applications -->
+      <!-- Packing / Apps -->
       <div class="mt-14 grid sm:grid-cols-2 gap-8" data-reveal>
         <div>
           <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]">— Packaging</div>
@@ -59,12 +61,14 @@
       </div>
     </div>
 
-    <div class="md:col-span-5 order-1 md:order-2">
-      <div id="v-hero-art" class="relative rounded-[28px] overflow-hidden border border-black/10 aspect-[4/5]">
-        <!-- High-res image injected here -->
-        <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)] z-10" id="v-badge">Spec Sheet</div>
+    <!-- Right: Expanded Image Column -->
+    <div class="md:col-span-7 order-1 md:order-2 sticky top-32">
+      <div id="v-hero-art" class="relative rounded-[40px] overflow-hidden border border-black/5 aspect-[4/4.5] shadow-2xl">
+        <div class="absolute top-6 left-6 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)] z-10" id="v-badge">Spec Sheet</div>
       </div>
-      <div class="mt-6 p-6 rounded-3xl bg-[color:var(--v-forest)] text-[color:var(--v-cream)] grain">
+      
+      <!-- Sample Policy Box moved under the larger image -->
+      <div class="mt-8 p-8 rounded-3xl bg-[color:var(--v-forest)] text-[color:var(--v-cream)] grain">
         <div class="font-mono-caps text-[10px] text-[color:var(--v-gold)]">— Sample policy</div>
         <p class="mt-2 text-sm text-[color:var(--v-cream)]/85 leading-relaxed">Complimentary samples (up to 500g) despatched within 3 business days on written request. COA included.</p>
       </div>
