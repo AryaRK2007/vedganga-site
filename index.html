@@ -159,26 +159,27 @@
 (function(){
   const grid = document.getElementById('v-grid');
   grid.innerHTML = window.V_PRODUCTS.map((p, i) => `
-    <a href="product-template.html?slug=${p.slug}" data-reveal class="spotlight group rounded-3xl block" data-testid="portfolio-card-${p.slug}">
-      <span class="spot"></span>
-      <div class="relative aspect-[4/5] overflow-hidden rounded-3xl">
-        ${window.V_ART(p, i)}
-        <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/70 via-transparent to-transparent"></div>
-        <div class="absolute top-4 left-4 flex items-center gap-2 text-[color:var(--v-cream)]">
-          <span class="w-9 h-9 grid place-items-center rounded-full bg-[color:var(--v-cream)]/15 backdrop-blur-md border border-white/30 font-mono-caps text-[10px]">${String(i+1).padStart(2,'0')}</span>
-          <span class="font-mono-caps text-[10px] opacity-90">N° ${String(i+1).padStart(2,'0')} / 12</span>
-        </div>
-        <div class="absolute inset-x-0 bottom-0 p-5 text-[color:var(--v-cream)]">
-          <div class="font-display text-2xl leading-tight">${p.name}</div>
-          <div class="mt-1 text-xs text-[color:var(--v-cream)]/85">${p.tag}</div>
-          <div class="mt-4 flex items-center gap-2 text-[color:var(--v-gold)] text-sm">
-            <span class="link-under">View details</span><span>→</span>
+    <a href="product-template.html?slug=${p.slug}" data-reveal class="group relative block aspect-[4/5] overflow-hidden rounded-3xl bg-[color:var(--v-cream-2)] border border-black/5 p-6 flex flex-col justify-between transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+        <span class="spot"></span>
+        <div class="relative aspect-[4/5] overflow-hidden rounded-3xl">
+          ${window.V_ART(p, i)}
+          <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
+          <div class="absolute top-4 left-4 flex items-center gap-2">
+            <span class="w-9 h-9 grid place-items-center rounded-full bg-white/95 text-[color:var(--v-forest-2)] shadow-sm group-hover:scale-110 transition-transform duration-500">${window.V_ICONS[p.slug] || ''}</span>
+            <span class="font-mono-caps text-[10px] opacity-90 text-white tracking-widest bg-[color:var(--v-forest-2)] px-2.5 py-1 rounded-full uppercase">${p.cat}</span>
+          </div>
+          <div class="absolute inset-x-0 bottom-0 p-5 text-[color:var(--v-cream)]">
+            <div class="font-display text-2xl leading-tight">${p.name}</div>
+            <div class="mt-1 text-xs text-[color:var(--v-cream)]/85 font-serif-body italic">${p.tag}</div>
+            <div class="mt-4 flex items-center gap-2 text-[color:var(--v-cream)] text-xs font-mono-caps tracking-wider opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+              <span>Request Spec Sheet</span>
+              <span class="text-base">→</span>
+            </div>
           </div>
         </div>
-      </div>
-    </a>
-  `).join('');
-})();
+      </a>
+    `).join('');
+  });
 </script>
 
 <!-- ================= REQUEST A QUOTE MODAL POPUP ================= -->
