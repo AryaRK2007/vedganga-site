@@ -24,21 +24,19 @@
 
 <!-- Hero -->
 <section class="pb-16 md:pb-24">
-  <div class="max-w-[1400px] mx-auto px-5 md:px-10 grid md:grid-cols-12 gap-16 items-start">
-    
-    <!-- Left: Content Column -->
-    <div class="md:col-span-5 order-2 md:order-1">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 grid md:grid-cols-12 gap-10">
+    <div class="md:col-span-7 order-2 md:order-1">
       <div class="chip" id="v-cat" data-reveal>Category</div>
-      <h1 id="v-name" class="font-display mt-6 leading-[0.95] text-[10vw] md:text-[5vw]"></h1>
+      <h1 id="v-name" class="font-display mt-6 leading-[0.95] text-[10vw] md:text-[6.4vw]"></h1>
       <p id="v-tag" class="mt-4 text-lg font-serif-body italic text-[color:var(--v-forest-2)]" data-reveal></p>
-      <p id="v-desc" class="mt-8 text-[color:var(--v-ink)]/80 leading-relaxed" data-reveal></p>
+      <p id="v-desc" class="mt-8 max-w-xl text-[color:var(--v-ink)]/80 leading-relaxed" data-reveal></p>
 
       <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
-        <button id="v-quote-open" class="btn-gold cursor-pointer" data-testid="product-quote-btn">Request a Quote / Sample →</button>
+        <button id="v-quote-open" class="btn-gold" data-testid="product-quote-btn">Request a Quote / Sample →</button>
         <a href="products.html" class="btn-outline" data-testid="product-back-btn">← All products</a>
       </div>
 
-      <!-- Specs Table -->
+      <!-- Specs -->
       <div class="mt-16" data-reveal>
         <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]">— Technical Specifications</div>
         <div class="mt-4 overflow-x-auto">
@@ -48,7 +46,7 @@
         </div>
       </div>
 
-      <!-- Packing / Apps -->
+      <!-- Packaging / Applications -->
       <div class="mt-14 grid sm:grid-cols-2 gap-8" data-reveal>
         <div>
           <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]">— Packaging</div>
@@ -61,14 +59,11 @@
       </div>
     </div>
 
-    <!-- Right: Expanded Image Column -->
-    <div class="md:col-span-7 order-1 md:order-2 sticky top-32">
-      <div id="v-hero-art" class="relative rounded-[40px] overflow-hidden border border-black/5 aspect-[4/4.5] shadow-2xl">
-        <div class="absolute top-6 left-6 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)] z-10" id="v-badge">Spec Sheet</div>
+    <div class="md:col-span-5 order-1 md:order-2">
+      <div id="v-hero-art" class="relative rounded-[28px] overflow-hidden border border-black/10 aspect-[4/5]">
+        <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)]" id="v-badge">Spec Sheet</div>
       </div>
-      
-      <!-- Sample Policy Box moved under the larger image -->
-      <div class="mt-8 p-8 rounded-3xl bg-[color:var(--v-forest)] text-[color:var(--v-cream)] grain">
+      <div class="mt-6 p-6 rounded-3xl bg-[color:var(--v-forest)] text-[color:var(--v-cream)] grain">
         <div class="font-mono-caps text-[10px] text-[color:var(--v-gold)]">— Sample policy</div>
         <p class="mt-2 text-sm text-[color:var(--v-cream)]/85 leading-relaxed">Complimentary samples (up to 500g) despatched within 3 business days on written request. COA included.</p>
       </div>
@@ -121,98 +116,12 @@
 
 <div id="v-footer"></div>
 
-<!-- ================= REQUEST A QUOTE MODAL POPUP ================= -->
-<div id="quote-modal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
-  <div class="modal-panel bg-[color:var(--v-cream)] max-w-2xl w-full rounded-[28px] p-6 md:p-10 shadow-2xl border border-black/5 transform scale-95 transition-transform duration-300 relative max-h-[90vh] overflow-y-auto text-[color:var(--v-ink)]">
-    
-    <button type="button" onclick="window.VedgangaQuote.close()" class="absolute top-6 right-6 text-black/40 hover:text-black/80 text-2xl font-light transition-colors cursor-pointer" aria-label="Close modal">&times;</button>
-
-    <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]">— Instant RFQ</div>
-    <h2 class="font-display text-2xl md:text-3xl mt-1 leading-tight">Request a Quote / Sample</h2>
-
-    <form id="v-modal-form" class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
-      <input type="hidden" name="access_key" value="05f139b8-2556-4256-96f8-f0305c794bf6">
-      <input type="hidden" name="from_name" value="Product Detail Page Discovery">
-      
-      <div class="sm:col-span-2">
-        <label class="field-label block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Selected Inquiry Target</label>
-        <input readonly type="text" id="modal-product-context" name="requested_product" class="field w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none cursor-not-allowed border-dashed" value="General Inquiry"/>
-      </div>
-      
-      <div>
-        <label class="field-label block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Name *</label>
-        <input required name="name" class="field w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="Your name"/>
-      </div>
-      <div>
-        <label class="field-label block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Email *</label>
-        <input required type="email" name="email" class="field w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="you@company.com"/>
-      </div>
-      <div>
-        <label class="field-label block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Phone</label>
-        <input name="phone" class="field w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="+91 …"/>
-      </div>
-      <div>
-        <label class="field-label block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Company</label>
-        <input name="company" class="field w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="Bakery name / Firm"/>
-      </div>
-      <div class="sm:col-span-2">
-        <label class="field-label block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Message / Est. Volume *</label>
-        <textarea required name="message" class="field w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition resize-none h-24" placeholder="Let us know what products you are looking to source or optimize..."></textarea>
-      </div>
-      
-      <div class="sm:col-span-2 flex items-center justify-between gap-4 mt-2">
-        <div class="text-[11px] text-black/50">Dispatched safely via Web3Forms.</div>
-        <button type="submit" id="submit-btn" class="bg-[#c5a880] hover:bg-[#b5966c] text-white font-mono-caps text-xs font-semibold px-8 py-4 tracking-widest transition duration-200 rounded-xl cursor-pointer">
-          <span class="label">Submit Request</span> →
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!-- ================= SUCCESS ADD-ON NOTIFICATION POPUP ================= -->
-<div id="success-popup" class="fixed bottom-6 right-6 z-[10000] max-w-sm w-full bg-[color:var(--v-forest)] text-[color:var(--v-cream)] rounded-2xl p-5 shadow-2xl border border-white/10 transform translate-y-12 opacity-0 pointer-events-none transition-all duration-500 ease-out flex gap-4 items-start grain">
-  <div class="w-8 h-8 rounded-full bg-[color:var(--v-gold)] text-[color:var(--v-forest)] flex items-center justify-center shrink-0 mt-0.5 font-bold">✓</div>
-  <div class="flex-1">
-    <h4 class="font-display text-lg leading-tight text-[color:var(--v-gold)]">Request Received</h4>
-    <p class="text-xs mt-1 text-[color:var(--v-cream)]/80 leading-relaxed font-sans">Your specifications have been queued. Our formulation team will reach out via email within 24 business hours.</p>
-  </div>
-  <button onclick="document.getElementById('success-popup').style.transform='translateY(20px)'; document.getElementById('success-popup').style.opacity='0'; document.getElementById('success-popup').style.pointerEvents='none';" class="text-[color:var(--v-cream)]/40 hover:text-[color:var(--v-cream)] text-lg font-mono leading-none cursor-pointer">&times;</button>
-</div>
-
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="assets/site.js"></script>
 <script src="assets/products.js"></script>
 <script src="assets/cake-flavours.js"></script>
-
-<script>
-// Define modal operations interface uniformly across viewports
-window.VedgangaQuote = {
-  open: function(contextName) {
-    const modal = document.getElementById('quote-modal');
-    const contextField = document.getElementById('modal-product-context');
-    if (contextField && contextName) {
-      contextField.value = contextName;
-    }
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    modal.firstElementChild.classList.remove('scale-95');
-    modal.firstElementChild.classList.add('scale-100');
-  },
-  close: function() {
-    const modal = document.getElementById('quote-modal');
-    modal.classList.add('opacity-0', 'pointer-events-none');
-    modal.firstElementChild.classList.remove('scale-100');
-    modal.firstElementChild.classList.add('scale-95');
-  }
-};
-
-document.getElementById('quote-modal').addEventListener('click', function(e) {
-  if (e.target === this) window.VedgangaQuote.close();
-});
-</script>
-
 <script>
 (function(){
   const CATALOG = {
@@ -268,123 +177,44 @@ document.getElementById('quote-modal').addEventListener('click', function(e) {
 
   const slug = new URLSearchParams(location.search).get('slug') || 'raisins';
   const p = CATALOG[slug] || CATALOG['raisins'];
-  
-  // Set meta and header texts
+  const meta = (window.V_PRODUCTS || []).find(x => x.slug === slug) || (window.V_PRODUCTS || [])[0];
   document.title = `${p.name} — Vedganga Foods & Chemicals`;
   document.getElementById('v-crumb').textContent = p.name;
   document.getElementById('v-cat').textContent = p.cat;
-  
-  const nameParts = p.name.split(' ');
-  const firstName = nameParts[0];
-  const restName = nameParts.slice(1).join(' ');
-  document.getElementById('v-name').innerHTML = `<span class="mask-line"><span>${firstName}</span></span><span class="mask-line"><span class="italic font-serif-body text-[color:var(--v-forest-2)] font-normal">${restName || ''}</span></span>`;
-  
+  document.getElementById('v-name').innerHTML = `<span class="mask-line"><span>${p.name.split(' ')[0]}</span></span><span class="mask-line"><span class="italic font-serif-body text-[color:var(--v-forest-2)] font-normal">${p.name.split(' ').slice(1).join(' ') || ''}</span></span>`;
   document.getElementById('v-tag').textContent = p.tag;
   document.getElementById('v-desc').textContent = p.desc;
-  
-  // High Definition Hero Art Injection
-  const fallBackImage = 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1400&q=80';
-  const cleanImg = p.img || fallBackImage;
+  // Hero art panel (SVG)
   const heroArt = document.getElementById('v-hero-art');
-  
-  heroArt.insertAdjacentHTML('afterbegin', `<img src="${cleanImg}" alt="${p.name}" class="absolute inset-0 w-full h-full object-cover">`);
-  
-  // Inject Specs & Packging Data
+  if (meta) heroArt.insertAdjacentHTML('afterbegin', window.V_ART(meta, 0));
   document.getElementById('v-specs').innerHTML = p.specs.map((row, i) => `
     <tr class="border-b border-black/10 ${i%2?'bg-[color:var(--v-cream-2)]':''}">
       <td class="py-3 pr-6 font-mono-caps text-[10px] text-[color:var(--v-forest-2)] whitespace-nowrap">${row[0]}</td>
       <td class="py-3 text-[color:var(--v-ink)]">${row[1]}</td>
     </tr>`).join('');
-    
   document.getElementById('v-packing').innerHTML = p.packing.map(i => `<li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[color:var(--v-gold)] mt-2"></span>${i}</li>`).join('');
   document.getElementById('v-apps').innerHTML = p.apps.map(i => `<li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[color:var(--v-gold)] mt-2"></span>${i}</li>`).join('');
-  
-  // Attach Modal Trigger
-  document.getElementById('v-quote-open').addEventListener('click', () => window.VedgangaQuote.open(p.name));
+  document.getElementById('v-quote-open').addEventListener('click', () => VedgangaQuote.open(p.name));
 
   // Show the 6 flavour portfolio only for Cake Premixes / Cake Concentrates
   if (slug === 'cake-premixes' || slug === 'cake-concentrates') {
     document.getElementById('v-flavours-wrap').classList.remove('hidden');
-    if(window.V_RenderCakeFlavours) {
-      window.V_RenderCakeFlavours({ hostId: 'v-flavours', product: p.name });
-    }
+    window.V_RenderCakeFlavours({ hostId: 'v-flavours', product: p.name });
   }
 
-  // Related Products Loop - Fixed Imagery
-  const related = Object.keys(CATALOG).filter(k => k !== slug).slice(0, 4).map(k => ({slug: k, ...CATALOG[k]}));
-  
-  document.getElementById('v-related').innerHTML = related.map((r) => {
-    const relatedImg = r.img || fallBackImage;
-    return `
-    <a href="product-template.html?slug=${r.slug}" class="spotlight rounded-2xl block group relative overflow-hidden" data-testid="related-${r.slug}">
+  const related = (window.V_PRODUCTS || []).filter(x => x.slug !== slug).slice(0, 4);
+  document.getElementById('v-related').innerHTML = related.map((r, i) => `
+    <a href="product-template.html?slug=${r.slug}" class="spotlight rounded-2xl block" data-testid="related-${r.slug}">
       <span class="spot"></span>
       <div class="relative aspect-square overflow-hidden rounded-2xl">
-        <img src="${relatedImg}" alt="${r.name}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
-        <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/70 via-[color:var(--v-ink)]/10 to-transparent"></div>
-        <div class="absolute inset-x-0 bottom-0 p-4 text-[color:var(--v-cream)] z-10">
+        ${window.V_ART(r, i+100)}
+        <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/70 via-transparent to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 p-4 text-[color:var(--v-cream)]">
           <div class="font-display text-lg leading-tight">${r.name}</div>
         </div>
       </div>
-    </a>`
-  }).join('');
+    </a>`).join('');
 })();
-</script>
-
-<script>
-// ================= AJAX FORM SUBMISSION LOGIC =================
-document.getElementById('v-modal-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  const form = this;
-  const btn = form.querySelector('button[type="submit"]');
-  const label = btn.querySelector('.label');
-  const originalText = label ? label.innerText : btn.innerText;
-  
-  btn.disabled = true;
-  if(label) label.innerText = "Sending...";
-  else btn.innerText = "Sending...";
-  btn.style.opacity = "0.7";
-  
-  const formData = new FormData(form);
-  
-  fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => response.json())
-  .then(data => {
-    btn.disabled = false;
-    if(label) label.innerText = originalText;
-    else btn.innerText = originalText;
-    btn.style.opacity = "1";
-    
-    if (data.success) {
-      form.reset();
-      window.VedgangaQuote.close();
-      
-      const toast = document.getElementById('success-popup');
-      toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
-      toast.classList.add('translate-y-0', 'opacity-100');
-      
-      setTimeout(() => {
-        toast.style.transform = 'translateY(20px)';
-        toast.style.opacity = '0';
-        toast.style.pointerEvents = 'none';
-      }, 6000);
-      
-    } else {
-      alert("Something went wrong: " + data.message);
-    }
-  })
-  .catch(error => {
-    btn.disabled = false;
-    if(label) label.innerText = originalText;
-    else btn.innerText = originalText;
-    btn.style.opacity = "1";
-    console.error("Submission Error:", error);
-    alert("Connection error. Please try again later.");
-  });
-});
 </script>
 </body>
 </html>
