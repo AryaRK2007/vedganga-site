@@ -2,18 +2,18 @@
    Exposes: window.V_PRODUCTS, window.V_ICONS, window.V_ART, window.V_CATALOG */
 
 window.V_PRODUCTS = [
-  { slug:'raisins',            name:'Raisins & Dry Grapes',   tag:'Sun-cured · Sortex-clean',            cat:'Dry Fruits',  palette:['#3E2B1F','#7A4A2E','#D9A34A'] },
-  { slug:'cake-premixes',      name:'Cake Premixes',           tag:'Sponge · Chiffon · Muffin',           cat:'Bakery',      palette:['#2C5245','#4A7A66','#C9A662'] },
-  { slug:'cake-concentrates',  name:'Cake Concentrates',       tag:'Flavour · Colour · Aroma',            cat:'Bakery',      palette:['#4B1D24','#8B3543','#E6B27A'] },
-  { slug:'tea-time-bar-cakes', name:'Tea-Time Bar Cakes',      tag:'Shelf-stable · Ready-to-eat',         cat:'Bakery',      palette:['#5A3A20','#8A5A2E','#E6C382'] },
-  { slug:'muffin-premixes',    name:'Muffin Premixes',         tag:'Chocolate · Vanilla · Choco-chip',    cat:'Bakery',      palette:['#3A2415','#6B3E20','#D89B4E'] },
-  { slug:'emulsifiers',        name:'Emulsifiers',             tag:'GMS · SSL · DATEM',                   cat:'Functional',  palette:['#1F3A2E','#3B6B54','#DFC48A'] },
-  { slug:'wheat-gluten',       name:'Wheat Gluten',            tag:'Vital · 75%+ protein',                cat:'Proteins',    palette:['#4A3818','#8A6A2E','#EDCF7A'] },
-  { slug:'bread-improvers',    name:'Bread Improvers',         tag:'Enzyme-based · Clean-label',          cat:'Functional',  palette:['#3D2A18','#7A5230','#E6C081'] },
-  { slug:'starch',             name:'Starch & Derivatives',    tag:'Native · Modified · Maltodextrin',    cat:'Carbs',       palette:['#2B2F1E','#556247','#D8CBA0'] },
-  { slug:'preservatives',      name:'Preservatives',           tag:'Sorbates · Benzoates · Propionates',  cat:'Functional',  palette:['#22323A','#3F5A63','#B9CFC8'] },
-  { slug:'proteins',           name:'Proteins',                tag:'Whey · Soy · Pea isolates',           cat:'Proteins',    palette:['#301E33','#5A3C5C','#D3B3D0'] },
-  { slug:'fibers',             name:'Fibers',                  tag:'Inulin · Oat · Psyllium',             cat:'Functional',  palette:['#2B3A20','#4E6636','#D9CB86'] },
+  { slug:'raisins',            name:'Raisins & Dry Grapes',                   tag:'Sun-cured · Sortex-clean',            cat:'Dry Fruits',  palette:['#3E2B1F','#7A4A2E','#D9A34A'] },
+  { slug:'cake-premixes',      name:'Cake Premixes & Consendrates',           tag:'Flavour · Colour · Aroma',            cat:'Bakery',      palette:['#2C5245','#4A7A66','#C9A662'] },
+  { slug:'cake-concentrates',  name:'Cake Concentrates',                      tag:'Flavour · Colour · Aroma',            cat:'Bakery',      palette:['#4B1D24','#8B3543','#E6B27A'] },
+  { slug:'tea-time-bar-cakes', name:'Tea-Time Bar Cakes',                     tag:'Shelf-stable · Ready-to-eat',         cat:'Bakery',      palette:['#5A3A20','#8A5A2E','#E6C382'] },
+  { slug:'muffin-premixes',    name:'Muffin Premixes',                        tag:'Chocolate · Vanilla · Choco-chip',    cat:'Bakery',      palette:['#3A2415','#6B3E20','#D89B4E'] },
+  { slug:'emulsifiers',        name:'Emulsifiers',                            tag:'GMS · SSL · DATEM',                   cat:'Functional',  palette:['#1F3A2E','#3B6B54','#DFC48A'] },
+  { slug:'wheat-gluten',       name:'Wheat Gluten',                           tag:'Vital · 75%+ protein',                cat:'Proteins',    palette:['#4A3818','#8A6A2E','#EDCF7A'] },
+  { slug:'bread-improvers',    name:'Bread Improvers',                        tag:'Enzyme-based · Clean-label',          cat:'Functional',  palette:['#3D2A18','#7A5230','#E6C081'] },
+  { slug:'starch',             name:'Starch & Derivatives',                   tag:'Native · Modified · Maltodextrin',    cat:'Carbs',       palette:['#2B2F1E','#556247','#D8CBA0'] },
+  { slug:'preservatives',      name:'Preservatives',                          tag:'Sorbates · Benzoates · Propionates',  cat:'Functional',  palette:['#22323A','#3F5A63','#B9CFC8'] },
+  { slug:'proteins',           name:'Proteins',                               tag:'Whey · Soy · Pea isolates',           cat:'Proteins',    palette:['#301E33','#5A3C5C','#D3B3D0'] },
+  { slug:'fibers',             name:'Fibers',                                 tag:'Inulin · Oat · Psyllium',             cat:'Functional',  palette:['#2B3A20','#4E6636','#D9CB86'] },
 ];
 
 window.V_ICONS = {
