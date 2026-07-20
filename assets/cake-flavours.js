@@ -99,6 +99,7 @@ window.V_CAKE_ART = function (v, isConcentrate) {
   // Map specific slug overrides where file naming varies slightly (e.g., choco vs chocolate, brown vs brownie)
   let imgPrefix = v.slug;
   if (v.slug === 'chocolate') imgPrefix = 'choco';
+  if (v.slug === 'red-velvet') imgPrefix = 'red';
   if (v.slug === 'brownie') imgPrefix = 'brown';
   
   // Decide image suffix '1' for Premix, '2' for Concentrate
