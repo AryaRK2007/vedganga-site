@@ -156,12 +156,15 @@
 <script src="assets/site.js"></script>
 <script src="assets/products.js"></script>
 <script>
-(function(){
-  const grid = document.getElementById('v-grid');
-  grid.innerHTML = window.V_PRODUCTS.map((p, i) => `
-    <a href="product-template.html?slug=${p.slug}" data-reveal class="group relative block aspect-[4/5] overflow-hidden rounded-3xl bg-[color:var(--v-cream-2)] border border-black/5 p-6 flex flex-col justify-between transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+  window.onload = function(){
+    const grid = document.getElementById('v-grid');
+    if (!grid || !window.V_PRODUCTS) return;
+    
+    // Fixed: Restored grid.innerHTML and the missing <a> tag structures below
+    grid.innerHTML = window.V_PRODUCTS.map((p, i) => `
+      <a href="product-template.html?slug=${p.slug}" data-reveal class="group relative block aspect-[4/5] overflow-hidden rounded-3xl bg-[color:var(--v-cream-2)] border border-black/5 p-6 flex flex-col justify-between transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
         <span class="spot"></span>
-        <div class="relative aspect-[4/5] overflow-hidden rounded-3xl">
+        <div class="relative w-full h-full overflow-hidden rounded-3xl">
           ${window.V_ART(p, i)}
           <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
           <div class="absolute top-4 left-4 flex items-center gap-2">
@@ -179,7 +182,7 @@
         </div>
       </a>
     `).join('');
-  });
+  };
 </script>
 
 <!-- ================= REQUEST A QUOTE MODAL POPUP ================= -->
