@@ -1,5 +1,5 @@
 /* Vedganga — Shared product variants & editorial layout engines.
-   Exposes: window.V_CAKE_FLAVOURS, window.V_HYDRO_TYPES, window.V_CAKE_ART, window.V_RenderCakeFlavours */
+   Exposes: window.V_CAKE_FLAVOURS, window.V_HYDRO_TYPES, window.V_RAISIN_TYPES, window.V_PRESERVATIVE_TYPES, window.V_CAKE_ART, window.V_RenderCakeFlavours */
 
 window.V_CAKE_FLAVOURS = [
   {
@@ -118,12 +118,12 @@ window.V_HYDRO_TYPES = [
     slug:'sodium-alginate', name:'Sodium Alginate', formats:'Low to High Viscosity',
     tag:'Brown seaweed derivative · Calcium reactive',
     desc:'Reacts instantly with calcium ions to establish cold-set, heat-stable structural layers. Vital for structured decorations, spherification parameters, and clear film barriers.',
-    specs:[['Functional Target','Cold Gelling / Film Formation'],['Viscosity (1% Sol.)','300 – 800 cPs'],['Crosslinking','Direct with $Ca^{2+}$ ions'],['Shelf Life','24 months']]
+    specs:[['Functional Target','Cold Gelling / Film Formation'],['Viscosity (1% Sol.)','300 – 800 cPs'],['Crosslinking','Direct with Ca2+ ions'],['Shelf Life','24 months']]
   },
   {
     slug:'agar-agar', name:'Agar-Agar', formats:'700 to 1200 Gel Strength',
     tag:'Rhodophyta derived · Firm thermo-stable gel',
-    desc:'Derived from red seaweeds, demonstrating a profound structural hysteresis loop ($35^\\circ\\text{C} - 85^\\circ\\text{C}$). Forms highly defined, crisp matrices without requiring additive ions.',
+    desc:'Derived from red seaweeds, demonstrating a profound structural hysteresis loop (35°C - 85°C). Forms highly defined, crisp matrices without requiring additive ions.',
     specs:[['Functional Target','Syneresis Control / Plant Gelation'],['Gel Strength','700 – 1,200 g/cm²'],['Transition Parameters','Sets 35–40°C · Melts 85–95°C'],['Shelf Life','24 months']]
   },
   {
@@ -138,7 +138,6 @@ window.V_HYDRO_TYPES = [
     desc:'High-purity food-grade processing acids used for precise pH adjustment, flavour enhancement, shelf stabilization, and structural dough modification.',
     specs:[['Composition Portfolio','Citric · Malic · Lactic · Fumaric · Acetic'],['Functional Target','pH Regulation / Microbial Control'],['Compliance','FSSAI, JECFA & FCC Standards'],['Shelf Life','24 months']]
   },
-  
   {
     slug:'micronutrients', name:'Micronutrients & Supplements', formats:'Bio-Available Minerals',
     tag:'Ferrous Sulphate · Zinc Oxide · Mineral Chelates',
@@ -148,8 +147,8 @@ window.V_HYDRO_TYPES = [
   {
     slug:'sweeteners', name:'Functional Sweeteners', formats:'Granular & Powdered',
     tag:'Dextrose · Mannitol · Sucralose · Stevia Extract',
-    desc:'High-performance sweetening matrices providing variable bulking properties, humidity tracking, browning control, and high-intensity structural stabilization[.',
-    specs:[['Bulk Sweeteners','Dextrose · Mannitol'],['High Intensity','Sucralose · Stevia Extract'],['Humectant Action','Optimized moisture control]'],['Shelf Life','24 months']]
+    desc:'High-performance sweetening matrices providing variable bulking properties, humidity tracking, browning control, and high-intensity structural stabilization.',
+    specs:[['Bulk Sweeteners','Dextrose · Mannitol'],['High Intensity','Sucralose · Stevia Extract'],['Humectant Action','Optimized moisture control'],['Shelf Life','24 months']]
   }
 ];
 
@@ -197,6 +196,8 @@ window.V_RAISIN_TYPES = [
     desc:'Peeled white melon kernels thoroughly dried and graded for commercial bakery usage. Imparts a mild, pleasant crunch and enriches rich seasonal sweets and specialty breads.',
     specs:[['Purity Standards','99.9% Pure Kernel'],['Damaged Kernels','2% Max'],['Moisture','6% Max'],['Shelf Life','12 months']]
   }
+];
+
 /* Preservatives & Antimicrobial Agents Database */
 window.V_PRESERVATIVE_TYPES = [
   {
@@ -253,13 +254,17 @@ window.V_RenderCakeFlavours = function (opts) {
    const isCardLayout = (isHydrocolloids || isRaisins || isPreservatives);
   
   // 2. Route dataset, labels, and metadata based on active slug
-  const targetDataset = isRaisins ? window.V_RAISIN_TYPES : (isHydrocolloids ? window.V_HYDRO_TYPES : window.V_CAKE_FLAVOURS);
-  const labelPrefix = isRaisins ? 'VARIETY' : (isHydrocolloids ? 'CHEMICAL' : 'FLAVOUR');
-  const productLabel = opts.product || (isRaisins ? 'Dry Fruits & Seeds' : (isHydrocolloids ? 'Specialty Chemicals' : 'Cake'));
+  let targetDataset = window.V_CAKE_FLAVOURS;
+  if (isHydrocolloids) targetDataset = window.V_HYDRO_TYPES;
+  if (isRaisins) targetDataset = window.V_RAISIN_TYPES;
+  if (isPreservatives) targetDataset = window.V_PRESERVATIVE_TYPES;
+
+  const labelPrefix = isRaisins ? 'VARIETY' : (isPreservatives ? 'PRESERVATIVE' : (isHydrocolloids ? 'CHEMICAL' : 'FLAVOUR'));
+  const productLabel = opts.product || (isRaisins ? 'Dry Fruits & Seeds' : (isPreservatives ? 'Preservatives & Acids' : (isHydrocolloids ? 'Specialty Chemicals' : 'Cake')));
   const isConcentrate = currentSlug.toLowerCase().includes('concentrate');
 
   if (isCardLayout) {
-    // Renders as text blocks without pictures for both hydrocolloids and raisins
+    // Renders as text blocks in a 2x2 grid format for card layouts
     host.innerHTML = `
       <div class="grid md:grid-cols-2 gap-8 items-start">
         ${targetDataset.map((v, i) => {
@@ -282,8 +287,8 @@ window.V_RenderCakeFlavours = function (opts) {
                     <tbody>
                       ${v.specs.map((row, r) => `
                         <tr class="border-b border-black/5">
-                          <td class="py-2 pr-4 font-mono-caps text-[9px] text-[color:var(--v-forest-2)] whitespace-nowrap align-top w-[40%]">${row[0]}</td>
-                          <td class="py-2 text-[color:var(--v-ink)]/90">${row[1]}</td>
+                          <td class="py-2 pr-4 font-mono-caps text-[9px] text-[color:var(--v-forest-2)] whitespace-nowrap align-top w-[40%]" data-testid="spec-label-${r}">${row[0]}</td>
+                          <td class="py-2 text-[color:var(--v-ink)]/90" data-testid="spec-val-${r}">${row[1]}</td>
                         </tr>`).join('')}
                     </tbody>
                   </table>
