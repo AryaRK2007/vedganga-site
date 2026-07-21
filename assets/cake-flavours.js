@@ -1,5 +1,5 @@
-/* Vedganga — Shared cake flavour catalogue (Premixes & Concentrates).
-   Exposes: window.V_CAKE_FLAVOURS, window.V_CAKE_ART */
+/* Vedganga — Shared product variants & editorial layout engines.
+   Exposes: window.V_CAKE_FLAVOURS, window.V_HYDRO_TYPES, window.V_CAKE_ART, window.V_RenderCakeFlavours */
 
 window.V_CAKE_FLAVOURS = [
   {
@@ -94,15 +94,103 @@ window.V_CAKE_FLAVOURS = [
   },
 ];
 
-/* Reusable picture-frame generator: Displays webp visuals styled consistently inside the grid */
+/* Hydrocolloid Technical Database */
+window.V_HYDRO_TYPES = [
+  {
+    slug:'xanthan-gum', name:'Xanthan Gum', formats:'80 & 200 Mesh',
+    imgUrl:'https://images.unsplash.com/photo-1547891654-e66ed7edd96c?auto=format&fit=crop&w=800&q=80',
+    tag:'High shear-thinning · Pseudoplasticity · Emulsion stability',
+    desc:'Premium food-grade polysaccharide stabilizer that provides exceptional viscosity control at minimal loading levels. Delivers robust suspension capabilities, excellent freeze-thaw resilience, and stays perfectly stable across highly acidic pH variations and high temperatures.',
+    specs:[
+      ['Functional Target','Thickener / Suspension Agent'],
+      ['Optimal pH Range','3.0 – 11.0'],
+      ['Viscosity (1% Sol.)','1,200 – 1,600 cPs'],
+      ['Hydration','Fast cold-water dispersion'],
+      ['Loss on Drying','≤ 15.0%'],
+      ['Shelf Life','24 months (dry, sealed conditions)'],
+      ['Packaging','1 kg pouch · 25 kg multi-wall paper bag'],
+    ],
+  },
+  {
+    slug:'guar-gum', name:'Guar Gum', formats:'High Viscosity Systems',
+    imgUrl:'https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=800&q=80',
+    tag:'Galactomannan matrix · Cold water soluble · High binding',
+    desc:'Extracted from selected guar seeds, this natural texturizer is highly effective for moisture management and water binding. Extensively used to smooth out texture defects and prevent ice crystal synthesis in ice creams, frozen desserts, and standard bakery doughs.',
+    specs:[
+      ['Functional Target','Water Binding / Yield Maximization'],
+      ['Viscosity (1% Sol.)','3,500 – 5,000 cPs'],
+      ['Particle Size','90% passes through 200 mesh'],
+      ['Syneresis Control','Excellent water retention capability'],
+      ['Protein Interactivity','Synergistic with starch networks'],
+      ['Shelf Life','24 months'],
+      ['Packaging','25 kg industrial moisture-barrier bags'],
+    ],
+  },
+  {
+    slug:'carrageenan', name:'Carrageenan', formats:'Kappa & Iota Grades',
+    imgUrl:'https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&w=800&q=80',
+    tag:'Dairy protein reactive · Thermoreversible gelation',
+    desc:'Sourced from natural red seaweed matrices. The Kappa variant yields firm, brittle thermal-reversible structural networks ideal for milk pudding systems, whereas the Iota variant sets into highly elastic, clear gel configurations that display excellent thixotropic flow recovery properties.',
+    specs:[
+      ['Functional Target','Gelling Agent / Dairy Stabilization'],
+      ['Gel Strength (Kappa)','≥ 1,200 g/cm² (1.5% gel with KCl)'],
+      ['Solubility','Requires thermal activation (≥ 75°C)'],
+      ['Synergy','Strong gel-reinforcement when mixed with locust bean gum'],
+      ['Heavy Metals','Conforms to global food safety standards'],
+      ['Shelf Life','24 months'],
+      ['Packaging','25 kg net drum or craft paper bag'],
+    ],
+  },
+  {
+    slug:'sodium-alginate', name:'Sodium Alginate', formats:'Low to High Viscosity options',
+    imgUrl:'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=800&q=80',
+    tag:'Brown seaweed derivative · Cold cross-linking · Calcium reactive',
+    desc:'Natural polysaccharide hydrocolloid extracted from brown algae. It reacts instantly with calcium ions to establish cold-set, heat-stable structural gel layers. Essential for structured bakery decorations, molecular spherification configurations, fruit-drop simulations, and clear restructuring films.',
+    specs:[
+      ['Functional Target','Cold Gelling / Film Formation'],
+      ['Viscosity (1% Sol.)','300 – 800 cPs (grade dependent)'],
+      ['M/G Ratio','Optimized for varied gel elasticity profiles'],
+      ['Activation Method','Crosslinks directly with $Ca^{2+}$ ions'],
+      ['Purity','Conforms to FCC & FSSAI standards'],
+      ['Shelf Life','24 months'],
+      ['Packaging','1 kg specialty pouch · 25 kg fiber drum'],
+    ],
+  },
+  {
+    slug:'agar-agar', name:'Agar-Agar', formats:'700 to 1200 Gel Strength',
+    imgUrl:'https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80',
+    tag:'Rhodophyta derived · High hysteresis · Firm thermo-stable gel',
+    desc:'Highly functional plant-based gelling agent derived from red seaweeds. Demonstrates a profound structural hysteresis loop ($35^\\circ\\text{C} - 85^\\circ\\text{C}$ transition parameters), forming strongly defined, crisp structural matrices that retain excellent thermal stability without requiring additive ions.',
+    specs:[
+      ['Functional Target','Syneresis Control / Plant Gelation'],
+      ['Gel Strength','700 – 1,200 g/cm² (1.5% solution matrix)'],
+      ['Gelling Point','Sets rapidly between 35°C – 40°C'],
+      ['Melting Point','Liquefies optimally at 85°C – 95°C'],
+      ['Moisture Level','≤ 12.0%'],
+      ['Shelf Life','24 months under cool settings'],
+      ['Packaging','1 kg pouch · 20 kg industrial cartoon box'],
+    ]
+  }
+];
+
+/* Dual-Mode Layout Visual Renderer */
 window.V_CAKE_ART = function (v, isConcentrate) {
-  // Map specific slug overrides where file naming varies slightly (e.g., choco vs chocolate, brown vs brownie)
+  if (v.imgUrl) {
+    return `
+      <div class="w-full h-full absolute inset-0 bg-neutral-100 flex items-center justify-center select-none">
+        <img 
+          src="${v.imgUrl}" 
+          alt="${v.name}" 
+          class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+        />
+      </div>`;
+  }
+  
   let imgPrefix = v.slug;
   if (v.slug === 'chocolate') imgPrefix = 'choco';
   if (v.slug === 'red-velvet') imgPrefix = 'red';
   if (v.slug === 'brownie') imgPrefix = 'brown';
   
-  // Decide image suffix '1' for Premix, '2' for Concentrate
   const suffix = isConcentrate ? '2' : '1';
   const imgPath = `assets/img/${imgPrefix}${suffix}.webp`;
 
@@ -116,33 +204,36 @@ window.V_CAKE_ART = function (v, isConcentrate) {
     </div>`;
 };
 
-/* Reusable renderer: injects the 6 flavour blocks into a given host element.
-   options: { hostId, product } — product is used to prefill the quote modal */
+/* Unified Injection Engine: Alternates rows dynamically depending on active slug query parameter */
 window.V_RenderCakeFlavours = function (opts) {
   const host = document.getElementById(opts.hostId);
   if (!host) return;
-  const productLabel = opts.product || 'Cake';
   
-  // Check the URL parameter directly to reliably determine premix vs concentrate layout selection
   const urlParams = new URLSearchParams(window.location.search);
   const currentSlug = urlParams.get('slug') || '';
+  
+  const targetDataset = (currentSlug === 'hydrocolloids') ? window.V_HYDRO_TYPES : window.V_CAKE_FLAVOURS;
+  const labelPrefix = (currentSlug === 'hydrocolloids') ? 'STABILIZER' : 'FLAVOUR';
+  const productLabel = opts.product || ((currentSlug === 'hydrocolloids') ? 'Hydrocolloids' : 'Cake');
   const isConcentrate = currentSlug.toLowerCase().includes('concentrate');
 
-  host.innerHTML = window.V_CAKE_FLAVOURS.map((v, i) => {
+  host.innerHTML = targetDataset.map((v, i) => {
     const num = String(i + 1).padStart(2, '0');
+    const totalCount = String(targetDataset.length).padStart(2, '0');
     const reverse = i % 2 === 1;
+    
     return `
-      <article id="flavour-${v.slug}" class="py-14 md:py-20 ${i !== 0 ? 'border-t border-black/10' : ''}" data-testid="flavour-${v.slug}">
+      <article id="item-${v.slug}" class="py-14 md:py-20 ${i !== 0 ? 'border-t border-black/10' : ''}">
         <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
           <div class="md:col-span-5 ${reverse ? 'md:order-2' : ''}">
             <div class="relative rounded-[24px] overflow-hidden border border-black/10 aspect-[4/5]" data-reveal>
               ${window.V_CAKE_ART(v, isConcentrate)}
               <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)]">${v.formats}</div>
-              <div class="absolute bottom-4 left-4 font-mono-caps text-[10px] text-[color:var(--v-cream)]/85 z-10">N° ${num} / 06</div>
+              <div class="absolute bottom-4 left-4 font-mono-caps text-[10px] text-[color:var(--v-cream)]/85 z-10">N° ${num} / ${totalCount}</div>
             </div>
           </div>
           <div class="md:col-span-7 ${reverse ? 'md:order-1' : ''}">
-            <div class="chapter-num text-xs" data-reveal>FLAVOUR ${num}</div>
+            <div class="chapter-num text-xs" data-reveal>${labelPrefix} ${num}</div>
             <h3 class="font-display text-3xl md:text-5xl mt-3 leading-[1.02]" data-reveal>
               ${v.name.split(' ')[0]}
               ${v.name.split(' ').slice(1).length ? `<span class="italic font-serif-body font-normal text-[color:var(--v-forest-2)]"> ${v.name.split(' ').slice(1).join(' ')}</span>` : ''}
@@ -164,7 +255,7 @@ window.V_RenderCakeFlavours = function (opts) {
               </div>
             </div>
             <div class="mt-8">
-              <button data-quote-product="${v.name} — ${productLabel}" class="btn-gold" data-testid="flavour-quote-${v.slug}">
+              <button data-quote-product="${v.name} — ${productLabel}" class="btn-gold">
                 Request Sample / Quote →
               </button>
             </div>
@@ -173,7 +264,6 @@ window.V_RenderCakeFlavours = function (opts) {
       </article>`;
   }).join('');
 
-  // Re-fire scroll reveal for freshly injected elements
   if (window.gsap && window.ScrollTrigger) {
     window.gsap.utils.toArray('#' + opts.hostId + ' [data-reveal]').forEach((el) => {
       window.gsap.fromTo(el, { y: 40, opacity: 0 }, {
