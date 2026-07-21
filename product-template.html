@@ -237,7 +237,7 @@
       <a href="#item-carrageenan" class="chip link-under">03 · Carrageenan</a>
       <a href="#item-sodium-alginate" class="chip link-under">04 · Sodium Alginate</a>
       <a href="#item-agar-agar" class="chip link-under">05 · Agar-Agar</a>`;
-  else if (slug === 'raisins') {
+  if (slug === 'raisins') {
     document.getElementById('v-portfolio-wrap').classList.remove('hidden');
     document.getElementById('v-portfolio-label').textContent = '— Component Varieties';
     document.getElementById('v-portfolio-title').innerHTML = `Select seed & nut<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">varieties.</span>`;
@@ -252,10 +252,9 @@
       <a href="#item-flax" class="chip link-under">05 · Flax Seeds</a>
       <a href="#item-til" class="chip link-under">06 · Til Seeds (Balck/White)</a>
       <a href="#item-melon" class="chip link-under">07 · Melon Seeds</a>`;
-
-    if (typeof window.V_RenderCakeFlavours === 'function') {
-      window.V_RenderCakeFlavours({ hostId: 'v-portfolio-target', product: p.name });
     }
+  if (typeof window.V_RenderCakeFlavours === 'function') {
+      window.V_RenderCakeFlavours({ hostId: 'v-portfolio-target', product: p.name });
   }
 
   // Related products grid injection
