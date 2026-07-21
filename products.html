@@ -28,7 +28,7 @@
       </div>
       <div class="md:col-span-4 space-y-4" data-reveal>
         <p class="text-[color:var(--v-ink)]/75 max-w-md">Filter across our comprehensive bakery systems and industrial hydrocolloid nodes—every component includes full structural spec records and target sampling pipelines.</p>
-        <button onclick="typeof VedgangaQuote !== 'undefined' && VedgangaQuote.open()" class="btn-outline cursor-pointer" data-testid="products-quote-btn">Request a Quote →</button>
+        <button onclick="handleRequest('General Catalog Quote Requested')" class="btn-outline cursor-pointer" data-testid="products-quote-btn">Request a Quote →</button>
       </div>
     </div>
   </div>
@@ -62,7 +62,7 @@
       <div class="font-mono-caps text-xs text-[color:var(--v-gold)]">— Custom Formulation Matrices</div>
       <h3 class="font-display text-4xl md:text-5xl mt-3 max-w-2xl leading-[1.05]">Targeting specific parameters? <span class="italic font-serif-body">We blend to spec.</span></h3>
       <p class="mt-5 text-[color:var(--v-cream)]/75 max-w-xl">Provide your matrix requirements—shear parameters, structural elasticity, hydration speeds, or cost thresholds—and our engineering team will build the matching compound.</p>
-      <button onclick="typeof VedgangaQuote !== 'undefined' && VedgangaQuote.open()" class="btn-gold mt-8 cursor-pointer" data-testid="products-cta-quote">Start a Brief →</button>
+      <button onclick="handleRequest('Custom Formulation Brief Started')" class="btn-gold mt-8 cursor-pointer" data-testid="products-cta-quote">Start a Brief →</button>
     </div>
   </div>
 </section>
@@ -76,6 +76,32 @@
 <script src="assets/products.js"></script>
 
 <script>
+// Global bridge function to inject Web3Forms context dynamically before opening modular quote architecture
+window.handleRequest = function(subjectText) {
+  if (typeof VedgangaQuote !== 'undefined') {
+    // Looks for Web3Forms dynamic inputs inside the global operational modal component
+    const modalEl = document.getElementById('v-quote-modal') || document.body;
+    let subjectInput = modalEl.querySelector('input[name="subject"]');
+    
+    // Injects dynamic fallback if the shared module requires updating inline
+    if (!subjectInput) {
+      subjectInput = document.createElement('input');
+      subjectInput.type = 'hidden';
+      subjectInput.name = 'subject';
+      const underlyingForm = modalEl.querySelector('form');
+      if (underlyingForm) underlyingForm.appendChild(subjectInput);
+    }
+    
+    if (subjectInput) {
+      subjectInput.value = subjectText;
+    }
+    
+    VedgangaQuote.open();
+  } else {
+    console.warn("VedgangaQuote component structural engine not loaded yet.");
+  }
+};
+
 (function(){
   function init() {
     // 1. Structural runtime safety check for global data array
