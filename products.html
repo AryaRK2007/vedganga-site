@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <title>Products — Vedganga Foods &amp; Chemicals</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="description" content="Vedganga product portfolio — 12 categories of premium ingredients for bakeries, food manufacturers and confectioners." />
+<meta name="description" content="Vedganga product portfolio — Premium ingredient matrices for bakery architectures, stabilization systems, and structural enhancements." />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
@@ -19,7 +19,7 @@
   <div class="max-w-[1400px] mx-auto px-5 md:px-10">
     <div class="grid md:grid-cols-12 gap-8 items-end">
       <div class="md:col-span-8">
-        <div class="chip" data-reveal>Portfolio · 12 Categories</div>
+        <div class="chip" data-reveal>Portfolio Matrix · Advanced Systems</div>
         <h1 class="font-display mt-6 leading-[0.94] text-[13vw] md:text-[8vw] lg:text-[7vw]">
           <span class="mask-line"><span>The</span></span>
           <span class="mask-line"><span class="italic font-serif-body text-[color:var(--v-forest-2)]">ingredients</span></span>
@@ -27,7 +27,7 @@
         </h1>
       </div>
       <div class="md:col-span-4 space-y-4" data-reveal>
-        <p class="text-[color:var(--v-ink)]/75 max-w-md">Search or filter through our twelve carefully curated lines — every SKU comes with a spec sheet and a sample-on-request policy.</p>
+        <p class="text-[color:var(--v-ink)]/75 max-w-md">Filter across our comprehensive bakery systems and industrial hydrocolloid nodes—every component includes full structural spec records and target sampling pipelines.</p>
         <button onclick="typeof VedgangaQuote !== 'undefined' && VedgangaQuote.open()" class="btn-outline cursor-pointer" data-testid="products-quote-btn">Request a Quote →</button>
       </div>
     </div>
@@ -40,7 +40,7 @@
     <div class="flex flex-col md:flex-row gap-4 items-stretch md:items-center border-y border-black/10 py-5">
       <div class="relative flex-1">
         <svg class="absolute left-0 top-1/2 -translate-y-1/2 opacity-50" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.4"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-        <input id="v-search" placeholder="Search ingredients, categories, tags…" class="w-full pl-8 py-2 bg-transparent border-0 focus:outline-none font-mono text-sm" data-testid="products-search-input"/>
+        <input id="v-search" placeholder="Search parameters (e.g., Xanthan, Enzymes, Premixes)..." class="w-full pl-8 py-2 bg-transparent border-0 focus:outline-none font-mono text-sm" data-testid="products-search-input"/>
       </div>
       <div class="flex flex-wrap gap-2" id="v-filters"></div>
     </div>
@@ -51,7 +51,7 @@
 <section class="pb-24 md:pb-32">
   <div class="max-w-[1400px] mx-auto px-5 md:px-10">
     <div id="v-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
-    <div id="v-empty" class="hidden text-center py-24 text-[color:var(--v-ink)]/60 font-mono-caps text-sm">No ingredients match your filter.</div>
+    <div id="v-empty" class="hidden text-center py-24 text-[color:var(--v-ink)]/60 font-mono-caps text-sm">No formulations match your runtime filters.</div>
   </div>
 </section>
 
@@ -59,9 +59,9 @@
 <section class="pb-24 md:pb-32">
   <div class="max-w-5xl mx-auto px-5 md:px-10">
     <div class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] rounded-[28px] p-10 md:p-16 grain relative overflow-hidden">
-      <div class="font-mono-caps text-xs text-[color:var(--v-gold)]">— Custom Blends</div>
-      <h3 class="font-display text-4xl md:text-5xl mt-3 max-w-2xl leading-[1.05]">Can't see what you need? <span class="italic font-serif-body">We blend to spec.</span></h3>
-      <p class="mt-5 text-[color:var(--v-cream)]/75 max-w-xl">Share your recipe target — moisture, shelf life, cost per kg — and our formulation team will build the ingredient system around it.</p>
+      <div class="font-mono-caps text-xs text-[color:var(--v-gold)]">— Custom Formulation Matrices</div>
+      <h3 class="font-display text-4xl md:text-5xl mt-3 max-w-2xl leading-[1.05]">Targeting specific parameters? <span class="italic font-serif-body">We blend to spec.</span></h3>
+      <p class="mt-5 text-[color:var(--v-cream)]/75 max-w-xl">Provide your matrix requirements—shear parameters, structural elasticity, hydration speeds, or cost thresholds—and our engineering team will build the matching compound.</p>
       <button onclick="typeof VedgangaQuote !== 'undefined' && VedgangaQuote.open()" class="btn-gold mt-8 cursor-pointer" data-testid="products-cta-quote">Start a Brief →</button>
     </div>
   </div>
@@ -78,7 +78,7 @@
 <script>
 (function(){
   function init() {
-    // 1. Array structural verification runtime hook
+    // 1. Structural runtime safety check for global data array
     if (!window.V_PRODUCTS || !Array.isArray(window.V_PRODUCTS)) {
       setTimeout(init, 40); 
       return;
@@ -95,7 +95,7 @@
     let activeCat = 'All';
 
     filters.innerHTML = CATS.map(c => {
-      const safeTextId = (c || '').toString().toLowerCase();
+      const safeTextId = (c || '').toString().toLowerCase().replace(/[^a-z0-9]/g, '-');
       return `<button data-cat="${c}" class="chip cursor-pointer" data-testid="filter-${safeTextId}">${c}</button>`;
     }).join('');
 
@@ -103,27 +103,61 @@
       const q = search.value.trim().toLowerCase();
       const list = V_PRODUCTS.filter(p => {
         const pCat = p.cat || 'General';
-        const searchPool = ((p.name || '') + ' ' + (p.tag || '') + ' ' + pCat).toLowerCase();
+        const searchPool = ((p.name || '') + ' ' + (p.tag || '') + ' ' + pCat + ' ' + (p.desc || '')).toLowerCase();
         return (activeCat === 'All' || pCat === activeCat) && (!q || searchPool.includes(q));
       });
       
       empty.classList.toggle('hidden', list.length !== 0);
       
       grid.innerHTML = list.map((p, i) => {
-        const artwork = (typeof window.V_ART === 'function') ? window.V_ART(p, i) : `<div class="w-full h-full bg-neutral-200"></div>`;
         const pSlug = p.slug || 'item';
+        const pCat = p.cat || 'General';
+        
+        // Technical flag logic: skips images for structural chemical nodes
+        const isTechnicalItem = ['hydrocolloids', 'stabilizers', 'enzymes', 'chemicals', 'additives', 'acidulants', 'micronutrients'].some(k => 
+          pCat.toLowerCase().includes(k) || pSlug.toLowerCase().includes(k)
+        );
+
+        let structuralVisual = '';
+        if (isTechnicalItem) {
+          // Image-less technical typography block
+          structuralVisual = `
+            <div class="w-full h-full bg-[color:var(--v-cream-2)] p-6 flex flex-col justify-between border-b border-black/5 select-none transition-colors duration-300 group-hover:bg-[color:var(--v-cream)]">
+              <div class="font-mono text-[10px] tracking-wider text-[color:var(--v-forest-2)] opacity-70 flex justify-between items-center">
+                <span>SYSTEM NODE // TECH_SPEC</span>
+                <span>SYS_N°${String(i+1).padStart(2,'0')}</span>
+              </div>
+              <div class="my-auto py-4">
+                <div class="font-mono text-xs text-[color:var(--v-forest)] tracking-tight uppercase">${p.formats || 'Pure Formulation'}</div>
+                <div class="text-[color:var(--v-ink)]/60 text-xs font-mono mt-2 line-clamp-3">${p.desc || ''}</div>
+              </div>
+              <div class="font-mono text-[9px] text-[color:var(--v-ink)]/40 uppercase tracking-widest border-t border-black/5 pt-3">
+                No Imagery Required · Technical Grade
+              </div>
+            </div>`;
+        } else {
+          // Standard image asset display for bakery architectures
+          const artwork = (typeof window.V_ART === 'function') ? window.V_ART(p, i) : `<div class="w-full h-full bg-neutral-200"></div>`;
+          structuralVisual = `
+            ${artwork}
+            <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/80 via-[color:var(--v-ink)]/20 to-transparent"></div>`;
+        }
         
         return `
-        <a href="product-template.html?slug=${pSlug}" class="spotlight rounded-3xl block group relative overflow-hidden" data-reveal data-testid="product-card-${pSlug}">
+        <a href="product-template.html?slug=${pSlug}" class="spotlight rounded-3xl block group relative overflow-hidden border border-black/10 flex flex-col justify-between h-full min-h-[420px]" data-reveal data-testid="product-card-${pSlug}">
           <span class="spot"></span>
-          <div class="relative aspect-[4/5] overflow-hidden rounded-3xl">
-            ${artwork}
-            <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/70 via-transparent to-transparent"></div>
-            <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)]">${p.cat || 'General'}</div>
-            <div class="absolute inset-x-0 bottom-0 p-5 text-[color:var(--v-cream)] z-10">
-              <div class="font-display text-2xl leading-tight">${p.name || 'Unnamed Ingredient'}</div>
-              <div class="mt-1 text-xs text-[color:var(--v-cream)]/85">${p.tag || ''}</div>
-              <div class="mt-4 flex items-center gap-2 text-[color:var(--v-gold)] text-sm"><span class="link-under">View details</span><span>→</span></div>
+          <div class="relative w-full flex-1 flex flex-col overflow-hidden rounded-3xl">
+            <div class="relative aspect-[4/4.5] w-full flex-1 flex">
+              ${structuralVisual}
+            </div>
+            <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)] z-20">${pCat}</div>
+            <div class="absolute inset-x-0 bottom-0 p-5 text-[color:var(--v-cream)] z-10 ${isTechnicalItem ? '!text-[color:var(--v-ink)] !relative !bg-transparent !p-6 !pt-0' : ''}">
+              <div class="font-display text-2xl leading-tight">${p.name || 'Unnamed Formulation'}</div>
+              <div class="mt-1 text-xs ${isTechnicalItem ? 'text-[color:var(--v-forest-2)]' : 'text-[color:var(--v-cream)]/85'} font-serif-body italic">${p.tag || ''}</div>
+              <div class="mt-4 flex items-center gap-2 ${isTechnicalItem ? 'text-[color:var(--v-forest)]' : 'text-[color:var(--v-gold)]'} text-sm font-mono-caps">
+                <span class="link-under text-xs">Analyze Specifications</span>
+                <span>→</span>
+              </div>
             </div>
           </div>
         </a>`;
