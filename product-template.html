@@ -119,64 +119,52 @@
 <script>
 (function(){
   const CATALOG = {
-    'raisins': { name:'Raisins & Dry Grapes', cat:'Dry Fruits', tag:'Sun-cured · Sortex-clean · Bakery-grade', img:'https://images.unsplash.com/photo-1553456558-aff63285bdd1?auto=format&fit=crop&w=1400&q=80',
-      desc:'A curated portfolio of Kandahari, Indian and Californian raisins, sortex-cleaned and packed to preserve moisture and texture. Available in golden, black, brown and green cultivars, in food-safe primary packaging for bakery, confectionery, HoReCa and retail.',
-      specs:[['Moisture','13–17%'],['Total Sugars (dry basis)','≥ 68%'],['Foreign Matter','≤ 0.1%'],['Shelf Life','12 months'],['Cultivars','Kandahari · Sundari · Malayer · Golden'],['Storage','Cool · Dry · < 25°C']],
-      packing:['1 kg retail pouch','5 kg / 10 kg carton','12.5 kg carton (export)'], apps:['Cakes & muffins','Breakfast cereals','Confectionery','Retail snacking'] },
+    'raisins': { name:'Raisins & Dry Nuts & Seeds', cat:'Dry Fruits', tag:'Sun-cured · Sortex-clean · Bakery-grade', img:'https://images.unsplash.com/photo-1543158181-1274e5362710?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      desc:'Available Raisins in golden, black, brown and green cultivars. Sunflower Seeds, Pumpkin Seeds, Flax Seeds, Till(black/white), Melon Seeds',
+      packing:['1 kg retail pouch','5 kg / 10 kg carton','12.5 kg carton (export)'], apps:['Cakes & muffins','Breakfast cereals','Nutraceuticals','Retail snacking'] },
     
     'cake-premixes': { name:'Cake Premixes', cat:'Bakery', tag:'Consistent crumb · High volume', img:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1400&q=80',
       desc:'Ready-to-use dry blends engineered for consistent volume, crumb structure and shelf life. Water/oil/egg only formats, tuned for both artisan and industrial lines.', 
-      specs:[['Water Addition','40–60%'],['Batter Density','~0.75 g/ml'],['Bake Loss','8–12%'],['Shelf Life','9 months'],['Variants','Vanilla · Chocolate · Red Velvet · Marble'],['Egg-free','Available']],
       packing:['1 kg pouch','5 kg / 10 kg bag','25 kg industrial bag'], apps:['Cafés & artisan bakeries','Industrial cake lines','Retail baking mixes'] },
     
     'hydrocolloids': { name:'Specialty Chemicals', cat:'Functional', tag:'Stabilizing · Gelling · Viscosity modifiers', img:'https://images.unsplash.com/photo-1587248720327-8eb72564be1e?auto=format&fit=crop&w=1400&q=80',
       desc:'Premium food-grade hydrocolloid systems designed to optimize moisture management, modify viscosity, and establish reliable gel frameworks across diverse processing structures.',
-      specs:[['Purity','≥ 98% actives'],['Form','Free-flowing fine powder'],['Solubility','Hot / Cold water dispersible'],['Shelf Life','24 months'],['Mesh Size','80–200 mesh options'],['Certifications','FSSAI · ISO · Halal']],
       packing:['1 kg specialty pouch','5 kg bucket','25 kg industrial paper bag'], apps:['Dairy & frozen desserts','Bakery filling stabilization','Sauces, dressings & emulsions','Plant-based meat matrices'] },
     
     'tea-time-bar-cakes': { name:'Tea-Time Bar Cakes', cat:'Bakery', tag:'Shelf-stable · Ready-to-eat', img:'https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=1400&q=80',
       desc:'Individually wrapped bar cakes engineered for ambient distribution, private label and HoReCa. Soft crumb, extended shelf life, no artificial preservatives.',
-      specs:[['Weight / bar','35 g / 45 g / 55 g'],['Shelf Life','120 days ambient'],['aW','< 0.85'],['Variants','Vanilla · Choco · Marble · Fruit'],['Wrap','Metallised flow-wrap'],['MOQ','5,000 units']],
       packing:['Retail flow-wrap','Master carton × 24 / 48'], apps:['Private label retail','Cafés & institutional catering','Airline & rail catering'] },
     
     'muffin-premixes': { name:'Muffin Premixes', cat:'Bakery', tag:'Chocolate · Vanilla · Choco-chip', img:'https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=1400&q=80',
       desc:'Muffin-specific dry mixes with optimised crumb, dome and moisture retention. Compatible with both hand-scoop and automated depositing lines.',
-      specs:[['Water Addition','45–55%'],['Fat Addition','20–30%'],['Bake Time','18–22 min @ 180°C'],['Shelf Life','9 months'],['Variants','Choco-chip · Blueberry · Banana · Vanilla'],['Egg-free','Available']],
       packing:['1 kg pouch','10 kg bag','25 kg industrial bag'], apps:['Cafés & QSR','Frozen bake-off','Industrial muffin lines'] },
     
     'emulsifiers': { name:'Emulsifiers', cat:'Functional', tag:'GMS · SSL · DATEM · Lecithin', img:'https://images.unsplash.com/photo-1532634922-8fe0b757fb13?auto=format&fit=crop&w=1400&q=80',
       desc:'A full range of food-grade emulsifiers for bakery, dairy and confectionery — including distilled monoglycerides, SSL, DATEM and sunflower lecithin. Kosher & Halal certified on request.',
-      specs:[['HLB Range','3–13'],['Form','Powder · Bead · Liquid'],['Purity','≥ 90% actives'],['Shelf Life','24 months'],['Certifications','FSSAI · Kosher · Halal'],['Origin','Indian / imported']],
       packing:['20 kg carton','25 kg bag','200 kg drum (liquid)'], apps:['Cake premixes','Bread improvers','Ice-cream & dairy'] },
     
     'wheat-gluten': { name:'Wheat Gluten', cat:'Proteins', tag:'Vital · 75%+ protein', img:'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=1400&q=80',
       desc:'Vital wheat gluten from carefully selected mills — 75%+ protein (Nx5.7), high vitality and consistent water absorption. Ideal for high-fibre and multigrain breads.',
-      specs:[['Protein (Nx5.7, dry)','≥ 75%'],['Moisture','≤ 8%'],['Ash','≤ 1.2%'],['Water Absorption','~160%'],['Shelf Life','18 months'],['Particle Size','98% < 200 µm']],
       packing:['25 kg bag','500 kg / 1000 kg jumbo'], apps:['Bread & bun improvers','High-protein bakery','Meat analogues'] },
     
     'bread-improvers': { name:'Bread Improvers', cat:'Functional', tag:'Enzyme-based · Clean-label', img:'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1400&q=80',
       desc:'Enzyme-forward improvers for volume, softness and shelf life. Clean-label formats available (no ADA, no bromates) for artisan and industrial lines.',
-      specs:[['Dosage','0.3–1.0% flour weight'],['Form','Free-flowing powder'],['Enzymes','α-amylase · Xylanase · Lipase · GOX'],['Shelf Life','12 months'],['Applications','Pan bread · Buns · Pizza · Rusk'],['Clean-label','Yes (on request)']],
       packing:['1 kg pouch','25 kg bag'], apps:['Pan & sandwich bread','Buns & burger buns','Pizza & flatbreads'] },
     
     'starch': { name:'Starch & Derivatives', cat:'Carbs', tag:'Native · Modified · Maltodextrin', img:'https://images.unsplash.com/photo-1600289031464-74d374b64991?auto=format&fit=crop&w=1400&q=80',
       desc:'A broad range of native, physically-modified and enzymatically-hydrolysed starches — maize, tapioca, potato — plus maltodextrins across DE ranges.',
-      specs:[['Moisture','≤ 14%'],['pH','5.0–7.0'],['Whiteness','≥ 90'],['DE (Maltodextrin)','9 · 12 · 18'],['Shelf Life','24 months'],['Origin','Maize · Tapioca · Potato']],
       packing:['25 kg bag','1000 kg jumbo'], apps:['Bakery & confectionery','Sauces & soups','Nutraceuticals'] },
     
     'preservatives': { name:'Preservatives', cat:'Functional', tag:'Sorbates · Benzoates · Propionates', img:'https://images.unsplash.com/photo-1584727638096-042c45049ebe?auto=format&fit=crop&w=1400&q=80',
       desc:'Food-grade preservative systems — potassium sorbate, sodium benzoate, calcium propionate — plus natural antimicrobial blends for clean-label projects.',
-      specs:[['Purity','≥ 99%'],['Form','Powder · Granule'],['Dosage','As per FSSAI limits'],['Shelf Life','24 months'],['Storage','Cool · Dry · < 30°C'],['Certifications','FSSAI · ISO']],
       packing:['25 kg bag','25 kg fibre drum'], apps:['Bakery & bread','Beverages & sauces','Confectionery'] },
     
     'proteins': { name:'Proteins', cat:'Proteins', tag:'Whey · Soy · Pea isolates', img:'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=1400&q=80',
       desc:'High-purity protein ingredients — whey concentrates & isolates, soy isolate and pea isolate — for nutrition, bakery and beverage applications.',
-      specs:[['Protein','80% · 90% · 92%'],['Solubility (NSI)','≥ 85%'],['Fat','≤ 1%'],['Ash','≤ 5%'],['Shelf Life','24 months'],['Certifications','ISO · Non-GMO on request']],
       packing:['20 kg carton','25 kg bag'], apps:['Nutrition & sports','Bakery fortification','RTD beverages'] },
     
     'fibers': { name:'Fibers', cat:'Functional', tag:'Inulin · Oat · Psyllium', img:'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=1400&q=80',
       desc:'Soluble and insoluble dietary fibres — inulin, oat fibre, psyllium husk, wheat fibre — for high-fibre, keto and low-sugar formulations.',
-      specs:[['Fibre Content','≥ 90%'],['Form','Powder'],['Solubility','Soluble / Insoluble'],['Shelf Life','24 months'],['Origin','Chicory · Oat · Psyllium · Wheat'],['Allergens','Declared per lot']],
       packing:['20 kg bag','25 kg bag'], apps:['High-fibre bakery','Nutritional beverages','Meal replacements'] },
   };
 
