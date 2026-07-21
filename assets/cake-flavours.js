@@ -94,117 +94,84 @@ window.V_CAKE_FLAVOURS = [
   },
 ];
 
-/* Hydrocolloid Technical Database */
+/* Hydrocolloid & Specialty Chemicals Technical Database */
 window.V_HYDRO_TYPES = [
   {
     slug:'xanthan-gum', name:'Xanthan Gum', formats:'80 & 200 Mesh',
-    imgUrl:'https://images.unsplash.com/photo-1547891654-e66ed7edd96c?auto=format&fit=crop&w=800&q=80',
     tag:'High shear-thinning · Pseudoplasticity · Emulsion stability',
-    desc:'Premium food-grade polysaccharide stabilizer that provides exceptional viscosity control at minimal loading levels. Delivers robust suspension capabilities, excellent freeze-thaw resilience, and stays perfectly stable across highly acidic pH variations and high temperatures.',
-    specs:[
-      ['Functional Target','Thickener / Suspension Agent'],
-      ['Optimal pH Range','3.0 – 11.0'],
-      ['Viscosity (1% Sol.)','1,200 – 1,600 cPs'],
-      ['Hydration','Fast cold-water dispersion'],
-      ['Loss on Drying','≤ 15.0%'],
-      ['Shelf Life','24 months (dry, sealed conditions)'],
-      ['Packaging','1 kg pouch · 25 kg multi-wall paper bag'],
-    ],
+    desc:'Premium food-grade polysaccharide stabilizer providing exceptional viscosity control. Delivers robust suspension capabilities, freeze-thaw resilience, and stability across extreme pH variations.',
+    specs:[['Functional Target','Thickener / Suspension Agent'],['Optimal pH Range','3.0 – 11.0'],['Viscosity (1% Sol.)','1,200 – 1,600 cPs'],['Shelf Life','24 months']]
   },
   {
     slug:'guar-gum', name:'Guar Gum', formats:'High Viscosity Systems',
-    imgUrl:'https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=800&q=80',
     tag:'Galactomannan matrix · Cold water soluble · High binding',
-    desc:'Extracted from selected guar seeds, this natural texturizer is highly effective for moisture management and water binding. Extensively used to smooth out texture defects and prevent ice crystal synthesis in ice creams, frozen desserts, and standard bakery doughs.',
-    specs:[
-      ['Functional Target','Water Binding / Yield Maximization'],
-      ['Viscosity (1% Sol.)','3,500 – 5,000 cPs'],
-      ['Particle Size','90% passes through 200 mesh'],
-      ['Syneresis Control','Excellent water retention capability'],
-      ['Protein Interactivity','Synergistic with starch networks'],
-      ['Shelf Life','24 months'],
-      ['Packaging','25 kg industrial moisture-barrier bags'],
-    ],
+    desc:'Extracted from selected guar seeds, this texturizer optimizes moisture management. Extensively utilized to smooth out defects and prevent ice crystal synthesis in dairy and dough systems.',
+    specs:[['Functional Target','Water Binding / Yield Maximization'],['Viscosity (1% Sol.)','3,500 – 5,000 cPs'],['Mesh Rating','90% passing 200 mesh'],['Shelf Life','24 months']]
   },
   {
     slug:'carrageenan', name:'Carrageenan', formats:'Kappa & Iota Grades',
-    imgUrl:'https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&w=800&q=80',
     tag:'Dairy protein reactive · Thermoreversible gelation',
-    desc:'Sourced from natural red seaweed matrices. The Kappa variant yields firm, brittle thermal-reversible structural networks ideal for milk pudding systems, whereas the Iota variant sets into highly elastic, clear gel configurations that display excellent thixotropic flow recovery properties.',
-    specs:[
-      ['Functional Target','Gelling Agent / Dairy Stabilization'],
-      ['Gel Strength (Kappa)','≥ 1,200 g/cm² (1.5% gel with KCl)'],
-      ['Solubility','Requires thermal activation (≥ 75°C)'],
-      ['Synergy','Strong gel-reinforcement when mixed with locust bean gum'],
-      ['Heavy Metals','Conforms to global food safety standards'],
-      ['Shelf Life','24 months'],
-      ['Packaging','25 kg net drum or craft paper bag'],
-    ],
+    desc:'Sourced from natural red seaweed. Kappa yields firm, brittle matrices ideal for milk systems; Iota sets into elastic, clear gels displaying excellent thixotropic flow recovery properties.',
+    specs:[['Functional Target','Gelling Agent / Dairy Stabilization'],['Gel Strength (Kappa)','≥ 1,200 g/cm²'],['Solubility','Requires thermal activation (≥ 75°C)'],['Shelf Life','24 months']]
   },
   {
-    slug:'sodium-alginate', name:'Sodium Alginate', formats:'Low to High Viscosity options',
-    imgUrl:'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=800&q=80',
-    tag:'Brown seaweed derivative · Cold cross-linking · Calcium reactive',
-    desc:'Natural polysaccharide hydrocolloid extracted from brown algae. It reacts instantly with calcium ions to establish cold-set, heat-stable structural gel layers. Essential for structured bakery decorations, molecular spherification configurations, fruit-drop simulations, and clear restructuring films.',
-    specs:[
-      ['Functional Target','Cold Gelling / Film Formation'],
-      ['Viscosity (1% Sol.)','300 – 800 cPs (grade dependent)'],
-      ['M/G Ratio','Optimized for varied gel elasticity profiles'],
-      ['Activation Method','Crosslinks directly with $Ca^{2+}$ ions'],
-      ['Purity','Conforms to FCC & FSSAI standards'],
-      ['Shelf Life','24 months'],
-      ['Packaging','1 kg specialty pouch · 25 kg fiber drum'],
-    ],
+    slug:'sodium-alginate', name:'Sodium Alginate', formats:'Low to High Viscosity',
+    tag:'Brown seaweed derivative · Calcium reactive',
+    desc:'Reacts instantly with calcium ions to establish cold-set, heat-stable structural layers. Vital for structured decorations, spherification parameters, and clear film barriers.',
+    specs:[['Functional Target','Cold Gelling / Film Formation'],['Viscosity (1% Sol.)','300 – 800 cPs'],['Crosslinking','Direct with $Ca^{2+}$ ions'],['Shelf Life','24 months']]
   },
   {
     slug:'agar-agar', name:'Agar-Agar', formats:'700 to 1200 Gel Strength',
-    imgUrl:'https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80',
-    tag:'Rhodophyta derived · High hysteresis · Firm thermo-stable gel',
-    desc:'Highly functional plant-based gelling agent derived from red seaweeds. Demonstrates a profound structural hysteresis loop ($35^\\circ\\text{C} - 85^\\circ\\text{C}$ transition parameters), forming strongly defined, crisp structural matrices that retain excellent thermal stability without requiring additive ions.',
-    specs:[
-      ['Functional Target','Syneresis Control / Plant Gelation'],
-      ['Gel Strength','700 – 1,200 g/cm² (1.5% solution matrix)'],
-      ['Gelling Point','Sets rapidly between 35°C – 40°C'],
-      ['Melting Point','Liquefies optimally at 85°C – 95°C'],
-      ['Moisture Level','≤ 12.0%'],
-      ['Shelf Life','24 months under cool settings'],
-      ['Packaging','1 kg pouch · 20 kg industrial cartoon box'],
-    ]
+    tag:'Rhodophyta derived · Firm thermo-stable gel',
+    desc:'Derived from red seaweeds, demonstrating a profound structural hysteresis loop ($35^\\circ\\text{C} - 85^\\circ\\text{C}$). Forms highly defined, crisp matrices without requiring additive ions.',
+    specs:[['Functional Target','Syneresis Control / Plant Gelation'],['Gel Strength','700 – 1,200 g/cm²'],['Transition Parameters','Sets 35–40°C · Melts 85–95°C'],['Shelf Life','24 months']]
+  },
+  {
+    slug:'enzymes-improvers', name:'Enzymes & Dough Improvers', formats:'Industrial Concentrations',
+    tag:'Alpha-Amylase · Xylanase · Lipase · Glucose Oxidase',
+    desc:'Targeted biocatalytic enzymes engineered to upgrade structural elasticity, accelerate gas retention, maximize loaf volume, and extend fresh-crumb softness over shelf life[cite: 4].',
+    specs:[['Active Elements','Alpha-Amylase · Xylanase · Lipase[cite: 4]'],['Functional Target','Gluten Network Optimization[cite: 4]'],['Dosage Range','Custom process dependent[cite: 4]'],['Shelf Life','12 months']]
+  },
+  {
+    slug:'acidulants', name:'Acidulants & Regulators', formats:'Pure Crystalline / Glacial',
+    tag:'Citric Acid · Malic Acid · Lactic Acid · Fumaric Acid',
+    desc:'High-purity food-grade processing acids used for precise pH adjustment, flavour enhancement, shelf stabilization, and structural dough modification[cite: 4].',
+    specs:[['Composition Portfolio','Citric · Malic · Lactic · Fumaric · Acetic[cite: 4]'],['Functional Target','pH Regulation / Microbial Control[cite: 4]'],['Compliance','FSSAI, JECFA & FCC Standards[cite: 4]'],['Shelf Life','24 months']]
+  },
+  {
+    slug:'antioxidants', name:'Antioxidants & Preservatives', formats:'Technical Micro-Granules',
+    tag:'Ascorbic Acid · Potassium Sorbate · Calcium Propionate',
+    desc:'Comprehensive shelf-extension components including mold inhibitors and structural oxygen scavengers to retain profile authenticity and eliminate syneresis defects[cite: 4].',
+    specs:[['Preservatives','Calcium Propionate · Potassium Sorbate[cite: 4]'],['Antioxidants','Ascorbic Acid · Sodium Metabisulphite[cite: 4]'],['Form Factor','Free-flowing granular powders[cite: 4]'],['Shelf Life','24 months']]
+  },
+  {
+    slug:'micronutrients', name:'Micronutrients & Supplements', formats:'Bio-Available Minerals',
+    tag:'Ferrous Sulphate · Zinc Oxide · Mineral Chelates',
+    desc:'Premium bio-available food fortification ingredients, including precise mineral salts and amino compositions designed for nutritional optimization[cite: 4, 4].',
+    specs:[['Iron Formats','Ferrous Sulphate · Ferractiv Chelate[cite: 4, 4]'],['Zinc Formats','Zinc Oxide · Zinc Acetate · Zinc Sulphate[cite: 4]'],['Amino Elements','Glycine · L-Glutamine · L-Arginine[cite: 4]'],['Shelf Life','24 months']]
+  },
+  {
+    slug:'sweeteners', name:'Functional Sweeteners', formats:'Granular & Powdered',
+    tag:'Dextrose · Mannitol · Sucralose · Stevia Extract',
+    desc:'High-performance sweetening matrices providing variable bulking properties, humidity tracking, browning control, and high-intensity structural stabilization[cite: 4, 4].',
+    specs:[['Bulk Sweeteners','Dextrose · Mannitol[cite: 4]'],['High Intensity','Sucralose · Stevia Extract[cite: 4]'],['Humectant Action','Optimized moisture control[cite: 4]'],['Shelf Life','24 months']]
   }
 ];
 
-/* Dual-Mode Layout Visual Renderer */
+/* Asset Framework Renderer */
 window.V_CAKE_ART = function (v, isConcentrate) {
   if (v.imgUrl) {
-    return `
-      <div class="w-full h-full absolute inset-0 bg-neutral-100 flex items-center justify-center select-none">
-        <img 
-          src="${v.imgUrl}" 
-          alt="${v.name}" 
-          class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-        />
-      </div>`;
+    return `<div class="w-full h-full absolute inset-0 bg-neutral-100 flex items-center justify-center select-none">
+              <img src="${v.imgUrl}" alt="${v.name}" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+            </div>`;
   }
-  
-  let imgPrefix = v.slug;
-  if (v.slug === 'chocolate') imgPrefix = 'choco';
-  if (v.slug === 'red-velvet') imgPrefix = 'red';
-  if (v.slug === 'brownie') imgPrefix = 'brown';
-  
-  const suffix = isConcentrate ? '2' : '1';
-  const imgPath = `assets/img/${imgPrefix}${suffix}.webp`;
-
-  return `
-    <div class="w-full h-full absolute inset-0 bg-neutral-100 flex items-center justify-center select-none">
-      <img 
-        src="${imgPath}" 
-        alt="${v.name}" 
-        class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-      />
-    </div>`;
+  let imgPrefix = v.slug === 'chocolate' ? 'choco' : (v.slug === 'red-velvet' ? 'red' : (v.slug === 'brownie' ? 'brown' : v.slug));
+  return `<div class="w-full h-full absolute inset-0 bg-neutral-100 flex items-center justify-center select-none">
+            <img src="assets/img/${imgPrefix}${isConcentrate ? '2' : '1'}.webp" alt="${v.name}" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+          </div>`;
 };
 
-/* Unified Injection Engine: Alternates rows dynamically depending on active slug query parameter */
+/* Unified Injection Engine: Alternates templates dynamically based on active product slug */
 window.V_RenderCakeFlavours = function (opts) {
   const host = document.getElementById(opts.hostId);
   if (!host) return;
@@ -212,58 +179,102 @@ window.V_RenderCakeFlavours = function (opts) {
   const urlParams = new URLSearchParams(window.location.search);
   const currentSlug = urlParams.get('slug') || '';
   
-  const targetDataset = (currentSlug === 'hydrocolloids') ? window.V_HYDRO_TYPES : window.V_CAKE_FLAVOURS;
-  const labelPrefix = (currentSlug === 'hydrocolloids') ? 'STABILIZER' : 'FLAVOUR';
-  const productLabel = opts.product || ((currentSlug === 'hydrocolloids') ? 'Hydrocolloids' : 'Cake');
+  const isHydrocolloids = (currentSlug === 'hydrocolloids');
+  const targetDataset = isHydrocolloids ? window.V_HYDRO_TYPES : window.V_CAKE_FLAVOURS;
+  const labelPrefix = isHydrocolloids ? 'CHEMICAL' : 'FLAVOUR';
+  const productLabel = opts.product || (isHydrocolloids ? 'Specialty Chemicals' : 'Cake');
   const isConcentrate = currentSlug.toLowerCase().includes('concentrate');
 
-  host.innerHTML = targetDataset.map((v, i) => {
-    const num = String(i + 1).padStart(2, '0');
-    const totalCount = String(targetDataset.length).padStart(2, '0');
-    const reverse = i % 2 === 1;
-    
-    return `
-      <article id="item-${v.slug}" class="py-14 md:py-20 ${i !== 0 ? 'border-t border-black/10' : ''}">
-        <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
-          <div class="md:col-span-5 ${reverse ? 'md:order-2' : ''}">
-            <div class="relative rounded-[24px] overflow-hidden border border-black/10 aspect-[4/5]" data-reveal>
-              ${window.V_CAKE_ART(v, isConcentrate)}
-              <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)]">${v.formats}</div>
-              <div class="absolute bottom-4 left-4 font-mono-caps text-[10px] text-[color:var(--v-cream)]/85 z-10">N° ${num} / ${totalCount}</div>
-            </div>
-          </div>
-          <div class="md:col-span-7 ${reverse ? 'md:order-1' : ''}">
-            <div class="chapter-num text-xs" data-reveal>${labelPrefix} ${num}</div>
-            <h3 class="font-display text-3xl md:text-5xl mt-3 leading-[1.02]" data-reveal>
-              ${v.name.split(' ')[0]}
-              ${v.name.split(' ').slice(1).length ? `<span class="italic font-serif-body font-normal text-[color:var(--v-forest-2)]"> ${v.name.split(' ').slice(1).join(' ')}</span>` : ''}
-            </h3>
-            <p class="mt-3 text-base md:text-lg font-serif-body italic text-[color:var(--v-forest-2)]" data-reveal>${v.tag}</p>
-            <p class="mt-5 max-w-xl text-[color:var(--v-ink)]/80 leading-relaxed" data-reveal>${v.desc}</p>
-            <div class="mt-8" data-reveal>
-              <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]">— Technical Specifications</div>
-              <div class="mt-3 overflow-x-auto">
-                <table class="w-full border-collapse text-sm">
-                  <tbody>
-                    ${v.specs.map((row, r) => `
-                      <tr class="border-b border-black/10 ${r % 2 ? 'bg-[color:var(--v-cream-2)]' : ''}">
-                        <td class="py-3 pr-6 font-mono-caps text-[10px] text-[color:var(--v-forest-2)] whitespace-nowrap align-top w-[38%] md:w-[30%]">${row[0]}</td>
-                        <td class="py-3 text-[color:var(--v-ink)]">${row[1]}</td>
-                      </tr>`).join('')}
-                  </tbody>
-                </table>
+  if (isHydrocolloids) {
+    // Renders as text blocks without pictures
+    host.innerHTML = `
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        ${targetDataset.map((v, i) => {
+          const num = String(i + 1).padStart(2, '0');
+          return `
+            <article id="item-${v.slug}" class="p-8 rounded-3xl border border-black/10 bg-[color:var(--v-cream-2)] flex flex-col justify-between h-full" data-reveal>
+              <div>
+                <div class="flex items-center justify-between border-b border-black/10 pb-4 mb-4">
+                  <div class="font-mono-caps text-[11px] text-[color:var(--v-forest-2)]">${labelPrefix} ${num} // ${v.formats}</div>
+                  <span class="text-xs font-mono bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-2 py-0.5 rounded">Active</span>
+                </div>
+                <h3 class="font-display text-2xl md:text-3xl leading-tight text-[color:var(--v-ink)]">
+                  ${v.name}
+                </h3>
+                <p class="mt-2 text-sm font-serif-body italic text-[color:var(--v-forest-2)]">${v.tag}</p>
+                <p class="mt-4 text-sm text-[color:var(--v-ink)]/80 leading-relaxed">${v.desc}</p>
+                
+                <div class="mt-6">
+                  <table class="w-full border-collapse text-xs">
+                    <tbody>
+                      ${v.specs.map((row, r) => `
+                        <tr class="border-b border-black/5">
+                          <td class="py-2 pr-4 font-mono-caps text-[9px] text-[color:var(--v-forest-2)] whitespace-nowrap align-top w-[40%]">${row[0]}</td>
+                          <td class="py-2 text-[color:var(--v-ink)]/90">${row[1]}</td>
+                        </tr>`).join('')}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="mt-8 pt-4 border-t border-black/5">
+                <button data-quote-product="${v.name} — ${productLabel}" class="w-full text-center py-3 bg-[color:var(--v-forest)] text-[color:var(--v-cream)] rounded-xl text-xs font-mono-caps uppercase tracking-wider hover:bg-[color:var(--v-gold)] transition-colors duration-300">
+                  Request Matrix Sample →
+                </button>
+              </div>
+            </article>`;
+        }).join('')}
+      </div>`;
+  } else {
+    // Alternating full-width image row layout for bakery lines
+    host.innerHTML = targetDataset.map((v, i) => {
+      const num = String(i + 1).padStart(2, '0');
+      const totalCount = String(targetDataset.length).padStart(2, '0');
+      const reverse = i % 2 === 1;
+      
+      return `
+        <article id="item-${v.slug}" class="py-14 md:py-20 ${i !== 0 ? 'border-t border-black/10' : ''}">
+          <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+            <div class="md:col-span-5 ${reverse ? 'md:order-2' : ''}">
+              <div class="relative rounded-[24px] overflow-hidden border border-black/10 aspect-[4/5]" data-reveal>
+                ${window.V_CAKE_ART(v, isConcentrate)}
+                <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)]">${v.formats}</div>
+                <div class="absolute bottom-4 left-4 font-mono-caps text-[10px] text-[color:var(--v-cream)]/85 z-10">N° ${num} / ${totalCount}</div>
               </div>
             </div>
-            <div class="mt-8">
-              <button data-quote-product="${v.name} — ${productLabel}" class="btn-gold">
-                Request Sample / Quote →
-              </button>
+            <div class="md:col-span-7 ${reverse ? 'md:order-1' : ''}">
+              <div class="chapter-num text-xs" data-reveal>${labelPrefix} ${num}</div>
+              <h3 class="font-display text-3xl md:text-5xl mt-3 leading-[1.02]" data-reveal>
+                ${v.name.split(' ')[0]}
+                ${v.name.split(' ').slice(1).length ? `<span class="italic font-serif-body font-normal text-[color:var(--v-forest-2)]"> ${v.name.split(' ').slice(1).join(' ')}</span>` : ''}
+              </h3>
+              <p class="mt-3 text-base md:text-lg font-serif-body italic text-[color:var(--v-forest-2)]" data-reveal>${v.tag}</p>
+              <p class="mt-5 max-w-xl text-[color:var(--v-ink)]/80 leading-relaxed" data-reveal>${v.desc}</p>
+              <div class="mt-8" data-reveal>
+                <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]">— Technical Specifications</div>
+                <div class="mt-3 overflow-x-auto">
+                  <table class="w-full border-collapse text-sm">
+                    <tbody>
+                      ${v.specs.map((row, r) => `
+                        <tr class="border-b border-black/10 ${r % 2 ? 'bg-[color:var(--v-cream-2)]' : ''}">
+                          <td class="py-3 pr-6 font-mono-caps text-[10px] text-[color:var(--v-forest-2)] whitespace-nowrap align-top w-[38%] md:w-[30%]">${row[0]}</td>
+                          <td class="py-3 text-[color:var(--v-ink)]">${row[1]}</td>
+                        </tr>`).join('')}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="mt-8">
+                <button data-quote-product="${v.name} — ${productLabel}" class="btn-gold">
+                  Request Sample / Quote →
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </article>`;
-  }).join('');
+        </article>`;
+    }).join('');
+  }
 
+  // Animation Engine Hook
   if (window.gsap && window.ScrollTrigger) {
     window.gsap.utils.toArray('#' + opts.hostId + ' [data-reveal]').forEach((el) => {
       window.gsap.fromTo(el, { y: 40, opacity: 0 }, {
