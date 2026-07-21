@@ -220,10 +220,14 @@ window.V_RenderCakeFlavours = function (opts) {
   const urlParams = new URLSearchParams(window.location.search);
   const currentSlug = urlParams.get('slug') || '';
   
+  // 1. Identify active category context dynamically
   const isHydrocolloids = (currentSlug === 'hydrocolloids');
-  const targetDataset = isHydrocolloids ? window.V_HYDRO_TYPES : window.V_CAKE_FLAVOURS;
-  const labelPrefix = isHydrocolloids ? 'CHEMICAL' : 'FLAVOUR';
-  const productLabel = opts.product || (isHydrocolloids ? 'Specialty Chemicals' : 'Cake');
+  const isRaisins = (currentSlug === 'raisins');
+  
+  // 2. Route dataset, labels, and metadata based on active slug
+  const targetDataset = isRaisins ? window.V_RAISIN_TYPES : (isHydrocolloids ? window.V_HYDRO_TYPES : window.V_CAKE_FLAVOURS);
+  const labelPrefix = isRaisins ? 'VARIETY' : (isHydrocolloids ? 'CHEMICAL' : 'FLAVOUR');
+  const productLabel = opts.product || (isRaisins ? 'Dry Fruits & Seeds' : (isHydrocolloids ? 'Specialty Chemicals' : 'Cake'));
   const isConcentrate = currentSlug.toLowerCase().includes('concentrate');
 
   if (isHydrocolloids) {
