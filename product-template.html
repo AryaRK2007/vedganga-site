@@ -192,15 +192,15 @@
     heroArt.insertAdjacentHTML('afterbegin', `<img src="${p.img}" class="absolute inset-0 w-full h-full object-cover" alt="Product Frame"/>`);
   }
   
-  // Specs table building
-  document.getElementById('v-specs').innerHTML = p.specs.map((row, i) => `
+  // Specs table building — Fixed with safe array fallback
+  document.getElementById('v-specs').innerHTML = (p.specs || []).map((row, i) => `
     <tr class="border-b border-black/10 ${i%2?'bg-[color:var(--v-cream-2)]':''}">
       <td class="py-3 pr-6 font-mono-caps text-[10px] text-[color:var(--v-forest-2)] whitespace-nowrap">${row[0]}</td>
       <td class="py-3 text-[color:var(--v-ink)]">${row[1]}</td>
     </tr>`).join('');
     
-  document.getElementById('v-packing').innerHTML = p.packing.map(i => `<li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[color:var(--v-gold)] mt-2"></span>${i}</li>`).join('');
-  document.getElementById('v-apps').innerHTML = p.apps.map(i => `<li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[color:var(--v-gold)] mt-2"></span>${i}</li>`).join('');
+  document.getElementById('v-packing').innerHTML = (p.packing || []).map(i => `<li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[color:var(--v-gold)] mt-2"></span>${i}</li>`).join('');
+  document.getElementById('v-apps').innerHTML = (p.apps || []).map(i => `<li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[color:var(--v-gold)] mt-2"></span>${i}</li>`).join('');
   
   if (typeof VedgangaQuote !== 'undefined') {
     document.getElementById('v-quote-open').addEventListener('click', () => VedgangaQuote.open(p.name));
