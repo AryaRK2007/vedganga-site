@@ -129,7 +129,7 @@
       specs:[['Water Addition','40–60%'],['Batter Density','~0.75 g/ml'],['Bake Loss','8–12%'],['Shelf Life','9 months'],['Variants','Vanilla · Chocolate · Red Velvet · Marble'],['Egg-free','Available']],
       packing:['1 kg pouch','5 kg / 10 kg bag','25 kg industrial bag'], apps:['Cafés & artisan bakeries','Industrial cake lines','Retail baking mixes'] },
     
-    'hydrocolloids': { name:'Hydrocolloids & Texturizers', cat:'Functional', tag:'Stabilizing · Gelling · Viscosity modifiers', img:'https://images.unsplash.com/photo-1587248720327-8eb72564be1e?auto=format&fit=crop&w=1400&q=80',
+    'hydrocolloids': { name:'Specialty Chemicals', cat:'Functional', tag:'Stabilizing · Gelling · Viscosity modifiers', img:'https://images.unsplash.com/photo-1587248720327-8eb72564be1e?auto=format&fit=crop&w=1400&q=80',
       desc:'Premium food-grade hydrocolloid systems designed to optimize moisture management, modify viscosity, and establish reliable gel frameworks across diverse processing structures.',
       specs:[['Purity','≥ 98% actives'],['Form','Free-flowing fine powder'],['Solubility','Hot / Cold water dispersible'],['Shelf Life','24 months'],['Mesh Size','80–200 mesh options'],['Certifications','FSSAI · ISO · Halal']],
       packing:['1 kg specialty pouch','5 kg bucket','25 kg industrial paper bag'], apps:['Dairy & frozen desserts','Bakery filling stabilization','Sauces, dressings & emulsions','Plant-based meat matrices'] },
@@ -226,12 +226,12 @@
     document.getElementById('v-portfolio-desc').textContent = 'Every flavour ships in standard high-yield industrial Premix configurations engineered to scale without processing degradation.';
     
     document.getElementById('v-portfolio-anchors').innerHTML = `
-      <a href="#flavour-vanilla" class="chip link-under">01 · Vanilla</a>
-      <a href="#flavour-chocolate" class="chip link-under">02 · Chocolate</a>
-      <a href="#flavour-red-velvet" class="chip link-under">03 · Red Velvet</a>
-      <a href="#flavour-mava" class="chip link-under">04 · Mava</a>
-      <a href="#flavour-brownie" class="chip link-under">05 · Brownie</a>
-      <a href="#flavour-lava" class="chip link-under">06 · Lava</a>`;
+      <a href="#item-vanilla" class="chip link-under">01 · Vanilla</a>
+      <a href="#item-chocolate" class="chip link-under">02 · Chocolate</a>
+      <a href="#item-red-velvet" class="chip link-under">03 · Red Velvet</a>
+      <a href="#item-mava" class="chip link-under">04 · Mava</a>
+      <a href="#item-brownie" class="chip link-under">05 · Brownie</a>
+      <a href="#item-lava" class="chip link-under">06 · Lava</a>`;
       
     if (typeof window.V_RenderCakeFlavours === 'function') {
       window.V_RenderCakeFlavours({ hostId: 'v-portfolio-target', product: p.name });
@@ -239,43 +239,20 @@
   } 
   else if (slug === 'hydrocolloids') {
     document.getElementById('v-portfolio-wrap').classList.remove('hidden');
-    document.getElementById('v-portfolio-label').textContent = '— Advanced Hydrocolloids';
+    document.getElementById('v-portfolio-label').textContent = '— Advanced Stabilization';
     document.getElementById('v-portfolio-title').innerHTML = `Five functional<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">matrices.</span>`;
     document.getElementById('v-portfolio-desc').textContent = 'Highly specified texturizing and gelling agents selected to withstand thermal shock, extreme shear, and variable processing conditions.';
     
-    const colloids = [
-      { id: 'sodium-alginate', name: 'Sodium Alginate', type: 'Cold Gelling Agent', source: 'Brown Seaweed Extract', function: 'Forms robust structural gels in the presence of calcium without heat. Ideal for restructuring matrices and cold-set fillings.' },
-      { id: 'agar-agar', name: 'Agar-Agar', type: 'High-Thermal Gel', source: 'Red Algae Derivative', function: 'Delivers firm, high-melting-point textures with clean mouthfeel. Perfectly suited for bakery glazes, piping jellies, and high-temp confectionery.' },
-      { id: 'carrageenan', name: 'Carrageenan (Kappa/Iota)', type: 'Protein Interaction Matrix', source: 'Marine Macroalgae', function: 'Forms stable dairy networks and thermo-reversible structures. Unmatched for suspension stabilization in chocolate milk and structural bindings.' },
-      { id: 'xanthan-gum', name: 'Xanthan Gum', type: 'Viscosity & Shear-Thinning Modifier', source: 'Fermentation Base', function: 'Provides exceptional emulsion stability and high low-shear viscosity. Essential for gluten-free suspension systems, sauces, and freeze-thaw syneresis control.' },
-      { id: 'guar-gum', name: 'Guar Gum', type: 'Cold-Water Thickener', source: 'Cyamopsis Tetragonoloba Seed', function: 'Economical and rapid cold hydration thickener. Controls water migration, prevents crystallization in frozen matrices, and improves dough elasticity.' }
-    ];
+    document.getElementById('v-portfolio-anchors').innerHTML = `
+      <a href="#item-xanthan-gum" class="chip link-under">01 · Xanthan Gum</a>
+      <a href="#item-guar-gum" class="chip link-under">02 · Guar Gum</a>
+      <a href="#item-carrageenan" class="chip link-under">03 · Carrageenan</a>
+      <a href="#item-sodium-alginate" class="chip link-under">04 · Sodium Alginate</a>
+      <a href="#item-agar-agar" class="chip link-under">05 · Agar-Agar</a>`;
 
-    document.getElementById('v-portfolio-anchors').innerHTML = colloids.map((c, idx) => `
-      <a href="#colloid-${c.id}" class="chip link-under">0${idx+1} · ${c.name}</a>
-    `).join('');
-
-    document.getElementById('v-portfolio-target').innerHTML = `
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        ${colloids.map(c => `
-          <div id="colloid-${c.id}" class="rounded-3xl border border-black/10 p-6 bg-[color:var(--v-cream-2)] shadow-sm hover:border-black/30 transition duration-200">
-            <div class="flex justify-between items-start border-b border-black/5 pb-4">
-              <div>
-                <h4 class="font-display text-xl text-[color:var(--v-forest)]">${c.name}</h4>
-                <span class="inline-block mt-1 font-mono text-[9px] uppercase tracking-wider bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-2 py-0.5 rounded-full">${c.type}</span>
-              </div>
-            </div>
-            <div class="mt-4 space-y-3 text-xs text-[color:var(--v-ink)]/90">
-              <p class="leading-relaxed">${c.function}</p>
-              <div class="pt-2 border-t border-black/5 flex items-center justify-between font-mono text-[10px] text-black/50">
-                <span>Origin Resource:</span>
-                <span class="font-sans font-medium text-[color:var(--v-forest-2)]">${c.source}</span>
-              </div>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    `;
+    if (typeof window.V_RenderCakeFlavours === 'function') {
+      window.V_RenderCakeFlavours({ hostId: 'v-portfolio-target', product: p.name });
+    }
   }
 
   // Related products grid injection
