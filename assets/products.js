@@ -3,8 +3,8 @@
 
 window.V_PRODUCTS = [
   { slug: 'raisins', name: 'Raisins & Dry Nuts & Seeds' },
-  { slug: 'cake-premixes', name: 'Cake Premixes' },
-  { slug: 'hydrocolloids', name: 'Hydrocolloids & Texturizers' },
+  { slug: 'cake-premixes', name: 'Cake Premixes & Cake Consendrates' },
+  { slug: 'hydrocolloids', name: 'Speciality Chemicals' },
   { slug: 'tea-time-bar-cakes', name: 'Tea-Time Bar Cakes' },
   { slug: 'muffin-premixes', name: 'Muffin Premixes' },
   { slug: 'emulsifiers', name: 'Emulsifiers' },
