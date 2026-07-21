@@ -24,7 +24,7 @@ window.VEDGANGA_API = window.VEDGANGA_API || 'https://vedganga-modern.preview.em
           <div class="flex items-center justify-between rounded-full border border-black/10 bg-[color:var(--v-cream)]/85 backdrop-blur-md px-4 md:px-6 py-2.5">
             <a href="index.html" class="flex items-center gap-2 group" data-testid="nav-brand-link">
               <img src="assets/img/logo.jpeg" alt="Vedganga Logo" class="h-9 w-auto object-contain" />
-              <span class="font-display text-[15px] tracking-wider">Vedganga</span>
+              <span class="font-display text-[17px] tracking-wider">Vedganga</span>
             </a>
             <nav class="hidden md:flex items-center gap-8 text-sm">
               ${NAV.map(n => `<a href="${n.href}" class="link-under ${current === n.href ? 'text-[color:var(--v-forest)] font-semibold' : 'text-[color:var(--v-ink)]/80 hover:text-[color:var(--v-ink)]'}" data-testid="nav-link-${n.label.toLowerCase()}">${n.label}</a>`).join('')}
