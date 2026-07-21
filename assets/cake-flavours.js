@@ -197,6 +197,32 @@ window.V_RAISIN_TYPES = [
     desc:'Peeled white melon kernels thoroughly dried and graded for commercial bakery usage. Imparts a mild, pleasant crunch and enriches rich seasonal sweets and specialty breads.',
     specs:[['Purity Standards','99.9% Pure Kernel'],['Damaged Kernels','2% Max'],['Moisture','6% Max'],['Shelf Life','12 months']]
   }
+/* Preservatives & Antimicrobial Agents Database */
+window.V_PRESERVATIVE_TYPES = [
+  {
+    slug:'calcium-propionate', name:'Calcium Propionate', formats:'Powder & Granular',
+    tag:'Mold inhibitor · Bread & bakery preservation · Neutral taste profile',
+    desc:'An effective antimicrobial agent widely used in yeast-raised baked goods to inhibit mold and rope-forming bacteria growth without interfering with yeast activity during fermentation.',
+    specs:[['Functional Target','Mold & Rope Inhibition'],['Recommended Dosage','0.1% – 0.3% on flour weight'],['Solubility','Water soluble'],['Shelf Life','24 months']]
+  },
+  {
+    slug:'potassium-sorbate', name:'Potassium Sorbate', formats:'Extruded Pellets / Granular',
+    tag:'Broad-spectrum preservative · Yeast & mold control',
+    desc:'A high-purity potassium salt of sorbic acid designed to extend shelf life across high-moisture bakery items, confectionery lines, syrups, and beverages by preventing yeast and mold propagation.',
+    specs:[['Functional Target','Yeast & Mold Suppression'],['Optimal pH Range','Effective below pH 6.0'],['Solubility','Highly soluble in water'],['Shelf Life','24 months']]
+  },
+  {
+    slug:'sorbic-acid', name:'Sorbic Acid', formats:'Pure Crystalline Powder',
+    tag:'High potency preservative · Low pH stability',
+    desc:'A natural-identical organic acid offering exceptional preservative action against molds and yeasts in acidic food matrices. Ideal for surface treatments and high-acid product environments.',
+    specs:[['Functional Target','Antimicrobial Control'],['Purity Standard','99.0% – 101.0% FCC'],['Melting Point','132°C – 135°C'],['Shelf Life','24 months']]
+  },
+  {
+    slug:'tartaric-acid', name:'Tartaric Acid', formats:'L(+) Natural Crystalline',
+    tag:'Natural fruit acid · Leavening reaction · Flavour sharper',
+    desc:'A naturally occurring organic acid used for precise pH reduction, tart flavor enhancement, and acting as a solid acid component in chemical leavening systems (baking powders).',
+    specs:[['Functional Target','Acidulant / Leavening Agent'],['Optical Activity','+12.0° to +13.0°'],['Compliance','FSSAI & FCC Grade'],['Shelf Life','24 months']]
+  }
 ];
 
 /* Asset Framework Renderer */
@@ -221,9 +247,10 @@ window.V_RenderCakeFlavours = function (opts) {
   const currentSlug = urlParams.get('slug') || '';
   
   // 1. Identify active category context dynamically
-  const isHydrocolloids = (currentSlug === 'hydrocolloids');
-  const isRaisins = (currentSlug === 'raisins');
-  const isCardLayout = (isHydrocolloids || isRaisins); // Targets both text-card categories
+   const isHydrocolloids = (currentSlug === 'hydrocolloids');
+   const isRaisins = (currentSlug === 'raisins');
+   const isPreservatives = (currentSlug === 'preservatives');
+   const isCardLayout = (isHydrocolloids || isRaisins || isPreservatives);
   
   // 2. Route dataset, labels, and metadata based on active slug
   const targetDataset = isRaisins ? window.V_RAISIN_TYPES : (isHydrocolloids ? window.V_HYDRO_TYPES : window.V_CAKE_FLAVOURS);
