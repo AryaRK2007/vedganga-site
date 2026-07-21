@@ -28,7 +28,7 @@
       </div>
       <div class="md:col-span-4 space-y-4" data-reveal>
         <p class="text-[color:var(--v-ink)]/75 max-w-md">Search or filter through our twelve carefully curated lines — every SKU comes with a spec sheet and a sample-on-request policy.</p>
-        <button onclick="VedgangaQuote.open()" class="btn-outline" data-testid="products-quote-btn">Request a Quote →</button>
+        <button onclick="typeof VedgangaQuote !== 'undefined' && VedgangaQuote.open()" class="btn-outline cursor-pointer" data-testid="products-quote-btn">Request a Quote →</button>
       </div>
     </div>
   </div>
@@ -62,7 +62,7 @@
       <div class="font-mono-caps text-xs text-[color:var(--v-gold)]">— Custom Blends</div>
       <h3 class="font-display text-4xl md:text-5xl mt-3 max-w-2xl leading-[1.05]">Can't see what you need? <span class="italic font-serif-body">We blend to spec.</span></h3>
       <p class="mt-5 text-[color:var(--v-cream)]/75 max-w-xl">Share your recipe target — moisture, shelf life, cost per kg — and our formulation team will build the ingredient system around it.</p>
-      <button onclick="VedgangaQuote.open()" class="btn-gold mt-8" data-testid="products-cta-quote">Start a Brief →</button>
+      <button onclick="typeof VedgangaQuote !== 'undefined' && VedgangaQuote.open()" class="btn-gold mt-8 cursor-pointer" data-testid="products-cta-quote">Start a Brief →</button>
     </div>
   </div>
 </section>
@@ -74,55 +74,91 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="assets/site.js"></script>
 <script src="assets/products.js"></script>
+
 <script>
 (function(){
-  const V_PRODUCTS = window.V_PRODUCTS;
-  const CATS = ['All', ...Array.from(new Set(V_PRODUCTS.map(p => p.cat)))];
-  const grid = document.getElementById('v-grid');
-  const filters = document.getElementById('v-filters');
-  const empty = document.getElementById('v-empty');
-  const search = document.getElementById('v-search');
-  let activeCat = 'All';
+  function init() {
+    // 1. Array structural verification runtime hook
+    if (!window.V_PRODUCTS || !Array.isArray(window.V_PRODUCTS)) {
+      setTimeout(init, 40); 
+      return;
+    }
 
-  filters.innerHTML = CATS.map(c => `<button data-cat="${c}" class="chip" data-testid="filter-${c.toLowerCase()}">${c}</button>`).join('');
+    const V_PRODUCTS = window.V_PRODUCTS;
+    const rawCats = V_PRODUCTS.map(p => p.cat || 'General');
+    const CATS = ['All', ...Array.from(new Set(rawCats))];
+    
+    const grid = document.getElementById('v-grid');
+    const filters = document.getElementById('v-filters');
+    const empty = document.getElementById('v-empty');
+    const search = document.getElementById('v-search');
+    let activeCat = 'All';
 
-  function render() {
-    const q = search.value.trim().toLowerCase();
-    const list = V_PRODUCTS.filter(p => (activeCat === 'All' || p.cat === activeCat) &&
-      (!q || (p.name + ' ' + p.tag + ' ' + p.cat).toLowerCase().includes(q)));
-    empty.classList.toggle('hidden', list.length !== 0);
-    grid.innerHTML = list.map((p, i) => `
-      <a href="product-template.html?slug=${p.slug}" class="spotlight rounded-3xl block" data-reveal data-testid="product-card-${p.slug}">
-        <span class="spot"></span>
-        <div class="relative aspect-[4/5] overflow-hidden rounded-3xl">
-          ${window.V_ART(p, i)}
-          <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/70 via-transparent to-transparent"></div>
-          <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)]">${p.cat}</div>
-          <div class="absolute inset-x-0 bottom-0 p-5 text-[color:var(--v-cream)]">
-            <div class="font-display text-2xl leading-tight">${p.name}</div>
-            <div class="mt-1 text-xs text-[color:var(--v-cream)]/85">${p.tag}</div>
-            <div class="mt-4 flex items-center gap-2 text-[color:var(--v-gold)] text-sm"><span class="link-under">View details</span><span>→</span></div>
+    filters.innerHTML = CATS.map(c => {
+      const safeTextId = (c || '').toString().toLowerCase();
+      return `<button data-cat="${c}" class="chip cursor-pointer" data-testid="filter-${safeTextId}">${c}</button>`;
+    }).join('');
+
+    function render() {
+      const q = search.value.trim().toLowerCase();
+      const list = V_PRODUCTS.filter(p => {
+        const pCat = p.cat || 'General';
+        const searchPool = ((p.name || '') + ' ' + (p.tag || '') + ' ' + pCat).toLowerCase();
+        return (activeCat === 'All' || pCat === activeCat) && (!q || searchPool.includes(q));
+      });
+      
+      empty.classList.toggle('hidden', list.length !== 0);
+      
+      grid.innerHTML = list.map((p, i) => {
+        const artwork = (typeof window.V_ART === 'function') ? window.V_ART(p, i) : `<div class="w-full h-full bg-neutral-200"></div>`;
+        const pSlug = p.slug || 'item';
+        
+        return `
+        <a href="product-template.html?slug=${pSlug}" class="spotlight rounded-3xl block group relative overflow-hidden" data-reveal data-testid="product-card-${pSlug}">
+          <span class="spot"></span>
+          <div class="relative aspect-[4/5] overflow-hidden rounded-3xl">
+            ${artwork}
+            <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/70 via-transparent to-transparent"></div>
+            <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)]">${p.cat || 'General'}</div>
+            <div class="absolute inset-x-0 bottom-0 p-5 text-[color:var(--v-cream)] z-10">
+              <div class="font-display text-2xl leading-tight">${p.name || 'Unnamed Ingredient'}</div>
+              <div class="mt-1 text-xs text-[color:var(--v-cream)]/85">${p.tag || ''}</div>
+              <div class="mt-4 flex items-center gap-2 text-[color:var(--v-gold)] text-sm"><span class="link-under">View details</span><span>→</span></div>
+            </div>
           </div>
-        </div>
-      </a>`).join('');
-    // Re-run reveal on new items
-    if (window.gsap) gsap.utils.toArray('#v-grid [data-reveal]').forEach(el => gsap.fromTo(el, { y:20, opacity:0 }, { y:0, opacity:1, duration:.7, ease:'expo.out', stagger:.03, scrollTrigger:{trigger:el, start:'top 92%', once:true}}));
-    filters.querySelectorAll('button').forEach(b => {
-      const on = b.dataset.cat === activeCat;
-      b.style.background = on ? 'var(--v-ink)' : 'var(--v-cream-2)';
-      b.style.color = on ? 'var(--v-cream)' : 'var(--v-forest-2)';
-      b.style.borderColor = on ? 'var(--v-ink)' : 'var(--v-rule)';
+        </a>`;
+      }).join('');
+      
+      if (window.gsap && window.ScrollTrigger) {
+        gsap.utils.toArray('#v-grid [data-reveal]').forEach(el => {
+          gsap.fromTo(el, 
+            { y: 20, opacity: 0 }, 
+            { y: 0, opacity: 1, duration: 0.7, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 92%', once: true } }
+          );
+        });
+      }
+      
+      filters.querySelectorAll('button').forEach(b => {
+        const on = b.dataset.cat === activeCat;
+        b.style.background = on ? 'var(--v-ink)' : 'var(--v-cream-2)';
+        b.style.color = on ? 'var(--v-cream)' : 'var(--v-forest-2)';
+        b.style.borderColor = on ? 'var(--v-ink)' : 'var(--v-rule)';
+      });
+    }
+
+    filters.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-cat]'); 
+      if (!b) return;
+      activeCat = b.dataset.cat; 
+      render();
     });
+
+    search.addEventListener('input', render);
+    render();
   }
-  filters.addEventListener('click', (e) => {
-    const b = e.target.closest('[data-cat]'); if (!b) return;
-    activeCat = b.dataset.cat; render();
-  });
-  search.addEventListener('input', render);
-  render();
+
+  init();
 })();
 </script>
-<script src="assets/products.js"></script>
-
 </body>
 </html>
