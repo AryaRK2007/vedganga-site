@@ -129,32 +129,27 @@ window.V_HYDRO_TYPES = [
   {
     slug:'enzymes-improvers', name:'Enzymes & Dough Improvers', formats:'Industrial Concentrations',
     tag:'Alpha-Amylase · Xylanase · Lipase · Glucose Oxidase',
-    desc:'Targeted biocatalytic enzymes engineered to upgrade structural elasticity, accelerate gas retention, maximize loaf volume, and extend fresh-crumb softness over shelf life[cite: 4].',
-    specs:[['Active Elements','Alpha-Amylase · Xylanase · Lipase[cite: 4]'],['Functional Target','Gluten Network Optimization[cite: 4]'],['Dosage Range','Custom process dependent[cite: 4]'],['Shelf Life','12 months']]
+    desc:'Targeted biocatalytic enzymes engineered to upgrade structural elasticity, accelerate gas retention, maximize loaf volume, and extend fresh-crumb softness over shelf life.',
+    specs:[['Active Elements','Alpha-Amylase · Xylanase · Lipase'],['Functional Target','Gluten Network Optimization'],['Dosage Range','Custom process dependent'],['Shelf Life','12 months']]
   },
   {
     slug:'acidulants', name:'Acidulants & Regulators', formats:'Pure Crystalline / Glacial',
-    tag:'Citric Acid · Malic Acid · Lactic Acid · Fumaric Acid',
-    desc:'High-purity food-grade processing acids used for precise pH adjustment, flavour enhancement, shelf stabilization, and structural dough modification[cite: 4].',
-    specs:[['Composition Portfolio','Citric · Malic · Lactic · Fumaric · Acetic[cite: 4]'],['Functional Target','pH Regulation / Microbial Control[cite: 4]'],['Compliance','FSSAI, JECFA & FCC Standards[cite: 4]'],['Shelf Life','24 months']]
+    tag:'Citric Acid · Malic Acid · Lactic Acid · Fumaric Acid · Ascorbic Acid · Tartaric Acid',
+    desc:'High-purity food-grade processing acids used for precise pH adjustment, flavour enhancement, shelf stabilization, and structural dough modification.',
+    specs:[['Composition Portfolio','Citric · Malic · Lactic · Fumaric · Acetic'],['Functional Target','pH Regulation / Microbial Control'],['Compliance','FSSAI, JECFA & FCC Standards'],['Shelf Life','24 months']]
   },
-  {
-    slug:'antioxidants', name:'Antioxidants & Preservatives', formats:'Technical Micro-Granules',
-    tag:'Ascorbic Acid · Potassium Sorbate · Calcium Propionate',
-    desc:'Comprehensive shelf-extension components including mold inhibitors and structural oxygen scavengers to retain profile authenticity and eliminate syneresis defects[cite: 4].',
-    specs:[['Preservatives','Calcium Propionate · Potassium Sorbate[cite: 4]'],['Antioxidants','Ascorbic Acid · Sodium Metabisulphite[cite: 4]'],['Form Factor','Free-flowing granular powders[cite: 4]'],['Shelf Life','24 months']]
-  },
+  
   {
     slug:'micronutrients', name:'Micronutrients & Supplements', formats:'Bio-Available Minerals',
     tag:'Ferrous Sulphate · Zinc Oxide · Mineral Chelates',
-    desc:'Premium bio-available food fortification ingredients, including precise mineral salts and amino compositions designed for nutritional optimization[cite: 4, 4].',
-    specs:[['Iron Formats','Ferrous Sulphate · Ferractiv Chelate[cite: 4, 4]'],['Zinc Formats','Zinc Oxide · Zinc Acetate · Zinc Sulphate[cite: 4]'],['Amino Elements','Glycine · L-Glutamine · L-Arginine[cite: 4]'],['Shelf Life','24 months']]
+    desc:'Premium bio-available food fortification ingredients, including precise mineral salts and amino compositions designed for nutritional optimization.',
+    specs:[['Iron Formats','Ferrous Sulphate · Ferractiv Chelate'],['Zinc Formats','Zinc Oxide · Zinc Acetate · Zinc Sulphate'],['Amino Elements','Glycine · L-Glutamine · L-Arginine'],['Shelf Life','24 months']]
   },
   {
     slug:'sweeteners', name:'Functional Sweeteners', formats:'Granular & Powdered',
     tag:'Dextrose · Mannitol · Sucralose · Stevia Extract',
-    desc:'High-performance sweetening matrices providing variable bulking properties, humidity tracking, browning control, and high-intensity structural stabilization[cite: 4, 4].',
-    specs:[['Bulk Sweeteners','Dextrose · Mannitol[cite: 4]'],['High Intensity','Sucralose · Stevia Extract[cite: 4]'],['Humectant Action','Optimized moisture control[cite: 4]'],['Shelf Life','24 months']]
+    desc:'High-performance sweetening matrices providing variable bulking properties, humidity tracking, browning control, and high-intensity structural stabilization[.',
+    specs:[['Bulk Sweeteners','Dextrose · Mannitol'],['High Intensity','Sucralose · Stevia Extract'],['Humectant Action','Optimized moisture control]'],['Shelf Life','24 months']]
   }
 ];
 
