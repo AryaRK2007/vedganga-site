@@ -223,6 +223,7 @@ window.V_RenderCakeFlavours = function (opts) {
   // 1. Identify active category context dynamically
   const isHydrocolloids = (currentSlug === 'hydrocolloids');
   const isRaisins = (currentSlug === 'raisins');
+  const isCardLayout = (isHydrocolloids || isRaisins); // Targets both text-card categories
   
   // 2. Route dataset, labels, and metadata based on active slug
   const targetDataset = isRaisins ? window.V_RAISIN_TYPES : (isHydrocolloids ? window.V_HYDRO_TYPES : window.V_CAKE_FLAVOURS);
@@ -230,8 +231,8 @@ window.V_RenderCakeFlavours = function (opts) {
   const productLabel = opts.product || (isRaisins ? 'Dry Fruits & Seeds' : (isHydrocolloids ? 'Specialty Chemicals' : 'Cake'));
   const isConcentrate = currentSlug.toLowerCase().includes('concentrate');
 
-  if (isHydrocolloids) {
-    // Renders as text blocks without pictures
+  if (isCardLayout) {
+    // Renders as text blocks without pictures for both hydrocolloids and raisins
     host.innerHTML = `
       <div class="grid md:grid-cols-2 gap-8 items-start">
         ${targetDataset.map((v, i) => {
@@ -301,8 +302,8 @@ window.V_RenderCakeFlavours = function (opts) {
                     <tbody>
                       ${v.specs.map((row, r) => `
                         <tr class="border-b border-black/10 ${r % 2 ? 'bg-[color:var(--v-cream-2)]' : ''}">
-                          <td class="py-3 pr-6 font-mono-caps text-[10px] text-[color:var(--v-forest-2)] whitespace-nowrap align-top w-[38%] md:w-[30%]">${row[0]}</td>
-                          <td class="py-3 text-[color:var(--v-ink)]">${row[1]}</td>
+                          <td class="py-3 pr-6 font-mono-caps text-[10px] text-[color:var(--v-forest-2)] whitespace-nowrap align-top w-[38%] md:w-[30%]" data-testid="spec-label-${r}">${row[0]}</td>
+                          <td class="py-3 text-[color:var(--v-ink)]" data-testid="spec-val-${r}">${row[1]}</td>
                         </tr>`).join('')}
                     </tbody>
                   </table>
