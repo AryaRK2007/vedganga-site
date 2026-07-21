@@ -79,11 +79,9 @@
 // Global bridge function to inject Web3Forms context dynamically before opening modular quote architecture
 window.handleRequest = function(subjectText) {
   if (typeof VedgangaQuote !== 'undefined') {
-    // Looks for Web3Forms dynamic inputs inside the global operational modal component
     const modalEl = document.getElementById('v-quote-modal') || document.body;
     let subjectInput = modalEl.querySelector('input[name="subject"]');
     
-    // Injects dynamic fallback if the shared module requires updating inline
     if (!subjectInput) {
       subjectInput = document.createElement('input');
       subjectInput.type = 'hidden';
@@ -104,7 +102,6 @@ window.handleRequest = function(subjectText) {
 
 (function(){
   function init() {
-    // 1. Structural runtime safety check for global data array
     if (!window.V_PRODUCTS || !Array.isArray(window.V_PRODUCTS)) {
       setTimeout(init, 40); 
       return;
@@ -139,35 +136,11 @@ window.handleRequest = function(subjectText) {
         const pSlug = p.slug || 'item';
         const pCat = p.cat || 'General';
         
-        // Technical flag logic: skips images for structural chemical nodes
-        const isTechnicalItem = ['hydrocolloids', 'stabilizers', 'enzymes', 'chemicals', 'additives', 'acidulants', 'micronutrients'].some(k => 
-          pCat.toLowerCase().includes(k) || pSlug.toLowerCase().includes(k)
-        );
-
-        let structuralVisual = '';
-        if (isTechnicalItem) {
-          // Image-less technical typography block
-          structuralVisual = `
-            <div class="w-full h-full bg-[color:var(--v-cream-2)] p-6 flex flex-col justify-between border-b border-black/5 select-none transition-colors duration-300 group-hover:bg-[color:var(--v-cream)]">
-              <div class="font-mono text-[10px] tracking-wider text-[color:var(--v-forest-2)] opacity-70 flex justify-between items-center">
-                <span>SYSTEM NODE // TECH_SPEC</span>
-                <span>SYS_N°${String(i+1).padStart(2,'0')}</span>
-              </div>
-              <div class="my-auto py-4">
-                <div class="font-mono text-xs text-[color:var(--v-forest)] tracking-tight uppercase">${p.formats || 'Pure Formulation'}</div>
-                <div class="text-[color:var(--v-ink)]/60 text-xs font-mono mt-2 line-clamp-3">${p.desc || ''}</div>
-              </div>
-              <div class="font-mono text-[9px] text-[color:var(--v-ink)]/40 uppercase tracking-widest border-t border-black/5 pt-3">
-                No Imagery Required · Technical Grade
-              </div>
-            </div>`;
-        } else {
-          // Standard image asset display for bakery architectures
-          const artwork = (typeof window.V_ART === 'function') ? window.V_ART(p, i) : `<div class="w-full h-full bg-neutral-200"></div>`;
-          structuralVisual = `
-            ${artwork}
-            <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/80 via-[color:var(--v-ink)]/20 to-transparent"></div>`;
-        }
+        // Standard image asset display used for all cards, including Speciality Chemicals
+        const artwork = (typeof window.V_ART === 'function') ? window.V_ART(p, i) : `<div class="w-full h-full bg-neutral-200"></div>`;
+        const structuralVisual = `
+          ${artwork}
+          <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/80 via-[color:var(--v-ink)]/20 to-transparent"></div>`;
         
         return `
         <a href="product-template.html?slug=${pSlug}" class="spotlight rounded-3xl block group relative overflow-hidden border border-black/10 flex flex-col justify-between h-full min-h-[420px]" data-reveal data-testid="product-card-${pSlug}">
@@ -177,10 +150,10 @@ window.handleRequest = function(subjectText) {
               ${structuralVisual}
             </div>
             <div class="absolute top-4 left-4 chip !bg-[color:var(--v-cream)]/90 !text-[color:var(--v-ink)] z-20">${pCat}</div>
-            <div class="absolute inset-x-0 bottom-0 p-5 text-[color:var(--v-cream)] z-10 ${isTechnicalItem ? '!text-[color:var(--v-ink)] !relative !bg-transparent !p-6 !pt-0' : ''}">
+            <div class="absolute inset-x-0 bottom-0 p-5 text-[color:var(--v-cream)] z-10">
               <div class="font-display text-2xl leading-tight">${p.name || 'Unnamed Formulation'}</div>
-              <div class="mt-1 text-xs ${isTechnicalItem ? 'text-[color:var(--v-forest-2)]' : 'text-[color:var(--v-cream)]/85'} font-serif-body italic">${p.tag || ''}</div>
-              <div class="mt-4 flex items-center gap-2 ${isTechnicalItem ? 'text-[color:var(--v-forest)]' : 'text-[color:var(--v-gold)]'} text-sm font-mono-caps">
+              <div class="mt-1 text-xs text-[color:var(--v-cream)]/85 font-serif-body italic">${p.tag || ''}</div>
+              <div class="mt-4 flex items-center gap-2 text-[color:var(--v-gold)] text-sm font-mono-caps">
                 <span class="link-under text-xs">Analyze Specifications</span>
                 <span>→</span>
               </div>
