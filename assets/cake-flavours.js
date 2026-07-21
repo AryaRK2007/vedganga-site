@@ -134,7 +134,7 @@ window.V_HYDRO_TYPES = [
   },
   {
     slug:'acidulants', name:'Acidulants & Regulators', formats:'Pure Crystalline / Glacial',
-    tag:'Citric Acid · Malic Acid · Lactic Acid · Fumaric Acid · Ascorbic Acid',
+    tag:'Citric Acid · Malic Acid · Lactic Acid · Fumaric Acid · Ascorbic Acid · Tartaric Acid',
     desc:'High-purity food-grade processing acids used for precise pH adjustment, flavour enhancement, shelf stabilization, and structural dough modification.',
     specs:[['Composition Portfolio','Citric · Malic · Lactic · Fumaric · Acetic'],['Functional Target','pH Regulation / Microbial Control'],['Compliance','FSSAI, JECFA & FCC Standards]'],['Shelf Life','24 months']]
   },
