@@ -249,6 +249,18 @@
       <a href="#item-til" class="chip link-under">06 · Til Seeds (Black/White)</a>
       <a href="#item-melon" class="chip link-under">07 · Melon Seeds</a>`;
   }
+  else if (slug === 'preservatives') {
+    document.getElementById('v-portfolio-wrap').classList.remove('hidden');
+    document.getElementById('v-portfolio-label').textContent = '— Shelf-Life Systems';
+    document.getElementById('v-portfolio-title').innerHTML = `Preservatives &<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">acidulants.</span>`;
+    document.getElementById('v-portfolio-desc').textContent = 'High-performance antimicrobial agents and food acids engineered to protect moisture-prone structural formulations.';
+    
+    document.getElementById('v-portfolio-anchors').innerHTML = `
+      <a href="#item-calcium-propionate" class="chip link-under">01 · Calcium & Sodium Propionate</a>
+      <a href="#item-potassium-sorbate" class="chip link-under">02 · Potassium Sorbate</a>
+      <a href="#item-sorbic-acid" class="chip link-under">03 · Sorbic Acid</a>
+      <a href="#item-tartaric-acid" class="chip link-under">04 · Tartaric Acid</a>`;
+  }
 
   if (typeof window.V_RenderCakeFlavours === 'function') {
     window.V_RenderCakeFlavours({ hostId: 'v-portfolio-target', product: p.name });
