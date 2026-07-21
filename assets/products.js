@@ -34,7 +34,7 @@ window.V_ICONS = {
 /* Reusable portfolio visual generator for the homepage grid using high-quality professional URLs */
 window.V_ART = function (p, i) {
   const urlMap = {
-    'raisins': 'https://plus.unsplash.com/premium_photo-1669205434519-a042ba09fbdd?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'raisins': 'https://images.unsplash.com/photo-1543158181-1274e5362710?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'cake-premixes': 'https://images.unsplash.com/photo-1602351447937-745cb720612f?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'hydrocolloids': 'https://t3.ftcdn.net/jpg/02/65/44/64/360_F_265446412_EuefgWWRqi3QOrJMEy8fuZMFMtza5AgA.jpg',
     'tea-time-bar-cakes': 'https://globchem.in/cdn/shop/files/choco-chips-tea-time-400x400_1000x1000.jpg?v=1654152890',
