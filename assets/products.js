@@ -37,15 +37,16 @@ window.V_ART = function (p, i) {
     'raisins': 'https://plus.unsplash.com/premium_photo-1669205434519-a042ba09fbdd?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'cake-premixes': 'https://images.unsplash.com/photo-1602351447937-745cb720612f?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'cake-concentrates': 'https://images.unsplash.com/photo-1602351447937-745cb720612f?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'tea-time-bar-cakes': 'https://images.unsplash.com/photo-1625497248300-475c9557dd3a?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'tea-time-bar-cakes': 'https://globchem.in/cdn/shop/files/choco-chips-tea-time-400x400_1000x1000.jpg?v=1654152890',
     'muffin-premixes': 'https://images.unsplash.com/photo-1623246123320-0d6636755796?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'emulsifiers': 'https://images.unsplash.com/photo-1534432182912-63863115e106?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'wheat-gluten': 'https://images.unsplash.com/photo-1561978248-bffcdd0457ad?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'bread-improvers': 'https://images.unsplash.com/photo-1695150455847-a34429ebfaca?q=80&w=995&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'starch': 'https://images.unsplash.com/photo-1627485937980-221c88ac04f9?q=80&w=2083&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'preservatives': 'https://globchem.in/cdn/shop/files/choco-chips-tea-time-400x400_1000x1000.jpg?v=1654152890',
+    'preservatives': 'https://images.unsplash.com/photo-1737099113538-ea75c2ffce50?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'proteins': 'https://images.unsplash.com/photo-1693996045300-521e9d08cabc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'fibers': 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80'
+     
   };
 
   const imgUrl = urlMap[p.slug] || 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80';
