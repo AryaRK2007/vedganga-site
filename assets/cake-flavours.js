@@ -153,6 +153,52 @@ window.V_HYDRO_TYPES = [
   }
 ];
 
+/* Raisins & Dry Nuts Portfolio Technical Database */
+window.V_RAISIN_TYPES = [
+  {
+    slug:'golden', name:'Golden Raisins', formats:'Grade A · Premium Cultivar',
+    tag:'Sulphur-bleached · Bright yellow-gold · Sweet plum note',
+    desc:'Carefully sun-dried and sulphur-treated golden raisins offering a plump, juicy texture and consistent light coloration. Perfect for high-end artisan panettones, cakes, and luxury retail packs.',
+    specs:[['Moisture Content','14% – 16% Max'],['Sizing Options','Medium (300-350 berries/100g)'],['Purity','99.5% Sortex Cleaned'],['Shelf Life','12 months']]
+  },
+  {
+    slug:'black', name:'Black Raisins', formats:'Natural Sun-Cured',
+    tag:'Seedless · Deep black skin · Rich natural sugars',
+    desc:'Naturally sun-cured black raisins possessing a deep flavour profile and high natural sugar content. Excellent for energy bars, traditional baked items, and bulk industrial applications.',
+    specs:[['Moisture Content','13% – 15% Max'],['Processing','Triple washed & laser sorted'],['Foreign Matter','Nil (0.0%)'],['Shelf Life','12 months']]
+  },
+  {
+    slug:'sunflower', name:'Sunflower Seeds', formats:'Peeled Kernel Grade',
+    tag:'Raw & Roasted · High oil integrity · Crunchy texture',
+    desc:'Clean, uniform-sized sunflower seed kernels sourced from premium crops. Imparts a delicate nutty flavor and satisfying crunch into multi-grain breads, buns, and snack bars.',
+    specs:[['Purity Standards','99.9% Cleaned & Destoned'],['Broken Kernels','3% Max'],['Moisture','5% – 7% Max'],['Shelf Life','12 months']]
+  },
+  {
+    slug:'pumpkin', name:'Pumpkin Seeds', formats:'Shine-Skin / Peeled',
+    tag:'Deep green kernel · Rich in protein · Mild earthy note',
+    desc:'High-grade raw pumpkin seed kernels offering a vibrant green appearance and clean, nutty aroma. Widely utilized as decorative toppings on artisan breads and health-focused snack matrices.',
+    specs:[['Purity Standards','99.9% Pure Grade A'],['Admixture','0.1% Max'],['Moisture','6% Max'],['Shelf Life','12 months']]
+  },
+  {
+    slug:'flax', name:'Flax Seeds', formats:'Golden & Brown Cultivars',
+    tag:'High Omega-3 fatty acids · Mucilage-rich · Dietary fibre',
+    desc:'Cleaned brown and golden flax seeds packed with essential fatty acids and functional mucilage components. Exceptional water binding behavior for functional health formulations.',
+    specs:[['Oil Content','35% – 40% Min'],['Purity','99.5% Cleaned'],['Moisture','8% Max'],['Shelf Life','12 months']]
+  },
+  {
+    slug:'til', name:'Til Seeds (Sesame)', formats:'Hull & Natural Black/White',
+    tag:'High oil yield · Uniform size · Aromatic roasting profile',
+    desc:'Selected white (hulled) and black natural sesame seeds offering intense aroma upon baking. Essential inclusion for burger buns, artisanal crackers, and traditional confectionery lines.',
+    specs:[['Varieties','Hulled White / Natural Black'],['Purity','99.9% Sortex Cleaned'],['Free Fatty Acids','1.5% Max'],['Shelf Life','12 months']]
+  },
+  {
+    slug:'melon', name:'Melon Seeds', formats:'Pure White Kernels',
+    tag:'Subtle sweetness · Smooth texture · Traditional bakery use',
+    desc:'Peeled white melon kernels thoroughly dried and graded for commercial bakery usage. Imparts a mild, pleasant crunch and enriches rich seasonal sweets and specialty breads.',
+    specs:[['Purity Standards','99.9% Pure Kernel'],['Damaged Kernels','2% Max'],['Moisture','6% Max'],['Shelf Life','12 months']]
+  }
+];
+
 /* Asset Framework Renderer */
 window.V_CAKE_ART = function (v, isConcentrate) {
   if (v.imgUrl) {
