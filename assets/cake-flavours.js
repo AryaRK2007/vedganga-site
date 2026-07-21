@@ -138,7 +138,7 @@ window.V_HYDRO_TYPES = [
     desc:'High-purity food-grade processing acids used for precise pH adjustment, flavour enhancement, shelf stabilization, and structural dough modification.',
     specs:[['Composition Portfolio','Citric · Malic · Lactic · Fumaric · Acetic'],['Functional Target','pH Regulation / Microbial Control'],['Compliance','FSSAI, JECFA & FCC Standards]'],['Shelf Life','24 months']]
   },
-  
+   
   {
     slug:'micronutrients', name:'Micronutrients & Supplements', formats:'Bio-Available Minerals',
     tag:'Ferrous Sulphate · Zinc Oxide · Mineral Chelates',
@@ -170,10 +170,10 @@ window.V_CAKE_ART = function (v, isConcentrate) {
 window.V_RenderCakeFlavours = function (opts) {
   const host = document.getElementById(opts.hostId);
   if (!host) return;
-  
+   
   const urlParams = new URLSearchParams(window.location.search);
   const currentSlug = urlParams.get('slug') || '';
-  
+   
   const isHydrocolloids = (currentSlug === 'hydrocolloids');
   const targetDataset = isHydrocolloids ? window.V_HYDRO_TYPES : window.V_CAKE_FLAVOURS;
   const labelPrefix = isHydrocolloids ? 'CHEMICAL' : 'FLAVOUR';
@@ -196,9 +196,10 @@ window.V_RenderCakeFlavours = function (opts) {
                 <h3 class="font-display text-2xl md:text-3xl leading-tight text-[color:var(--v-ink)]">
                   ${v.name}
                 </h3>
-                <p class="mt-2 text-sm font-serif-body italic text-[color:var(--v-forest-2)]">${v.tag}</p>
+                <!-- INCREASED: text-sm changed to text-base -->
+                <p class="mt-2 text-base font-serif-body italic text-[color:var(--v-forest-2)]">${v.tag}</p>
                 <p class="mt-4 text-sm text-[color:var(--v-ink)]/80 leading-relaxed">${v.desc}</p>
-                
+                 
                 <div class="mt-6">
                   <table class="w-full border-collapse text-xs">
                     <tbody>
@@ -225,7 +226,7 @@ window.V_RenderCakeFlavours = function (opts) {
       const num = String(i + 1).padStart(2, '0');
       const totalCount = String(targetDataset.length).padStart(2, '0');
       const reverse = i % 2 === 1;
-      
+       
       return `
         <article id="item-${v.slug}" class="py-14 md:py-20 ${i !== 0 ? 'border-t border-black/10' : ''}">
           <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
@@ -242,7 +243,8 @@ window.V_RenderCakeFlavours = function (opts) {
                 ${v.name.split(' ')[0]}
                 ${v.name.split(' ').slice(1).length ? `<span class="italic font-serif-body font-normal text-[color:var(--v-forest-2)]"> ${v.name.split(' ').slice(1).join(' ')}</span>` : ''}
               </h3>
-              <p class="mt-3 text-base md:text-lg font-serif-body italic text-[color:var(--v-forest-2)]" data-reveal>${v.tag}</p>
+              <!-- INCREASED: text-base md:text-lg changed to text-lg md:text-xl -->
+              <p class="mt-3 text-lg md:text-xl font-serif-body italic text-[color:var(--v-forest-2)]" data-reveal>${v.tag}</p>
               <p class="mt-5 max-w-xl text-[color:var(--v-ink)]/80 leading-relaxed" data-reveal>${v.desc}</p>
               <div class="mt-8" data-reveal>
                 <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]">— Technical Specifications</div>
