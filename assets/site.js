@@ -23,7 +23,7 @@ window.VEDGANGA_API = window.VEDGANGA_API || 'https://vedganga-modern.preview.em
         <div class="px-5 md:px-10 pt-4">
           <div class="flex items-center justify-between rounded-full border border-black/10 bg-[color:var(--v-cream)]/85 backdrop-blur-md px-4 md:px-6 py-2.5">
             <a href="index.html" class="flex items-center gap-2 group" data-testid="nav-brand-link">
-              <span class="w-8 h-8 rounded-full bg-[color:var(--v-forest)] text-[color:var(--v-cream)] grid place-items-center font-display text-[13px]">V</span>
+              <img src="assets/img/logo.jpeg" alt="Vedganga Logo" class="h-9 w-auto object-contain" />
               <span class="font-display text-[15px] tracking-wider">Vedganga</span>
             </a>
             <nav class="hidden md:flex items-center gap-8 text-sm">
