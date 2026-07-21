@@ -221,6 +221,88 @@ window.V_PRESERVATIVE_TYPES = [
     desc:'A naturally occurring organic acid used for precise pH reduction, tart flavor enhancement, and acting as a solid acid component in chemical leavening systems (baking powders).',
     specs:[['Functional Target','Acidulant / Leavening Agent'],['Optical Activity','+12.0° to +13.0°'],['Compliance','FSSAI & FCC Grade'],['Shelf Life','24 months']]
   }
+   /* Vedganga — Starches and Derivatives portfolio engine.
+   Exposes: window.V_STARCH_TYPES */
+
+window.V_STARCH_TYPES = [
+  {
+    slug: 'modified-starch', name: 'Modified Starch', formats: 'Cross-linked & Stabilized',
+    palette: ['#3A2E1E', '#7A623C', '#E2CFA4'],
+    tag: 'High shear stability · Freeze-thaw resilience · Smooth mouthfeel',
+    desc: 'Engineered food-grade modified starches designed to withstand severe thermal processing, mechanical shear, and acidic conditions. Delivers excellent clarity, viscosity control, and long-term shelf stability in dressings, sauces, and fillings.',
+    specs: [
+      ['Application', 'Sauces · Dressings · Fillings · Gravies'],
+      ['Functional Target', 'Viscosity & Freeze-Thaw Stability'],
+      ['Viscosity Profile', 'High peak hot viscosity'],
+      ['Shelf Life', '24 months (ambient, sealed)'],
+      ['Packaging', '25 kg multi-wall paper bag'],
+    ],
+  },
+  {
+    slug: 'corn-starch', name: 'Corn Starch', formats: 'Native & Industrial Grade',
+    palette: ['#42361B', '#8C7439', '#F4E6B6'],
+    tag: 'Clean gelling · Neutral flavor · Classic binding agent',
+    desc: 'High-purity native corn starch extracted from quality maize kernels. Serves as a fundamental thickening, binding, and body-building agent across bakery custards, puddings, dustings, and processed food formulations.',
+    specs: [
+      ['Application', 'Custards · Puddings · Confectionery · Baking'],
+      ['Functional Target', 'Thickening & Gel Formation'],
+      ['Moisture Content', '12% – 14% Max'],
+      ['Shelf Life', '24 months (ambient, sealed)'],
+      ['Packaging', '25 kg industrial bag'],
+    ],
+  },
+  {
+    slug: 'tapioca-starch', name: 'Tapioca Starch', formats: 'Native & Modified Flakes',
+    palette: ['#3E3A2F', '#7D755F', '#EAE6D5'],
+    tag: 'High clarity · String-free texture · Bland taste profile',
+    desc: 'Extracted from cassava roots, tapioca starch offers exceptional paste clarity, a neutral taste profile, and a smooth, cohesive mouthfeel. Ideal for gluten-free baking architectures, snacks, and glossy fruit glazes.',
+    specs: [
+      ['Application', 'Gluten-free baking · Snacks · Glazes · Soups'],
+      ['Functional Target', 'Clarity & Cohesive Texture'],
+      ['Gelatinization Temp', 'Lower gelatinization range (58–70°C)'],
+      ['Shelf Life', '24 months (ambient, sealed)'],
+      ['Packaging', '25 kg bag'],
+    ],
+  },
+  {
+    slug: 'liquid-glucose', name: 'Liquid Glucose', formats: 'High Conversion Syrup',
+    palette: ['#332813', '#715727', '#EED8A7'],
+    tag: 'Moisture retention · Anti-crystallization · Viscous body',
+    desc: 'A refined, clarified glucose syrup engineered to regulate sweetness, control crystallization in confectionery systems, and extend freshness by locking in internal moisture across baked goods and sweets.',
+    specs: [
+      ['Application', 'Confectionery · Fondants · Chewing gums · Baked goods'],
+      ['Functional Target', 'Humectant & Anti-Crystallization'],
+      ['Dextrose Equivalent (DE)', '42 – 45'],
+      ['Shelf Life', '12 months (sealed drums/tankers)'],
+      ['Packaging', '300 kg HDPE drum · Tanker load'],
+    ],
+  },
+  {
+    slug: 'maltodextrin', name: 'Maltodextrin', formats: '10 DE & 20 DE Powder',
+    palette: ['#36332A', '#6D6552', '#DFDACB'],
+    tag: 'Spray-dried · Low sweetness bulk agent · Carrier matrix',
+    desc: 'Easily digestible, highly soluble carbohydrate powder derived from starch conversion. Functions as an ideal bulking agent, carrier for flavors and active ingredients, and texture modifier in dry mixes.',
+    specs: [
+      ['Application', 'Dry mixes · Flavor encapsulation · Nutritional bars'],
+      ['Functional Target', 'Bulking & Solubility Matrix'],
+      ['Dextrose Equivalent (DE)', '10 – 20 DE options available'],
+      ['Shelf Life', '24 months (ambient, sealed)'],
+      ['Packaging', '25 kg bag'],
+    ],
+  },
+  {
+    slug: 'maltitol', name: 'Maltitol', formats: 'Crystalline Powder & Syrup',
+    palette: ['#2F3430', '#5B675E', '#CFDDD4'],
+    tag: 'Sugar alcohol · Near-sucrose sweetness · Low glycemic index',
+    desc: 'A premium polyol sweetener providing clean, sugar-like sweetness and bulk properties with significantly reduced caloric impact. Excellent for sugar-free chocolate, hard candies, and diabetic-friendly bakery lines.',
+    specs: [
+      ['Application', 'Sugar-free confectionery · Chocolate · Baked goods'],
+      ['Functional Target', 'Low-Calorie Sweetening & Bulk'],
+      ['Sweetness Intensity', '75% – 90% of sucrose'],
+      ['Shelf Life', '24 months (ambient, sealed)'],
+      ['Packaging', '25 kg bag'],
+    ],
+  }
 ];
 
 window.V_CAKE_ART = function (v, isConcentrate) {
@@ -245,15 +327,18 @@ window.V_RenderCakeFlavours = function (opts) {
   const isHydrocolloids = (currentSlug === 'hydrocolloids');
   const isRaisins = (currentSlug === 'raisins');
   const isPreservatives = (currentSlug === 'preservatives');
-  const isCardLayout = (isHydrocolloids || isRaisins || isPreservatives);
+  const isStarches = (currentSlug === 'starches' || currentSlug === 'starches-derivatives');
+  const isCardLayout = (isHydrocolloids || isRaisins || isPreservatives || isStarches);
   
   let targetDataset = window.V_CAKE_FLAVOURS;
   if (isHydrocolloids) targetDataset = window.V_HYDRO_TYPES;
   if (isRaisins) targetDataset = window.V_RAISIN_TYPES;
   if (isPreservatives) targetDataset = window.V_PRESERVATIVE_TYPES;
+  if (isStarches) targetDataset = window.V_STARCH_TYPES; // <--- Add this line
 
-  const labelPrefix = isRaisins ? 'VARIETY' : (isPreservatives ? 'PRESERVATIVE' : (isHydrocolloids ? 'CHEMICAL' : 'FLAVOUR'));
-  const productLabel = opts.product || (isRaisins ? 'Dry Fruits & Seeds' : (isPreservatives ? 'Preservatives & Acids' : (isHydrocolloids ? 'Specialty Chemicals' : 'Cake')));
+const labelPrefix = isRaisins ? 'VARIETY' : (isPreservatives ? 'PRESERVATIVE' : (isHydrocolloids ? 'CHEMICAL' : (isStarches ? 'STARCH' : 'FLAVOUR')));
+const productLabel = opts.product || (isRaisins ? 'Dry Fruits & Seeds' : (isPreservatives ? 'Preservatives & Acids' : (isHydrocolloids ? 'Specialty Chemicals' : (isStarches ? 'Starches & Derivatives' : 'Cake'))));
+
   const isConcentrate = currentSlug.toLowerCase().includes('concentrate');
 
   if (isCardLayout) {
