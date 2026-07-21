@@ -94,7 +94,6 @@ window.V_CAKE_FLAVOURS = [
   },
 ];
 
-/* Hydrocolloid & Specialty Chemicals Technical Database */
 window.V_HYDRO_TYPES = [
   {
     slug:'xanthan-gum', name:'Xanthan Gum', formats:'80 & 200 Mesh',
@@ -152,7 +151,6 @@ window.V_HYDRO_TYPES = [
   }
 ];
 
-/* Raisins & Dry Nuts Portfolio Technical Database */
 window.V_RAISIN_TYPES = [
   {
     slug:'golden', name:'Golden Raisins', formats:'Grade A · Premium Cultivar',
@@ -198,7 +196,6 @@ window.V_RAISIN_TYPES = [
   }
 ];
 
-/* Preservatives & Antimicrobial Agents Database */
 window.V_PRESERVATIVE_TYPES = [
   {
     slug:'calcium-propionate', name:'Calcium Propionate', formats:'Powder & Granular',
@@ -226,7 +223,6 @@ window.V_PRESERVATIVE_TYPES = [
   }
 ];
 
-/* Asset Framework Renderer */
 window.V_CAKE_ART = function (v, isConcentrate) {
   if (v.imgUrl) {
     return `<div class="w-full h-full absolute inset-0 bg-neutral-100 flex items-center justify-center select-none">
@@ -239,7 +235,6 @@ window.V_CAKE_ART = function (v, isConcentrate) {
           </div>`;
 };
 
-/* Unified Injection Engine: Alternates templates dynamically based on active product slug */
 window.V_RenderCakeFlavours = function (opts) {
   const host = document.getElementById(opts.hostId);
   if (!host) return;
@@ -247,13 +242,11 @@ window.V_RenderCakeFlavours = function (opts) {
   const urlParams = new URLSearchParams(window.location.search);
   const currentSlug = urlParams.get('slug') || '';
   
-  // 1. Identify active category context dynamically
-   const isHydrocolloids = (currentSlug === 'hydrocolloids');
-   const isRaisins = (currentSlug === 'raisins');
-   const isPreservatives = (currentSlug === 'preservatives');
-   const isCardLayout = (isHydrocolloids || isRaisins || isPreservatives);
+  const isHydrocolloids = (currentSlug === 'hydrocolloids');
+  const isRaisins = (currentSlug === 'raisins');
+  const isPreservatives = (currentSlug === 'preservatives');
+  const isCardLayout = (isHydrocolloids || isRaisins || isPreservatives);
   
-  // 2. Route dataset, labels, and metadata based on active slug
   let targetDataset = window.V_CAKE_FLAVOURS;
   if (isHydrocolloids) targetDataset = window.V_HYDRO_TYPES;
   if (isRaisins) targetDataset = window.V_RAISIN_TYPES;
@@ -264,7 +257,6 @@ window.V_RenderCakeFlavours = function (opts) {
   const isConcentrate = currentSlug.toLowerCase().includes('concentrate');
 
   if (isCardLayout) {
-    // Renders as text blocks in a 2x2 grid format for card layouts
     host.innerHTML = `
       <div class="grid md:grid-cols-2 gap-8 items-start">
         ${targetDataset.map((v, i) => {
@@ -303,11 +295,13 @@ window.V_RenderCakeFlavours = function (opts) {
         }).join('')}
       </div>`;
   } else {
-    // Alternating full-width image row layout for bakery lines
     host.innerHTML = targetDataset.map((v, i) => {
       const num = String(i + 1).padStart(2, '0');
       const totalCount = String(targetDataset.length).padStart(2, '0');
       const reverse = i % 2 === 1;
+      const nameParts = v.name.split(' ');
+      const firstName = nameParts[0];
+      const restName = nameParts.slice(1).join(' ');
       
       return `
         <article id="item-${v.slug}" class="py-14 md:py-20 ${i !== 0 ? 'border-t border-black/10' : ''}">
@@ -322,8 +316,7 @@ window.V_RenderCakeFlavours = function (opts) {
             <div class="md:col-span-7 ${reverse ? 'md:order-1' : ''}">
               <div class="chapter-num text-xs" data-reveal>${labelPrefix} ${num}</div>
               <h3 class="font-display text-3xl md:text-5xl mt-3 leading-[1.02]" data-reveal>
-                ${v.name.split(' ')[0]}
-                ${v.name.split(' ').slice(1).length ? `<span class="italic font-serif-body font-normal text-[color:var(--v-forest-2)]"> ${v.name.split(' ').slice(1).join(' ')}</span>` : ''}
+                ${firstName} ${restName ? `<span class="italic font-serif-body font-normal text-[color:var(--v-forest-2)]">${restName}</span>` : ''}
               </h3>
               <p class="mt-3 text-base md:text-lg font-serif-body italic text-[color:var(--v-forest-2)]" data-reveal>${v.tag}</p>
               <p class="mt-5 max-w-xl text-[color:var(--v-ink)]/80 leading-relaxed" data-reveal>${v.desc}</p>
@@ -352,7 +345,6 @@ window.V_RenderCakeFlavours = function (opts) {
     }).join('');
   }
 
-  // Animation Engine Hook
   if (window.gsap && window.ScrollTrigger) {
     window.gsap.utils.toArray('#' + opts.hostId + ' [data-reveal]').forEach((el) => {
       window.gsap.fromTo(el, { y: 40, opacity: 0 }, {
