@@ -2,8 +2,8 @@
    Exposes: window.V_PRODUCTS, window.V_ICONS, window.V_ART */
 
 window.V_PRODUCTS = [
-  { slug: 'raisins', name: 'Raisins & Dry Nuts & Seeds' },
-  { slug: 'cake-premixes', name: 'Cake Premixes & Cake Consendrates' },
+  { slug: 'raisins', name: 'Raisins, Dry Nuts & Seeds' },
+  { slug: 'cake-premixes', name: 'Cake Premixes & Cake Concentrates' },
   { slug: 'hydrocolloids', name: 'Speciality Chemicals' },
   { slug: 'tea-time-bar-cakes', name: 'Tea-Time Bar Cakes' },
   { slug: 'muffin-premixes', name: 'Muffin Premixes' },
