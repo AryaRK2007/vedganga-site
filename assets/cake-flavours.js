@@ -465,7 +465,10 @@ window.V_RenderCakeFlavours = function (opts) {
   const isPreservatives = (currentSlug === 'preservatives');
   const isStarches = (currentSlug === 'starches' || currentSlug === 'starches-derivatives');
   const isProteins = (currentSlug === 'proteins');
-  const isCardLayout = (isHydrocolloids || isRaisins || isPreservatives || isStarches || isProteins);
+  const isFibers = (currentSlug === 'fibers'); // 1. Add this line!
+  
+  // 2. Add isFibers to the card layout check here:
+  const isCardLayout = (isHydrocolloids || isRaisins || isPreservatives || isStarches || isProteins || isFibers);
   
   let targetDataset = window.V_CAKE_FLAVOURS;
   if (isHydrocolloids) targetDataset = window.V_HYDRO_TYPES;
@@ -473,9 +476,11 @@ window.V_RenderCakeFlavours = function (opts) {
   if (isPreservatives) targetDataset = window.V_PRESERVATIVE_TYPES;
   if (isStarches) targetDataset = window.V_STARCH_TYPES;
   if (isProteins) targetDataset = window.V_PROTEIN_TYPES;
+  if (isFibers) targetDataset = window.V_FIBER_TYPES; // 3. Add this line!
 
-  const labelPrefix = isRaisins ? 'VARIETY' : (isPreservatives ? 'PRESERVATIVE' : (isHydrocolloids ? 'CHEMICAL' : (isStarches ? 'STARCH' : (isProteins ? 'PROTEIN' : 'FLAVOUR'))));
-  const productLabel = opts.product || (isRaisins ? 'Dry Fruits & Seeds' : (isPreservatives ? 'Preservatives & Acids' : (isHydrocolloids ? 'Specialty Chemicals' : (isStarches ? 'Starches & Derivatives' : (isProteins ? 'Proteins' : 'Cake')))));
+  // 4. Update the labels so they display nicely:
+  const labelPrefix = isRaisins ? 'VARIETY' : (isPreservatives ? 'PRESERVATIVE' : (isHydrocolloids ? 'CHEMICAL' : (isStarches ? 'STARCH' : (isProteins ? 'PROTEIN' : (isFibers ? 'FIBER' : 'FLAVOUR')))));
+  const productLabel = opts.product || (isRaisins ? 'Dry Fruits & Seeds' : (isPreservatives ? 'Preservatives & Acids' : (isHydrocolloids ? 'Specialty Chemicals' : (isStarches ? 'Starches & Derivatives' : (isProteins ? 'Proteins' : (isFibers ? 'Dietary Fibers' : 'Cake')))))));
   const isConcentrate = currentSlug.toLowerCase().includes('concentrate');
 
   if (isCardLayout) {
