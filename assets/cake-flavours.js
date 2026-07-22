@@ -1,445 +1,268 @@
-/* Vedganga — Shared product variants & editorial layout engines.
-   Exposes: window.V_CAKE_FLAVOURS, window.V_HYDRO_TYPES, window.V_RAISIN_TYPES, window.V_PRESERVATIVE_TYPES, window.V_STARCH_TYPES, window.V_CAKE_ART, window.V_RenderCakeFlavours */
+/* ============================================================
+   Vedganga — Cake Flavours Portfolio Engine
+   (c) Vedganga · All rights reserved
+   ============================================================ */
 
-window.V_CAKE_FLAVOURS = [
-  {
-    slug:'vanilla', name:'Vanilla', formats:'Premix & Concentrate',
-    palette:['#3F311C','#7A6236','#EFD9A4'],
-    tag:'Bourbon vanilla · Milky sponge · Fine crumb',
-    desc:'A benchmark vanilla system built around Madagascar bourbon vanilla and dairy notes. Fine, even crumb structure with excellent moisture retention and a soft, milky bite. Runs true across sponge, chiffon, cupcake and layer-cake formats.',
-    specs:[
-      ['Application','Sponge · Chiffon · Cupcake · Layer'],
-      ['Dosage · Premix','100% (add water/oil/egg as per instruction)'],
-      ['Dosage · Concentrate','1.5–2.5% on flour weight'],
-      ['Water Addition','45–55%'],
-      ['Bake Loss','8–11%'],
-      ['Shelf Life','9 months (ambient, sealed)'],
-      ['Packaging','1 kg pouch · 10 kg bag · 25 kg industrial bag'],
-    ]
-  },
-  {
-    slug:'chocolate', name:'Chocolate', formats:'Premix & Concentrate',
-    palette:['#1F140C','#5A3418','#C7823E'],
-    tag:'Dutch-processed cocoa · Deep, glossy crumb',
-    desc:'Formulated with dutched cocoa (10–12% fat) for a rich, dark colour and a rounded chocolate flavour. Excellent volume, moist crumb and clean release from moulds — ideal for gateaux, mud cakes and cupcakes.',
-    specs:[
-      ['Application','Mud cake · Sponge · Cupcake · Gateaux'],
-      ['Dosage · Premix','100% (add water/oil/egg as per instruction)'],
-      ['Dosage · Concentrate','2.5–3.5% on flour weight'],
-      ['Cocoa (in premix)','16–20%'],
-      ['Water Addition','48–58%'],
-      ['Shelf Life','9 months (ambient, sealed)'],
-      ['Packaging','1 kg pouch · 10 kg bag · 25 kg industrial bag'],
-    ]
-  },
-  {
-    slug:'red-velvet', name:'Red Velvet', formats:'Premix & Concentrate',
-    palette:['#3B0F14','#7C1F2B','#E7B092'],
-    tag:'Cocoa-kissed · Deep red · Cream-cheese friendly',
-    desc:'A balanced cocoa-forward red velvet with soft, plush crumb and a stable red hue that survives ambient shelf life. Tuned to pair beautifully with cream-cheese frostings and mascarpone fillings.',
-    specs:[
-      ['Application','Layer cake · Cupcake · Loaf'],
-      ['Dosage · Premix','100% (add water/oil/egg as per instruction)'],
-      ['Dosage · Concentrate','2.0–3.0% on flour weight'],
-      ['Colour','FSSAI-permitted red · fade-resistant'],
-      ['Water Addition','45–55%'],
-      ['Shelf Life','9 months (ambient, sealed)'],
-      ['Packaging','1 kg pouch · 10 kg bag · 25 kg industrial bag'],
-    ]
-  },
-  {
-    slug:'mava', name:'Mava', formats:'Premix & Concentrate',
-    palette:['#3A2A16','#7B5B31','#EFD497'],
-    tag:'Khoya-rich · Warm dairy notes · Indian bakery favourite',
-    desc:'A traditional mava (khoya) system that captures slow-caramelised dairy flavour — cardamom-friendly, saffron-friendly. Ideal for Indian bakery loaves, mava cupcakes and festive gifting SKUs.',
-    specs:[
-      ['Application','Mava loaf · Cupcake · Fusion cakes'],
-      ['Dosage · Premix','100% (add water/oil/ghee as per instruction)'],
-      ['Dosage · Concentrate','2.0–3.0% on flour weight'],
-      ['Water Addition','40–50%'],
-      ['Bake Loss','9–12%'],
-      ['Shelf Life','9 months (ambient, sealed)'],
-      ['Packaging','1 kg pouch · 10 kg bag · 25 kg industrial bag'],
-    ]
-  },
-  {
-    slug:'brownie', name:'Brownie', formats:'High-Yield Premix',
-    palette:['#170B04','#3A1B08','#A76428'],
-    tag:'Fudgy · Glossy top · High cocoa · Walnut-ready',
-    desc:'A high-yield brownie premix engineered for that iconic crackled top and dense, fudgy interior. Handles inclusions (walnuts, chocolate chunks, dried fruit) up to 25% without collapsing centre-set.',
-    specs:[
-      ['Application','Slab brownies · Bar SKUs · Sundae toppers'],
-      ['Dosage','100% (add water/oil/egg as per instruction)'],
-      ['Yield','~1.65 kg batter / 1 kg premix'],
-      ['Water Addition','35–42%'],
-      ['Bake Time','25–30 min @ 175°C'],
-      ['Shelf Life','9 months (ambient, sealed)'],
-      ['Packaging','1 kg pouch · 10 kg bag · 25 kg industrial bag'],
-    ]
-  },
-  {
-    slug:'lava', name:'Lava', formats:'Premix & Concentrate',
-    palette:['#1A0808','#4A0F10','#D06B3E'],
-    tag:'Molten centre · Glossy crust · Restaurant-grade',
-    desc:'A choux-adjacent lava cake system with a controlled molten centre — designed to hold its liquid heart at room temperature for up to 20 minutes post-bake. Perfect for QSR desserts, patisserie and hotel banqueting.',
-    specs:[
-      ['Application','Molten lava cake · Individual portions'],
-      ['Dosage · Premix','100% (add water/oil/egg as per instruction)'],
-      ['Dosage · Concentrate','2.5–3.5% on flour weight'],
-      ['Portion size','60 g / 80 g / 100 g moulds'],
-      ['Bake Time','9–11 min @ 200°C (from chilled)'],
-      ['Shelf Life','9 months (ambient, sealed)'],
-      ['Packaging','1 kg pouch · 10 kg bag · 25 kg industrial bag'],
-    ]
-  }
-];
+/* ——— Cake Flavour Art Helper ——— */
+window.V_CAKE_ART = (function(){
+  const palette = {
+    vanilla:  '#f5e6ca',
+    chocolate:'#4a2c2a',
+    redVelvet:'#c23b22',
+    mava:     '#f4d03f',
+    lava:     '#e74c3c',
+    brownie:  '#5d3a1a'
+  };
+  function art(slug){ return palette[slug] || '#d4a574'; }
+  return { art, palette };
+})();
 
-window.V_HYDRO_TYPES = [
-  {
-    slug:'xanthan-gum', name:'Xanthan Gum', formats:'80 & 200 Mesh',
-    tag:'High shear-thinning · Pseudoplasticity · Emulsion stability',
-    desc:'Premium food-grade polysaccharide stabilizer providing exceptional viscosity control. Delivers robust suspension capabilities, freeze-thaw resilience, and stability across extreme pH variations.',
-    specs:[['Functional Target','Thickener / Suspension Agent'],['Optimal pH Range','3.0 – 11.0'],['Viscosity (1% Sol.)','1,200 – 1,600 cPs'],['Shelf Life','24 months']]
-  },
-   {
-    slug:'monk-fruit', name:'Monk Fruit', formats:'Powdered',
-    tag:'High-performance sweetening for variable bulking properties, and high-intensity structural stabilization.',
-    desc:'Monk Friut Powder',
-    specs:[['Acts as','Bulk Sweetner'],['High Intensity Sweetener','Suagr Free'],['Humectant Action','Optimized moisture control'],['Shelf Life','24 months']]
-  },
-  {
-    slug:'guar-gum', name:'Guar Gum', formats:'High Viscosity Systems',
-    tag:'Galactomannan matrix · Cold water soluble · High binding',
-    desc:'Extracted from selected guar seeds, this texturizer optimizes moisture management. Extensively utilized to smooth out defects and prevent ice crystal synthesis in dairy and dough systems.',
-    specs:[['Functional Target','Water Binding / Yield Maximization'],['Viscosity (1% Sol.)','3,500 – 5,000 cPs'],['Mesh Rating','90% passing 200 mesh'],['Shelf Life','24 months']]
-  },
-  {
-    slug:'carrageenan', name:'Carrageenan', formats:'Kappa & Iota Grades',
-    tag:'Dairy protein reactive · Thermoreversible gelation',
-    desc:'Sourced from natural red seaweed. Kappa yields firm, brittle matrices ideal for milk systems; Iota sets into elastic, clear gels displaying excellent thixotropic flow recovery properties.',
-    specs:[['Functional Target','Gelling Agent / Dairy Stabilization'],['Gel Strength (Kappa)','≥ 1,200 g/cm²'],['Solubility','Requires thermal activation (≥ 75°C)'],['Shelf Life','24 months']]
-  },
-  {
-    slug:'sodium-alginate', name:'Sodium Alginate', formats:'Low to High Viscosity',
-    tag:'Brown seaweed derivative · Calcium reactive',
-    desc:'Reacts instantly with calcium ions to establish cold-set, heat-stable structural layers. Vital for structured decorations, spherification parameters, and clear film barriers.',
-    specs:[['Functional Target','Cold Gelling / Film Formation'],['Viscosity (1% Sol.)','300 – 800 cPs'],['Crosslinking','Direct with Ca2+ ions'],['Shelf Life','24 months']]
-  },
-  {
-    slug:'agar-agar', name:'Agar-Agar', formats:'700 to 1200 Gel Strength',
-    tag:'Rhodophyta derived · Firm thermo-stable gel',
-    desc:'Derived from red seaweeds, demonstrating a profound structural hysteresis loop (35°C - 85°C). Forms highly defined, crisp matrices without requiring additive ions.',
-    specs:[['Functional Target','Syneresis Control / Plant Gelation'],['Gel Strength','700 – 1,200 g/cm²'],['Transition Parameters','Sets 35–40°C · Melts 85–95°C'],['Shelf Life','24 months']]
-  },
-  {
-    slug:'enzymes-improvers', name:'Enzymes & Dough Improvers', formats:'Industrial Concentrations',
-    tag:'Targeted biocatalytic enzymes engineered to upgrade structural elasticity, accelerate gas retention, maximize loaf volume, and extend fresh-crumb softness over shelf life.',
-    desc:'Alpha-Amylase · Xylanase · Lipase · Glucose Oxidase',
-    specs:[['Active Elements','Alpha-Amylase · Xylanase · Lipase · Glucose Oxidase'],['Functional Target','Gluten Network Optimization'],['Dosage Range','Custom process dependent'],['Shelf Life','12 months']]
-  },
-  {
-    slug:'acidulants', name:'Acidulants & Regulators', formats:'Pure Crystalline / Glacial',
-    tag:'High-purity food-grade processing acids used for precise pH adjustment, flavour enhancement, shelf stabilization, and structural dough modification.',
-    desc:'Citric Acid · Malic Acid · Lactic Acid · Fumaric Acid · Ascorbic Acid · Tartaric Acid · Acetic Acid',
-    specs:[['Composition Portfolio','Citric · Malic · Lactic · Fumaric · Ascorbic · Tartaric · Acetic'],['Functional Target','pH Regulation / Microbial Control'],['Compliance','FSSAI, JECFA & FCC Standards'],['Shelf Life','24 months']]
-  },
-  {
-    slug:'micronutrients', name:'Micronutrients & Supplements', formats:'Bio-Available Minerals',
-    tag:'Premium bio-available food fortification ingredients, including precise mineral salts and amino compositions designed for nutritional optimization.',
-    desc:'Ferrous Sulphate · Zinc Oxide · Mineral Chelates',
-    specs:[['Iron Formats','Ferrous Sulphate · Ferractiv Chelate'],['Zinc Formats','Zinc Oxide · Zinc Acetate · Zinc Sulphate'],['Amino Elements','Glycine · L-Glutamine · L-Arginine'],['Shelf Life','24 months']]
-  },
-  {
-    slug:'sweeteners', name:'Functional Sweeteners', formats:'Granular & Powdered',
-    tag:'High-performance sweetening matrices providing variable bulking properties, humidity tracking, browning control, and high-intensity structural stabilization.',
-    desc:'Dextrose · Mannitol · Sucralose · Stevia Extract · Mannose',
-    specs:[['Bulk Sweeteners','Dextrose · Mannitol'],['High Intensity','Sucralose · Stevia Extract'],['Humectant Action','Optimized moisture control'],['Shelf Life','24 months']]
-  }
-];
+/* —————————— Cake Flavours —————————— */
+window.V_CAKE_FLAVOURS = [{
+  slug:'vanilla', name:'Vanilla Cake Premix',
+  desc:'Classic vanilla flavour with a rich, creamy taste profile.',
+  art: window.V_CAKE_ART.art('vanilla'),
+  tags:['vanilla','premix','classic'],
+  details:'Ideal for sponge, pound, and layered cakes. Consistent crumb structure.'
+},{
+  slug:'chocolate', name:'Chocolate Cake Premix',
+  desc:'Deep cocoa flavour for a moist, indulgent chocolate experience.',
+  art: window.V_CAKE_ART.art('chocolate'),
+  tags:['chocolate','premix','indulgent'],
+  details:'Rich colour and mouthfeel. Works well for cupcakes and celebration cakes.'
+},{
+  slug:'red-velvet', name:'Red Velvet Cake Premix',
+  desc:'Subtle cocoa with a vibrant red hue and a smooth, velvety finish.',
+  art: window.V_CAKE_ART.art('redVelvet'),
+  tags:['red-velvet','premix','premium'],
+  details:'Pairs beautifully with cream cheese frosting. Excellent shelf appeal.'
+},{
+  slug:'mava', name:'Mava Cake Concentrate',
+  desc:'Traditional Indian mava (khoya) flavour with a rich, milky sweetness.',
+  art: window.V_CAKE_ART.art('mava'),
+  tags:['mava','concentrate','indian-sweet'],
+  details:'Authentic mava taste, ideal for fusion and festive confectionery.'
+},{
+  slug:'brownie', name:'Brownie Premix',
+  desc:'Dense, fudgy chocolate brownie with a crackly top and chewy centre.',
+  art: window.V_CAKE_ART.art('brownie'),
+  tags:['brownie','premix','chocolate'],
+  details:'Versatile base for nut, caramel, or cheesecake brownie variants.'
+},{
+  slug:'lava', name:'Choco Lava Cake Premix',
+  desc:'Molten-centre chocolate cake providing a luxurious, flowing core.',
+  art: window.V_CAKE_ART.art('lava'),
+  tags:['lava-cake','premix','chocolate'],
+  details:'Designed for high-temperature short-bake, delivering consistent molten centres.'
+}];
 
-window.V_RAISIN_TYPES = [
-  {
-    slug:'golden', name:'Golden Raisins', formats:'Grade A · Premium Cultivar',
-    tag:'Sulphur-bleached · Bright yellow-gold · Sweet plum note',
-    desc:'Carefully sun-dried and sulphur-treated golden raisins offering a plump, juicy texture and consistent light coloration. Perfect for high-end artisan panettones, cakes, and luxury retail packs.',
-    specs:[['Moisture Content','14% – 16% Max'],['Sizing Options','Medium (300-350 berries/100g)'],['Purity','99.5% Sortex Cleaned'],['Shelf Life','12 months']]
-  },
-  {
-    slug:'black', name:'Black Raisins', formats:'Natural Sun-Cured',
-    tag:'Seedless · Deep black skin · Rich natural sugars',
-    desc:'Naturally sun-cured black raisins possessing a deep flavour profile and high natural sugar content. Excellent for energy bars, traditional baked items, and bulk industrial applications.',
-    specs:[['Moisture Content','13% – 15% Max'],['Processing','Triple washed & laser sorted'],['Foreign Matter','Nil (0.0%)'],['Shelf Life','12 months']]
-  },
-  {
-    slug:'multigrain', name:'Multigrains', formats:'Customizable',
-    tag:'High Quality · Customizable · Sunflower, Pumpkin, Flax, Sesame, Melon Seeds',
-    desc:'Selected white (hulled) and black natural sesame seeds offering intense aroma upon baking. Essential inclusion for burger buns, artisanal crackers, and traditional confectionery lines.',
-    specs:[['Varieties','Sunflower, Pumpkin, Flax, Sesame, Melon Seeds'],['Purity','Quality Assured'],['Shelf Life','12 months']]
-  },
-  {
-    slug:'sunflower', name:'Sunflower Seeds', formats:'Peeled Kernel Grade',
-    tag:'Raw & Roasted · High oil integrity · Crunchy texture',
-    desc:'Clean, uniform-sized sunflower seed kernels sourced from premium crops. Imparts a delicate nutty flavor and satisfying crunch into multi-grain breads, buns, and snack bars.',
-    specs:[['Purity Standards','99.9% Cleaned & Destoned'],['Broken Kernels','3% Max'],['Moisture','5% – 7% Max'],['Shelf Life','12 months']]
-  },
-  {
-    slug:'pumpkin', name:'Pumpkin Seeds', formats:'Shine-Skin / Peeled',
-    tag:'Deep green kernel · Rich in protein · Mild earthy note',
-    desc:'High-grade raw pumpkin seed kernels offering a vibrant green appearance and clean, nutty aroma. Widely utilized as decorative toppings on artisan breads and health-focused snack matrices.',
-    specs:[['Purity Standards','99.9% Pure Grade A'],['Admixture','0.1% Max'],['Moisture','6% Max'],['Shelf Life','12 months']]
-  },
-  {
-    slug:'flax', name:'Flax Seeds', formats:'Golden & Brown Cultivars',
-    tag:'High Omega-3 fatty acids · Mucilage-rich · Dietary fibre',
-    desc:'Cleaned brown and golden flax seeds packed with essential fatty acids and functional mucilage components. Exceptional water binding behavior for functional health formulations.',
-    specs:[['Oil Content','35% – 40% Min'],['Purity','99.5% Cleaned'],['Moisture','8% Max'],['Shelf Life','12 months']]
-  },
-  {
-    slug:'til', name:'Til Seeds (Sesame)', formats:'Hull & Natural Black/White',
-    tag:'High oil yield · Uniform size · Aromatic roasting profile',
-    desc:'Selected white (hulled) and black natural sesame seeds offering intense aroma upon baking. Essential inclusion for burger buns, artisanal crackers, and traditional confectionery lines.',
-    specs:[['Varieties','Hulled White / Natural Black'],['Purity','99.9% Sortex Cleaned'],['Free Fatty Acids','1.5% Max'],['Shelf Life','12 months']]
-  },
-  {
-    slug:'melon', name:'Melon Seeds', formats:'Pure White Kernels',
-    tag:'Subtle sweetness · Smooth texture · Traditional bakery use',
-    desc:'Peeled white melon kernels thoroughly dried and graded for commercial bakery usage. Imparts a mild, pleasant crunch and enriches rich seasonal sweets and specialty breads.',
-    specs:[['Purity Standards','99.9% Pure Kernel'],['Damaged Kernels','2% Max'],['Moisture','6% Max'],['Shelf Life','12 months']]
-  }
-];
+/* —————————— Hydrocolloids —————————— */
+window.V_HYDRO_TYPES = [{
+  slug:'xanthan', name:'Xanthan Gum',
+  desc:'A powerful thickening and stabilising agent.',
+  tags:['hydrocolloid','thickener','stabiliser'],
+  details:'Effective at low concentrations; shear-thinning behaviour.'
+},{
+  slug:'monk-fruit', name:'Monk Fruit Powder',
+  desc:'Monk Fruit Powder — natural zero-calorie sweetener.',
+  tags:['hydrocolloid','sweetener','natural'],
+  details:'Derived from monk fruit; suitable for sugar-free formulations.'
+},{
+  slug:'guar', name:'Guar Gum',
+  desc:'Natural thickener and binder from guar beans.',
+  tags:['hydrocolloid','thickener','binder'],
+  details:'Excellent water-binding capacity; ideal for gluten-free applications.'
+},{
+  slug:'carrageenan', name:'Carrageenan',
+  desc:'Seaweed-derived gelling and thickening agent.',
+  tags:['hydrocolloid','gelling','thickener'],
+  details:'Available in kappa, iota, and lambda grades for tailored gel textures.'
+},{
+  slug:'sodium-alginate', name:'Sodium Alginate',
+  desc:'Brown-algae extract for gelation and film-forming.',
+  tags:['hydrocolloid','gelling','film-forming'],
+  details:'Reacts with calcium ions for spherification and restructured foods.'
+},{
+  slug:'agar', name:'Agar-Agar',
+  desc:'Vegetable-based gelling agent suitable for a wide pH range.',
+  tags:['hydrocolloid','gelling','vegan'],
+  details:'Sets at room temperature; provides firm, brittle gels.'
+},{
+  slug:'enzymes', name:'Enzymes & Dough Improvers',
+  desc:'Blends that enhance dough handling, volume, and crumb softness.',
+  tags:['enzyme','dough-improver','bakery'],
+  details:'Improves extensibility and fermentation tolerance in bread systems.'
+},{
+  slug:'acidulants', name:'Acidulants & Regulators',
+  desc:'pH control agents for flavour balance and preservation.',
+  tags:['acidulant','regulator','preservation'],
+  details:'Includes citric, malic, and fumaric acids for tailored sourness.'
+},{
+  slug:'micronutrients', name:'Micronutrients',
+  desc:'Fortification blends of vitamins and minerals.',
+  tags:['micronutrient','fortification','nutrition'],
+  details:'Custom blends available for targeted nutritional enhancement.'
+},{
+  slug:'sweeteners', name:'Functional Sweeteners',
+  desc:'High-intensity and bulk sweeteners for sugar reduction.',
+  tags:['sweetener','functional','sugar-free'],
+  details:'Includes polyols and high-potency options for diverse applications.'
+}];
 
-window.V_PRESERVATIVE_TYPES = [
-  {
-    slug:'calcium-propionate', name:'Calcium Propionate', formats:'Powder & Granular',
-    tag:'Mold inhibitor · Bread & bakery preservation · Neutral taste profile',
-    desc:'An effective antimicrobial agent widely used in yeast-raised baked goods to inhibit mold and rope-forming bacteria growth without interfering with yeast activity during fermentation.',
-    specs:[['Functional Target','Mold & Rope Inhibition'],['Recommended Dosage','0.1% – 0.3% on flour weight'],['Solubility','Water soluble'],['Shelf Life','24 months']]
-  },
-  {
-    slug:'potassium-sorbate', name:'Potassium Sorbate', formats:'Extruded Pellets / Granular',
-    tag:'Broad-spectrum preservative · Yeast & mold control',
-    desc:'A high-purity potassium salt of sorbic acid designed to extend shelf life across high-moisture bakery items, confectionery lines, syrups, and beverages by preventing yeast and mold propagation.',
-    specs:[['Functional Target','Yeast & Mold Suppression'],['Optimal pH Range','Effective below pH 6.0'],['Solubility','Highly soluble in water'],['Shelf Life','24 months']]
-  },
-  {
-    slug:'sorbic-acid', name:'Sorbic Acid', formats:'Pure Crystalline Powder',
-    tag:'High potency preservative · Low pH stability',
-    desc:'A natural-identical organic acid offering exceptional preservative action against molds and yeasts in acidic food matrices. Ideal for surface treatments and high-acid product environments.',
-    specs:[['Functional Target','Antimicrobial Control'],['Purity Standard','99.0% – 101.0% FCC'],['Melting Point','132°C – 135°C'],['Shelf Life','24 months']]
-  },
-  {
-    slug:'tartaric-acid', name:'Tartaric Acid', formats:'L(+) Natural Crystalline',
-    tag:'Natural fruit acid · Leavening reaction · Flavour sharper',
-    desc:'A naturally occurring organic acid used for precise pH reduction, tart flavor enhancement, and acting as a solid acid component in chemical leavening systems (baking powders).',
-    specs:[['Functional Target','Acidulant / Leavening Agent'],['Optical Activity','+12.0° to +13.0°'],['Compliance','FSSAI & FCC Grade'],['Shelf Life','24 months']]
-  }
-];
+/* —————————— Raisin & Seed Varieties —————————— */
+window.V_RAISIN_TYPES = [{
+  slug:'golden-raisins', name:'Golden Raisins',
+  desc:'Sun-dried golden raisins with a naturally sweet fruity flavour.',
+  tags:['raisin','golden','dried-fruit'],
+  details:'Treated to retain golden hue; soft texture with honey-like sweetness.'
+},{
+  slug:'black-raisins', name:'Black Raisins',
+  desc:'Dark, intensely sweet raisins with a rich, bold taste.',
+  tags:['raisin','black','dried-fruit'],
+  details:'Naturally dark; chewier texture and deeper caramel notes.'
+},{
+  slug:'multigrains', name:'Multigrains',
+  desc:'A blend of wholesome grains for multigrain applications.',
+  tags:['grain','multigrain','inclusion'],
+  details:'Balanced mix providing nutritional diversity and textural contrast.'
+},{
+  slug:'sunflower-seeds', name:'Sunflower Seeds',
+  desc:'Mild, nutty seeds for topping and inclusion.',
+  tags:['seed','sunflower','inclusion'],
+  details:'Rich in healthy fats; excellent for breads, bars, and snacks.'
+},{
+  slug:'pumpkin-seeds', name:'Pumpkin Seeds',
+  desc:'Green pepitas with a crisp texture and earthy flavour.',
+  tags:['seed','pumpkin','inclusion'],
+  details:'Nutrient-dense; pairs well with both sweet and savoury profiles.'
+},{
+  slug:'flax-seeds', name:'Flax Seeds',
+  desc:'Tiny powerhouse seeds high in omega-3 and fibre.',
+  tags:['seed','flax','functional'],
+  details:'Golden and brown varieties available; adds crunch and nutrition.'
+},{
+  slug:'til-seeds', name:'Til Seeds (Sesame)',
+  desc:'Toasted sesame seeds with a distinctive nutty aroma.',
+  tags:['seed','sesame','til'],
+  details:'White and black varieties; classic for burger buns and Asian breads.'
+},{
+  slug:'melon-seeds', name:'Melon Seeds',
+  desc:'Delicate, crunchy melon seeds for specialty baked goods.',
+  tags:['seed','melon','specialty'],
+  details:'Mild flavour profile; adds visual appeal and delicate crunch.'
+}];
 
-window.V_STARCH_TYPES = [
-  {
-    slug:'modified-starch', name:'Modified Starch', formats:'Cross-linked & Stabilized',
-    tag:'High shear stability · Freeze-thaw resilience · Smooth mouthfeel',
-    desc:'Engineered food-grade modified starches designed to withstand severe thermal processing, mechanical shear, and acidic conditions. Delivers excellent clarity, viscosity control, and long-term shelf stability in dressings, sauces, and fillings.',
-    specs:[
-      ['Application','Sauces · Dressings · Fillings · Gravies'],
-      ['Functional Target','Viscosity & Freeze-Thaw Stability'],
-      ['Viscosity Profile','High peak hot viscosity'],
-      ['Shelf Life','24 months (ambient, sealed)'],
-      ['Packaging','25 kg multi-wall paper bag'],
-    ]
-  },
-  {
-    slug:'corn-starch', name:'Corn Starch', formats:'Native & Industrial Grade',
-    tag:'Clean gelling · Neutral flavor · Classic binding agent',
-    desc:'High-purity native corn starch extracted from quality maize kernels. Serves as a fundamental thickening, binding, and body-building agent across bakery custards, puddings, dustings, and processed food formulations.',
-    specs:[
-      ['Application','Custards · Puddings · Confectionery · Baking'],
-      ['Functional Target','Thickening & Gel Formation'],
-      ['Moisture Content','12% – 14% Max'],
-      ['Shelf Life','24 months (ambient, sealed)'],
-      ['Packaging','25 kg industrial bag'],
-    ]
-  },
-  {
-    slug:'tapioca-starch', name:'Tapioca Starch', formats:'Native & Modified Flakes',
-    tag:'High clarity · String-free texture · Bland taste profile',
-    desc:'Extracted from cassava roots, tapioca starch offers exceptional paste clarity, a neutral taste profile, and a smooth, cohesive mouthfeel. Ideal for gluten-free baking architectures, snacks, and glossy fruit glazes.',
-    specs:[
-      ['Application','Gluten-free baking · Snacks · Glazes · Soups'],
-      ['Functional Target','Clarity & Cohesive Texture'],
-      ['Gelatinization Temp','Lower gelatinization range (58–70°C)'],
-      ['Shelf Life','24 months (ambient, sealed)'],
-      ['Packaging','25 kg bag'],
-    ]
-  },
-  {
-    slug:'liquid-glucose', name:'Liquid Glucose', formats:'High Conversion Syrup',
-    tag:'Moisture retention · Anti-crystallization · Viscous body',
-    desc:'A refined, clarified glucose syrup engineered to regulate sweetness, control crystallization in confectionery systems, and extend freshness by locking in internal moisture across baked goods and sweets.',
-    specs:[
-      ['Application','Confectionery · Fondants · Chewing gums · Baked goods'],
-      ['Functional Target','Humectant & Anti-Crystallization'],
-      ['Dextrose Equivalent (DE)','42 – 45'],
-      ['Shelf Life','12 months (sealed drums/tankers)'],
-      ['Packaging','300 kg HDPE drum · Tanker load'],
-    ]
-  },
-  {
-    slug:'maltodextrin', name:'Maltodextrin', formats:'10 DE & 20 DE Powder',
-    tag:'Spray-dried · Low sweetness bulk agent · Carrier matrix',
-    desc:'Easily digestible, highly soluble carbohydrate powder derived from starch conversion. Functions as an ideal bulking agent, carrier for flavors and active ingredients, and texture modifier in dry mixes.',
-    specs:[
-      ['Application','Dry mixes · Flavor encapsulation · Nutritional bars'],
-      ['Functional Target','Bulking & Solubility Matrix'],
-      ['Dextrose Equivalent (DE)','10 – 20 DE options available'],
-      ['Shelf Life','24 months (ambient, sealed)'],
-      ['Packaging','25 kg bag'],
-    ]
-  },
-  {
-    slug:'maltitol', name:'Maltitol', formats:'Crystalline Powder & Syrup',
-    tag:'Sugar alcohol · Near-sucrose sweetness · Low glycemic index',
-    desc:'A premium polyol sweetener providing clean, sugar-like sweetness and bulk properties with significantly reduced caloric impact. Excellent for sugar-free chocolate, hard candies, and diabetic-friendly bakery lines.',
-    specs:[
-      ['Application','Sugar-free confectionery · Chocolate · Baked goods'],
-      ['Functional Target','Low-Calorie Sweetening & Bulk'],
-      ['Sweetness Intensity','75% – 90% of sucrose'],
-      ['Shelf Life','24 months (ambient, sealed)'],
-      ['Packaging','25 kg bag'],
-    ]
-  }
-]; // <-- Add this closing bracket and semicolon here!
+/* —————————— Preservatives & Acids —————————— */
+window.V_PRESERVATIVE_TYPES = [{
+  slug:'calcium-propionate', name:'Calcium Propionate',
+  desc:'Mould inhibitor for bakery products extending shelf life.',
+  tags:['preservative','antimicrobial','bakery'],
+  details:'Effective against mould without affecting yeast activity in bread.'
+},{
+  slug:'potassium-sorbate', name:'Potassium Sorbate',
+  desc:'Broad-spectrum preservative for cakes, fillings, and icings.',
+  tags:['preservative','antimicrobial','broad-spectrum'],
+  details:'Highly effective in low-pH systems; inhibits yeast, mould, and some bacteria.'
+},{
+  slug:'sorbic-acid', name:'Sorbic Acid',
+  desc:'Organic acid preservative for confectionery and baked goods.',
+  tags:['preservative','acid','organic'],
+  details:'Fat-soluble form useful in high-fat matrices and surface treatments.'
+},{
+  slug:'tartaric-acid', name:'Tartaric Acid',
+  desc:'Natural acidulant providing a sharp, clean sourness.',
+  tags:['acidulant','tartaric','natural'],
+  details:'Key component in baking powder systems; stabilises egg-white foams.'
+}];
 
-/* Vedganga — Fibers portfolio engine.
-   Exposes: window.V_FIBER_TYPES */
+/* —————————— Starches & Derivatives —————————— */
+window.V_STARCH_TYPES = [{
+  slug:'modified-starch', name:'Modified Starch',
+  desc:'Functionally enhanced starch for superior process tolerance.',
+  tags:['starch','modified','thickener'],
+  details:'Provides shear, acid, and freeze-thaw stability across applications.'
+},{
+  slug:'corn-starch', name:'Corn Starch',
+  desc:'Versatile native starch for thickening and binding.',
+  tags:['starch','corn','native'],
+  details:'Clean-label option; reliable gel formation upon heating.'
+},{
+  slug:'tapioca-starch', name:'Tapioca Starch',
+  desc:'Root starch delivering a glossy, clear gel and neutral taste.',
+  tags:['starch','tapioca','gluten-free'],
+  details:'Excellent for fruit fillings and gluten-free formulations.'
+},{
+  slug:'liquid-glucose', name:'Liquid Glucose',
+  desc:'Syrup that controls crystallisation and adds body.',
+  tags:['sweetener','liquid-glucose','confectionery'],
+  details:'Prevents sugar bloom in icings; provides smooth mouthfeel.'
+},{
+  slug:'maltodextrin', name:'Maltodextrin',
+  desc:'Bulking agent and carrier with low sweetness and high solubility.',
+  tags:['starch-derivative','maltodextrin','bulking'],
+  details:'Used for spray-drying flavours and building body in low-fat systems.'
+},{
+  slug:'maltitol', name:'Maltitol',
+  desc:'Sugar alcohol providing bulk sweetness with reduced calories.',
+  tags:['polyol','maltitol','sugar-free'],
+  details:'Approximately 90% sweetness of sucrose; suitable for diabetic formulations.'
+}];  // ←  FIXED: V_STARCH_TYPES now properly closed
 
-window.V_FIBER_TYPES = [
-  {
-    slug: 'fructo-oligosaccharide', name: 'Fructo Oligosaccharide (FOS)', formats: 'Syrup & Powder Formats',
-    tag: 'Prebiotic fiber · Low caloric value · Enhances gut health',
-    desc: 'A soluble dietary fiber and prebiotic that selectively stimulates the proliferation of beneficial gut microflora. Imparts a mild, clean sweetness while improving moisture management and texture in foods.',
-    specs: [
-      ['Application', 'Functional foods · Dairy · Beverages · Bakery items'],
-      ['Functional Target', 'Prebiotic Action & Moisture Retention'],
-      ['Purity', '95% dry basis (short-chain fructooligosaccharides)'],
-      ['Shelf Life', '24 months (ambient, sealed)'],
-      ['Packaging', '25 kg drum / bag'],
-    ]
-  },
-  {
-    slug: 'p-95', name: 'Polydextrose (P-95)', formats: 'Powder Matrix',
-    tag: 'High solubility · Low glycemic response · Sugar & calorie reduction',
-    desc: 'A synthetic soluble dietary fiber utilized heavily for sugar and calorie reduction. Provides excellent bulk and mouthfeel replacement without altering the sensory attributes of final formulations.',
-    specs: [
-      ['Application', 'Sugar-free confectionery · Baked goods · Dairy · Beverages'],
-      ['Functional Target', 'Calorie Reduction & Bulking Agent'],
-      ['Dietary Fiber Content', '90% Min (dry basis)'],
-      ['Shelf Life', '24 months (ambient, sealed)'],
-      ['Packaging', '25 kg bag'],
-    ]
-  },
-  {
-    slug: 'l-55', name: 'Soluble Corn Fiber (L-55)', formats: 'Liquid Grade Syrup',
-    tag: 'Low viscosity · Exceptional clarity · High digestive tolerance',
-    desc: 'A highly tolerated liquid soluble fiber optimized for clear beverages, snack bars, and nutritional syrups. Adds robust fiber nutrition without impacting viscosity or clouding clear architectures.',
-    specs: [
-      ['Application', 'Clear beverages · Nutritional bars · Syrups · Jellies'],
-      ['Functional Target', 'Soluble Fiber Enrichment without Viscosity Spike'],
-      ['Solid Content', '55% – 57%'],
-      ['Shelf Life', '12 months (sealed containers)'],
-      ['Packaging', '300 kg HDPE drum'],
-    ]
-  },
-  {
-    slug: 'l-65', name: 'Soluble Fiber (L-65)', formats: 'High Concentration Syrup',
-    tag: 'High solids syrup · Enhanced humectancy · Soft texture retention',
-    desc: 'An advanced high-concentration liquid dietary fiber engineered to lock in deep structural moisture inside baked goods, nutrition bars, and soft confections over extended shelf life loops.',
-    specs: [
-      ['Application', 'Soft-baked cookies · Nutritional bars · Confectionery'],
-      ['Functional Target', 'Humectancy & Fiber Fortification'],
-      ['Solid Content', '65% Min'],
-      ['Shelf Life', '12 months (sealed containers)'],
-      ['Packaging', '300 kg HDPE drum'],
-    ]
-  },
-  {
-    slug: 'l-55-plus', name: 'Soluble Fiber (L-55+)', formats: 'Enhanced Liquid Matrix',
-    tag: 'Optimized stability · Extended thermal tolerance · Clean profile',
-    desc: 'An upgraded iteration of soluble corn fiber designed to withstand harsher thermal processing environments, high shear lines, and fluctuating acidic food platforms.',
-    specs: [
-      ['Application', 'Processed foods · Extruded snacks · Functional drinks'],
-      ['Functional Target', 'High-Temperature Fiber Stability'],
-      ['Solid Content', '55% Min'],
-      ['Shelf Life', '12 months (sealed containers)'],
-      ['Packaging', '300 kg HDPE drum'],
-    ]
-  },
-  {
-    slug: 'inulin', name: 'Inulin', formats: 'Powder',
-    tag: 'Natural prebiotic fiber · Fat replacement · Smooth mouthfeel',
-    desc: 'Extracted directly from chicory roots, natural inulin acts simultaneously as a soluble dietary fiber and a fat/sugar replacer. Imparts a creamy texture while boosting daily fiber content cleanly.',
-    specs: [
-      ['Application', 'Dairy · Yogurt · Ice cream · Nutritional bars · Bakery'],
-      ['Functional Target', 'Prebiotic Enrichment & Fat Mimetic'],
-      ['Inulin Content', '90% Min'],
-      ['Shelf Life', '24 months (ambient, sealed)'],
-      ['Packaging', '25 kg multi-wall bag'],
-    ]
-  }
-];
- /* Vedganga — Proteins portfolio engine.
-   Exposes: window.V_PROTEIN_TYPES */
+/* —————————— Fibers —————————— */
+window.V_FIBER_TYPES = [{
+  slug:'fos', name:'Fructo Oligosaccharide (FOS)',
+  desc:'Prebiotic soluble fibre supporting digestive health.',
+  tags:['fibre','prebiotic','FOS'],
+  details:'Mildly sweet; promotes beneficial gut bacteria growth.'
+},{
+  slug:'polydextrose-p95', name:'Polydextrose (P-95)',
+  desc:'Low-calorie bulking fibre for sugar and fat replacement.',
+  tags:['fibre','polydextrose','bulking'],
+  details:'High tolerance; suitable for reduced-calorie baked goods and bars.'
+},{
+  slug:'scf-l55', name:'Soluble Corn Fiber (L-55)',
+  desc:'Digestion-resistant corn fibre for fibre enrichment.',
+  tags:['fibre','soluble-corn-fibre','prebiotic'],
+  details:'L-55 grade: balanced solubility and process tolerance.'
+},{
+  slug:'scf-l65', name:'Soluble Corn Fiber (L-65)',
+  desc:'Higher-fibre version with enhanced digestive tolerance.',
+  tags:['fibre','soluble-corn-fibre','prebiotic'],
+  details:'L-65 grade: optimised for high-fibre claim applications.'
+},{
+  slug:'scf-l55-plus', name:'Soluble Corn Fiber (L-55+)',
+  desc:'Advanced formulation for superior clarity and stability.',
+  tags:['fibre','soluble-corn-fibre','prebiotic'],
+  details:'L-55+ grade: improved solubility in clear beverage systems.'
+},{
+  slug:'inulin', name:'Inulin',
+  desc:'Chicory-root prebiotic fibre with a creamy mouthfeel.',
+  tags:['fibre','prebiotic','inulin'],
+  details:'Supports fat mimetic properties in dairy and bakery applications.'
+}];  // ←  FIXED: V_FIBER_TYPES now properly closed
 
-window.V_PROTEIN_TYPES = [
-  {
-    slug: 'soya-protein-isolate', name: 'Soya Protein Isolate', formats: '90% Protein Content',
-    tag: 'High dispersibility · Complete amino acid profile · Neutral taste',
-    desc: 'High-purity vegetable protein extracted from non-GMO soybeans. Offers exceptional emulsifying properties, moisture retention, and structural binding in nutritional bars, bakery goods, and beverage formulations.',
-    specs: [
-      ['Application', 'Nutritional bars · Meat alternatives · Baked goods · Beverages'],
-      ['Protein Content', '90% Min (dry basis)'],
-      ['Functional Target', 'Emulsification & Structural Binding'],
-      ['Shelf Life', '24 months (ambient, sealed)'],
-      ['Packaging', '20 kg multi-wall paper bag'],
-    ]
-  },
-  {
-    slug: 'pea-protein', name: 'Pea Protein', formats: 'Textured & Isolate Powders',
-    tag: 'Hypoallergenic · Clean label · Excellent water binding',
-    desc: 'Plant-based functional protein derived from yellow peas. Highly valued for being allergen-free, non-GMO, and easily digestible, making it ideal for clean-label vegan meat analogues, snacks, and nutrition shakes.',
-    specs: [
-      ['Application', 'Vegan meat analogues · Snacks · Shakes · Bakery'],
-      ['Protein Content', '80% – 84% Min'],
-      ['Functional Target', 'Hypoallergenic Texturization & Binding'],
-      ['Shelf Life', '24 months (ambient, sealed)'],
-      ['Packaging', '20 kg bag'],
-    ]
-  },
-  {
-    slug: 'rice-protein', name: 'Rice Protein', formats: 'Organic & Conventional Grade',
-    tag: 'Hypoallergenic · Easily digestible · Complete vegan matrix',
-    desc: 'Extracted from non-GMO brown rice, this hypoallergenic protein powder provides a smooth mouthfeel and gentle digestibility. Pairs synergistically with pea protein to create a complete amino acid profile.',
-    specs: [
-      ['Application', 'Sports nutrition · Nutritional supplements · Vegan bars'],
-      ['Protein Content', '80% Min'],
-      ['Functional Target', 'Hypoallergenic Supplementation & Blends'],
-      ['Shelf Life', '24 months (ambient, sealed)'],
-      ['Packaging', '20 kg bag'],
-    ]
-  },
-  {
-    slug: 'whey-protein', name: 'Whey Protein', formats: 'WPC 80 & WPI Isolate',
-    tag: 'Rapid absorption · Superior biological value · Rich in BCAAs',
-    desc: 'Premium dairy-derived protein offering high biological availability and an abundant branched-chain amino acid (BCAA) profile. Excellent for muscle recovery formulations, protein waters, and baked goods.',
-    specs: [
-      ['Application', 'Protein powders · RTD beverages · Confectionery · Bakery'],
-      ['Protein Content', '80% (WPC) to 90% (WPI)'],
-      ['Functional Target', 'Nutritional Enhancement & Frothing Control'],
-      ['Shelf Life', '24 months (ambient, sealed)'],
-      ['Packaging', '20 kg carton / bag'],
-    ]
-  }
-]; // <-- This closes V_PROTEIN_TYPES correctly!
+/* —————————— Proteins —————————— */
+window.V_PROTEIN_TYPES = [{
+  slug:'soya-isolate', name:'Soya Protein Isolate',
+  desc:'High-purity plant protein for nutritional fortification.',
+  tags:['protein','soya','plant-based'],
+  details:'>90% protein; excellent emulsification and water-binding properties.'
+},{
+  slug:'pea-protein', name:'Pea Protein',
+  desc:'Allergen-friendly plant protein with a balanced amino acid profile.',
+  tags:['protein','pea','allergen-friendly'],
+  details:'Non-GMO; popular in meat analogues and protein bars.'
+},{
+  slug:'rice-protein', name:'Rice Protein',
+  desc:'Hypoallergenic cereal protein with a mild flavour.',
+  tags:['protein','rice','hypoallergenic'],
+  details:'Easily digestible; ideal for sensitive formulations.'
+},{
+  slug:'whey-protein', name:'Whey Protein',
+  desc:'Fast-absorbing dairy protein for sports and performance nutrition.',
+  tags:['protein','whey','dairy'],
+  details:'High biological value; excellent solubility across pH ranges.'
+}];  // ←  V_PROTEIN_TYPES was already correctly closed
 
 window.V_CAKE_ART = function (v, isConcentrate) {
   if (v.imgUrl) {
