@@ -104,7 +104,7 @@ window.V_HYDRO_TYPES = [
    {
     slug:'monk-fruit', name:'Monk Fruit', formats:'Powdered',
     tag:'High-performance sweetening for variable bulking properties, and high-intensity structural stabilization.',
-    desc:'Monk Friut Poweder',
+    desc:'Monk Friut Powder',
     specs:[['Acts as','Bulk Sweetner'],['High Intensity Sweetener','Suagr Free'],['Humectant Action','Optimized moisture control'],['Shelf Life','24 months']]
   },
   {
