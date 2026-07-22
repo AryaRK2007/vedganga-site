@@ -2,18 +2,18 @@
    Exposes: window.V_PRODUCTS, window.V_ICONS, window.V_ART */
 
 window.V_PRODUCTS = [
-  { slug: 'raisins', name: 'Raisins, Dry Nuts & Seeds' },
-  { slug: 'cake-premixes', name: 'Cake Premixes & Cake Concentrates' },
-  { slug: 'hydrocolloids', name: 'Speciality Chemicals' },
-  { slug: 'tea-time-bar-cakes', name: 'Tea-Time Bar Cakes' },
-  { slug: 'muffin-premixes', name: 'Muffin Premixes' },
-  { slug: 'emulsifiers', name: 'Emulsifiers' },
-  { slug: 'wheat-gluten', name: 'Wheat Gluten' },
-  { slug: 'bread-improvers', name: 'Bread Improvers' },
-  { slug: 'starch', name: 'Starch & Derivatives' },
-  { slug: 'preservatives', name: 'Preservatives' },
-  { slug: 'proteins', name: 'Proteins' },
-  { slug: 'fibers', name: 'Fibers' }
+  { slug: 'raisins', name: 'Raisins, Dry Nuts & Seeds', tag:'', desc:''},
+  { slug: 'cake-premixes', name: 'Cake Premixes & Cake Concentrates', tag:'', desc:''},
+  { slug: 'hydrocolloids', name: 'Speciality Chemicals', tag:'', desc:''},
+  { slug: 'tea-time-bar-cakes', name: 'Tea-Time Bar Cakes', tag:'', desc:''},
+  { slug: 'muffin-premixes', name: 'Muffin Premixes', tag:'', desc:''},
+  { slug: 'emulsifiers', name: 'Emulsifiers', tag:'', desc:''},
+  { slug: 'wheat-gluten', name: 'Wheat Gluten', tag:'', desc:''},
+  { slug: 'bread-improvers', name: 'Bread Improvers', tag:'', desc:''},
+  { slug: 'starch', name: 'Starch & Derivatives', tag:'', desc:''},
+  { slug: 'preservatives', name: 'Preservatives', tag:'', desc:''},
+  { slug: 'proteins', name: 'Proteins', tag:'', desc:''},
+  { slug: 'fibers', name: 'Fibers', tag:'', desc:''}
 ];
 
 window.V_ICONS = {
