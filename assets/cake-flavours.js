@@ -307,7 +307,9 @@ window.V_STARCH_TYPES = [
       ['Shelf Life','24 months (ambient, sealed)'],
       ['Packaging','25 kg bag'],
     ],
-  },
+  }
+]; // <-- Add this closing bracket and semicolon here!
+
 /* Vedganga — Fibers portfolio engine.
    Exposes: window.V_FIBER_TYPES */
 
