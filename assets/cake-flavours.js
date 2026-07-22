@@ -438,6 +438,7 @@ window.V_PROTEIN_TYPES = [
   }
 ];
 
+
 window.V_CAKE_ART = function (v, isConcentrate) {
   if (v.imgUrl) {
     return `<div class="w-full h-full absolute inset-0 bg-neutral-100 flex items-center justify-center select-none">
