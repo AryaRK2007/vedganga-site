@@ -434,9 +434,9 @@ window.V_PROTEIN_TYPES = [
       ['Functional Target', 'Nutritional Enhancement & Frothing Control'],
       ['Shelf Life', '24 months (ambient, sealed)'],
       ['Packaging', '20 kg carton / bag'],
-    ],
+    ]
   }
-];
+]
 
 
 window.V_CAKE_ART = function (v, isConcentrate) {
