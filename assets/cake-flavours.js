@@ -307,6 +307,134 @@ window.V_STARCH_TYPES = [
       ['Shelf Life','24 months (ambient, sealed)'],
       ['Packaging','25 kg bag'],
     ],
+  },
+/* Vedganga — Fibers portfolio engine.
+   Exposes: window.V_FIBER_TYPES */
+
+window.V_FIBER_TYPES = [
+  {
+    slug: 'fructo-oligosaccharide', name: 'Fructo Oligosaccharide (FOS)', formats: 'Syrup & Powder Formats',
+    tag: 'Prebiotic fiber · Low caloric value · Enhances gut health',
+    desc: 'A soluble dietary fiber and prebiotic that selectively stimulates the proliferation of beneficial gut microflora. Imparts a mild, clean sweetness while improving moisture management and texture in foods.',
+    specs: [
+      ['Application', 'Functional foods · Dairy · Beverages · Bakery items'],
+      ['Functional Target', 'Prebiotic Action & Moisture Retention'],
+      ['Purity', '95% dry basis (short-chain fructooligosaccharides)'],
+      ['Shelf Life', '24 months (ambient, sealed)'],
+      ['Packaging', '25 kg drum / bag'],
+    ],
+  },
+  {
+    slug: 'p-95', name: 'Polydextrose (P-95)', formats: 'Powder Matrix',
+    tag: 'High solubility · Low glycemic response · Sugar & calorie reduction',
+    desc: 'A synthetic soluble dietary fiber utilized heavily for sugar and calorie reduction. Provides excellent bulk and mouthfeel replacement without altering the sensory attributes of final formulations.',
+    specs: [
+      ['Application', 'Sugar-free confectionery · Baked goods · Dairy · Beverages'],
+      ['Functional Target', 'Calorie Reduction & Bulking Agent'],
+      ['Dietary Fiber Content', '90% Min (dry basis)'],
+      ['Shelf Life', '24 months (ambient, sealed)'],
+      ['Packaging', '25 kg bag'],
+    ],
+  },
+  {
+    slug: 'l-55', name: 'Soluble Corn Fiber (L-55)', formats: 'Liquid Grade Syrup',
+    tag: 'Low viscosity · Exceptional clarity · High digestive tolerance',
+    desc: 'A highly tolerated liquid soluble fiber optimized for clear beverages, snack bars, and nutritional syrups. Adds robust fiber nutrition without impacting viscosity or clouding clear architectures.',
+    specs: [
+      ['Application', 'Clear beverages · Nutritional bars · Syrups · Jellies'],
+      ['Functional Target', 'Soluble Fiber Enrichment without Viscosity Spike'],
+      ['Solid Content', '55% – 57%'],
+      ['Shelf Life', '12 months (sealed containers)'],
+      ['Packaging', '300 kg HDPE drum'],
+    ],
+  },
+  {
+    slug: 'l-65', name: 'Soluble Fiber (L-65)', formats: 'High Concentration Syrup',
+    tag: 'High solids syrup · Enhanced humectancy · Soft texture retention',
+    desc: 'An advanced high-concentration liquid dietary fiber engineered to lock in deep structural moisture inside baked goods, nutrition bars, and soft confections over extended shelf life loops.',
+    specs: [
+      ['Application', 'Soft-baked cookies · Nutritional bars · Confectionery'],
+      ['Functional Target', 'Humectancy & Fiber Fortification'],
+      ['Solid Content', '65% Min'],
+      ['Shelf Life', '12 months (sealed containers)'],
+      ['Packaging', '300 kg HDPE drum'],
+    ],
+  },
+  {
+    slug: 'l-55-plus', name: 'Soluble Fiber (L-55+)', formats: 'Enhanced Liquid Matrix',
+    tag: 'Optimized stability · Extended thermal tolerance · Clean profile',
+    desc: 'An upgraded iteration of soluble corn fiber designed to withstand harsher thermal processing environments, high shear lines, and fluctuating acidic food platforms.',
+    specs: [
+      ['Application', 'Processed foods · Extruded snacks · Functional drinks'],
+      ['Functional Target', 'High-Temperature Fiber Stability'],
+      ['Solid Content', '55% Min'],
+      ['Shelf Life', '12 months (sealed containers)'],
+      ['Packaging', '300 kg HDPE drum'],
+    ],
+  },
+  {
+    slug: 'inulin', name: 'Inulin', formats: 'Powder',
+    tag: 'Natural prebiotic fiber · Fat replacement · Smooth mouthfeel',
+    desc: 'Extracted directly from chicory roots, natural inulin acts simultaneously as a soluble dietary fiber and a fat/sugar replacer. Imparts a creamy texture while boosting daily fiber content cleanly.',
+    specs: [
+      ['Application', 'Dairy · Yogurt · Ice cream · Nutritional bars · Bakery'],
+      ['Functional Target', 'Prebiotic Enrichment & Fat Mimetic'],
+      ['Inulin Content', '90% Min'],
+      ['Shelf Life', '24 months (ambient, sealed)'],
+      ['Packaging', '25 kg multi-wall bag'],
+    ],
+  },
+   /* Vedganga — Proteins portfolio engine.
+   Exposes: window.V_PROTEIN_TYPES */
+
+window.V_PROTEIN_TYPES = [
+  {
+    slug: 'soya-protein-isolate', name: 'Soya Protein Isolate', formats: '90% Protein Content',
+    tag: 'High dispersibility · Complete amino acid profile · Neutral taste',
+    desc: 'High-purity vegetable protein extracted from non-GMO soybeans. Offers exceptional emulsifying properties, moisture retention, and structural binding in nutritional bars, bakery goods, and beverage formulations.',
+    specs: [
+      ['Application', 'Nutritional bars · Meat alternatives · Baked goods · Beverages'],
+      ['Protein Content', '90% Min (dry basis)'],
+      ['Functional Target', 'Emulsification & Structural Binding'],
+      ['Shelf Life', '24 months (ambient, sealed)'],
+      ['Packaging', '20 kg multi-wall paper bag'],
+    ],
+  },
+  {
+    slug: 'pea-protein', name: 'Pea Protein', formats: 'Textured & Isolate Powders',
+    tag: 'Hypoallergenic · Clean label · Excellent water binding',
+    desc: 'Plant-based functional protein derived from yellow peas. Highly valued for being allergen-free, non-GMO, and easily digestible, making it ideal for clean-label vegan meat analogues, snacks, and nutrition shakes.',
+    specs: [
+      ['Application', 'Vegan meat analogues · Snacks · Shakes · Bakery'],
+      ['Protein Content', '80% – 84% Min'],
+      ['Functional Target', 'Hypoallergenic Texturization & Binding'],
+      ['Shelf Life', '24 months (ambient, sealed)'],
+      ['Packaging', '20 kg bag'],
+    ],
+  },
+  {
+    slug: 'rice-protein', name: 'Rice Protein', formats: 'Organic & Conventional Grade',
+    tag: 'Hypoallergenic · Easily digestible · Complete vegan matrix',
+    desc: 'Extracted from non-GMO brown rice, this hypoallergenic protein powder provides a smooth mouthfeel and gentle digestibility. Pairs synergistically with pea protein to create a complete amino acid profile.',
+    specs: [
+      ['Application', 'Sports nutrition · Nutritional supplements · Vegan bars'],
+      ['Protein Content', '80% Min'],
+      ['Functional Target', 'Hypoallergenic Supplementation & Blends'],
+      ['Shelf Life', '24 months (ambient, sealed)'],
+      ['Packaging', '20 kg bag'],
+    ],
+  },
+  {
+    slug: 'whey-protein', name: 'Whey Protein', formats: 'WPC 80 & WPI Isolate',
+    tag: 'Rapid absorption · Superior biological value · Rich in BCAAs',
+    desc: 'Premium dairy-derived protein offering high biological availability and an abundant branched-chain amino acid (BCAA) profile. Excellent for muscle recovery formulations, protein waters, and baked goods.',
+    specs: [
+      ['Application', 'Protein powders · RTD beverages · Confectionery · Bakery'],
+      ['Protein Content', '80% (WPC) to 90% (WPI)'],
+      ['Functional Target', 'Nutritional Enhancement & Frothing Control'],
+      ['Shelf Life', '24 months (ambient, sealed)'],
+      ['Packaging', '20 kg carton / bag'],
+    ],
   }
 ];
 
