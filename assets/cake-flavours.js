@@ -127,27 +127,33 @@ window.V_HYDRO_TYPES = [
   },
   {
     slug:'enzymes-improvers', name:'Enzymes & Dough Improvers', formats:'Industrial Concentrations',
-    tag:'Alpha-Amylase · Xylanase · Lipase · Glucose Oxidase',
-    desc:'Targeted biocatalytic enzymes engineered to upgrade structural elasticity, accelerate gas retention, maximize loaf volume, and extend fresh-crumb softness over shelf life.',
-    specs:[['Active Elements','Alpha-Amylase · Xylanase · Lipase'],['Functional Target','Gluten Network Optimization'],['Dosage Range','Custom process dependent'],['Shelf Life','12 months']]
+    tag:'Targeted biocatalytic enzymes engineered to upgrade structural elasticity, accelerate gas retention, maximize loaf volume, and extend fresh-crumb softness over shelf life.',
+    desc:'Alpha-Amylase · Xylanase · Lipase · Glucose Oxidase',
+    specs:[['Active Elements','Alpha-Amylase · Xylanase · Lipase · Glucose Oxidase'],['Functional Target','Gluten Network Optimization'],['Dosage Range','Custom process dependent'],['Shelf Life','12 months']]
   },
   {
     slug:'acidulants', name:'Acidulants & Regulators', formats:'Pure Crystalline / Glacial',
-    tag:'Citric Acid · Malic Acid · Lactic Acid · Fumaric Acid · Ascorbic Acid · Tartaric Acid',
-    desc:'High-purity food-grade processing acids used for precise pH adjustment, flavour enhancement, shelf stabilization, and structural dough modification.',
-    specs:[['Composition Portfolio','Citric · Malic · Lactic · Fumaric · Acetic'],['Functional Target','pH Regulation / Microbial Control'],['Compliance','FSSAI, JECFA & FCC Standards'],['Shelf Life','24 months']]
+    tag:'High-purity food-grade processing acids used for precise pH adjustment, flavour enhancement, shelf stabilization, and structural dough modification.',
+    desc:'Citric Acid · Malic Acid · Lactic Acid · Fumaric Acid · Ascorbic Acid · Tartaric Acid · Acetic Acid',
+    specs:[['Composition Portfolio','Citric · Malic · Lactic · Fumaric · Ascorbic · Tartaric · Acetic'],['Functional Target','pH Regulation / Microbial Control'],['Compliance','FSSAI, JECFA & FCC Standards'],['Shelf Life','24 months']]
   },
   {
     slug:'micronutrients', name:'Micronutrients & Supplements', formats:'Bio-Available Minerals',
-    tag:'Ferrous Sulphate · Zinc Oxide · Mineral Chelates',
-    desc:'Premium bio-available food fortification ingredients, including precise mineral salts and amino compositions designed for nutritional optimization.',
+    tag:'Premium bio-available food fortification ingredients, including precise mineral salts and amino compositions designed for nutritional optimization.',
+    desc:'Ferrous Sulphate · Zinc Oxide · Mineral Chelates',
     specs:[['Iron Formats','Ferrous Sulphate · Ferractiv Chelate'],['Zinc Formats','Zinc Oxide · Zinc Acetate · Zinc Sulphate'],['Amino Elements','Glycine · L-Glutamine · L-Arginine'],['Shelf Life','24 months']]
   },
   {
     slug:'sweeteners', name:'Functional Sweeteners', formats:'Granular & Powdered',
-    tag:'Dextrose · Mannitol · Sucralose · Stevia Extract',
-    desc:'High-performance sweetening matrices providing variable bulking properties, humidity tracking, browning control, and high-intensity structural stabilization.',
+    tag:'High-performance sweetening matrices providing variable bulking properties, humidity tracking, browning control, and high-intensity structural stabilization.',
+    desc:'Dextrose · Mannitol · Sucralose · Stevia Extract · Mannose',
     specs:[['Bulk Sweeteners','Dextrose · Mannitol'],['High Intensity','Sucralose · Stevia Extract'],['Humectant Action','Optimized moisture control'],['Shelf Life','24 months']]
+  },
+  {
+    slug:'monk-fruit', name:'Monk Fruit', formats:'Powdered',
+    tag:'High-performance sweetening for variable bulking properties, and high-intensity structural stabilization.',
+    desc:'Monk Friut Poweder',
+    specs:[['Acts as','Bulk Sweetner'],['High Intensity Sweetener','Suagr Free'],['Humectant Action','Optimized moisture control'],['Shelf Life','24 months']]
   }
 ];
 
