@@ -101,6 +101,12 @@ window.V_HYDRO_TYPES = [
     desc:'Premium food-grade polysaccharide stabilizer providing exceptional viscosity control. Delivers robust suspension capabilities, freeze-thaw resilience, and stability across extreme pH variations.',
     specs:[['Functional Target','Thickener / Suspension Agent'],['Optimal pH Range','3.0 – 11.0'],['Viscosity (1% Sol.)','1,200 – 1,600 cPs'],['Shelf Life','24 months']]
   },
+   {
+    slug:'monk-fruit', name:'Monk Fruit', formats:'Powdered',
+    tag:'High-performance sweetening for variable bulking properties, and high-intensity structural stabilization.',
+    desc:'Monk Friut Poweder',
+    specs:[['Acts as','Bulk Sweetner'],['High Intensity Sweetener','Suagr Free'],['Humectant Action','Optimized moisture control'],['Shelf Life','24 months']]
+  },
   {
     slug:'guar-gum', name:'Guar Gum', formats:'High Viscosity Systems',
     tag:'Galactomannan matrix · Cold water soluble · High binding',
@@ -148,12 +154,6 @@ window.V_HYDRO_TYPES = [
     tag:'High-performance sweetening matrices providing variable bulking properties, humidity tracking, browning control, and high-intensity structural stabilization.',
     desc:'Dextrose · Mannitol · Sucralose · Stevia Extract · Mannose',
     specs:[['Bulk Sweeteners','Dextrose · Mannitol'],['High Intensity','Sucralose · Stevia Extract'],['Humectant Action','Optimized moisture control'],['Shelf Life','24 months']]
-  },
-  {
-    slug:'monk-fruit', name:'Monk Fruit', formats:'Powdered',
-    tag:'High-performance sweetening for variable bulking properties, and high-intensity structural stabilization.',
-    desc:'Monk Friut Poweder',
-    specs:[['Acts as','Bulk Sweetner'],['High Intensity Sweetener','Suagr Free'],['Humectant Action','Optimized moisture control'],['Shelf Life','24 months']]
   }
 ];
 
@@ -169,6 +169,12 @@ window.V_RAISIN_TYPES = [
     tag:'Seedless · Deep black skin · Rich natural sugars',
     desc:'Naturally sun-cured black raisins possessing a deep flavour profile and high natural sugar content. Excellent for energy bars, traditional baked items, and bulk industrial applications.',
     specs:[['Moisture Content','13% – 15% Max'],['Processing','Triple washed & laser sorted'],['Foreign Matter','Nil (0.0%)'],['Shelf Life','12 months']]
+  },
+  {
+    slug:'multigrain', name:'Multigrains', formats:'Customizable',
+    tag:'High Quality · Customizable · Sunflower, Pumpkin, Flax, Sesame, Melon Seeds',
+    desc:'Selected white (hulled) and black natural sesame seeds offering intense aroma upon baking. Essential inclusion for burger buns, artisanal crackers, and traditional confectionery lines.',
+    specs:[['Varieties','Sunflower, Pumpkin, Flax, Sesame, Melon Seeds'],['Purity','Quality Assured'],['Shelf Life','12 months']]
   },
   {
     slug:'sunflower', name:'Sunflower Seeds', formats:'Peeled Kernel Grade',
