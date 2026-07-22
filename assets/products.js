@@ -2,7 +2,7 @@
    Exposes: window.V_PRODUCTS, window.V_ICONS, window.V_ART */
 
 window.V_PRODUCTS = [
-  { slug: 'raisins', name: 'Raisins, Dry Nuts & Seeds', tag:'', desc:''},
+  { slug: 'raisins', name: 'Raisins, Nuts & Seeds', tag:'', desc:''},
   { slug: 'cake-premixes', name: 'Cake Premixes & Cake Concentrates', tag:'', desc:''},
   { slug: 'hydrocolloids', name: 'Speciality Chemicals', tag:'', desc:''},
   { slug: 'tea-time-bar-cakes', name: 'Tea-Time Bar Cakes', tag:'', desc:''},
