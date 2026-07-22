@@ -436,8 +436,7 @@ window.V_PROTEIN_TYPES = [
       ['Packaging', '20 kg carton / bag'],
     ]
   }
-]
-
+]; // <-- This closes V_PROTEIN_TYPES correctly!
 
 window.V_CAKE_ART = function (v, isConcentrate) {
   if (v.imgUrl) {
@@ -547,7 +546,7 @@ window.V_RenderCakeFlavours = function (opts) {
                     <tbody>
                       ${v.specs.map((row, r) => `
                         <tr class="border-b border-black/10 ${r % 2 ? 'bg-[color:var(--v-cream-2)]' : ''}">
-                          <td class="py-3 pr-6 font-mono-caps text-[10px] text-[color:var(--v-forest-2)] whitespace-nowrap align-top w-[38% md:w-[30%]" data-testid="spec-label-${r}">${row[0]}</td>
+                          <td class="py-3 pr-6 font-mono-caps text-[10px] text-[color:var(--v-forest-2)] whitespace-nowrap align-top w-[38%] md:w-[30%]" data-testid="spec-label-${r}">${row[0]}</td>
                           <td class="py-3 text-[color:var(--v-ink)]" data-testid="spec-val-${r}">${row[1]}</td>
                         </tr>`).join('')}
                     </tbody>
