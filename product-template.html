@@ -159,12 +159,12 @@
       desc:'Food-grade preservative systems — potassium sorbate, sodium benzoate, calcium propionate, tartaric acid — plus natural antimicrobial blends for clean-label projects.',
       packing:['25 kg bag','25 kg fibre drum'], apps:['Bakery & bread','Beverages & sauces','Confectionery'] },
     
-    'proteins': { name:'Proteins', cat:'Proteins', tag:'Whey · Soy · Pea isolates', img:'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=1400&q=80',
-      desc:'High-purity protein ingredients — whey concentrates & isolates, soy isolate and pea isolate — for nutrition, bakery and beverage applications.',
+    'proteins': { name:'Proteins', cat:'Proteins', tag:'Whey · Soy · Pea · Rice isolates', img:'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=1400&q=80',
+      desc:'High-purity protein ingredients including soya protein isolate, pea protein, rice protein, and whey protein for high-performance nutrition and beverage matrices.',
       packing:['20 kg carton','25 kg bag'], apps:['Nutrition & sports','Bakery fortification','RTD beverages'] },
     
-    'fibers': { name:'Fibers', cat:'Functional', tag:'Inulin · Oat · Psyllium', img:'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=1400&q=80',
-      desc:'Soluble and insoluble dietary fibres — inulin, oat fibre, psyllium husk, wheat fibre — for high-fibre, keto and low-sugar formulations.',
+    'fibers': { name:'Fibers', cat:'Functional', tag:'FOS · Polydextrose · Inulin · Soluble Corn Fiber', img:'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=1400&q=80',
+      desc:'Soluble and insoluble dietary fibers — Fructo oligosaccharide, P-95, L-55, L-65, L-55+, and Inulin — engineered for sugar reduction and gut health.',
       packing:['20 kg bag','25 kg bag'], apps:['High-fibre bakery','Nutritional beverages','Meal replacements'] },
   };
 
@@ -176,7 +176,6 @@
   document.getElementById('v-crumb').textContent = p.name;
   document.getElementById('v-cat').textContent = p.cat;
   
-  // Format structural headings safely
   const firstWord = p.name.split(' ')[0];
   const restOfTitle = p.name.split(' ').slice(1).join(' ') || '';
   document.getElementById('v-name').innerHTML = `<span class="mask-line"><span>${firstWord}</span></span><span class="mask-line"><span class="italic font-serif-body text-[color:var(--v-forest-2)] font-normal">${restOfTitle}</span></span>`;
@@ -184,7 +183,6 @@
   document.getElementById('v-tag').textContent = p.tag;
   document.getElementById('v-desc').textContent = p.desc;
   
-  // Inject Hero Art Layout safely
   const heroArt = document.getElementById('v-hero-art');
   if (meta && typeof window.V_ART === 'function') {
     heroArt.insertAdjacentHTML('afterbegin', window.V_ART(meta, 0));
@@ -192,7 +190,6 @@
     heroArt.insertAdjacentHTML('afterbegin', `<img src="${p.img}" class="absolute inset-0 w-full h-full object-cover" alt="Product Frame"/>`);
   }
   
-  // Specs table building — Fixed with safe array fallback
   document.getElementById('v-specs').innerHTML = (p.specs || []).map((row, i) => `
     <tr class="border-b border-black/10 ${i%2?'bg-[color:var(--v-cream-2)]':''}">
       <td class="py-3 pr-6 font-mono-caps text-[10px] text-[color:var(--v-forest-2)] whitespace-nowrap">${row[0]}</td>
@@ -266,6 +263,32 @@
       <a href="#item-potassium-sorbate" class="chip link-under">02 · Potassium Sorbate</a>
       <a href="#item-sorbic-acid" class="chip link-under">03 · Sorbic Acid</a>
       <a href="#item-tartaric-acid" class="chip link-under">04 · Tartaric Acid</a>`;
+  }
+  else if (slug === 'proteins') {
+    document.getElementById('v-portfolio-wrap').classList.remove('hidden');
+    document.getElementById('v-portfolio-label').textContent = '— Protein Portfolio';
+    document.getElementById('v-portfolio-title').innerHTML = `Protein<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">isolates.</span>`;
+    document.getElementById('v-portfolio-desc').textContent = 'High-purity vegetable and dairy protein isolates optimized for functional food and nutritional enrichment.';
+    
+    document.getElementById('v-portfolio-anchors').innerHTML = `
+      <a href="#item-soya-protein-isolate" class="chip link-under">01 · Soya Protein Isolate</a>
+      <a href="#item-pea-protein" class="chip link-under">02 · Pea Protein</a>
+      <a href="#item-rice-protein" class="chip link-under">03 · Rice Protein</a>
+      <a href="#item-whey-protein" class="chip link-under">04 · Whey Protein</a>`;
+  }
+  else if (slug === 'fibers') {
+    document.getElementById('v-portfolio-wrap').classList.remove('hidden');
+    document.getElementById('v-portfolio-label').textContent = '— Fiber Solutions';
+    document.getElementById('v-portfolio-title').innerHTML = `Dietary<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">fibers.</span>`;
+    document.getElementById('v-portfolio-desc').textContent = 'Soluble prebiotic fibers and low-glycemic bulking matrices for modern sugar reduction and clean-label development.';
+    
+    document.getElementById('v-portfolio-anchors').innerHTML = `
+      <a href="#item-fructo-oligosaccharide" class="chip link-under">01 · FOS</a>
+      <a href="#item-p-95" class="chip link-under">02 · P-95</a>
+      <a href="#item-l-55" class="chip link-under">03 · L-55</a>
+      <a href="#item-l-65" class="chip link-under">04 · L-65</a>
+      <a href="#item-l-55-plus" class="chip link-under">05 · L-55+</a>
+      <a href="#item-inulin" class="chip link-under">06 · Inulin</a>`;
   }
 
   if (typeof window.V_RenderCakeFlavours === 'function') {
