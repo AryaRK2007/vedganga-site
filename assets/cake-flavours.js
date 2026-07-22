@@ -154,7 +154,7 @@ window.V_HYDRO_TYPES = [
     tag:'High-performance sweetening matrices providing variable bulking properties, humidity tracking, browning control, and high-intensity structural stabilization.',
     desc:'Dextrose · Mannitol · Sucralose · Stevia Extract · Mannose',
     specs:[['Bulk Sweeteners','Dextrose · Mannitol'],['High Intensity','Sucralose · Stevia Extract'],['Humectant Action','Optimized moisture control'],['Shelf Life','24 months']]
-  }
+  },
 ];
 
 window.V_RAISIN_TYPES = [
@@ -205,7 +205,7 @@ window.V_RAISIN_TYPES = [
     tag:'Subtle sweetness · Smooth texture · Traditional bakery use',
     desc:'Peeled white melon kernels thoroughly dried and graded for commercial bakery usage. Imparts a mild, pleasant crunch and enriches rich seasonal sweets and specialty breads.',
     specs:[['Purity Standards','99.9% Pure Kernel'],['Damaged Kernels','2% Max'],['Moisture','6% Max'],['Shelf Life','12 months']]
-  }
+  },
 ];
 
 window.V_PRESERVATIVE_TYPES = [
@@ -232,7 +232,7 @@ window.V_PRESERVATIVE_TYPES = [
     tag:'Natural fruit acid · Leavening reaction · Flavour sharper',
     desc:'A naturally occurring organic acid used for precise pH reduction, tart flavor enhancement, and acting as a solid acid component in chemical leavening systems (baking powders).',
     specs:[['Functional Target','Acidulant / Leavening Agent'],['Optical Activity','+12.0° to +13.0°'],['Compliance','FSSAI & FCC Grade'],['Shelf Life','24 months']]
-  }
+  },
 ];
 
 window.V_STARCH_TYPES = [
@@ -307,7 +307,7 @@ window.V_STARCH_TYPES = [
       ['Shelf Life','24 months (ambient, sealed)'],
       ['Packaging','25 kg bag'],
     ],
-  }
+  },
 ]; // <-- Add this closing bracket and semicolon here!
 
 /* Vedganga — Fibers portfolio engine.
@@ -386,6 +386,7 @@ window.V_FIBER_TYPES = [
       ['Packaging', '25 kg multi-wall bag'],
     ],
   },
+];
  /* Vedganga — Proteins portfolio engine.
    Exposes: window.V_PROTEIN_TYPES */
 
@@ -437,7 +438,7 @@ window.V_PROTEIN_TYPES = [
       ['Shelf Life', '24 months (ambient, sealed)'],
       ['Packaging', '20 kg carton / bag'],
     ]
-  }
+  },
 ]; // <-- This closes V_PROTEIN_TYPES correctly!
 
 window.V_CAKE_ART = function (v, isConcentrate) {
