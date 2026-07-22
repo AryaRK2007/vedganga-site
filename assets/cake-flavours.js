@@ -384,7 +384,7 @@ window.V_FIBER_TYPES = [
       ['Packaging', '25 kg multi-wall bag'],
     ],
   },
-   /* Vedganga — Proteins portfolio engine.
+ /* Vedganga — Proteins portfolio engine.
    Exposes: window.V_PROTEIN_TYPES */
 
 window.V_PROTEIN_TYPES = [
@@ -461,16 +461,18 @@ window.V_RenderCakeFlavours = function (opts) {
   const isRaisins = (currentSlug === 'raisins');
   const isPreservatives = (currentSlug === 'preservatives');
   const isStarches = (currentSlug === 'starches' || currentSlug === 'starches-derivatives');
-  const isCardLayout = (isHydrocolloids || isRaisins || isPreservatives || isStarches);
+  const isProteins = (currentSlug === 'proteins');
+  const isCardLayout = (isHydrocolloids || isRaisins || isPreservatives || isStarches || isProteins);
   
   let targetDataset = window.V_CAKE_FLAVOURS;
   if (isHydrocolloids) targetDataset = window.V_HYDRO_TYPES;
   if (isRaisins) targetDataset = window.V_RAISIN_TYPES;
   if (isPreservatives) targetDataset = window.V_PRESERVATIVE_TYPES;
   if (isStarches) targetDataset = window.V_STARCH_TYPES;
+  if (isProteins) targetDataset = window.V_PROTEIN_TYPES;
 
-  const labelPrefix = isRaisins ? 'VARIETY' : (isPreservatives ? 'PRESERVATIVE' : (isHydrocolloids ? 'CHEMICAL' : (isStarches ? 'STARCH' : 'FLAVOUR')));
-  const productLabel = opts.product || (isRaisins ? 'Dry Fruits & Seeds' : (isPreservatives ? 'Preservatives & Acids' : (isHydrocolloids ? 'Specialty Chemicals' : (isStarches ? 'Starches & Derivatives' : 'Cake'))));
+  const labelPrefix = isRaisins ? 'VARIETY' : (isPreservatives ? 'PRESERVATIVE' : (isHydrocolloids ? 'CHEMICAL' : (isStarches ? 'STARCH' : (isProteins ? 'PROTEIN' : 'FLAVOUR'))));
+  const productLabel = opts.product || (isRaisins ? 'Dry Fruits & Seeds' : (isPreservatives ? 'Preservatives & Acids' : (isHydrocolloids ? 'Specialty Chemicals' : (isStarches ? 'Starches & Derivatives' : (isProteins ? 'Proteins' : 'Cake')))));
   const isConcentrate = currentSlug.toLowerCase().includes('concentrate');
 
   if (isCardLayout) {
