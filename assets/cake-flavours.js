@@ -477,8 +477,22 @@ window.V_RenderCakeFlavours = function (opts) {
   if (isProteins) targetDataset = window.V_PROTEIN_TYPES;
   if (isFibers) targetDataset = window.V_FIBER_TYPES;
 
-  const labelPrefix = isRaisins ? 'VARIETY' : (isPreservatives ? 'PRESERVATIVE' : (isHydrocolloids ? 'CHEMICAL' : (isStarches ? 'STARCH' : (isProteins ? 'PROTEIN' : (isFibers ? 'FIBER' : 'FLAVOUR')))));
-  const productLabel = opts.product || (isRaisins ? 'Dry Fruits & Seeds' : (isPreservatives ? 'Preservatives & Acids' : (isHydrocolloids ? 'Specialty Chemicals' : (isStarches ? 'Starches & Derivatives' : (isProteins ? 'Proteins' : (isFibers ? 'Dietary Fibers' : 'Cake'))))));
+  let labelPrefix = 'FLAVOUR';
+  if (isRaisins) labelPrefix = 'VARIETY';
+  else if (isPreservatives) labelPrefix = 'PRESERVATIVE';
+  else if (isHydrocolloids) labelPrefix = 'CHEMICAL';
+  else if (isStarches) labelPrefix = 'STARCH';
+  else if (isProteins) labelPrefix = 'PROTEIN';
+  else if (isFibers) labelPrefix = 'FIBER';
+
+  let productLabel = opts.product || 'Cake';
+  if (isRaisins) productLabel = 'Dry Fruits & Seeds';
+  else if (isPreservatives) productLabel = 'Preservatives & Acids';
+  else if (isHydrocolloids) productLabel = 'Specialty Chemicals';
+  else if (isStarches) productLabel = 'Starches & Derivatives';
+  else if (isProteins) productLabel = 'Proteins';
+  else if (isFibers) productLabel = 'Dietary Fibers';
+
   const isConcentrate = currentSlug.toLowerCase().includes('concentrate');
 
   if (isCardLayout) {
