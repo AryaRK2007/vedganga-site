@@ -436,7 +436,7 @@ window.V_PROTEIN_TYPES = [
       ['Packaging', '20 kg carton / bag'],
     ]
   }
-]
+];
 
 
 window.V_CAKE_ART = function (v, isConcentrate) {
