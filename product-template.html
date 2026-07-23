@@ -267,6 +267,46 @@
       <a href="#item-sorbic-acid" class="chip link-under">03 · Sorbic Acid</a>
       <a href="#item-tartaric-acid" class="chip link-under">04 · Tartaric Acid</a>`;
   }
+  else if (slug === 'starches' || slug === 'starches-derivatives') {
+    document.getElementById('v-portfolio-wrap').classList.remove('hidden');
+    document.getElementById('v-portfolio-label').textContent = '— Starch Matrix Portfolio';
+    document.getElementById('v-portfolio-title').innerHTML = `Starches &<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">derivatives.</span>`;
+    document.getElementById('v-portfolio-desc').textContent = 'Engineered native and modified starches, syrups, and functional sweeteners designed for optimal texture, stability, and moisture retention.';
+    
+    document.getElementById('v-portfolio-anchors').innerHTML = `
+      <a href="#item-modified-starch" class="chip link-under">01 · Modified Starch</a>
+      <a href="#item-corn-starch" class="chip link-under">02 · Corn Starch</a>
+      <a href="#item-tapioca-starch" class="chip link-under">03 · Tapioca Starch</a>
+      <a href="#item-liquid-glucose" class="chip link-under">04 · Liquid Glucose</a>
+      <a href="#item-maltodextrin" class="chip link-under">05 · Maltodextrin</a>
+      <a href="#item-maltitol" class="chip link-under">06 · Maltitol</a>`;
+  }
+  else if (slug === 'fibers') {
+    document.getElementById('v-portfolio-wrap').classList.remove('hidden');
+    document.getElementById('v-portfolio-label').textContent = '— Dietary Fiber Portfolio';
+    document.getElementById('v-portfolio-title').innerHTML = `Soluble &<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">functional fibers.</span>`;
+    document.getElementById('v-portfolio-desc').textContent = 'Advanced prebiotics and soluble dietary fibers engineered for clean label sugar reduction, gut health, and exceptional humectancy.';
+    
+    document.getElementById('v-portfolio-anchors').innerHTML = `
+      <a href="#item-fructo-oligosaccharide" class="chip link-under">01 · FOS</a>
+      <a href="#item-p-95" class="chip link-under">02 · Polydextrose</a>
+      <a href="#item-l-55" class="chip link-under">03 · Soluble Corn Fiber L-55</a>
+      <a href="#item-l-65" class="chip link-under">04 · Soluble Fiber L-65</a>
+      <a href="#item-l-55-plus" class="chip link-under">05 · Soluble Fiber L-55+</a>
+      <a href="#item-inulin" class="chip link-under">06 · Inulin</a>`;
+  }
+  else if (slug === 'proteins') {
+    document.getElementById('v-portfolio-wrap').classList.remove('hidden');
+    document.getElementById('v-portfolio-label').textContent = '— Protein Portfolio';
+    document.getElementById('v-portfolio-title').innerHTML = `High-purity<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">protein isolates.</span>`;
+    document.getElementById('v-portfolio-desc').textContent = 'Plant and dairy-derived functional protein matrices delivering superior emulsification, complete amino profiles, and structural binding.';
+    
+    document.getElementById('v-portfolio-anchors').innerHTML = `
+      <a href="#item-soya-protein-isolate" class="chip link-under">01 · Soya Isolate</a>
+      <a href="#item-pea-protein" class="chip link-under">02 · Pea Protein</a>
+      <a href="#item-rice-protein" class="chip link-under">03 · Rice Protein</a>
+      <a href="#item-whey-protein" class="chip link-under">04 · Whey Protein</a>`;
+  }
 
   if (typeof window.V_RenderCakeFlavours === 'function') {
     window.V_RenderCakeFlavours({ hostId: 'v-portfolio-target', product: p.name });
