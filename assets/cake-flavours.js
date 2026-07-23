@@ -464,7 +464,7 @@ window.V_RenderCakeFlavours = function (opts) {
   const isHydrocolloids = (currentSlug === 'hydrocolloids');
   const isRaisins = (currentSlug === 'raisins');
   const isPreservatives = (currentSlug === 'preservatives');
-  const isStarches = (currentSlug === 'starches' || currentSlug === 'starches-derivatives');
+  const isStarches = (currentSlug === 'starches' || currentSlug === 'starches-derivatives' || currentSlug === 'starch');
   const isProteins = (currentSlug === 'proteins');
   const isFibers = (currentSlug === 'fibers');
   const isCardLayout = (isHydrocolloids || isRaisins || isPreservatives || isStarches || isProteins || isFibers);
@@ -486,12 +486,12 @@ window.V_RenderCakeFlavours = function (opts) {
   else if (isFibers) labelPrefix = 'FIBER';
 
   let productLabel = opts.product || 'Cake';
-  if (isRaisins) productLabel = 'Dry Fruits & Seeds';
+  if (isRaisins) productLabel = 'Raisins, Nuts & Seeds';
   else if (isPreservatives) productLabel = 'Preservatives & Acids';
   else if (isHydrocolloids) productLabel = 'Specialty Chemicals';
   else if (isStarches) productLabel = 'Starches & Derivatives';
   else if (isProteins) productLabel = 'Proteins';
-  else if (isFibers) productLabel = 'Dietary Fibers';
+  else if (isFibers) productLabel = 'Fibers';
 
   const isConcentrate = currentSlug.toLowerCase().includes('concentrate');
 
