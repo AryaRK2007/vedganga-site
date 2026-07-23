@@ -307,7 +307,9 @@ window.V_STARCH_TYPES = [
       ['Shelf Life','24 months (ambient, sealed)'],
       ['Packaging','25 kg bag'],
     ],
-  },
+  }
+];
+
 /* Vedganga — Fibers portfolio engine.
    Exposes: window.V_FIBER_TYPES */
 
@@ -383,7 +385,9 @@ window.V_FIBER_TYPES = [
       ['Shelf Life', '24 months (ambient, sealed)'],
       ['Packaging', '25 kg multi-wall bag'],
     ],
-  },
+  }
+];
+
  /* Vedganga — Proteins portfolio engine.
    Exposes: window.V_PROTEIN_TYPES */
 
@@ -438,7 +442,6 @@ window.V_PROTEIN_TYPES = [
   }
 ];
 
-
 window.V_CAKE_ART = function (v, isConcentrate) {
   if (v.imgUrl) {
     return `<div class="w-full h-full absolute inset-0 bg-neutral-100 flex items-center justify-center select-none">
@@ -463,7 +466,8 @@ window.V_RenderCakeFlavours = function (opts) {
   const isPreservatives = (currentSlug === 'preservatives');
   const isStarches = (currentSlug === 'starches' || currentSlug === 'starches-derivatives');
   const isProteins = (currentSlug === 'proteins');
-  const isCardLayout = (isHydrocolloids || isRaisins || isPreservatives || isStarches || isProteins);
+  const isFibers = (currentSlug === 'fibers');
+  const isCardLayout = (isHydrocolloids || isRaisins || isPreservatives || isStarches || isProteins || isFibers);
   
   let targetDataset = window.V_CAKE_FLAVOURS;
   if (isHydrocolloids) targetDataset = window.V_HYDRO_TYPES;
@@ -471,9 +475,10 @@ window.V_RenderCakeFlavours = function (opts) {
   if (isPreservatives) targetDataset = window.V_PRESERVATIVE_TYPES;
   if (isStarches) targetDataset = window.V_STARCH_TYPES;
   if (isProteins) targetDataset = window.V_PROTEIN_TYPES;
+  if (isFibers) targetDataset = window.V_FIBER_TYPES;
 
-  const labelPrefix = isRaisins ? 'VARIETY' : (isPreservatives ? 'PRESERVATIVE' : (isHydrocolloids ? 'CHEMICAL' : (isStarches ? 'STARCH' : (isProteins ? 'PROTEIN' : 'FLAVOUR'))));
-  const productLabel = opts.product || (isRaisins ? 'Dry Fruits & Seeds' : (isPreservatives ? 'Preservatives & Acids' : (isHydrocolloids ? 'Specialty Chemicals' : (isStarches ? 'Starches & Derivatives' : (isProteins ? 'Proteins' : 'Cake')))));
+  const labelPrefix = isRaisins ? 'VARIETY' : (isPreservatives ? 'PRESERVATIVE' : (isHydrocolloids ? 'CHEMICAL' : (isStarches ? 'STARCH' : (isProteins ? 'PROTEIN' : (isFibers ? 'FIBER' : 'FLAVOUR')))));
+  const productLabel = opts.product || (isRaisins ? 'Dry Fruits & Seeds' : (isPreservatives ? 'Preservatives & Acids' : (isHydrocolloids ? 'Specialty Chemicals' : (isStarches ? 'Starches & Derivatives' : (isProteins ? 'Proteins' : (isFibers ? 'Dietary Fibers' : 'Cake')))))));
   const isConcentrate = currentSlug.toLowerCase().includes('concentrate');
 
   if (isCardLayout) {
@@ -547,7 +552,7 @@ window.V_RenderCakeFlavours = function (opts) {
                     <tbody>
                       ${v.specs.map((row, r) => `
                         <tr class="border-b border-black/10 ${r % 2 ? 'bg-[color:var(--v-cream-2)]' : ''}">
-                          <td class="py-3 pr-6 font-mono-caps text-[10px] text-[color:var(--v-forest-2)] whitespace-nowrap align-top w-[38% md:w-[30%]" data-testid="spec-label-${r}">${row[0]}</td>
+                          <td class="py-3 pr-6 font-mono-caps text-[10px] text-[color:var(--v-forest-2)] whitespace-nowrap align-top w-[38%] md:w-[30%]" data-testid="spec-label-${r}">${row[0]}</td>
                           <td class="py-3 text-[color:var(--v-ink)]" data-testid="spec-val-${r}">${row[1]}</td>
                         </tr>`).join('')}
                     </tbody>
