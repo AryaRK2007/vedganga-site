@@ -478,7 +478,7 @@ window.V_RenderCakeFlavours = function (opts) {
   if (isFibers) targetDataset = window.V_FIBER_TYPES;
 
   const labelPrefix = isRaisins ? 'VARIETY' : (isPreservatives ? 'PRESERVATIVE' : (isHydrocolloids ? 'CHEMICAL' : (isStarches ? 'STARCH' : (isProteins ? 'PROTEIN' : (isFibers ? 'FIBER' : 'FLAVOUR')))));
-  const productLabel = opts.product || (isRaisins ? 'Dry Fruits & Seeds' : (isPreservatives ? 'Preservatives & Acids' : (isHydrocolloids ? 'Specialty Chemicals' : (isStarches ? 'Starches & Derivatives' : (isProteins ? 'Proteins' : (isFibers ? 'Dietary Fibers' : 'Cake')))))));
+  const productLabel = opts.product || (isRaisins ? 'Dry Fruits & Seeds' : (isPreservatives ? 'Preservatives & Acids' : (isHydrocolloids ? 'Specialty Chemicals' : (isStarches ? 'Starches & Derivatives' : (isProteins ? 'Proteins' : (isFibers ? 'Dietary Fibers' : 'Cake'))))));
   const isConcentrate = currentSlug.toLowerCase().includes('concentrate');
 
   if (isCardLayout) {
