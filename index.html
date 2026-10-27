@@ -248,7 +248,6 @@
 // Logic to handle opening and closing the pop-up modal seamlessly
 window.VedgangaQuote = {
   open: function(origin = 'General Query') {
-    // Optionally track which button opened the modal
     const originField = document.getElementById('modal-button-origin');
     if(originField) originField.value = origin;
     
@@ -272,6 +271,31 @@ document.getElementById('quote-modal').addEventListener('click', function(e) {
   }
 });
 
+// Attach modal triggers to all outline buttons & product card links
+document.addEventListener('DOMContentLoaded', function() {
+  // Bind Explore Portfolio and Talk to Sales buttons
+  document.querySelectorAll('[data-testid="hero-products-btn"], [data-testid="cta-contact-btn"]').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const origin = this.getAttribute('data-testid') || 'Secondary CTA';
+      window.VedgangaQuote.open(origin);
+    });
+  });
+
+  // Delegate clicks on dynamic product portfolio cards to open modal with the product name
+  const grid = document.getElementById('v-grid');
+  if (grid) {
+    grid.addEventListener('click', function(e) {
+      const card = e.target.closest('a[data-reveal]');
+      if (card) {
+        e.preventDefault();
+        const productName = card.querySelector('.font-display')?.innerText || 'Product Card';
+        window.VedgangaQuote.open('Product Card: ' + productName);
+      }
+    });
+  }
+});
+
 // ================= AJAX FORM SUBMISSION LOGIC =================
 document.getElementById('popup-quote-form').addEventListener('submit', function(e) {
   e.preventDefault();
@@ -281,7 +305,6 @@ document.getElementById('popup-quote-form').addEventListener('submit', function(
   const label = btn.querySelector('.label');
   const originalText = label ? label.innerText : btn.innerText;
   
-  // Loading visual state change
   btn.disabled = true;
   if(label) label.innerText = "Sending...";
   else btn.innerText = "Sending...";
@@ -295,25 +318,19 @@ document.getElementById('popup-quote-form').addEventListener('submit', function(
   })
   .then(response => response.json())
   .then(data => {
-    // Reset loading state
     btn.disabled = false;
     if(label) label.innerText = originalText;
     else btn.innerText = originalText;
     btn.style.opacity = "1";
     
     if (data.success) {
-      // 1. Reset inputs (keeps hidden fields intact)
       form.reset();
-      
-      // 2. Clear out the selection layer modal window
       if(window.VedgangaQuote) window.VedgangaQuote.close();
       
-      // 3. Mount and trigger the custom toast popup message
       const toast = document.getElementById('success-popup');
       toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
       toast.classList.add('translate-y-0', 'opacity-100', 'pointer-events-allowed');
       
-      // Auto dismiss success toast message after 6 seconds
       setTimeout(() => {
         toast.style.transform = 'translateY(20px)';
         toast.style.opacity = '0';
