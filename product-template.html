@@ -7,32 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = { 
-    theme: { 
-      extend: { 
-        fontFamily: { 
-          display: ['Cinzel Decorative','serif'], 
-          serifb: ['Cormorant Garamond','serif'], 
-          sans: ['Manrope','sans-serif'], 
-          mono: ['JetBrains Mono','monospace'] 
-        } 
-      } 
-    } 
-  }
-</script>
 <link rel="stylesheet" href="assets/styles.css" />
-<style>
-  :root {
-    --v-forest: #183322;
-    --v-forest-2: #264d39;
-    --v-gold: #b8892a;
-    --v-gold-light: #d4a845;
-    --v-cream: #f7f2e8;
-    --v-cream-2: #ede5d0;
-    --v-ink: #1a0f05;
-  }
-</style>
 </head>
 <body class="grain">
 
@@ -57,7 +32,7 @@
       <p id="v-desc" class="mt-8 max-w-xl text-[color:var(--v-ink)]/80 leading-relaxed" data-reveal></p>
 
       <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
-        <button id="v-quote-open" class="btn-gold cursor-pointer" data-testid="product-quote-btn">Request a Quote / Sample →</button>
+        <button id="v-quote-open" class="btn-gold" data-testid="product-quote-btn">Request a Quote / Sample →</button>
         <a href="products.html" class="btn-outline" data-testid="product-back-btn">← All products</a>
       </div>
 
@@ -96,7 +71,7 @@
   </div>
 </section>
 
-<!-- Dynamic Portfolio Section (Cake Flavours / Emulsifiers / Hydrocolloids Systems) -->
+<!-- Dynamic Portfolio Section (Cake Flavours OR Hydrocolloids Systems) -->
 <section id="v-portfolio-wrap" class="pb-16 md:pb-24 hidden">
   <div class="max-w-[1400px] mx-auto px-5 md:px-10">
     <div class="border-t border-black/10 pt-16 md:pt-24">
@@ -114,7 +89,7 @@
         </div>
       </div>
     </div>
-    <div id="v-portfolio-target" class="mt-12 space-y-8"></div>
+    <div id="v-portfolio-target" class="mt-12"></div>
   </div>
 </section>
 
@@ -132,70 +107,6 @@
   </div>
 </section>
 
-<!-- ================= REQUEST A QUOTE MODAL POPUP ================= -->
-<div id="quote-modal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
-  <div class="modal-panel bg-[color:var(--v-cream)] max-w-2xl w-full rounded-[28px] p-6 md:p-10 shadow-2xl border border-black/5 transform scale-95 transition-transform duration-300 relative max-h-[90vh] overflow-y-auto text-[color:var(--v-ink)]">
-    
-    <button type="button" onclick="window.VedgangaQuote.close()" class="absolute top-6 right-6 text-black/40 hover:text-black/80 text-2xl font-light transition-colors cursor-pointer" aria-label="Close modal">&times;</button>
-
-    <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]">— Request a Sample / Quote</div>
-    <h2 class="font-display text-3xl md:text-4xl mt-2 leading-tight">Tell us what you're<br/>looking to <span class="italic font-serif-body text-[color:var(--v-forest-2)]">source.</span></h2>
-
-    <form id="popup-quote-form" class="mt-8 grid md:grid-cols-2 gap-x-8 gap-y-6">
-      <input type="hidden" name="access_key" value="05f139b8-2556-4256-96f8-f0305c794bf6">
-      <input type="hidden" name="from_name" value="Vedganga Website Quote Form">
-      <input type="hidden" name="subject" value="New Sample / Quote Request">
-      <input type="hidden" name="button_origin" id="modal-button-origin" value="General Query">
-
-      <div>
-        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Name *</label>
-        <input required name="name" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="Your full name"/>
-      </div>
-      <div>
-        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Email *</label>
-        <input required type="email" name="email" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="you@company.com"/>
-      </div>
-      <div>
-        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Phone</label>
-        <input name="phone" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="+91 …"/>
-      </div>
-      <div>
-        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Item Required</label>
-        <input name="item_subject" id="modal-item-input" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="Quote · Sample · Partnership …"/>
-      </div>
-      <div class="md:col-span-2">
-        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Message / Specifications *</label>
-        <textarea required name="message" rows="3" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition resize-none" placeholder="Tell us a bit about what you're looking for…"></textarea>
-      </div>
-      
-      <div class="md:col-span-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-2">
-        <div class="text-xs text-black/50">We respond within 24 business hours.</div>
-        <button type="submit" id="submit-btn" class="bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs font-semibold px-8 py-4 tracking-widest transition duration-200 rounded-xl cursor-pointer">
-          <span class="label">Send Message</span> →
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!-- ================= SUCCESS TOAST POPUP (IMAGE 2 DESIGN) ================= -->
-<div id="success-popup" class="fixed bottom-6 right-6 z-[10000] max-w-md w-full bg-[#183322] text-[#f7f2e8] rounded-2xl p-6 shadow-2xl border border-white/10 transform translate-y-12 opacity-0 pointer-events-none transition-all duration-500 ease-out flex gap-4 items-start">
-  <div class="w-10 h-10 rounded-full bg-[#b8892a] text-[#183322] flex items-center justify-center shrink-0 mt-0.5">
-    <svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-    </svg>
-  </div>
-  
-  <div class="flex-1">
-    <h4 class="font-display text-xl leading-tight text-[#d4a845] tracking-wide">REQUEST RECEIVED</h4>
-    <p class="text-sm mt-2 text-[#f7f2e8]/80 leading-relaxed font-sans font-light">
-      Your specifications have been queued. Our formulation team will reach out via email within 24 business hours.
-    </p>
-  </div>
-  
-  <button onclick="window.VedgangaQuote.dismissToast()" class="text-[#f7f2e8]/50 hover:text-[#f7f2e8] text-xl font-mono leading-none cursor-pointer" aria-label="Dismiss notification">&times;</button>
-</div>
-
 <div id="v-footer"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
@@ -206,139 +117,6 @@
 <script src="assets/cake-flavours.js"></script>
 
 <script>
-// Global Quote & Toast Handler
-window.VedgangaQuote = {
-  open: function(origin = 'General Query') {
-    const originField = document.getElementById('modal-button-origin');
-    const itemInput = document.getElementById('modal-item-input');
-    
-    if(originField) originField.value = origin;
-    if(itemInput && (origin.startsWith('Matrix Sample:') || origin.startsWith('Sample Request:'))) {
-      itemInput.value = origin.replace(/^(Matrix Sample:|Sample Request:)\s*/, '');
-    } else if(itemInput && origin !== 'General Query') {
-      itemInput.value = origin;
-    }
-    
-    const modal = document.getElementById('quote-modal');
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    modal.firstElementChild.classList.remove('scale-95');
-    modal.firstElementChild.classList.add('scale-100');
-  },
-  close: function() {
-    const modal = document.getElementById('quote-modal');
-    modal.classList.add('opacity-0', 'pointer-events-none');
-    modal.firstElementChild.classList.remove('scale-100');
-    modal.firstElementChild.classList.add('scale-95');
-  },
-  showToast: function() {
-    const toast = document.getElementById('success-popup');
-    toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
-    toast.classList.add('translate-y-0', 'opacity-100');
-    
-    setTimeout(() => {
-      this.dismissToast();
-    }, 6000);
-  },
-  dismissToast: function() {
-    const toast = document.getElementById('success-popup');
-    toast.classList.remove('translate-y-0', 'opacity-100');
-    toast.classList.add('translate-y-12', 'opacity-0', 'pointer-events-none');
-  }
-};
-
-document.getElementById('quote-modal').addEventListener('click', function(e) {
-  if (e.target === this) window.VedgangaQuote.close();
-});
-
-// Emulsifier Spec-Card Data Render System (Image 1 Style)
-function renderEmulsifiersCards(targetId) {
-  const container = document.getElementById(targetId);
-  if (!container) return;
-
-  const EMULSIFIER_ITEMS = [
-    {
-      id: "datem-fine-organic",
-      code: "EMULSIFIER 01",
-      specTag: "FINE ORGANICS GRADE",
-      status: "Active",
-      title: "DATEM FINE ORGANIC",
-      subheading: "Gluten reinforcement · Maximum dough tolerance · High oven spring",
-      description: "Diacetyl Tartaric Acid Esters of Mono- and Diglycerides (DATEM) acts as an exceptional dough conditioner. It builds a resilient gluten matrix that withstands mechanical shock in high-speed industrial baking lines, improving gas retention, increasing bread volume, and yielding a uniform crumb pattern.",
-      details: [
-        { label: "APPLICATION", value: "High-volume breads · Buns · Rusks · Commercial bakery lines" },
-        { label: "DOSAGE (FLOUR)", value: "0.3% — 0.5%" },
-        { label: "FUNCTIONAL TARGET", value: "Dough Conditioning & Gas Retention" },
-        { label: "SHELF LIFE", value: "12 months (cool, dry storage)" },
-        { label: "PACKAGING", value: "25 kg paper bag" }
-      ]
-    },
-    {
-      id: "finamul97-ssl",
-      code: "EMULSIFIER 02",
-      specTag: "FINAMUL 97",
-      status: "Active",
-      title: "FINAMUL97 SSL",
-      subheading: "Dual-action dough conditioning · Crumb softness · Texture enhancer",
-      description: "Finamul97 Sodium Stearoyl Lactylate (SSL) functions as both a dough strengthener and a highly effective crumb softener. By binding tightly with starch grains, it maintains ideal softness, increases water absorption parameters, and enhances overall product yield.",
-      details: [
-        { label: "APPLICATION", value: "Sandwich loaves · Soft rolls · Enriched sweet doughs" },
-        { label: "DOSAGE (FLOUR)", value: "0.2% — 0.5%" },
-        { label: "FUNCTIONAL TARGET", value: "Dough Machinability & Crumb Softening" },
-        { label: "SHELF LIFE", value: "12 months (ambient, sealed)" },
-        { label: "PACKAGING", value: "25 kg bag" }
-      ]
-    },
-    {
-      id: "finamul-90-dmg",
-      code: "EMULSIFIER 03",
-      specTag: "FINAMUL 90",
-      status: "Active",
-      title: "FINAMUL 90 DMG DISTILLED MONOGLYCERIDE",
-      subheading: "Starch complexing · Anti-staling engine · Aeration enhancer",
-      description: "Finamul 90 Distilled Monoglyceride (DMG) provides supreme starch complexing action. By preventing amylose recrystallization, it actively retards staling. It also functions excellently as an aerating agent in sponge batters, cake emulsifier systems, and biscuits.",
-      details: [
-        { label: "APPLICATION", value: "Long shelf-life breads · Cakes · Biscuits · Aerated batters" },
-        { label: "DOSAGE (FLOUR)", value: "0.3% — 1.0%" },
-        { label: "FUNCTIONAL TARGET", value: "Anti-Staling & Aeration" },
-        { label: "SHELF LIFE", value: "24 months (ambient, sealed)" },
-        { label: "PACKAGING", value: "25 kg bag" }
-      ]
-    }
-  ];
-
-  container.innerHTML = EMULSIFIER_ITEMS.map(p => `
-    <article id="item-${p.id}" class="bg-[#f7f2e8] border border-black/10 rounded-2xl p-6 md:p-8 text-[#1a0f05] shadow-sm">
-      <div class="flex items-center justify-between text-xs font-mono text-black/60 uppercase tracking-widest border-b border-black/10 pb-4 mb-6">
-        <div>${p.code} // ${p.specTag}</div>
-        <span class="bg-[#183322] text-[#f7f2e8] px-3 py-1 rounded-md text-[10px] tracking-wider">${p.status}</span>
-      </div>
-
-      <h3 class="font-display text-3xl md:text-4xl tracking-tight">${p.title}</h3>
-      <div class="font-serifb italic text-lg text-black/70 mt-1 mb-4">${p.subheading}</div>
-
-      <p class="text-sm md:text-base leading-relaxed text-black/80 mb-6 font-sans">
-        ${p.description}
-      </p>
-
-      <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs md:text-sm">
-        ${p.details.map(d => `
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-2">
-            <span class="md:col-span-4 font-mono text-black/50 uppercase tracking-wider">${d.label}</span>
-            <span class="md:col-span-8 font-sans text-black/85 font-medium">${d.value}</span>
-          </div>
-        `).join('')}
-      </div>
-
-      <button 
-        type="button" 
-        onclick="window.VedgangaQuote.open('Matrix Sample: ${p.title}')"
-        class="w-full bg-[#183322] hover:bg-[#264d39] text-[#f7f2e8] font-mono text-xs uppercase py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer flex items-center justify-center gap-2">
-        REQUEST MATRIX SAMPLE →
-      </button>
-    </article>
-  `).join('');
-}
-
 (function(){
   const CATALOG = {
     'raisins': { name:'Raisins, Nuts & Seeds', cat:'Dry Fruits', tag:'Sun-cured · Sortex-clean · Bakery-grade', img:'https://images.unsplash.com/photo-1543158181-1274e5362710?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -353,24 +131,52 @@ function renderEmulsifiersCards(targetId) {
       desc:'Premium food-grade hydrocolloid systems designed to optimize moisture management, modify viscosity, and establish reliable gel frameworks across diverse processing structures.',
       packing:['1 kg specialty pouch','5 kg bucket','25 kg industrial paper bag'], apps:['Dairy & frozen desserts','Bakery filling stabilization','Sauces, dressings & emulsions','Plant-based meat matrices'] },
     
-    'emulsifiers': { name:'Emulsifiers', cat:'Functional', tag:'DATEM · SSL · DMG Distilled Monoglyceride', img:'https://images.unsplash.com/photo-1532634922-8fe0b757fb13?auto=format&fit=crop&w=1400&q=80',
-      desc:'A complete range of food-grade emulsifiers for bakery, dairy and confectionery — including DATEM Fine Organic, Finamul97 SSL, and Finamul 90 DMG Distilled Monoglyceride.',
-      specs: [
-        ['Product Line', 'DATEM, SSL, DMG'],
-        ['Origin', 'Fine Organics Ltd.'],
-        ['Certifications', 'Kosher & Halal certified on request']
-      ],
-      packing:['20 kg carton','25 kg paper bag','Bulk supply'], apps:['Cake premixes & bakery','Bread improvers & rolls','Confectionery & dairy'] }
+    'tea-time-bar-cakes': { name:'Tea-Time Bar Cakes', cat:'Bakery', tag:'Shelf-stable · Ready-to-eat', img:'https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=1400&q=80',
+      desc:'Individually wrapped bar cakes engineered for ambient distribution, private label and HoReCa. Soft crumb, extended shelf life, no artificial preservatives.',
+      packing:['Retail flow-wrap','Master carton × 24 / 48'], apps:['Private label retail','Cafés & institutional catering','Airline & rail catering'] },
+    
+    'muffin-premixes': { name:'Muffin Premixes', cat:'Bakery', tag:'Chocolate · Vanilla · Choco-chip', img:'https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=1400&q=80',
+      desc:'Muffin-specific dry mixes with optimised crumb, dome and moisture retention. Compatible with both hand-scoop and automated depositing lines.',
+      packing:['1 kg pouch','10 kg bag','25 kg industrial bag'], apps:['Cafés & QSR','Frozen bake-off','Industrial muffin lines'] },
+    
+    'emulsifiers': { name:'Emulsifiers', cat:'Functional', tag:'GMS · SSL · DATEM · Lecithin', img:'https://images.unsplash.com/photo-1532634922-8fe0b757fb13?auto=format&fit=crop&w=1400&q=80',
+      desc:'A full range of food-grade emulsifiers for bakery, dairy and confectionery — including distilled monoglycerides, SSL, DATEM and sunflower lecithin. Kosher & Halal certified on request.',
+      packing:['20 kg carton','25 kg bag','200 kg drum (liquid)'], apps:['Cake premixes','Bread improvers','Ice-cream & dairy'] },
+    
+    'wheat-gluten': { name:'Wheat Gluten', cat:'Proteins', tag:'Vital · 75%+ protein', img:'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=1400&q=80',
+      desc:'Vital wheat gluten from carefully selected mills — 75%+ protein (Nx5.7), high vitality and consistent water absorption. Ideal for high-fibre and multigrain breads.',
+      packing:['25 kg bag','500 kg / 1000 kg jumbo'], apps:['Bread & bun improvers','High-protein bakery','Meat analogues'] },
+    
+    'bread-improvers': { name:'Bread Improvers', cat:'Functional', tag:'Enzyme-based · Clean-label', img:'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1400&q=80',
+      desc:'Enzyme-forward improvers for volume, softness and shelf life. Clean-label formats available (no ADA, no bromates) for artisan and industrial lines.',
+      packing:['1 kg pouch','25 kg bag'], apps:['Pan & sandwich bread','Buns & burger buns','Pizza & flatbreads'] },
+    
+    'starch': { name:'Starch & Derivatives', cat:'Carbs', tag:'Native · Modified · Maltodextrin', img:'https://images.unsplash.com/photo-1600289031464-74d374b64991?auto=format&fit=crop&w=1400&q=80',
+      desc:'A broad range of native, physically-modified and enzymatically-hydrolysed starches — maize, tapioca, potato — plus maltodextrins across DE ranges.',
+      packing:['25 kg bag','1000 kg jumbo'], apps:['Bakery & confectionery','Sauces & soups','Nutraceuticals'] },
+    
+    'preservatives': { name:'Preservatives', cat:'Functional', tag:'Sorbates · Benzoates · Propionates', img:'https://images.unsplash.com/photo-1584727638096-042c45049ebe?auto=format&fit=crop&w=1400&q=80',
+      desc:'Food-grade preservative systems — potassium sorbate, sodium benzoate, calcium propionate, tartaric acid — plus natural antimicrobial blends for clean-label projects.',
+      packing:['25 kg bag','25 kg fibre drum'], apps:['Bakery & bread','Beverages & sauces','Confectionery'] },
+    
+    'proteins': { name:'Proteins', cat:'Proteins', tag:'Whey · Soy · Pea isolates', img:'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=1400&q=80',
+      desc:'High-purity protein ingredients — whey concentrates & isolates, soy isolate and pea isolate — for nutrition, bakery and beverage applications.',
+      packing:['20 kg carton','25 kg bag'], apps:['Nutrition & sports','Bakery fortification','RTD beverages'] },
+    
+    'fibers': { name:'Fibers', cat:'Functional', tag:'Inulin · Oat · Psyllium', img:'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=1400&q=80',
+      desc:'Soluble and insoluble dietary fibres — inulin, oat fibre, psyllium husk, wheat fibre — for high-fibre, keto and low-sugar formulations.',
+      packing:['20 kg bag','25 kg bag'], apps:['High-fibre bakery','Nutritional beverages','Meal replacements'] },
   };
 
-  const slug = new URLSearchParams(location.search).get('slug') || 'emulsifiers';
-  const p = CATALOG[slug] || CATALOG['emulsifiers'];
+  const slug = new URLSearchParams(location.search).get('slug') || 'raisins';
+  const p = CATALOG[slug] || CATALOG['raisins'];
   const meta = (window.V_PRODUCTS || []).find(x => x.slug === slug) || (window.V_PRODUCTS || [])[0];
   
   document.title = `${p.name} — Vedganga Foods & Chemicals`;
   document.getElementById('v-crumb').textContent = p.name;
   document.getElementById('v-cat').textContent = p.cat;
   
+  // Format structural headings safely
   const firstWord = p.name.split(' ')[0];
   const restOfTitle = p.name.split(' ').slice(1).join(' ') || '';
   document.getElementById('v-name').innerHTML = `<span class="mask-line"><span>${firstWord}</span></span><span class="mask-line"><span class="italic font-serif-body text-[color:var(--v-forest-2)] font-normal">${restOfTitle}</span></span>`;
@@ -378,6 +184,7 @@ function renderEmulsifiersCards(targetId) {
   document.getElementById('v-tag').textContent = p.tag;
   document.getElementById('v-desc').textContent = p.desc;
   
+  // Inject Hero Art Layout safely
   const heroArt = document.getElementById('v-hero-art');
   if (meta && typeof window.V_ART === 'function') {
     heroArt.insertAdjacentHTML('afterbegin', window.V_ART(meta, 0));
@@ -385,11 +192,8 @@ function renderEmulsifiersCards(targetId) {
     heroArt.insertAdjacentHTML('afterbegin', `<img src="${p.img}" class="absolute inset-0 w-full h-full object-cover" alt="Product Frame"/>`);
   }
   
-  document.getElementById('v-specs').innerHTML = (p.specs || [
-    ['Formulation', 'High Purity Masterbatch'],
-    ['Quality Standard', 'FSSAI / ISO Grade'],
-    ['Supply Route', 'Bangalore Logistics Hub']
-  ]).map((row, i) => `
+  // Specs table building — Fixed with safe array fallback
+  document.getElementById('v-specs').innerHTML = (p.specs || []).map((row, i) => `
     <tr class="border-b border-black/10 ${i%2?'bg-[color:var(--v-cream-2)]':''}">
       <td class="py-3 pr-6 font-mono-caps text-[10px] text-[color:var(--v-forest-2)] whitespace-nowrap">${row[0]}</td>
       <td class="py-3 text-[color:var(--v-ink)]">${row[1]}</td>
@@ -398,23 +202,12 @@ function renderEmulsifiersCards(targetId) {
   document.getElementById('v-packing').innerHTML = (p.packing || []).map(i => `<li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[color:var(--v-gold)] mt-2"></span>${i}</li>`).join('');
   document.getElementById('v-apps').innerHTML = (p.apps || []).map(i => `<li class="flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[color:var(--v-gold)] mt-2"></span>${i}</li>`).join('');
   
-  document.getElementById('v-quote-open').addEventListener('click', () => window.VedgangaQuote.open(p.name));
+  if (typeof VedgangaQuote !== 'undefined') {
+    document.getElementById('v-quote-open').addEventListener('click', () => VedgangaQuote.open(p.name));
+  }
 
-  // Dispatch Portfolio Breakdown Views
-  if (slug === 'emulsifiers') {
-    document.getElementById('v-portfolio-wrap').classList.remove('hidden');
-    document.getElementById('v-portfolio-label').textContent = '— Speciality Emulsifier Matrix';
-    document.getElementById('v-portfolio-title').innerHTML = `Three core<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">emulsifiers.</span>`;
-    document.getElementById('v-portfolio-desc').textContent = 'Functional additives engineered to optimize dough rheology, crumb architecture, and shelf-life extension.';
-    
-    document.getElementById('v-portfolio-anchors').innerHTML = `
-      <a href="#item-datem-fine-organic" class="chip link-under">01 · DATEM Fine Organic</a>
-      <a href="#item-finamul97-ssl" class="chip link-under">02 · Finamul97 SSL</a>
-      <a href="#item-finamul-90-dmg" class="chip link-under">03 · Finamul 90 DMG</a>`;
-
-    renderEmulsifiersCards('v-portfolio-target');
-  } 
-  else if (slug === 'cake-premixes') {
+// ================= DYNAMIC PORTFOLIO DISPATCHER LAYER =================
+  if (slug === 'cake-premixes') {
     document.getElementById('v-portfolio-wrap').classList.remove('hidden');
     document.getElementById('v-portfolio-label').textContent = '— The Flavour Portfolio';
     document.getElementById('v-portfolio-title').innerHTML = `Six flavour<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">systems.</span>`;
@@ -423,11 +216,100 @@ function renderEmulsifiersCards(targetId) {
     document.getElementById('v-portfolio-anchors').innerHTML = `
       <a href="#item-vanilla" class="chip link-under">01 · Vanilla</a>
       <a href="#item-chocolate" class="chip link-under">02 · Chocolate</a>
-      <a href="#item-red-velvet" class="chip link-under">03 · Red Velvet</a>`;
+      <a href="#item-red-velvet" class="chip link-under">03 · Red Velvet</a>
+      <a href="#item-mava" class="chip link-under">04 · Mava</a>
+      <a href="#item-brownie" class="chip link-under">05 · Brownie</a>
+      <a href="#item-lava" class="chip link-under">06 · Lava</a>`;
+  } 
+  else if (slug === 'hydrocolloids') {
+    document.getElementById('v-portfolio-wrap').classList.remove('hidden');
+    document.getElementById('v-portfolio-label').textContent = '— Advanced Stabilization';
+    document.getElementById('v-portfolio-title').innerHTML = `Ten Categories<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">matrices.</span>`;
+    document.getElementById('v-portfolio-desc').textContent = 'Highly specified texturizing and gelling agents selected to withstand thermal shock, extreme shear, and variable processing conditions.';
+    
+    document.getElementById('v-portfolio-anchors').innerHTML = `
+      <a href="#item-xanthan-gum" class="chip link-under">01 · Xanthan Gum</a>
+      <a href="#item-monk-fruit" class="chip link-under">02 · Monk Fruit</a>
+      <a href="#item-guar-gum" class="chip link-under">03 · Guar Gum</a>
+      <a href="#item-carrageenan" class="chip link-under">04 · Carrageenan</a>
+      <a href="#item-sodium-alginate" class="chip link-under">05 · Sodium Alginate</a>
+      <a href="#item-agar-agar" class="chip link-under">06 · Agar-Agar</a>
+      <a href="#item-enzymes" class="chip link-under">07 · Enzymes & Dough Improvers</a>
+      <a href="#item-acidulants" class="chip link-under">08 · Acidulants & Regulators</a>
+      <a href="#item-micronutrients" class="chip link-under">09 · Micronutrients & Supplements</a>
+      <a href="#item-functional-sweeteners" class="chip link-under">10 · Functional Sweeteners</a>`;
+  }
+  else if (slug === 'raisins') {
+    document.getElementById('v-portfolio-wrap').classList.remove('hidden');
+    document.getElementById('v-portfolio-label').textContent = '— Component Varieties';
+    document.getElementById('v-portfolio-title').innerHTML = `Select seed & nut<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">varieties.</span>`;
+    document.getElementById('v-portfolio-desc').textContent = 'Sun-cured, triple-aspirated, and sortex-cleaned bakery inclusions optimized for low moisture migration in batters and structural dough lines.';
+    
+    document.getElementById('v-portfolio-anchors').innerHTML = `
+      <a href="#item-golden" class="chip link-under">01 · Golden Raisins</a>
+      <a href="#item-black" class="chip link-under">02 · Black Raisins</a>
+      <a href="#item-multigrain" class="chip link-under">03 · Multigrains</a>
+      <a href="#item-sunflower" class="chip link-under">04 · Sunflower Seeds</a>
+      <a href="#item-pumpkin" class="chip link-under">05 · Pumpkin Seeds</a>
+      <a href="#item-flax" class="chip link-under">06 · Flax Seeds</a>
+      <a href="#item-til" class="chip link-under">07 · Til Seeds (Black/White)</a>
+      <a href="#item-melon" class="chip link-under">08 · Melon Seeds</a>`;
+  }
+  else if (slug === 'preservatives') {
+    document.getElementById('v-portfolio-wrap').classList.remove('hidden');
+    document.getElementById('v-portfolio-label').textContent = '— Shelf-Life Systems';
+    document.getElementById('v-portfolio-title').innerHTML = `Preservatives`;
+    document.getElementById('v-portfolio-desc').textContent = 'High-performance antimicrobial agents and food acids engineered to protect moisture-prone structural formulations.';
+    
+    document.getElementById('v-portfolio-anchors').innerHTML = `
+      <a href="#item-calcium-propionate" class="chip link-under">01 · Calcium & Sodium Propionate</a>
+      <a href="#item-potassium-sorbate" class="chip link-under">02 · Potassium Sorbate</a>
+      <a href="#item-sorbic-acid" class="chip link-under">03 · Sorbic Acid</a>
+      <a href="#item-tartaric-acid" class="chip link-under">04 · Tartaric Acid</a>`;
+  }
+  else if (slug === 'starches' || slug === 'starches-derivatives' || slug === 'starch') {
+    document.getElementById('v-portfolio-wrap').classList.remove('hidden');
+    document.getElementById('v-portfolio-label').textContent = '— Starch Matrix Portfolio';
+    document.getElementById('v-portfolio-title').innerHTML = `Starches &<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">derivatives.</span>`;
+    document.getElementById('v-portfolio-desc').textContent = 'Engineered native and modified starches, syrups, and functional sweeteners designed for optimal texture, stability, and moisture retention.';
+    
+    document.getElementById('v-portfolio-anchors').innerHTML = `
+      <a href="#item-modified-starch" class="chip link-under">01 · Modified Starch</a>
+      <a href="#item-corn-starch" class="chip link-under">02 · Corn Starch</a>
+      <a href="#item-tapioca-starch" class="chip link-under">03 · Tapioca Starch</a>
+      <a href="#item-liquid-glucose" class="chip link-under">04 · Liquid Glucose</a>
+      <a href="#item-maltodextrin" class="chip link-under">05 · Maltodextrin</a>
+      <a href="#item-maltitol" class="chip link-under">06 · Maltitol</a>`;
+  }
+  else if (slug === 'fibers') {
+    document.getElementById('v-portfolio-wrap').classList.remove('hidden');
+    document.getElementById('v-portfolio-label').textContent = '— Dietary Fiber Portfolio';
+    document.getElementById('v-portfolio-title').innerHTML = `Soluble &<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">functional fibers.</span>`;
+    document.getElementById('v-portfolio-desc').textContent = 'Advanced prebiotics and soluble dietary fibers engineered for clean label sugar reduction, gut health, and exceptional humectancy.';
+    
+    document.getElementById('v-portfolio-anchors').innerHTML = `
+      <a href="#item-fructo-oligosaccharide" class="chip link-under">01 · FOS</a>
+      <a href="#item-p-95" class="chip link-under">02 · Polydextrose</a>
+      <a href="#item-l-55" class="chip link-under">03 · Soluble Corn Fiber L-55</a>
+      <a href="#item-l-65" class="chip link-under">04 · Soluble Fiber L-65</a>
+      <a href="#item-l-55-plus" class="chip link-under">05 · Soluble Fiber L-55+</a>
+      <a href="#item-inulin" class="chip link-under">06 · Inulin</a>`;
+  }
+  else if (slug === 'proteins') {
+    document.getElementById('v-portfolio-wrap').classList.remove('hidden');
+    document.getElementById('v-portfolio-label').textContent = '— Protein Portfolio';
+    document.getElementById('v-portfolio-title').innerHTML = `High-purity<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">protein isolates.</span>`;
+    document.getElementById('v-portfolio-desc').textContent = 'Plant and dairy-derived functional protein matrices delivering superior emulsification, complete amino profiles, and structural binding.';
+    
+    document.getElementById('v-portfolio-anchors').innerHTML = `
+      <a href="#item-soya-protein-isolate" class="chip link-under">01 · Soya Isolate</a>
+      <a href="#item-pea-protein" class="chip link-under">02 · Pea Protein</a>
+      <a href="#item-rice-protein" class="chip link-under">03 · Rice Protein</a>
+      <a href="#item-whey-protein" class="chip link-under">04 · Whey Protein</a>`;
+  }
 
-    if (typeof window.V_RenderCakeFlavours === 'function') {
-      window.V_RenderCakeFlavours({ hostId: 'v-portfolio-target', product: p.name });
-    }
+  if (typeof window.V_RenderCakeFlavours === 'function') {
+    window.V_RenderCakeFlavours({ hostId: 'v-portfolio-target', product: p.name });
   }
 
   // Related products grid injection
@@ -444,53 +326,6 @@ function renderEmulsifiersCards(targetId) {
       </div>
     </a>`).join('');
 })();
-
-// AJAX Form Handling with Web3Forms Integration
-document.getElementById('popup-quote-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  const form = this;
-  const btn = form.querySelector('button[type="submit"]');
-  const label = btn.querySelector('.label');
-  const originalText = label ? label.innerText : btn.innerText;
-  
-  btn.disabled = true;
-  if(label) label.innerText = "Sending...";
-  else btn.innerText = "Sending...";
-  btn.style.opacity = "0.7";
-  
-  const formData = new FormData(form);
-  
-  fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => response.json())
-  .then(data => {
-    btn.disabled = false;
-    if(label) label.innerText = originalText;
-    else btn.innerText = originalText;
-    btn.style.opacity = "1";
-    
-    if (data.success) {
-      form.reset();
-      if(window.VedgangaQuote) {
-        window.VedgangaQuote.close();
-        window.VedgangaQuote.showToast();
-      }
-    } else {
-      alert("Something went wrong: " + data.message);
-    }
-  })
-  .catch(error => {
-    btn.disabled = false;
-    if(label) label.innerText = originalText;
-    else btn.innerText = originalText;
-    btn.style.opacity = "1";
-    console.error("Submission Error:", error);
-    alert("Connection error. Please try again later.");
-  });
-});
 </script>
 </body>
 </html>
