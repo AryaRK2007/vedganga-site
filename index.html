@@ -13,6 +13,17 @@
   tailwind.config = { theme: { extend: { fontFamily: { display: ['Cinzel Decorative','serif'], serifb: ['Cormorant Garamond','serif'], sans: ['Manrope','sans-serif'], mono: ['JetBrains Mono','monospace'] } } } }
 </script>
 <link rel="stylesheet" href="assets/styles.css" />
+<style>
+  :root {
+    --v-forest: #183322;
+    --v-forest-2: #264d39;
+    --v-gold: #b8892a;
+    --v-gold-light: #d4a845;
+    --v-cream: #f7f2e8;
+    --v-cream-2: #ede5d0;
+    --v-ink: #1a0f05;
+  }
+</style>
 </head>
 <body class="grain">
 
@@ -74,11 +85,31 @@
   </div>
 </section>
 
+<!-- ================= PARTNERSHIP ANNOUNCEMENT BANNER ================= -->
+<section class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] py-14 md:py-20 px-5 md:px-10 grain border-y border-black/10">
+  <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12">
+    <div class="max-w-4xl">
+      <div class="font-mono-caps text-xs text-[color:var(--v-gold)] mb-3" data-reveal>— Official Partnership</div>
+      <h2 class="font-display text-3xl md:text-5xl leading-tight" data-reveal>
+        Vedganga Foods & Chemicals is Now the Official Distributor for <span class="italic font-serif-body text-[color:var(--v-gold)]">Norte-Eurocao!</span>
+      </h2>
+      <p class="mt-5 text-base md:text-lg text-[color:var(--v-cream)]/80 leading-relaxed font-sans max-w-2xl" data-reveal>
+        We are proud to bring Spain’s finest premium baking chocolates, artisanal spreads, and bake-stable inclusions straight to your commercial kitchen. Elevate your bakery and confectionery creations with world-class ingredients.
+      </p>
+    </div>
+    <div class="shrink-0 mt-4 md:mt-0" data-reveal>
+      <a href="norte-eurocao.html" class="inline-flex bg-[color:var(--v-gold)] hover:bg-[#d4a845] text-[#183322] font-mono-caps text-xs font-bold uppercase px-8 py-5 tracking-widest transition duration-200 rounded-xl cursor-pointer text-center">
+        Explore the Norte-Eurocao Catalog →
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ================ MARQUEE ================ -->
-<section class="border-y border-black/10 bg-[color:var(--v-cream-2)] py-6 overflow-hidden">
+<section class="border-b border-black/10 bg-[color:var(--v-cream-2)] py-6 overflow-hidden">
   <div class="marquee-track font-display text-4xl md:text-6xl text-[color:var(--v-ink)]/90 whitespace-nowrap">
     <span>Raisins&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Cake Premixes&nbsp;·</span>
-    <span>Emulsifiers&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Wheat Gluten&nbsp;·</span>
+    <span>Emulsifiers&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Vital Wheat Gluten&nbsp;·</span>
     <span>Bread Improvers&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Starch&nbsp;·</span>
     <span>Preservatives&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Proteins&nbsp;·</span>
     <span>Fibers&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Muffin Premixes&nbsp;·</span>
@@ -276,9 +307,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // Bind Explore Portfolio and Talk to Sales buttons
   document.querySelectorAll('[data-testid="hero-products-btn"], [data-testid="cta-contact-btn"]').forEach(btn => {
     btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      const origin = this.getAttribute('data-testid') || 'Secondary CTA';
-      window.VedgangaQuote.open(origin);
+      if(this.tagName.toLowerCase() !== 'a' || this.getAttribute('href') === '#') {
+          e.preventDefault();
+          const origin = this.getAttribute('data-testid') || 'Secondary CTA';
+          window.VedgangaQuote.open(origin);
+      }
     });
   });
 
@@ -288,9 +321,10 @@ document.addEventListener('DOMContentLoaded', function() {
     grid.addEventListener('click', function(e) {
       const card = e.target.closest('a[data-reveal]');
       if (card) {
-        e.preventDefault();
-        const productName = card.querySelector('.font-display')?.innerText || 'Product Card';
-        window.VedgangaQuote.open('Product Card: ' + productName);
+        // Only prevent default if it doesn't have a specific slug, but since these go to product-template, allow navigation!
+        // The script above generates links to `product-template.html?slug=...`
+        // So we DONT want to preventDefault here if we want them to go to the page. 
+        // We will let them navigate to the product page naturally.
       }
     });
   }

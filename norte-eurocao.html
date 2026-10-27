@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<title>Norte-Eurocao — Vedganga Foods &amp; Chemicals</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="description" content="Vedganga Foods & Chemicals is the official distributor for Norte-Eurocao. Source bulk pure chocolates, Zafiro compounds, bake-stable chips, and premium spreads." />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { 
+    theme: { 
+      extend: { 
+        fontFamily: { 
+          display: ['Cinzel Decorative','serif'], 
+          serifb: ['Cormorant Garamond','serif'], 
+          sans: ['Manrope','sans-serif'], 
+          mono: ['JetBrains Mono','monospace'] 
+        } 
+      } 
+    } 
+  }
+</script>
+
+<link rel="stylesheet" href="assets/styles.css" />
+<style>
+  :root {
+    --v-forest: #183322;
+    --v-forest-2: #264d39;
+    --v-gold: #b8892a;
+    --v-gold-light: #d4a845;    
+    --v-cream: #f7f2e8;
+    --v-cream-2: #ede5d0;
+    --v-ink: #1a0f05;
+  }
+  
+  body {
+    background-color: var(--v-cream);
+    color: var(--v-ink);
+    font-family: 'Manrope', sans-serif;
+  }
+
+  /* Global utility classes */
+  .font-mono-caps { font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.1em; }
+  .btn-gold { background-color: var(--v-gold); color: var(--v-cream); padding: 0.85rem 1.75rem; border-radius: 0.75rem; transition: background-color 0.3s ease; display: inline-flex; align-items: center; justify-content: center; font-weight: 500; }
+  .btn-gold:hover { background-color: #9c7320; }
+  .btn-outline { border: 1px solid rgba(0,0,0,0.2); padding: 0.85rem 1.75rem; border-radius: 0.75rem; transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; }
+  .btn-outline:hover { border-color: var(--v-ink); background-color: rgba(0,0,0,0.03); }
+  .link-under { text-decoration: underline; text-underline-offset: 4px; }
+</style>
+</head>
+<body class="grain min-h-screen flex flex-col">
+
+<!-- Navigation Bar Injected via site.js -->
+<div id="v-nav"></div>
+
+<!-- ================= ANNOUNCEMENT HERO ================= -->
+<header class="pt-32 pb-20 md:pt-40 md:pb-24 px-5 md:px-10 bg-[color:var(--v-forest)] text-[color:var(--v-cream)] relative overflow-hidden grain">
+  <div class="max-w-[1400px] mx-auto relative z-10">
+    <div data-reveal class="inline-block px-3 py-1 bg-[color:var(--v-gold)] text-[color:var(--v-forest)] font-mono-caps text-[10px] rounded-full mb-6 font-bold tracking-widest">
+      Official Partnership
+    </div>
+    
+    <h1 class="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.05] max-w-5xl">
+      <span class="mask-line"><span>Vedganga Foods &amp; Chemicals</span></span>
+      <span class="mask-line"><span class="italic font-serifb text-[color:var(--v-gold-light)]">Is Now the Official Distributor for</span></span>
+      <span class="mask-line"><span>Norte-Eurocao!</span></span>
+    </h1>
+    
+    <p data-reveal class="mt-8 text-lg md:text-xl text-[color:var(--v-cream)]/80 max-w-3xl leading-relaxed font-sans font-light">
+      We are proud to bring Spain’s finest premium baking chocolates, artisanal spreads, and bake-stable inclusions straight to your commercial kitchen. Elevate your bakery and confectionery creations with world-class ingredients.
+    </p>
+    
+    <div data-reveal class="mt-10">
+      <a href="#catalog" class="btn-gold cursor-pointer font-mono-caps text-xs tracking-widest bg-[color:var(--v-gold)] hover:bg-[color:var(--v-gold-light)] text-[color:var(--v-forest)]">
+        Explore the Norte-Eurocao Catalog ↓
+      </a>
+    </div>
+  </div>
+  
+  <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none" style="background: radial-gradient(circle at right, var(--v-gold) 0%, transparent 70%);"></div>
+</header>
+
+<!-- ================= BRAND INTRODUCTION ================= -->
+<section class="py-20 md:py-28 border-b border-black/10">
+  <div class="max-w-4xl mx-auto px-5 text-center">
+    <div data-reveal class="font-mono-caps text-xs text-[color:var(--v-forest-2)] mb-4">— Global Quality, Local Distribution</div>
+    <h2 data-reveal class="font-display text-3xl md:text-4xl leading-tight text-[color:var(--v-ink)] mb-8">
+      Welcome to the premium Norte-Eurocao ingredient catalog at Vedganga.
+    </h2>
+    <div data-reveal class="space-y-6 text-[color:var(--v-ink)]/75 leading-relaxed md:text-lg">
+      <p>
+        As an authorized distributor, we bring you a world-renowned European range of pure chocolates, professional compounds, bake-stable inclusions, and artisanal filling creams designed specifically for industrial bakers, premium chocolatiers, and pastry chefs.
+      </p>
+      <p>
+        Manufactured under strict global quality standards, Norte-Eurocao products offer unparalleled technical performance—from oven-stable chocolate chips that retain their shape to ultra-smooth, ready-to-use pistachio and hazelnut spreads. Partner with us to scale your production quality, ensure consistent texture, and delight your customers with authentic European flavors.
+      </p>
+      <p class="font-medium text-[color:var(--v-ink)]">
+        Contact our commercial team today for bulk inquiries, technical datasheets, and custom sampling.
+      </p>
+    </div>
+    <div data-reveal class="mt-10">
+      <button onclick="VedgangaQuote.open('Norte-Eurocao General Bulk Inquiry')" class="btn-outline font-mono-caps text-xs cursor-pointer">Request Partnership Info →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCT CATALOG GRID ================= -->
+<!-- ================= PRODUCT CATALOG GRID ================= -->
+<section id="catalog" class="py-24 md:py-32 bg-[color:var(--v-cream-2)]/30">
+  <div class="max-w-[1400px] mx-auto px-5">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14" data-reveal>
+      <div>
+        <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]">— Product Specification Sheets</div>
+        <h2 class="font-display text-4xl md:text-5xl mt-3 leading-[1.02]">B2B Product <span class="italic font-serifb text-[color:var(--v-forest-2)]">Portfolio.</span></h2>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="spec-cards-container">
+      
+      <!-- ================= 1. ORION BASED SPREADS ================= -->
+      <!-- Orion Choco Hazelnut Spread -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-[color:var(--v-gold)] border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-[color:var(--v-forest)]">ORION BASED SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Orion Choco Hazelnut Spread</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            A premium cocoa and hazelnut spread engineered for commercial bakery fillings, pastry layering, and spreadable applications.
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Applications</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Croissants, donuts, cake filling, waffles, and artisanal crepes.</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Available in 1kg buckets.</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Storage</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Cool, dry place (15°C - 20°C).</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Orion Choco Hazelnut Spread')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Orion Hazelnut Crunch -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-[color:var(--v-gold)] border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-[color:var(--v-forest)]">ORION BASED SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Orion Hazelnut Crunch</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Rich hazelnut spread with crunchy crispy inclusions for adding texture and premium flavor to confectionery and baked goods.
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Applications</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Chocolate pralines, layered cakes, dessert cups, and waffle toppings.</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Available in 1kg buckets.</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Storage</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Cool, dry place (15°C - 20°C).</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Orion Hazelnut Crunch')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Orion Extra -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-[color:var(--v-gold)] border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-[color:var(--v-forest)]">ORION BASED SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Orion Extra</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            An extra-intense chocolate spread formulation designed for high-heat stability and rich flavor payoff.
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Applications</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Bake-stable croissant filling, muffin centers, and industrial baking.</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Available in 1kg buckets.</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Storage</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Cool, dry place (15°C - 20°C).</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Orion Extra')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Orion Pistachio Spread -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-[color:var(--v-gold)] border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-[color:var(--v-forest)]">ORION BASED SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Orion Pistachio Spread</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Smooth pistachio spread delivering a rich, natural nutty note with smooth spreadability.
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Applications</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Pastry filling, luxury desserts, gelato swirl, and cake decoration.</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Available in 1kg buckets.</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Storage</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Cool, dry place (15°C - 20°C).</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Orion Pistachio Spread')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- ================= 2. ICE CREAM DIPS ================= -->
+      <!-- White Dip -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-sky-600 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-sky-800">ICE CREAM DIPS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">White Ice Cream Dip</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Fast-setting white chocolate coating dip designed specifically for instant hard-shell setting over frozen ice cream bars and cones.
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Applications</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Gelato bar dipping, soft-serve cones, frozen novelties, and popsicles.</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Wholesale 5kg & 25kg bulk pails.</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('White Ice Cream Dip')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Choco Dip -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-sky-600 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-sky-800">ICE CREAM DIPS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Choco Ice Cream Dip</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Classic dark chocolate hard-shell dip formulated for quick solidification, high gloss, and clean snap over ice cream.
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Applications</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Ice cream bars, chocolate shell cones, frozen confectionery.</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Wholesale 5kg & 25kg bulk pails.</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Choco Ice Cream Dip')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Mango Dip -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-sky-600 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-sky-800">ICE CREAM DIPS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Mango Ice Cream Dip</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Vibrant yellow-mango flavored dip coating providing a fruity, tropical shell over ice cream treats.
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Applications</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Fruit popsicles, ice cream bar dipping, artisan desserts.</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Wholesale 5kg & 25kg bulk pails.</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Mango Ice Cream Dip')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Pista Dip -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-sky-600 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-sky-800">ICE CREAM DIPS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Pista Ice Cream Dip</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Rich pistachio-flavored green coating dip engineered for fast hardening over ice cream creations.
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Applications</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Pistachio gelato bars, soft serve cone dipping, frozen novelties.</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">Wholesale 5kg & 25kg bulk pails.</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Pista Ice Cream Dip')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- ================= 3. RTU GANACHE ================= -->
+      <!-- Sacher Supreme -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-amber-800 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-amber-900">RTU GANACHE</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Sacher Supreme</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Rich dark cocoa blend, perfect for glazing and layering cakes and desserts.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg & 2.5kg buckets[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Sacher Supreme Ganache')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Sacher Red -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-amber-800 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-amber-900">RTU GANACHE</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Sacher Red</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Rich red ganache, perfect for filling, glazing, and dessert decoration.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg & 2.5kg buckets[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Sacher Red Ganache')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Sacher Milk -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-amber-800 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-amber-900">RTU GANACHE</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Sacher Milk</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Creamy milk cocoa ganache, perfect for glazing and decorating cakes and desserts.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg & 2.5kg buckets[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Sacher Milk Ganache')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Sacher Yellow -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-amber-800 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-amber-900">RTU GANACHE</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Sacher Yellow</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Smooth yellow ganache, perfect for glazing, filling, and decorating.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg & 2.5kg buckets[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Sacher Yellow Ganache')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Sacher White -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-amber-800 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-amber-900">RTU GANACHE</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Sacher White</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Rich white choco blend, perfect for glazing and layering cakes and desserts.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg & 2.5kg buckets[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Sacher White Ganache')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Sacher Mango -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-amber-800 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-amber-900">RTU GANACHE</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Sacher Mango</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Smooth mango ganache, perfect for glazing, filling, and decorating.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg & 2.5kg buckets[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Sacher Mango Ganache')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Sacher Pink -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-amber-800 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-amber-900">RTU GANACHE</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Sacher Pink</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Smooth raspberry ganache with a vibrant pink hue, perfect for cakes and desserts.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg & 2.5kg buckets[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Sacher Pink Ganache')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Sacher Pista -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-amber-800 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-amber-900">RTU GANACHE</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Sacher Pista</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Smooth pista ganache with a rich nutty flavor, perfect for glazing and filling desserts.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg & 2.5kg buckets[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Sacher Pista Ganache')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- ================= 4. WAFFLE SPREADS ================= -->
+      <!-- Fenix Dark Choco Spread -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-emerald-700 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-emerald-900">WAFFLE SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Fenix Dark Choco Spread</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Rich dark cocoa spread, ideal for desserts and baking.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg bucket[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Fenix Dark Choco Spread')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Fenix Milk Choco Spread -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-emerald-700 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-emerald-900">WAFFLE SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Fenix Milk Choco Spread</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Smooth, creamy milk cocoa spread perfect for filling, topping, and desserts.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg bucket[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Fenix Milk Choco Spread')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Fenix White Choco Spread -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-emerald-700 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-emerald-900">WAFFLE SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Fenix White Choco Spread</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Creamy, sweet spread perfect for bread, pastries, and desserts.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg bucket[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Fenix White Choco Spread')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Fenix Choco Coffee Spread -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-emerald-700 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-emerald-900">WAFFLE SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Fenix Choco Coffee Spread</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Creamy cocoa-coffee blend, perfect for toast and desserts.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg bucket[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Fenix Choco Coffee Spread')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Antares Choco Orange -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-emerald-700 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-emerald-900">WAFFLE SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Antares Choco Orange</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Rich chocolate orange filling with a smooth texture and a zesty citrus twist.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg bucket[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Antares Choco Orange')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Fenix Pink Spread -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-emerald-700 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-emerald-900">WAFFLE SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Fenix Pink Spread</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Smooth raspberry spread, perfect for desserts, fillings, and toppings.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg bucket[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Fenix Pink Spread')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Fenix Pistachio -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-emerald-700 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-emerald-900">WAFFLE SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Fenix Pistachio</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Creamy pistachio spread with a rich, nutty flavor.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg bucket[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Fenix Pistachio')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Fenix Pista Orange Spread -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-emerald-700 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-emerald-900">WAFFLE SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Fenix Pista Orange Spread</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Creamy pista-orange spread with a rich, citrusy nutty flavor.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg bucket[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Fenix Pista Orange Spread')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- ================= 5. PREMIUM SPREADS ================= -->
+      <!-- Hola Hazelnut -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-[color:var(--v-gold)] border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-[color:var(--v-forest)]">PREMIUM SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Hola Hazelnut</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Creamy hazelnut spread with Italian hazelnuts, offering a smooth texture and rich nutty flavor.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg bucket[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Hola Hazelnut')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Hola Pistachio -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-[color:var(--v-gold)] border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-[color:var(--v-forest)]">PREMIUM SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Hola Pistachio</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Smooth pistachio spread with higher amount of pistachio paste delivering a mild nutty flavor and creamy texture.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg bucket[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Hola Pistachio')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Hola Bueno White Hazelnut -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-[color:var(--v-gold)] border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-[color:var(--v-forest)]">PREMIUM SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Hola Bueno White Hazelnut</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Smooth white hazelnut spread with a creamy texture and delicate nutty sweetness.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg bucket[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Hola Bueno White Hazelnut')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Hola Cookie Spread -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-[color:var(--v-gold)] border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-[color:var(--v-forest)]">PREMIUM SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Hola Cookie Spread</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            (With inclusion) Creamy white chocolate cookie spread with a smooth texture and rich, indulgent flavor.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg bucket[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Hola Cookie Spread')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Hola Pistachio Kunafa -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-[color:var(--v-gold)] border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-[color:var(--v-forest)]">PREMIUM SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Hola Pistachio Kunafa</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            (With inclusion) Rich pistachio kunafa spread with crunchy kunafa threads.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg bucket[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Hola Pistachio Kunafa')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Hola Speculoos -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-[color:var(--v-gold)] border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-[color:var(--v-forest)]">PREMIUM SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Hola Speculoos</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Smooth speculoos spread with a rich, caramelized spice flavor and creamy texture.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg bucket[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Hola Speculoos')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Hola Pistachio Extra -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-[color:var(--v-gold)] border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-[color:var(--v-forest)]">PREMIUM SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Hola Pistachio Extra</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Creamy pistachio spread with high percentage real pistachio paste.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg bucket[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Hola Pistachio Extra')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+      <!-- Hola White Choco Almond -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-[color:var(--v-gold)] border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-[color:var(--v-forest)]">PREMIUM SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">Active</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Hola White Choco Almond</h3>
+          <div class="font-serifb italic text-lg text-[color:var(--v-gold)] mt-2 mb-4">Norte-Eurocao (Spain)</div>
+          <p class="text-sm leading-relaxed text-black/80 mb-6 font-sans">
+            Creamy white chocolate almond spread with a smooth texture and rich nutty sweetness.[cite: 10]
+          </p>
+          <div class="space-y-3 border-t border-black/10 pt-4 mb-8 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg bucket[cite: 10]</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Hola White Choco Almond')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST WHOLESALE QUOTE →
+        </button>
+      </article>
+
+    </div>
+  </div>
+</section>
+<!-- Footer Injected via site.js -->
+<div id="v-footer"></div>
+
+<!-- Override Lenis to keep native instant scrolling before site.js executes -->
+<script>
+  window.Lenis = undefined;
+</script>
+
+<!-- Global CDN Libraries & Site Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="assets/site.js"></script>
+
+</body>
+</html>

@@ -9,6 +9,7 @@ window.VEDGANGA_API = window.VEDGANGA_API || 'https://vedganga-modern.preview.em
   const NAV = [
     { href: 'index.html', label: 'Home' },
     { href: 'products.html', label: 'Products' },
+    { href: 'norte-eurocao.html', label: 'Norte-Eurocao' },
     { href: 'about.html', label: 'About' },
     { href: 'contact.html', label: 'Contact' },
   ];
@@ -27,7 +28,7 @@ window.VEDGANGA_API = window.VEDGANGA_API || 'https://vedganga-modern.preview.em
               <span class="font-display text-[20px] tracking-wider">Vedganga</span>
             </a>
             <nav class="hidden md:flex items-center gap-8 text-sm">
-              ${NAV.map(n => `<a href="${n.href}" class="link-under ${current === n.href ? 'text-[color:var(--v-forest)] font-semibold' : 'text-[color:var(--v-ink)]/80 hover:text-[color:var(--v-ink)]'}" data-testid="nav-link-${n.label.toLowerCase()}">${n.label}</a>`).join('')}
+              ${NAV.map(n => `<a href="${n.href}" class="link-under ${current === n.href ? 'text-[color:var(--v-forest)] font-semibold' : 'text-[color:var(--v-ink)]/80 hover:text-[color:var(--v-ink)]'}" data-testid="nav-link-${n.label.toLowerCase().replace(/[^a-z0-9]/g, '-')}">${n.label}</a>`).join('')}
             </nav>
             <div class="flex items-center gap-2">
               <button onclick="VedgangaQuote.open()" class="hidden md:inline-flex btn-pill" data-testid="nav-quote-btn"><span class="dot"></span> Request Quote</button>
@@ -49,7 +50,7 @@ window.VEDGANGA_API = window.VEDGANGA_API || 'https://vedganga-modern.preview.em
             </button>
           </div>
           <nav class="flex-1 grid place-items-center gap-6 text-3xl font-display">
-            ${NAV.map(n => `<a href="${n.href}" class="hover:text-[color:var(--v-gold)]" data-testid="mobile-nav-${n.label.toLowerCase()}">${n.label}</a>`).join('')}
+            ${NAV.map(n => `<a href="${n.href}" class="hover:text-[color:var(--v-gold)]" data-testid="mobile-nav-${n.label.toLowerCase().replace(/[^a-z0-9]/g, '-')}">${n.label}</a>`).join('')}
             <button onclick="VedgangaQuote.open()" class="mt-4 btn-gold" data-testid="mobile-nav-quote">Request Quote →</button>
           </nav>
           <div class="px-5 pb-8 text-xs font-mono-caps text-[color:var(--v-cream)]/70">Bengaluru · India · Est. 2015</div>
@@ -206,7 +207,7 @@ window.VEDGANGA_API = window.VEDGANGA_API || 'https://vedganga-modern.preview.em
   });
 })();
 
-// ---------- LENIS + GSAP ----------
+// ---------- LENIS + GSAP ANIMATIONS ----------
 window.addEventListener('DOMContentLoaded', () => {
   // Lenis smooth scroll
   if (window.Lenis) {

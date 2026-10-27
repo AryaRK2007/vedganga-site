@@ -8,7 +8,32 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { 
+    theme: { 
+      extend: { 
+        fontFamily: { 
+          display: ['Cinzel Decorative','serif'], 
+          serifb: ['Cormorant Garamond','serif'], 
+          sans: ['Manrope','sans-serif'], 
+          mono: ['JetBrains Mono','monospace'] 
+        } 
+      } 
+    } 
+  }
+</script>
 <link rel="stylesheet" href="assets/styles.css" />
+<style>
+  :root {
+    --v-forest: #183322;
+    --v-forest-2: #264d39;
+    --v-gold: #b8892a;
+    --v-gold-light: #d4a845;
+    --v-cream: #f7f2e8;
+    --v-cream-2: #ede5d0;
+    --v-ink: #1a0f05;
+  }
+</style>
 </head>
 <body class="grain">
 
@@ -28,7 +53,7 @@
       </div>
       <div class="md:col-span-4 space-y-4" data-reveal>
         <p class="text-[color:var(--v-ink)]/75 max-w-md">Filter across our comprehensive bakery systems and industrial hydrocolloid nodes—every component includes full structural spec records and target sampling pipelines.</p>
-        <button onclick="handleRequest('General Catalog Quote Requested')" class="btn-outline cursor-pointer" data-testid="products-quote-btn">Request a Quote →</button>
+        <button onclick="window.VedgangaQuote.open('General Catalog Quote Requested')" class="btn-outline cursor-pointer" data-testid="products-quote-btn">Request a Quote →</button>
       </div>
     </div>
   </div>
@@ -47,9 +72,31 @@
   </div>
 </section>
 
-<!-- Product grid -->
+<!-- Product grid & Norte-Eurocao Highlight -->
 <section class="pb-24 md:pb-32">
   <div class="max-w-[1400px] mx-auto px-5 md:px-10">
+    
+    <!-- ================= NORTE-EUROCAO HIGHLIGHT CARD ================= -->
+    <div class="mb-10" data-reveal>
+      <div class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] rounded-3xl p-8 md:p-12 border border-black/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden grain">
+        <div class="max-w-3xl relative z-10">
+          <div class="chip !bg-[color:var(--v-gold)] !text-[color:var(--v-forest)] font-mono-caps text-[10px] font-bold mb-4">Official Distributor</div>
+          <h2 class="font-display text-3xl md:text-5xl leading-tight">
+            Norte-Eurocao <span class="italic font-serifb text-[color:var(--v-gold-light)]">Spain Line.</span>
+          </h2>
+          <p class="mt-4 text-base md:text-lg text-[color:var(--v-cream)]/80 leading-relaxed font-sans max-w-2xl font-light">
+            Explore Spain’s premier range of pure chocolates, Zafiro compound blocks, Hola artisanal spreads, and bake-stable choco-chips distributed exclusively through Vedganga.
+          </p>
+        </div>
+        <div class="shrink-0 relative z-10">
+          <a href="norte-eurocao.html" class="inline-flex bg-[color:var(--v-gold)] hover:bg-[#d4a845] text-[#183322] font-mono-caps text-xs font-bold uppercase px-8 py-5 tracking-widest transition duration-200 rounded-xl cursor-pointer">
+            View Brand Catalog →
+          </a>
+        </div>
+        <div class="absolute -right-10 -bottom-10 w-80 h-80 opacity-15 pointer-events-none rounded-full" style="background: radial-gradient(circle, var(--v-gold) 0%, transparent 70%);"></div>
+      </div>
+    </div>
+
     <div id="v-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
     <div id="v-empty" class="hidden text-center py-24 text-[color:var(--v-ink)]/60 font-mono-caps text-sm">No formulations match your runtime filters.</div>
   </div>
@@ -62,10 +109,74 @@
       <div class="font-mono-caps text-xs text-[color:var(--v-gold)]">— Custom Formulation Matrices</div>
       <h3 class="font-display text-4xl md:text-5xl mt-3 max-w-2xl leading-[1.05]">Targeting specific parameters? <span class="italic font-serif-body">We blend to spec.</span></h3>
       <p class="mt-5 text-[color:var(--v-cream)]/75 max-w-xl">Provide your matrix requirements—shear parameters, structural elasticity, hydration speeds, or cost thresholds—and our engineering team will build the matching compound.</p>
-      <button onclick="handleRequest('Custom Formulation Brief Started')" class="btn-gold mt-8 cursor-pointer" data-testid="products-cta-quote">Start a Brief →</button>
+      <button onclick="window.VedgangaQuote.open('Custom Formulation Brief Started')" class="btn-gold mt-8 cursor-pointer" data-testid="products-cta-quote">Start a Brief →</button>
     </div>
   </div>
 </section>
+
+<!-- ================= REQUEST A QUOTE MODAL POPUP ================= -->
+<div id="quote-modal" class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+  <div class="modal-panel bg-[color:var(--v-cream)] max-w-2xl w-full rounded-[28px] p-6 md:p-10 shadow-2xl border border-black/5 transform scale-95 transition-transform duration-300 relative max-h-[90vh] overflow-y-auto text-[color:var(--v-ink)]">
+    
+    <button type="button" onclick="window.VedgangaQuote.close()" class="absolute top-6 right-6 text-black/40 hover:text-black/80 text-2xl font-light transition-colors cursor-pointer" aria-label="Close modal">&times;</button>
+
+    <div class="font-mono-caps text-[10px] text-[color:var(--v-forest-2)]">— Request a Sample / Quote</div>
+    <h2 class="font-display text-3xl md:text-4xl mt-2 leading-tight">Tell us what you're<br/>looking to <span class="italic font-serif-body text-[color:var(--v-forest-2)]">source.</span></h2>
+
+    <form id="popup-quote-form" class="mt-8 grid md:grid-cols-2 gap-x-8 gap-y-6">
+      <input type="hidden" name="access_key" value="05f139b8-2556-4256-96f8-f0305c794bf6">
+      <input type="hidden" name="from_name" value="Vedganga Website Quote Form">
+      <input type="hidden" name="subject" value="New Sample / Quote Request">
+      <input type="hidden" name="button_origin" id="modal-button-origin" value="General Query">
+
+      <div>
+        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Name *</label>
+        <input required name="name" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="Your full name"/>
+      </div>
+      <div>
+        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Email *</label>
+        <input required type="email" name="email" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="you@company.com"/>
+      </div>
+      <div>
+        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Phone</label>
+        <input name="phone" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="+91 …"/>
+      </div>
+      <div>
+        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Item Required</label>
+        <input name="item_subject" id="modal-item-input" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition" placeholder="Quote · Sample · Partnership …"/>
+      </div>
+      <div class="md:col-span-2">
+        <label class="block text-xs font-mono-caps uppercase tracking-wider text-black/50 mb-1">Message / Specifications *</label>
+        <textarea required name="message" rows="3" class="w-full bg-black/5 border-b border-black/10 px-3 py-2 text-sm focus:outline-none focus:border-black transition resize-none" placeholder="Tell us a bit about what you're looking for…"></textarea>
+      </div>
+      
+      <div class="md:col-span-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-2">
+        <div class="text-xs text-black/50">We respond within 24 business hours.</div>
+        <button type="submit" id="submit-btn" class="bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs font-semibold px-8 py-4 tracking-widest transition duration-200 rounded-xl cursor-pointer">
+          <span class="label">Send Message</span> →
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ================= SUCCESS TOAST POPUP ================= -->
+<div id="success-popup" class="fixed bottom-6 right-6 z-[10000] max-w-md w-full bg-[#183322] text-[#f7f2e8] rounded-2xl p-6 shadow-2xl border border-white/10 transform translate-y-12 opacity-0 pointer-events-none transition-all duration-500 ease-out flex gap-4 items-start">
+  <div class="w-10 h-10 rounded-full bg-[#b8892a] text-[#183322] flex items-center justify-center shrink-0 mt-0.5">
+    <svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+    </svg>
+  </div>
+  
+  <div class="flex-1">
+    <h4 class="font-display text-xl leading-tight text-[#d4a845] tracking-wide">REQUEST RECEIVED</h4>
+    <p class="text-sm mt-2 text-[#f7f2e8]/80 leading-relaxed font-sans font-light">
+      Your specifications have been queued. Our formulation team will reach out via email within 24 business hours.
+    </p>
+  </div>
+  
+  <button onclick="window.VedgangaQuote.dismissToast()" class="text-[#f7f2e8]/50 hover:text-[#f7f2e8] text-xl font-mono leading-none cursor-pointer" aria-label="Dismiss notification">&times;</button>
+</div>
 
 <div id="v-footer"></div>
 
@@ -76,27 +187,59 @@
 <script src="assets/products.js"></script>
 
 <script>
-// Global bridge function to inject Web3Forms context dynamically before opening modular quote architecture
+// Global Quote & Toast Handler
+window.VedgangaQuote = {
+  open: function(origin = 'General Query') {
+    const originField = document.getElementById('modal-button-origin');
+    const itemInput = document.getElementById('modal-item-input');
+    
+    if(originField) originField.value = origin;
+    if(itemInput && origin !== 'General Query') {
+      itemInput.value = origin;
+    }
+    
+    const modal = document.getElementById('quote-modal');
+    if (modal) {
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.firstElementChild.classList.remove('scale-95');
+      modal.firstElementChild.classList.add('scale-100');
+    }
+  },
+  close: function() {
+    const modal = document.getElementById('quote-modal');
+    if (modal) {
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.firstElementChild.classList.remove('scale-100');
+      modal.firstElementChild.classList.add('scale-95');
+    }
+  },
+  showToast: function() {
+    const toast = document.getElementById('success-popup');
+    if (toast) {
+      toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      
+      setTimeout(() => {
+        this.dismissToast();
+      }, 6000);
+    }
+  },
+  dismissToast: function() {
+    const toast = document.getElementById('success-popup');
+    if (toast) {
+      toast.classList.remove('translate-y-0', 'opacity-100');
+      toast.classList.add('translate-y-12', 'opacity-0', 'pointer-events-none');
+    }
+  }
+};
+
+document.getElementById('quote-modal').addEventListener('click', function(e) {
+  if (e.target === this) window.VedgangaQuote.close();
+});
+
 window.handleRequest = function(subjectText) {
   if (typeof VedgangaQuote !== 'undefined') {
-    const modalEl = document.getElementById('v-quote-modal') || document.body;
-    let subjectInput = modalEl.querySelector('input[name="subject"]');
-    
-    if (!subjectInput) {
-      subjectInput = document.createElement('input');
-      subjectInput.type = 'hidden';
-      subjectInput.name = 'subject';
-      const underlyingForm = modalEl.querySelector('form');
-      if (underlyingForm) underlyingForm.appendChild(subjectInput);
-    }
-    
-    if (subjectInput) {
-      subjectInput.value = subjectText;
-    }
-    
-    VedgangaQuote.open();
-  } else {
-    console.warn("VedgangaQuote component structural engine not loaded yet.");
+    window.VedgangaQuote.open(subjectText);
   }
 };
 
@@ -136,7 +279,6 @@ window.handleRequest = function(subjectText) {
         const pSlug = p.slug || 'item';
         const pCat = p.cat || 'General';
         
-        // Standard image asset display used for all cards, including Speciality Chemicals
         const artwork = (typeof window.V_ART === 'function') ? window.V_ART(p, i) : `<div class="w-full h-full bg-neutral-200"></div>`;
         const structuralVisual = `
           ${artwork}
@@ -192,6 +334,53 @@ window.handleRequest = function(subjectText) {
 
   init();
 })();
+
+// AJAX Form Handling with Web3Forms Integration
+document.getElementById('popup-quote-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const form = this;
+  const btn = form.querySelector('button[type="submit"]');
+  const label = btn.querySelector('.label');
+  const originalText = label ? label.innerText : btn.innerText;
+  
+  btn.disabled = true;
+  if(label) label.innerText = "Sending...";
+  else btn.innerText = "Sending...";
+  btn.style.opacity = "0.7";
+  
+  const formData = new FormData(form);
+  
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    btn.disabled = false;
+    if(label) label.innerText = originalText;
+    else btn.innerText = originalText;
+    btn.style.opacity = "1";
+    
+    if (data.success) {
+      form.reset();
+      if(window.VedgangaQuote) {
+        window.VedgangaQuote.close();
+        window.VedgangaQuote.showToast();
+      }
+    } else {
+      alert("Something went wrong: " + data.message);
+    }
+  })
+  .catch(error => {
+    btn.disabled = false;
+    if(label) label.innerText = originalText;
+    else btn.innerText = originalText;
+    btn.style.opacity = "1";
+    console.error("Submission Error:", error);
+    alert("Connection error. Please try again later.");
+  });
+});
 </script>
 </body>
 </html>
