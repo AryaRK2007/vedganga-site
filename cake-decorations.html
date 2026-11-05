@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<title>Cake Decorations — Vedganga Foods &amp; Chemicals</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="description" content="Vedganga Foods & Chemicals is the official distributor for Norte-Eurocao. Source bulk pure chocolates, Zafiro compounds, bake-stable chips, and premium spreads." />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { 
+    theme: { 
+      extend: { 
+        fontFamily: { 
+          display: ['Cinzel Decorative','serif'], 
+          serifb: ['Cormorant Garamond','serif'], 
+          sans: ['Manrope','sans-serif'], 
+          mono: ['JetBrains Mono','monospace'] 
+        } 
+      } 
+    } 
+  }
+</script>
+
+<link rel="stylesheet" href="assets/styles.css" />
+<style>
+  :root {
+    --v-forest: #183322;
+    --v-forest-2: #264d39;
+    --v-gold: #b8892a;
+    --v-gold-light: #d4a845;    
+    --v-cream: #f7f2e8;
+    --v-cream-2: #ede5d0;
+    --v-ink: #1a0f05;
+  }
+  
+  body {
+    background-color: var(--v-cream);
+    color: var(--v-ink);
+    font-family: 'Manrope', sans-serif;
+  }
+
+  /* Global utility classes */
+  .font-mono-caps { font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.1em; }
+  .btn-gold { background-color: var(--v-gold); color: var(--v-cream); padding: 0.85rem 1.75rem; border-radius: 0.75rem; transition: background-color 0.3s ease; display: inline-flex; align-items: center; justify-content: center; font-weight: 500; }
+  .btn-gold:hover { background-color: #9c7320; }
+  .btn-outline { border: 1px solid rgba(0,0,0,0.2); padding: 0.85rem 1.75rem; border-radius: 0.75rem; transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; }
+  .btn-outline:hover { border-color: var(--v-ink); background-color: rgba(0,0,0,0.03); }
+  .link-under { text-decoration: underline; text-underline-offset: 4px; }
+</style>
+</head>
+<body class="grain min-h-screen flex flex-col">
+
+<!-- Navigation Bar Injected via site.js -->
+<div id="v-nav"></div>
+
+<!-- ================= ANNOUNCEMENT HERO ================= -->
+<header class="pt-32 pb-20 md:pt-40 md:pb-24 px-5 md:px-10 bg-[color:var(--v-forest)] text-[color:var(--v-cream)] relative overflow-hidden grain">
+  <div class="max-w-[1400px] mx-auto relative z-10">
+    <div data-reveal class="inline-block px-3 py-1 bg-[color:var(--v-gold)] text-[color:var(--v-forest)] font-mono-caps text-[10px] rounded-full mb-6 font-bold tracking-widest">
+      Premium Cake Decorations
+    </div>
+    
+    <h1 class="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.05] max-w-5xl">
+      <span class="mask-line"><span class="italic font-serifb text-[color:var(--v-gold-light)]">Welcome to the premium ingredient catalog at Vedganga.</span></span>
+    </h1>
+    <br>
+    <br>
+    <p data-reveal class="mt-8 text-lg md:text-xl text-[color:var(--v-cream)]/80 max-w-3xl leading-relaxed font-sans font-light">
+      Manufactured under strict global quality standards, These products offer unparalleled technical performance—from oven-stable chocolate chips that retain their shape to ultra-smooth, ready-to-use pistachio and hazelnut spreads.<br><br>
+      We bring you a world-renowned range of pure chocolates, professional compounds, bake-stable inclusions, and artisanal filling creams designed specifically for industrial bakers, premium chocolatiers, and pastry chefs.
+      
+    
+    </p>
+    
+    <div data-reveal class="mt-10">
+      <a href="#catalog" class="btn-gold cursor-pointer font-mono-caps text-xs tracking-widest bg-[color:var(--v-gold)] hover:bg-[color:var(--v-gold-light)] text-[color:var(--v-forest)]">
+        Explore the Premium Catalog ↓
+      </a>
+    </div>
+  </div>
+  
+  <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none" style="background: radial-gradient(circle at right, var(--v-gold) 0%, transparent 70%);"></div>
+</header>
+
+<!-- ================= BRAND INTRODUCTION ================= -->
+<section class="py-20 md:py-28 border-b border-black/10">
+  <div class="max-w-4xl mx-auto px-5 text-center">
+    <div data-reveal class="space-y-6 text-[color:var(--v-ink)]/75 leading-relaxed md:text-lg">
+      <p class="font-medium text-[color:var(--v-ink)]">
+        Contact our commercial team today for bulk inquiries, technical datasheets, and custom sampling.
+      </p>
+    </div>
+    <div data-reveal class="mt-10">
+      <button onclick="VedgangaQuote.open('General Bulk Inquiry Spreads, Glazes and more')" class="btn-outline font-mono-caps text-xs cursor-pointer">Request Partnership Info →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCT CATALOG GRID ================= -->
+<!-- ================= PRODUCT CATALOG GRID (CONSOLIDATED CATEGORIES) ================= -->
+<section id="catalog" class="py-24 md:py-32 bg-[color:var(--v-cream-2)]/30">
+  <div class="max-w-[1400px] mx-auto px-5">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14" data-reveal>
+      <div>
+        <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]">— Product Specification Sheets</div>
+        <h2 class="font-display text-4xl md:text-5xl mt-3 leading-[1.02]">B2B Product <span class="italic font-serifb text-[color:var(--v-forest-2)]">Categories.</span></h2>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="spec-cards-container">
+      
+      <!-- 1. ORION BASED SPREADS -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-[color:var(--v-gold)] border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-[color:var(--v-forest)]">BAKERY & PASTRY SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">4 Formulations</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Orion Based Spreads</h3>
+          <p class="text-sm leading-relaxed text-black/80 my-4 font-sans">
+            High-performance spreadable matrices engineered for commercial baking, croissant fillings, pastry layering, and waffle toppings.
+          </p>
+          
+          <div class="space-y-4 border-t border-black/10 pt-5 mb-8">
+            <div>
+              <span class="font-mono-caps text-xs text-black/60 block mb-3.5 tracking-wider font-semibold">AVAILABLE FORMULATIONS:</span>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 font-sans font-medium text-black/90 text-base">
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-[color:var(--v-gold)] shrink-0"></span><span>Choco Hazelnut Spread</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-[color:var(--v-gold)] shrink-0"></span><span>Hazelnut Crunch</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-[color:var(--v-gold)] shrink-0"></span><span>Orion Extra</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-[color:var(--v-gold)] shrink-0"></span><span>Pistachio Spread</span></li>
+              </ul>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 border-t border-black/5 pt-4 text-xs">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg Tubs</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Orion Based Spreads Category Inquiry')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST CATEGORY QUOTE →
+        </button>
+      </article>
+
+      <!-- 2. ICE CREAM DIPS -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-sky-600 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-sky-800">FROZEN CONFECTIONERY COATINGS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">4 Formulations</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Ice Cream Dips</h3>
+          <p class="text-sm leading-relaxed text-black/80 my-4 font-sans">
+            Fast-setting hard-shell dipping coatings designed specifically for instant setting over frozen gelato bars, soft-serve cones, and ice cream treats.
+          </p>
+          
+          <div class="space-y-4 border-t border-black/10 pt-5 mb-8">
+            <div>
+              <span class="font-mono-caps text-xs text-black/60 block mb-3.5 tracking-wider font-semibold">AVAILABLE FORMULATIONS:</span>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 font-sans font-medium text-black/90 text-base">
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-sky-600 shrink-0"></span><span>White Dip</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-sky-600 shrink-0"></span><span>Choco Dip</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-sky-600 shrink-0"></span><span>Mango Dip</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-sky-600 shrink-0"></span><span>Pista Dip</span></li>
+              </ul>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 border-t border-black/5 pt-4 text-xs">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">5kg & 25kg Bulk Pails</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Ice Cream Dips Category Inquiry')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST CATEGORY QUOTE →
+        </button>
+      </article>
+
+      <!-- 3. RTU GANACHE -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-amber-800 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-amber-900">READY-TO-USE GLAZES & FILLINGS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">8 Formulations</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">RTU Ganache Line</h3>
+          <p class="text-sm leading-relaxed text-black/80 my-4 font-sans">
+            Ready-to-use smooth ganaches designed for professional glazing, cake layering, piping, and vibrant dessert decorations.
+          </p>
+          
+          <div class="space-y-4 border-t border-black/10 pt-5 mb-8">
+            <div>
+              <span class="font-mono-caps text-xs text-black/60 block mb-3.5 tracking-wider font-semibold">AVAILABLE FORMULATIONS:</span>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 font-sans font-medium text-black/90 text-base">
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-800 shrink-0"></span><span>Sacher Supreme</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-800 shrink-0"></span><span>Sacher Red</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-800 shrink-0"></span><span>Sacher Milk</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-800 shrink-0"></span><span>Sacher Yellow</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-800 shrink-0"></span><span>Sacher White</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-800 shrink-0"></span><span>Sacher Mango</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-800 shrink-0"></span><span>Sacher Pink</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-800 shrink-0"></span><span>Sacher Pista</span></li>
+              </ul>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 border-t border-black/5 pt-4 text-xs">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg & 2.5kg Tubs</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('RTU Ganache Category Inquiry')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST CATEGORY QUOTE →
+        </button>
+      </article>
+
+      <!-- 4. WAFFLE SPREADS -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-emerald-700 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-emerald-900">SPECIALTY DESSERT SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">8 Formulations</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Waffle & Dessert Spreads</h3>
+          <p class="text-sm leading-relaxed text-black/80 my-4 font-sans">
+            Smooth, versatile cocoa, fruit, and nut spreads engineered for bread, pastries, toast, and quick-service waffle stations.
+          </p>
+          
+          <div class="space-y-4 border-t border-black/10 pt-5 mb-8">
+            <div>
+              <span class="font-mono-caps text-xs text-black/60 block mb-3.5 tracking-wider font-semibold">AVAILABLE FORMULATIONS:</span>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 font-sans font-medium text-black/90 text-base">
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-700 shrink-0"></span><span>Fenix Dark Choco</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-700 shrink-0"></span><span>Fenix Milk Choco</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-700 shrink-0"></span><span>Fenix White Choco</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-700 shrink-0"></span><span>Fenix Choco Coffee</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-700 shrink-0"></span><span>Antares Choco Orange</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-700 shrink-0"></span><span>Fenix Pink (Raspberry)</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-700 shrink-0"></span><span>Fenix Pistachio</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-700 shrink-0"></span><span>Fenix Pista Orange</span></li>
+              </ul>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 border-t border-black/5 pt-4 text-xs">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg Tubs</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Waffle Spreads Category Inquiry')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST CATEGORY QUOTE →
+        </button>
+      </article>
+
+      <!-- 5. PREMIUM SPREADS -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-purple-800 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-purple-900">ARTISANAL & CONFECTIONERY SPREADS</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">8 Formulations</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Premium Gourmet Spreads</h3>
+          <p class="text-sm leading-relaxed text-black/80 my-4 font-sans">
+            Ultra-creamy, high-percentage nut pastes and artisanal spreads featuring Italian hazelnuts, real pistachio, crunchy inclusions, and caramelized spice profiles.
+          </p>
+          
+          <div class="space-y-4 border-t border-black/10 pt-5 mb-8">
+            <div>
+              <span class="font-mono-caps text-xs text-black/60 block mb-3.5 tracking-wider font-semibold">AVAILABLE FORMULATIONS:</span>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 font-sans font-medium text-black/90 text-base">
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-800 shrink-0"></span><span>Hola Hazelnut</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-800 shrink-0"></span><span>Hola Pistachio</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-800 shrink-0"></span><span>Hola Bueno White Hazelnut</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-800 shrink-0"></span><span>Hola Cookie Spread</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-800 shrink-0"></span><span>Hola Pistachio Kunafa</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-800 shrink-0"></span><span>Hola Speculoos</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-800 shrink-0"></span><span>Hola Pistachio Extra</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-800 shrink-0"></span><span>Hola White Choco Almond</span></li>
+              </ul>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 border-t border-black/5 pt-4 text-xs">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">1kg Tubs</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Premium Spreads Category Inquiry')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST CATEGORY QUOTE →
+        </button>
+      </article>
+
+      <!-- 6. SPRINGEL GLAZES FOR CAKES -->
+      <article data-reveal class="bg-[color:var(--v-cream)] border-t-4 border-t-orange-600 border-x border-b border-black/10 rounded-3xl p-8 md:p-10 shadow-sm flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+        <div class="flex items-center justify-between text-xs font-mono-caps text-black/60 border-b border-black/10 pb-4 mb-6">
+          <div class="font-bold text-orange-900">HIGH-GLOSS CAKE FINISHES</div>
+          <span class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] px-3 py-1 rounded-md text-[10px] tracking-wider">7 Formulations</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-display text-3xl tracking-tight text-[color:var(--v-forest)]">Mirror & Fruit Cake Glazes</h3>
+          <p class="text-sm leading-relaxed text-black/80 my-4 font-sans">
+            Glossy coating glazes designed to impart brilliant shine, vibrant colors, and moisture seals onto cakes, tarts, and fine pastries.
+          </p>
+          
+          <div class="space-y-4 border-t border-black/10 pt-5 mb-8">
+            <div>
+              <span class="font-mono-caps text-xs text-black/60 block mb-3.5 tracking-wider font-semibold">AVAILABLE FORMULATIONS:</span>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 font-sans font-medium text-black/90 text-base">
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-orange-600 shrink-0"></span><span>Neutral Glaze</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-orange-600 shrink-0"></span><span>Chocolate Glaze</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-orange-600 shrink-0"></span><span>Caramel Glaze</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-orange-600 shrink-0"></span><span>Orange Glaze</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-orange-600 shrink-0"></span><span>Blueberry Glaze</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-orange-600 shrink-0"></span><span>Pineapple Glaze</span></li>
+                <li class="flex items-center gap-2.5"><span class="w-2.5 h-2.5 rounded-full bg-orange-600 shrink-0"></span><span>Strawberry Glaze</span></li>
+              </ul>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-2 border-t border-black/5 pt-4 text-xs">
+              <span class="sm:col-span-4 font-mono-caps text-black/50">Packaging</span>
+              <span class="sm:col-span-8 font-sans text-black/85 font-medium">2.5kg Tubs</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" onclick="VedgangaQuote.open('Cake Glazes Category Inquiry')" class="w-full bg-[color:var(--v-forest)] hover:bg-[color:var(--v-forest-2)] text-[color:var(--v-cream)] font-mono-caps text-xs py-4 rounded-xl tracking-widest transition duration-200 cursor-pointer">
+          REQUEST CATEGORY QUOTE →
+        </button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer Injected via site.js -->
+<div id="v-footer"></div>
+
+<!-- Override Lenis to keep native instant scrolling before site.js executes -->
+<script>
+  window.Lenis = undefined;
+</script>
+
+<!-- Global CDN Libraries & Site Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="assets/site.js"></script>
+
+</body>
+</html>

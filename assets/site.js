@@ -9,7 +9,7 @@ window.VEDGANGA_API = window.VEDGANGA_API || 'https://vedganga-modern.preview.em
   const NAV = [
     { href: 'index.html', label: 'Home' },
     { href: 'products.html', label: 'Products' },
-    { href: 'norte-eurocao.html', label: 'Norte-Eurocao' },
+    { href: 'cake-decorations.html', label: 'Spreads, Glazes & More' },
     { href: 'about.html', label: 'About' },
     { href: 'contact.html', label: 'Contact' },
   ];
