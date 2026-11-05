@@ -32,6 +32,7 @@ window.V_ICONS = {
   'fibers': `<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M50 15 C 30 30, 30 55, 50 88"/><path d="M50 15 C 70 30, 70 55, 50 88"/><path d="M50 15 L 50 88"/><path d="M25 40 C 40 45, 60 45, 75 40"/><path d="M20 60 C 40 65, 60 65, 80 60"/></g>`
 };
 
+
 /* Reusable portfolio visual generator for the homepage grid using high-quality professional URLs */
 window.V_ART = function (p, i) {
   const urlMap = {
