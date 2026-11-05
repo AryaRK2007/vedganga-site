@@ -16,6 +16,7 @@ window.V_PRODUCTS = [
   { slug: 'fibers', name: 'Fibers', tag:'', desc:''}
 ];
 
+
 window.V_ICONS = {
   'raisins': `<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="40" cy="55" r="14"/><circle cx="60" cy="42" r="12"/><circle cx="55" cy="65" r="10"/><circle cx="72" cy="58" r="9"/><circle cx="38" cy="75" r="8"/><path d="M56 30 C 58 22, 66 18, 72 20"/><path d="M62 28 L 66 22"/></g>`,
   'cake-premixes': `<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 80 L 20 50 L 80 50 L 80 80 Z"/><path d="M20 50 C 25 40, 40 40, 50 50 C 60 40, 75 40, 80 50"/><path d="M35 50 L 35 30 M50 50 L 50 25 M65 50 L 65 30"/><path d="M32 30 L 38 30 M47 25 L 53 25 M62 30 L 68 30"/></g>`,
