@@ -16,7 +16,6 @@ window.V_PRODUCTS = [
   { slug: 'fibers', name: 'Fibers', tag:'', desc:''}
 ];
 
-
 window.V_ICONS = {
   'raisins': `<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="40" cy="55" r="14"/><circle cx="60" cy="42" r="12"/><circle cx="55" cy="65" r="10"/><circle cx="72" cy="58" r="9"/><circle cx="38" cy="75" r="8"/><path d="M56 30 C 58 22, 66 18, 72 20"/><path d="M62 28 L 66 22"/></g>`,
   'cake-premixes': `<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 80 L 20 50 L 80 50 L 80 80 Z"/><path d="M20 50 C 25 40, 40 40, 50 50 C 60 40, 75 40, 80 50"/><path d="M35 50 L 35 30 M50 50 L 50 25 M65 50 L 65 30"/><path d="M32 30 L 38 30 M47 25 L 53 25 M62 30 L 68 30"/></g>`,
@@ -31,7 +30,6 @@ window.V_ICONS = {
   'proteins': `<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M30 15 C 60 25, 60 45, 30 55 C 60 65, 60 85, 30 88"/><path d="M70 15 C 40 25, 40 45, 70 55 C 40 65, 40 85, 70 88"/><path d="M30 30 L 70 30 M30 45 L 70 45 M30 60 L 70 60 M30 75 L 70 75"/></g>`,
   'fibers': `<g stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M50 15 C 30 30, 30 55, 50 88"/><path d="M50 15 C 70 30, 70 55, 50 88"/><path d="M50 15 L 50 88"/><path d="M25 40 C 40 45, 60 45, 75 40"/><path d="M20 60 C 40 65, 60 65, 80 60"/></g>`
 };
-
 
 /* Reusable portfolio visual generator for the homepage grid using high-quality professional URLs */
 window.V_ART = function (p, i) {
