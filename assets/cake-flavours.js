@@ -457,16 +457,22 @@ window.V_CAKE_ART = function (v, isConcentrate) {
 window.V_RenderCakeFlavours = function (opts) {
   const host = document.getElementById(opts.hostId);
   if (!host) return;
-  
+
+  // Automatically unhide the wrapper container whenever V_RenderCakeFlavours runs
+  const wrap = document.getElementById('v-portfolio-wrap') || host.closest('section');
+  if (wrap) wrap.classList.remove('hidden');
+
   const urlParams = new URLSearchParams(window.location.search);
   const currentSlug = urlParams.get('slug') || '';
-  
-  const isHydrocolloids = (currentSlug === 'hydrocolloids');
-  const isRaisins = (currentSlug === 'raisins');
-  const isPreservatives = (currentSlug === 'preservatives');
-  const isStarches = (currentSlug === 'starches' || currentSlug === 'starches-derivatives' || currentSlug === 'starch');
-  const isProteins = (currentSlug === 'proteins');
-  const isFibers = (currentSlug === 'fibers');
+  const s = currentSlug.toLowerCase();
+
+  const isHydrocolloids = (s === 'hydrocolloids' || s === 'specialty-chemicals' || s === 'hydrocolloid');
+  const isRaisins       = (s === 'raisins' || s === 'raisins-nuts-seeds' || s === 'nuts-seeds');
+  const isPreservatives = (s === 'preservatives' || s === 'preservatives-acids' || s === 'acids');
+  const isStarches      = (s === 'starches' || s === 'starches-derivatives' || s === 'starch');
+  const isProteins      = (s === 'proteins' || s === 'protein');
+  const isFibers        = (s === 'fibers' || s === 'fiber');
+
   const isCardLayout = (isHydrocolloids || isRaisins || isPreservatives || isStarches || isProteins || isFibers);
   
   let targetDataset = window.V_CAKE_FLAVOURS;
@@ -493,7 +499,7 @@ window.V_RenderCakeFlavours = function (opts) {
   else if (isProteins) productLabel = 'Proteins';
   else if (isFibers) productLabel = 'Fibers';
 
-  const isConcentrate = currentSlug.toLowerCase().includes('concentrate');
+  const isConcentrate = s.includes('concentrate');
 
   if (isCardLayout) {
     host.innerHTML = `

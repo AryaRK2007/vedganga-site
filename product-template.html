@@ -446,19 +446,22 @@ function renderEmulsifiersCards(targetId) {
 
     renderEmulsifiersCards('v-portfolio-target');
   } 
-  else if (slug === 'cake-premixes') {
-    document.getElementById('v-portfolio-wrap').classList.remove('hidden');
-    document.getElementById('v-portfolio-label').textContent = '— The Flavour Portfolio';
-    document.getElementById('v-portfolio-title').innerHTML = `Six flavour<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">systems.</span>`;
-    document.getElementById('v-portfolio-desc').textContent = 'Every flavour ships in standard high-yield industrial Premix configurations engineered to scale without processing degradation.';
+  else {
+    // Universal Cake Flavours & Hydrocolloids Dynamic Dispatcher
+    const multiCardSlugs = ['cake-premixes', 'hydrocolloids', 'raisins', 'preservatives', 'starch', 'proteins', 'fibers'];
     
-    document.getElementById('v-portfolio-anchors').innerHTML = `
-      <a href="#item-vanilla" class="chip link-under">01 · Vanilla</a>
-      <a href="#item-chocolate" class="chip link-under">02 · Chocolate</a>
-      <a href="#item-red-velvet" class="chip link-under">03 · Red Velvet</a>`;
-
-    if (typeof window.V_RenderCakeFlavours === 'function') {
-      window.V_RenderCakeFlavours({ hostId: 'v-portfolio-target', product: p.name });
+    if (multiCardSlugs.includes(slug)) {
+      document.getElementById('v-portfolio-wrap').classList.remove('hidden');
+      document.getElementById('v-portfolio-label').textContent = '— The Matrix Portfolio';
+      document.getElementById('v-portfolio-title').innerHTML = `Available<br/><span class="italic font-serif-body text-[color:var(--v-forest-2)]">formulations.</span>`;
+      document.getElementById('v-portfolio-desc').textContent = 'Engineered raw material matrices and functional specifications tailored for industrial operations.';
+      
+      if (typeof window.V_RenderCakeFlavours === 'function') {
+        window.V_RenderCakeFlavours({ 
+          hostId: 'v-portfolio-target', 
+          product: p ? p.name : 'Speciality Chemicals' 
+        });
+      }
     }
   }
 
