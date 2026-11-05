@@ -8,7 +8,7 @@ window.V_PRODUCTS = [
   { slug: 'tea-time-bar-cakes', name: 'Tea-Time Bar Cakes', tag:'', desc:''},
   { slug: 'muffin-premixes', name: 'Muffin Premixes', tag:'', desc:''},
   { slug: 'emulsifiers', name: 'Emulsifiers', tag:'', desc:''},
-  { slug: 'wheat-gluten', name: 'Wheat Gluten', tag:'', desc:''},
+  { slug: 'wheat-gluten', name: 'Vital Wheat Gluten', tag:'', desc:''},
   { slug: 'bread-improvers', name: 'Bread Improvers', tag:'', desc:''},
   { slug: 'starch', name: 'Starch & Derivatives', tag:'', desc:''},
   { slug: 'preservatives', name: 'Preservatives', tag:'', desc:''},
