@@ -442,6 +442,64 @@ window.V_PROTEIN_TYPES = [
   }
 ];
 
+window.V_ENZYME_TYPES = [
+  {
+    slug: 'alpha-amylase',
+    name: 'Fungal Alpha-Amylase',
+    formats: 'Powder & Concentrate',
+    tag: 'Starch hydrolysis · Anti-staling · Volume enhancement',
+    desc: 'Breaks down damaged starch into fermentable sugars, accelerating yeast activity, increasing loaf volume, and extending fresh crumb softness.',
+    specs: [
+      ['Application', 'Yeast-raised bread · Buns · Rolls'],
+      ['Recommended Dosage', '5 – 15 ppm on flour weight'],
+      ['Activity Unit', '100,000 FAU/g'],
+      ['Shelf Life', '12 months (cool, dry storage)']
+    ]
+  },
+  {
+    slug: 'xylanase',
+    name: 'Hemicellulase (Xylanase)',
+    formats: 'Industrial Grade',
+    tag: 'Dough machinability · Water redistribution · Gluten matrix elasticity',
+    desc: 'Cleaves insoluble arabinoxylans, transferring bound water into the gluten matrix for improved stretchability, handling, and oven spring.',
+    specs: [
+      ['Application', 'Artisan breads · Baguettes · High-speed lines'],
+      ['Recommended Dosage', '10 – 30 ppm on flour weight'],
+      ['Functional Target', 'Gluten Network Optimization'],
+      ['Shelf Life', '12 months (cool, dry storage)']
+    ]
+  },
+  {
+    slug: 'lipase',
+    name: 'Maltogenic Lipase',
+    formats: 'High Purity Powder',
+    tag: 'Crumb elasticity · Extended shelf life · Emulsifier reduction',
+    desc: 'Generates in-situ emulsifying lipids to maintain long-term softness and elasticity in sandwich loaves and packaged sweet baked goods.',
+    specs: [
+      ['Application', 'Long shelf-life bread · Cakes · Muffins'],
+      ['Recommended Dosage', '15 – 40 ppm on flour weight'],
+      ['Functional Target', 'Staling Control & Crumb Softness'],
+      ['Shelf Life', '12 months (cool, dry storage)']
+    ]
+  },
+  {
+    slug: 'glucose-oxidase',
+    name: 'Glucose Oxidase',
+    formats: 'Concentrated Powder',
+    tag: 'Gluten strengthening · Oxidative dough conditioning · Chemical oxidant alternative',
+    desc: 'Catalyzes the oxidation of glucose to strengthen disulfide bonds within the gluten network. Increases dough stability, shape retention, and crumb whitening while reducing reliance on chemical oxidants like ascorbic acid or ADA.',
+    specs: [
+      ['Application', 'Sandwich bread · Frozen dough · High-speed industrial bakeries'],
+      ['Recommended Dosage', '10 – 50 ppm on flour weight'],
+      ['Functional Target', 'Gluten Network Strengthening & Oxidative Conditioning'],
+      ['Shelf Life', '12 months (cool, dry storage)']
+    ]
+  }
+];
+
+
+
+
 window.V_CAKE_ART = function (v, isConcentrate) {
   if (v.imgUrl) {
     return `<div class="w-full h-full absolute inset-0 bg-neutral-100 flex items-center justify-center select-none">
@@ -472,9 +530,10 @@ window.V_RenderCakeFlavours = function (opts) {
   const isStarches      = (s === 'starches' || s === 'starches-derivatives' || s === 'starch');
   const isProteins      = (s === 'proteins' || s === 'protein');
   const isFibers        = (s === 'fibers' || s === 'fiber');
+  const isEnzymes = (s === 'enzymes' || s === 'enzyme');
 
-  const isCardLayout = (isHydrocolloids || isRaisins || isPreservatives || isStarches || isProteins || isFibers);
-  
+  const isCardLayout = (isHydrocolloids || isRaisins || isPreservatives || isStarches || isProteins || isFibers || isEnzymes);
+
   let targetDataset = window.V_CAKE_FLAVOURS;
   if (isHydrocolloids) targetDataset = window.V_HYDRO_TYPES;
   if (isRaisins) targetDataset = window.V_RAISIN_TYPES;
@@ -482,6 +541,7 @@ window.V_RenderCakeFlavours = function (opts) {
   if (isStarches) targetDataset = window.V_STARCH_TYPES;
   if (isProteins) targetDataset = window.V_PROTEIN_TYPES;
   if (isFibers) targetDataset = window.V_FIBER_TYPES;
+  if (isEnzymes) targetDataset = window.V_ENZYME_TYPES;
 
   let labelPrefix = 'FLAVOUR';
   if (isRaisins) labelPrefix = 'VARIETY';
@@ -490,6 +550,7 @@ window.V_RenderCakeFlavours = function (opts) {
   else if (isStarches) labelPrefix = 'STARCH';
   else if (isProteins) labelPrefix = 'PROTEIN';
   else if (isFibers) labelPrefix = 'FIBER';
+  else if (isEnzymes) labelPrefix = 'ENZYME';
 
   let productLabel = opts.product || 'Cake';
   if (isRaisins) productLabel = 'Raisins, Nuts & Seeds';
@@ -498,6 +559,7 @@ window.V_RenderCakeFlavours = function (opts) {
   else if (isStarches) productLabel = 'Starches & Derivatives';
   else if (isProteins) productLabel = 'Proteins';
   else if (isFibers) productLabel = 'Fibers';
+  else if (isEnzymes) productLabel = 'Enzymes';
 
   const isConcentrate = s.includes('concentrate');
 

@@ -115,9 +115,9 @@
     <span>Fibers&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Muffin Premixes&nbsp;·</span>
     <span>Calcuium Propinoate&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Monk Fruit&nbsp;·</span>
     <span>Enzymes&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Nuts&nbsp;·</span>
-    <span>Multigrains&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Psyllium Husk Powder&nbsp;·</span>
-    <span>Tartaric Acid&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Cake Concentrates&nbsp;·</span>
-    <span>Xanthan Gum&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Inuline&nbsp;·</span>
+    <span>Glazes&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Spreads&nbsp;·</span>
+    <span>Fillings&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Cake Concentrates&nbsp;·</span>
+    <span>Xanthan Gum&nbsp;·</span><span class="italic font-serif-body text-[color:var(--v-forest-2)]">Cake Decorations&nbsp;·</span>
   </div>
 </section>
 
@@ -127,8 +127,9 @@
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
       <div>
         <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]" data-reveal>— The Portfolio</div>
-        <h2 class="font-display text-4xl md:text-6xl mt-3 leading-[1.02] max-w-2xl" data-reveal>Twelve Ingredient <span class="italic font-serif-body text-[color:var(--v-forest-2)]">Categories.</span></h2>
-      </div>
+        <h2 class="font-display text-4xl md:text-6xl mt-3 leading-[1.02] max-w-2xl" data-reveal>Thirteen Ingredient <span class="italic font-serif-body text-[color:var(--v-forest-2)]">Categories.</span>
+    </h2>
+    </div>
       <p class="max-w-md text-[color:var(--v-ink)]/70" data-reveal>Each line is sourced, blended and quality-checked for consistency batch after batch. Click any tile to request a spec sheet or a sample.</p>
     </div>
 
@@ -276,22 +277,70 @@
 </div>
 
 <script>
+// Dynamic Grid Render for Portfolio Cards
+(function(){
+  const grid = document.getElementById('v-grid');
+  if (!grid || !window.V_PRODUCTS || !Array.isArray(window.V_PRODUCTS)) return;
+
+  const total = window.V_PRODUCTS.length; // Dynamically calculates total (13)
+
+  grid.innerHTML = window.V_PRODUCTS.map((p, i) => {
+    const num = String(i + 1).padStart(2, '0');
+    const artwork = (typeof window.V_ART === 'function') 
+      ? window.V_ART(p, i) 
+      : `<div class="w-full h-full bg-neutral-200"></div>`;
+
+    return `
+      <a href="product-template.html?slug=${p.slug}" data-reveal class="spotlight group rounded-3xl block" data-testid="portfolio-card-${p.slug}">
+        <span class="spot"></span>
+        <div class="relative aspect-[4/5] overflow-hidden rounded-3xl">
+          ${artwork}
+          <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/70 via-transparent to-transparent"></div>
+          
+          <!-- Top Label / Badge -->
+          <div class="absolute top-4 left-4 flex items-center gap-2 text-[color:var(--v-cream)]">
+            <span class="w-9 h-9 grid place-items-center rounded-full bg-[color:var(--v-cream)]/15 backdrop-blur-md border border-white/30 font-mono-caps text-[10px]">${num}</span>
+            <span class="font-mono-caps text-[10px] opacity-90">N° ${num} / ${total}</span>
+          </div>
+          
+          <!-- Card Details -->
+          <div class="absolute inset-x-0 bottom-0 p-5 text-[color:var(--v-cream)]">
+            <div class="font-display text-2xl leading-tight">${p.name}</div>
+            <div class="mt-1 text-xs text-[color:var(--v-cream)]/85">${p.tag || ''}</div>
+            <div class="mt-4 flex items-center gap-2 text-[color:var(--v-gold)] text-sm font-mono-caps">
+              <span class="link-under">View details</span><span>→</span>
+            </div>
+          </div>
+        </div>
+      </a>`;
+  }).join('');
+})();
+
 // Logic to handle opening and closing the pop-up modal seamlessly
 window.VedgangaQuote = {
   open: function(origin = 'General Query') {
     const originField = document.getElementById('modal-button-origin');
-    if(originField) originField.value = origin;
+    const itemInput = document.getElementById('modal-item-input');
+    
+    if (originField) originField.value = origin;
+    if (itemInput && origin !== 'General Query') {
+      itemInput.value = origin;
+    }
     
     const modal = document.getElementById('quote-modal');
-    modal.classList.remove('opacity-0', 'pointer-events-none');
-    modal.firstElementChild.classList.remove('scale-95');
-    modal.firstElementChild.classList.add('scale-100');
+    if (modal) {
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.firstElementChild.classList.remove('scale-95');
+      modal.firstElementChild.classList.add('scale-100');
+    }
   },
   close: function() {
     const modal = document.getElementById('quote-modal');
-    modal.classList.add('opacity-0', 'pointer-events-none');
-    modal.firstElementChild.classList.remove('scale-100');
-    modal.firstElementChild.classList.add('scale-95');
+    if (modal) {
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.firstElementChild.classList.remove('scale-100');
+      modal.firstElementChild.classList.add('scale-95');
+    }
   }
 };
 
@@ -302,32 +351,17 @@ document.getElementById('quote-modal').addEventListener('click', function(e) {
   }
 });
 
-// Attach modal triggers to all outline buttons & product card links
+// Attach modal triggers to CTA buttons
 document.addEventListener('DOMContentLoaded', function() {
-  // Bind Explore Portfolio and Talk to Sales buttons
   document.querySelectorAll('[data-testid="hero-products-btn"], [data-testid="cta-contact-btn"]').forEach(btn => {
     btn.addEventListener('click', function(e) {
-      if(this.tagName.toLowerCase() !== 'a' || this.getAttribute('href') === '#') {
-          e.preventDefault();
-          const origin = this.getAttribute('data-testid') || 'Secondary CTA';
-          window.VedgangaQuote.open(origin);
+      if (this.tagName.toLowerCase() !== 'a' || this.getAttribute('href') === '#') {
+        e.preventDefault();
+        const origin = this.getAttribute('data-testid') || 'Secondary CTA';
+        window.VedgangaQuote.open(origin);
       }
     });
   });
-
-  // Delegate clicks on dynamic product portfolio cards to open modal with the product name
-  const grid = document.getElementById('v-grid');
-  if (grid) {
-    grid.addEventListener('click', function(e) {
-      const card = e.target.closest('a[data-reveal]');
-      if (card) {
-        // Only prevent default if it doesn't have a specific slug, but since these go to product-template, allow navigation!
-        // The script above generates links to `product-template.html?slug=...`
-        // So we DONT want to preventDefault here if we want them to go to the page. 
-        // We will let them navigate to the product page naturally.
-      }
-    });
-  }
 });
 
 // ================= AJAX FORM SUBMISSION LOGIC =================
@@ -340,7 +374,7 @@ document.getElementById('popup-quote-form').addEventListener('submit', function(
   const originalText = label ? label.innerText : btn.innerText;
   
   btn.disabled = true;
-  if(label) label.innerText = "Sending...";
+  if (label) label.innerText = "Sending...";
   else btn.innerText = "Sending...";
   btn.style.opacity = "0.7";
   
@@ -353,31 +387,31 @@ document.getElementById('popup-quote-form').addEventListener('submit', function(
   .then(response => response.json())
   .then(data => {
     btn.disabled = false;
-    if(label) label.innerText = originalText;
+    if (label) label.innerText = originalText;
     else btn.innerText = originalText;
     btn.style.opacity = "1";
     
     if (data.success) {
       form.reset();
-      if(window.VedgangaQuote) window.VedgangaQuote.close();
+      if (window.VedgangaQuote) window.VedgangaQuote.close();
       
       const toast = document.getElementById('success-popup');
-      toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
-      toast.classList.add('translate-y-0', 'opacity-100', 'pointer-events-allowed');
-      
-      setTimeout(() => {
-        toast.style.transform = 'translateY(20px)';
-        toast.style.opacity = '0';
-        toast.style.pointerEvents = 'none';
-      }, 6000);
-      
+      if (toast) {
+        toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
+        toast.classList.add('translate-y-0', 'opacity-100');
+        
+        setTimeout(() => {
+          toast.classList.remove('translate-y-0', 'opacity-100');
+          toast.classList.add('translate-y-12', 'opacity-0', 'pointer-events-none');
+        }, 6000);
+      }
     } else {
       alert("Something went wrong: " + data.message);
     }
   })
   .catch(error => {
     btn.disabled = false;
-    if(label) label.innerText = originalText;
+    if (label) label.innerText = originalText;
     else btn.innerText = originalText;
     btn.style.opacity = "1";
     console.error("Submission Error:", error);

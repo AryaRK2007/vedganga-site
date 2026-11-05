@@ -392,7 +392,11 @@ function renderEmulsifiersCards(targetId) {
     
     'fibers': { name:'Fibers', cat:'Functional', tag:'Inulin · Oat · Psyllium', img:'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=1400&q=80',
       desc:'Soluble and insoluble dietary fibres — inulin, oat fibre, psyllium husk, wheat fibre — for high-fibre, keto and low-sugar formulations.',
-      packing:['20 kg bag','25 kg bag'], apps:['High-fibre bakery','Nutritional beverages','Meal replacements'] }
+      packing:['20 kg bag','25 kg bag'], apps:['High-fibre bakery','Nutritional beverages','Meal replacements'] },
+
+    'enzymes': { name:'Enzymes', cat:'Functional', tag:'Biocatalytic · Dough conditioning · Anti-staling', img:'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0',
+      desc:'Targeted biocatalytic enzyme systems engineered to upgrade gluten elasticity, optimize gas retention, maximize loaf volume, and retard crumb staling.',
+      packing:['1 kg pouch','10 kg bag','25 kg drum'], apps:['High-speed bread lines','Cake & muffin volume optimization','Clean-label baking formulas'] }
   };
 
   const slug = new URLSearchParams(location.search).get('slug') || 'raisins';
@@ -448,7 +452,7 @@ function renderEmulsifiersCards(targetId) {
   } 
   else {
     // Universal Cake Flavours & Hydrocolloids Dynamic Dispatcher
-    const multiCardSlugs = ['cake-premixes', 'hydrocolloids', 'raisins', 'preservatives', 'starch', 'proteins', 'fibers'];
+    const multiCardSlugs = ['cake-premixes', 'hydrocolloids', 'raisins', 'preservatives', 'starch', 'proteins', 'fibers', 'enzymes'];
     
     if (multiCardSlugs.includes(slug)) {
       document.getElementById('v-portfolio-wrap').classList.remove('hidden');
