@@ -269,3 +269,270 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+
+
+/* ==========================================================================
+   VEDGANGA — HIGH-DENSITY POWDER TRAIL & 3D CARD INTERACTION ENGINE
+   - Magnetic Button Physics
+   - Dense Flour & Powder Trail (Dark Green, Dark Gold, Rustic Brown)
+   - 3D Interactive Card Tilt with Dynamic Lighting
+   ========================================================================== */
+
+(function () {
+  const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+
+  // 1. MAGNETIC BUTTON ENGINE
+  function initMagneticButtons() {
+    if (isTouchDevice) return;
+
+    const magneticTargets = document.querySelectorAll('.btn-gold, .btn-outline, .chip, [data-magnetic]');
+
+    magneticTargets.forEach((btn) => {
+      btn.style.willChange = 'transform';
+
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - (rect.left + rect.width / 2);
+        const y = e.clientY - (rect.top + rect.height / 2);
+
+        if (window.gsap) {
+          gsap.to(btn, {
+            x: x * 0.35,
+            y: y * 0.35,
+            duration: 0.3,
+            ease: 'power2.out',
+            overwrite: 'auto'
+          });
+        }
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        if (window.gsap) {
+          gsap.to(btn, {
+            x: 0,
+            y: 0,
+            duration: 0.6,
+            ease: 'elastic.out(1.1, 0.4)',
+            overwrite: 'auto'
+          });
+        }
+      });
+    });
+  }
+
+  // 2. 3D CARD TILT ENGINE
+  function init3DCards() {
+    if (isTouchDevice) return;
+
+    // Attach 3D tilt effect to portfolio cards, grid items, and article cards
+    const selector = '.spotlight, #v-grid a, article[id^="item-"]';
+    
+    document.addEventListener('mousemove', (e) => {
+      const card = e.target.closest(selector);
+      if (!card) return;
+
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      // Calculate rotation angles (Max 10 deg tilt)
+      const rotateX = ((y - centerY) / centerY) * -10;
+      const rotateY = ((x - centerX) / centerX) * 10;
+
+      card.style.transformStyle = 'preserve-3d';
+      card.style.willChange = 'transform';
+
+      if (window.gsap) {
+        gsap.to(card, {
+          rotateX: rotateX,
+          rotateY: rotateY,
+          scale: 1.02,
+          perspective: 1000,
+          duration: 0.4,
+          ease: 'power2.out',
+          overwrite: 'auto'
+        });
+      } else {
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      }
+    });
+
+    // Reset tilt on mouseleave
+    document.addEventListener('mouseout', (e) => {
+      const card = e.target.closest(selector);
+      if (!card || card.contains(e.relatedTarget)) return;
+
+      if (window.gsap) {
+        gsap.to(card, {
+          rotateX: 0,
+          rotateY: 0,
+          scale: 1,
+          duration: 0.7,
+          ease: 'power3.out',
+          overwrite: 'auto'
+        });
+      } else {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      }
+    });
+  }
+
+  // 3. DENSE POWDER TRAIL & CLICK BURST ENGINE
+  function initCursorParticles() {
+    if (isTouchDevice) return;
+
+    const canvas = document.createElement('canvas');
+    canvas.id = 'v-effects-canvas';
+    canvas.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:999999;';
+    document.body.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d', { alpha: true });
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    window.addEventListener(
+      'resize',
+      () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      },
+      { passive: true }
+    );
+
+    // Site Palette: Deep Forest Green, Dark Gold, Rustic Earthy Brown & Cream
+    const PALETTE = [
+      '#183322', // Dark Forest Green
+      '#0f2216', // Deep Shadow Green
+      '#b8892a', // Vedganga Dark Gold
+      '#d4a845', // Light Gold Accent
+      '#3a1b08', // Deep Rustic Brown
+      '#5a3418', // Warm Earthy Brown
+      '#ede5d0'  // Warm Flour Cream
+    ];
+
+    const particles = [];
+    const MAX_PARTICLES = 300; // Increased buffer for high powder density
+
+    class Particle {
+      constructor(x, y, isBurst = false) {
+        // High dispersion jitter to simulate fine powder cloud
+        this.x = x + (Math.random() - 0.5) * (isBurst ? 16 : 10);
+        this.y = y + (Math.random() - 0.5) * (isBurst ? 16 : 10);
+        this.isBurst = isBurst;
+        
+        // Micro-dust & grain sizing
+        this.size = isBurst ? Math.random() * 6 + 2.5 : Math.random() * 4 + 1;
+        const angle = Math.random() * Math.PI * 2;
+        const speed = isBurst ? Math.random() * 6 + 2.5 : Math.random() * 1.5 + 0.4;
+        
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed - (isBurst ? 1.2 : 0.4); // Floating upward drag
+        this.color = PALETTE[Math.floor(Math.random() * PALETTE.length)];
+        this.alpha = isBurst ? 0.95 : Math.random() * 0.4 + 0.5; // Natural translucency
+        this.decay = isBurst ? Math.random() * 0.018 + 0.01 : Math.random() * 0.02 + 0.012;
+        this.gravity = isBurst ? 0.12 : 0.025;
+        this.rotation = Math.random() * Math.PI;
+        this.spin = (Math.random() - 0.5) * 0.25;
+        this.isSquare = Math.random() > 0.3; // Angular powder grains
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vy += this.gravity;
+        this.alpha -= this.decay;
+        this.rotation += this.spin;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.alpha);
+        ctx.fillStyle = this.color;
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+
+        if (this.isSquare) {
+          ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+        } else {
+          ctx.beginPath();
+          ctx.arc(0, 0, this.size / 2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+    }
+
+    let lastX = 0;
+    let lastY = 0;
+    let distanceMoved = 0;
+
+    window.addEventListener(
+      'mousemove',
+      (e) => {
+        const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
+        distanceMoved += dist;
+        lastX = e.clientX;
+        lastY = e.clientY;
+
+        // Spawns 4 powder particles every 4px for a continuous, rich flour trail
+        if (distanceMoved > 4) {
+          if (particles.length < MAX_PARTICLES) {
+            for (let k = 0; k < 4; k++) {
+              particles.push(new Particle(e.clientX, e.clientY, false));
+            }
+          }
+          distanceMoved = 0;
+        }
+      },
+      { passive: true }
+    );
+
+    // Click Particle Burst
+    window.addEventListener(
+      'click',
+      (e) => {
+        const burstCount = 32;
+        for (let i = 0; i < burstCount; i++) {
+          if (particles.length < MAX_PARTICLES + 60) {
+            particles.push(new Particle(e.clientX, e.clientY, true));
+          }
+        }
+      },
+      { passive: true }
+    );
+
+    // Main 60 FPS Render Loop
+    function loop() {
+      ctx.clearRect(0, 0, width, height);
+
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.update();
+        p.draw();
+
+        if (p.alpha <= 0) {
+          particles.splice(i, 1);
+        }
+      }
+      requestAnimationFrame(loop);
+    }
+    loop();
+  }
+
+  // Initialize features
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initMagneticButtons();
+      init3DCards();
+      initCursorParticles();
+    });
+  } else {
+    initMagneticButtons();
+    init3DCards();
+    initCursorParticles();
+  }
+})();

@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en" class="lenis">
 <head>
+<!-- Favicon / Logo -->
+<link rel="icon" type="image/jpeg" href="assets/img/logo.jpeg" />
+<link rel="apple-touch-icon" href="assets/img/logo.jpeg" />
+
 <meta charset="UTF-8" />
 <title>Vedganga Foods &amp; Chemicals — Premium raw materials & ingredients</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -30,61 +34,80 @@
 <div id="v-nav"></div>
 
 
-<!-- ================= HERO ================= -->
-<section class="relative min-h-[100svh] pt-28 md:pt-32 pb-16 overflow-hidden">
-  <!-- Editorial marks -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-24 left-6 md:left-10 font-mono-caps text-[16px] text-[color:var(--v-forest-2)]/70">Ingredient House · Bengaluru · India</div>
-    <div class="absolute top-24 right-6 md:right-10 font-mono-caps text-[16px] text-[color:var(--v-forest-2)]/70 hidden sm:block">Est. 2021 · 65+ Products · 200+ Clients</div>
-    <div class="absolute bottom-8 left-6 md:left-10 font-mono-caps text-[14px] text-[color:var(--v-forest-2)]/70">Scroll ↓</div>
-    <div class="absolute bottom-8 right-6 md:right-10 font-mono-caps text-[16px] text-[color:var(--v-forest-2)]/70">B2B · Wholesale · Custom Blends</div>
-  </div>
+<!-- ================= HERO SECTION (RESPONSIVE & OVERLAP-FREE) ================= -->
+<section class="relative pt-24 md:pt-32 pb-16 overflow-hidden">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10">
+    
+    <!-- Editorial Top Meta Bar (Replaced absolute elements to prevent overlaps) -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-black/10 pb-4 mb-8 font-mono-caps text-xs md:text-sm text-[color:var(--v-forest-2)]/80">
+      <div>Ingredient House · Bengaluru · India</div>
+      <div class="hidden sm:block">Est. 2021 · 65+ Products · 200+ Clients</div>
+    </div>
 
-  <div class="max-w-[1400px] mx-auto px-5 md:px-10 relative">
-    <div class="grid md:grid-cols-12 gap-8 items-end">
-      <div class="md:col-span-8">
-        <div class="chip" data-reveal>Premium Ingredient Sourcing</div>
-        <h1 class="font-display mt-6 leading-[0.92] text-[13vw] md:text-[9.5vw] lg:text-[8.2vw] tracking-tight">
-          <span class="mask-line"><span>Vedganga</span></span>
-          <span class="mask-line"><span class="italic font-serif-body font-normal tracking-normal text-[color:var(--v-forest-2)]">Foods&nbsp;&amp;</span></span>
-          <span class="mask-line"><span>Chemicals.</span></span>
+    <div class="grid md:grid-cols-12 gap-10 lg:gap-14 items-center">
+      
+      <!-- Left Column: Text & CTAs -->
+      <div class="md:col-span-7 lg:col-span-8 flex flex-col justify-center">
+        <div>
+          <span class="chip font-mono-caps text-[10px] md:text-xs" data-reveal>Premium Ingredient Sourcing</span>
+        </div>
+        
+        <h1 class="font-display mt-6 leading-[0.94] text-5xl sm:text-6xl md:text-7xl lg:text-[7.5vw] tracking-tight">
+          <span class="block">Vedganga</span>
+          <span class="italic font-serif-body font-normal text-[color:var(--v-forest-2)] block mt-1">Foods &amp;</span>
+          <span class="block mt-1">Chemicals.</span>
         </h1>
-        <div class="mt-8 md:mt-10 max-w-xl">
-          <p class="mask-line text-lg md:text-[22px] leading-snug font-serif-body italic text-[color:var(--v-ink)]/90"><span>Premium raw materials and ingredients<br/>for every application.</span></p>
+
+        <div class="mt-6 md:mt-8 max-w-xl">
+          <p class="text-base sm:text-lg md:text-xl leading-relaxed font-serif-body italic text-[color:var(--v-ink)]/90">
+            Premium raw materials and ingredients for every application.
+          </p>
         </div>
-        <div class="mt-10 flex flex-wrap items-center gap-4" data-reveal>
-          <button type="button" onclick="window.VedgangaQuote.open('Hero CTA')" class="btn-gold cursor-pointer">Request a Quote/Sample →</button>
-          <a href="products.html" class="btn-outline" data-testid="hero-products-btn">Explore Portfolio</a>
+
+        <div class="mt-8 sm:mt-10 flex flex-wrap items-center gap-4" data-reveal>
+          <button type="button" onclick="window.VedgangaQuote.open('Hero CTA')" class="btn-gold cursor-pointer text-xs font-mono-caps tracking-widest px-6 py-4">
+            Request a Quote/Sample →
+          </button>
+          <a href="products.html" class="btn-outline text-xs font-mono-caps tracking-widest px-6 py-4" data-testid="hero-products-btn">
+            Explore Portfolio
+          </a>
         </div>
       </div>
 
-      <div class="md:col-span-4">
-        <div class="relative aspect-[3/4] overflow-hidden border border-black/10 rounded-[24px]" data-reveal>
-          <img data-parallax="0.12" class="absolute inset-0 w-full h-[115%] object-cover" src="https://plus.unsplash.com/premium_photo-1673111979369-0222c7314b82?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vital wheat gluten" onerror="this.src='https://plus.unsplash.com/premium_photo-1673111979369-0222c7314b82?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'"/>
-          <div class="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/60 to-transparent text-[color:var(--v-cream)]">
-            <div class="font-mono-caps text-[10px] opacity-80"></div>
-            <div class="font-display text-xl mt-1"></div>
-          </div>
+      <!-- Right Column: Featured Image & Ticker Stats -->
+      <div class="md:col-span-5 lg:col-span-4">
+        <div class="relative aspect-[4/5] sm:aspect-[3/4] overflow-hidden border border-black/10 rounded-[24px] shadow-sm" data-reveal>
+          <img class="absolute inset-0 w-full h-full object-cover" src="https://plus.unsplash.com/premium_photo-1673111979369-0222c7314b82?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Artisanal Bakery Raw Materials" />
         </div>
-        <div class="mt-6 grid grid-cols-3 gap-3">
-          <div class="p-4 rounded-2xl bg-[color:var(--v-cream-2)] border border-black/5">
-            <div class="font-display text-3xl"><span data-ticker="65">0</span>+</div>
-            <div class="font-mono-caps text-[10px] mt-1 text-[color:var(--v-forest-2)]">Products</div>
+        
+        <!-- Stats Row -->
+        <div class="mt-4 grid grid-cols-3 gap-3">
+          <div class="p-3 sm:p-4 rounded-2xl bg-[color:var(--v-cream-2)] border border-black/5 text-center">
+            <div class="font-display text-2xl sm:text-3xl text-[color:var(--v-forest)]"><span data-ticker="65">65</span>+</div>
+            <div class="font-mono-caps text-[9px] sm:text-[10px] mt-1 text-[color:var(--v-forest-2)]">Products</div>
           </div>
-          <div class="p-4 rounded-2xl bg-[color:var(--v-cream-2)] border border-black/5">
-            <div class="font-display text-3xl"><span data-ticker="200">0</span>+</div>
-            <div class="font-mono-caps text-[10px] mt-1 text-[color:var(--v-forest-2)]">Clients</div>
+          <div class="p-3 sm:p-4 rounded-2xl bg-[color:var(--v-cream-2)] border border-black/5 text-center">
+            <div class="font-display text-2xl sm:text-3xl text-[color:var(--v-forest)]"><span data-ticker="200">200</span>+</div>
+            <div class="font-mono-caps text-[9px] sm:text-[10px] mt-1 text-[color:var(--v-forest-2)]">Clients</div>
           </div>
-          <div class="p-4 rounded-2xl bg-[color:var(--v-cream-2)] border border-black/5">
-            <div class="font-display text-3xl"><span data-ticker="5">0</span>+</div>
-            <div class="font-mono-caps text-[10px] mt-1 text-[color:var(--v-forest-2)]">Years</div>
+          <div class="p-3 sm:p-4 rounded-2xl bg-[color:var(--v-cream-2)] border border-black/5 text-center">
+            <div class="font-display text-2xl sm:text-3xl text-[color:var(--v-forest)]"><span data-ticker="5">5</span>+</div>
+            <div class="font-mono-caps text-[9px] sm:text-[10px] mt-1 text-[color:var(--v-forest-2)]">Years</div>
           </div>
         </div>
       </div>
+
+    </div>
+    <br><br>
+
+    <br><br>
+    <!-- Bottom Editorial Footer Bar -->
+    <div class="mt-12 md:mt-16 pt-4 border-t border-black/10 flex flex-col sm:flex-row items-center justify-between gap-2 font-mono-caps text-xs text-[color:var(--v-forest-2)]/70">
+      <div>Scroll ↓</div>
+      <div>B2B · Wholesale · Custom Blends</div>
     </div>
   </div>
 </section>
-
 <!-- ================= PARTNERSHIP ANNOUNCEMENT BANNER ================= -->
 <section class="bg-[color:var(--v-forest)] text-[color:var(--v-cream)] py-14 md:py-20 px-5 md:px-10 grain border-y border-black/10">
   <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12">
@@ -121,22 +144,118 @@
   </div>
 </section>
 
-<!-- ================ PORTFOLIO GRID ================ -->
-<section class="py-24 md:py-32">
-  <div class="max-w-[1400px] mx-auto px-5 md:px-10">
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
+<!-- ================ PORTFOLIO (3-ROW INFINITE WATER-SLIDE) ================ -->
+<section class="py-24 md:py-32 overflow-hidden relative border-t border-black/10">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 mb-12">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
       <div>
         <div class="font-mono-caps text-xs text-[color:var(--v-forest-2)]" data-reveal>— The Portfolio</div>
-        <h2 class="font-display text-4xl md:text-6xl mt-3 leading-[1.02] max-w-2xl" data-reveal>Thirteen Ingredient <span class="italic font-serif-body text-[color:var(--v-forest-2)]">Categories.</span>
-    </h2>
+        <h2 class="font-display text-4xl md:text-6xl mt-3 leading-[1.02] max-w-2xl" data-reveal>
+          Thirteen Ingredient <span class="italic font-serif-body text-[color:var(--v-forest-2)]">Categories.</span>
+        </h2>
+      </div>
+      <p class="max-w-md text-[color:var(--v-ink)]/70" data-reveal>
+        Explore our formulations structured across three specialized category rows. Click any tile to inspect technical specifications.
+      </p>
     </div>
-      <p class="max-w-md text-[color:var(--v-ink)]/70" data-reveal>Each line is sourced, blended and quality-checked for consistency batch after batch. Click any tile to request a spec sheet or a sample.</p>
+  </div>
+
+  <!-- 3 Rows Container -->
+  <div class="space-y-12">
+    
+    <!-- ROW 1 -->
+    <div class="v-row-block">
+      <div class="max-w-[1400px] mx-auto px-5 md:px-10 mb-3 flex items-center justify-between">
+        <div class="font-mono-caps text-xs font-bold text-[color:var(--v-gold)]">— 1/3</div>
+        
+      </div>
+      <div class="relative w-full overflow-hidden py-2 select-none">
+        <div class="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[color:var(--v-cream)] to-transparent z-20 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[color:var(--v-cream)] to-transparent z-20 pointer-events-none"></div>
+        <div class="v-row-wrapper overflow-hidden">
+          <div id="v-row-track-0" class="flex gap-6 w-max animate-water-slide-1"></div>
+        </div>
+      </div>
     </div>
 
-    <div id="v-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    <!-- ROW 2 -->
+<div class="v-row-block">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 mb-3 flex items-center justify-between">
+    <div class="font-mono-caps text-xs font-bold text-[color:var(--v-gold)]">— 2/3</div>
+    
+  </div>
+  <div class="relative w-full overflow-hidden py-2 select-none">
+    <div class="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[color:var(--v-cream)] to-transparent z-20 pointer-events-none"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[color:var(--v-cream)] to-transparent z-20 pointer-events-none"></div>
+    <div class="v-row-wrapper overflow-hidden">
+      <!-- Reverse Animation Class Applied Here -->
+      <div id="v-row-track-1" class="flex gap-6 w-max animate-water-slide-reverse"></div>
+    </div>
+  </div>
+</div>
+
+    <!-- ROW 3 -->
+    <div class="v-row-block">
+      <div class="max-w-[1400px] mx-auto px-5 md:px-10 mb-3 flex items-center justify-between">
+        <div class="font-mono-caps text-xs font-bold text-[color:var(--v-gold)]">— 3/3</div>
+        
+      </div>
+      <div class="relative w-full overflow-hidden py-2 select-none">
+        <div class="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[color:var(--v-cream)] to-transparent z-20 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[color:var(--v-cream)] to-transparent z-20 pointer-events-none"></div>
+        <div class="v-row-wrapper overflow-hidden">
+          <div id="v-row-track-2" class="flex gap-6 w-max animate-water-slide-3"></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
+<style>
+  .v-row-card {
+    flex: 0 0 280px;
+  }
+  @media (min-width: 768px) {
+    .v-row-card {
+      flex: 0 0 340px;
+    }
+  }
+
+  /* Forward Infinite Water-Slide (Left to Right) */
+  @keyframes waterSlide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Reverse Infinite Water-Slide (Right to Left) */
+  @keyframes waterSlideReverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  /* Animations for Row Tracks */
+  .animate-water-slide-1 {
+    animation: waterSlide 28s linear infinite;
+    will-change: transform;
+  }
+  
+  /* Row 2 in Reverse */
+  .animate-water-slide-reverse {
+    animation: waterSlideReverse 34s linear infinite;
+    will-change: transform;
+  }
+
+  .animate-water-slide-3 {
+    animation: waterSlide 30s linear infinite;
+    will-change: transform;
+  }
+
+  /* Smooth pause on card hover for all row tracks */
+  .v-row-wrapper:hover [class*="animate-water-slide"] {
+    animation-play-state: paused;
+  }
+</style>
 <!-- ================ MANIFESTO ================ -->
 <section class="py-24 md:py-32 bg-[color:var(--v-forest)] text-[color:var(--v-cream)] grain">
   <div class="max-w-[1400px] mx-auto px-5 md:px-10">
@@ -420,6 +539,93 @@ document.getElementById('popup-quote-form').addEventListener('submit', function(
     alert("Connection error. Please try again later.");
   });
 });
+</script>
+<script>
+(function() {
+  function renderRows() {
+    if (!window.V_PRODUCTS || !Array.isArray(window.V_PRODUCTS)) return;
+
+    const products = window.V_PRODUCTS;
+    const total = products.length;
+
+    // Distribute products into 3 sets
+    const rowChunks = [
+      products.slice(0, 5),
+      products.slice(5, 10),
+      products.slice(10, 13).concat(products.slice(0, 2))
+    ];
+
+    rowChunks.forEach((chunk, rowIndex) => {
+      const track = document.getElementById(`v-row-track-${rowIndex}`);
+      if (!track) return;
+
+      const cardMarkup = chunk.map((p) => {
+        const globalIndex = products.findIndex(item => item.slug === p.slug);
+        const num = String(globalIndex + 1).padStart(2, '0');
+        const artwork = (typeof window.V_ART === 'function') 
+          ? window.V_ART(p, globalIndex) 
+          : `<div class="w-full h-full bg-neutral-900"></div>`;
+
+        return `
+          <a href="product-template.html?slug=${p.slug}" 
+             class="v-row-card spotlight group rounded-3xl block relative overflow-hidden shadow-sm hover:shadow-lg transition-shadow" 
+             data-testid="portfolio-card-${p.slug}">
+            <span class="spot"></span>
+            <div class="relative aspect-[4/5] overflow-hidden rounded-3xl">
+              ${artwork}
+              <div class="absolute inset-0 bg-gradient-to-t from-[color:var(--v-ink)]/80 via-transparent to-transparent"></div>
+              
+              <div class="absolute top-4 left-4 flex items-center gap-2 text-[color:var(--v-cream)] z-10">
+                <span class="w-8 h-8 grid place-items-center rounded-full bg-[color:var(--v-cream)]/15 backdrop-blur-md border border-white/30 font-mono-caps text-[10px]">${num}</span>
+                <span class="font-mono-caps text-[10px] opacity-90">N° ${num} / ${total}</span>
+              </div>
+              
+              <div class="absolute inset-x-0 bottom-0 p-5 text-[color:var(--v-cream)] z-10">
+                <div class="font-display text-xl leading-tight">${p.name}</div>
+                <div class="mt-1 text-xs text-[color:var(--v-cream)]/85">${p.tag || ''}</div>
+                <div class="mt-3 flex items-center gap-2 text-[color:var(--v-gold)] text-xs font-mono-caps">
+                  <span class="link-under">View specs</span><span>→</span>
+                </div>
+              </div>
+            </div>
+          </a>`;
+      }).join('');
+
+      // Duplicate markup twice to guarantee a seamless continuous infinite loop
+      track.innerHTML = cardMarkup + cardMarkup;
+    });
+  }
+
+  // Button step navigation support
+  window.V_RowPositions = [0, 0, 0];
+  window.V_RowStep = function(rowIndex, direction) {
+    const track = document.getElementById(`v-row-track-${rowIndex}`);
+    if (!track) return;
+    
+    // Pause animation temporarily on button click to handle manual scroll smoothly
+    track.style.animationPlayState = 'paused';
+    
+    const card = track.querySelector('.v-row-card');
+    if (!card) return;
+
+    const stride = card.getBoundingClientRect().width + 24;
+    window.V_RowPositions[rowIndex] += direction * stride;
+
+    track.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+    track.style.transform = `translateX(-${window.V_RowPositions[rowIndex]}px)`;
+
+    setTimeout(() => {
+      track.style.transition = '';
+      track.style.animationPlayState = 'running';
+    }, 1500);
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderRows);
+  } else {
+    renderRows();
+  }
+})();
 </script>
 </body>
 </html>
